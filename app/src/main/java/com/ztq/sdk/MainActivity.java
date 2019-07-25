@@ -73,6 +73,13 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    protected void onDestroy() {
+        Log.v(TAG, "onDestroy");
+        myAnimationDrawable.stopAnim();
+        super.onDestroy();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
     }
