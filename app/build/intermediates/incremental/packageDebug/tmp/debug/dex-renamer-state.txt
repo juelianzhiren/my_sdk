@@ -1,7 +1,4 @@
-#Sat Jul 06 16:36:48 CST 2019
-base.0=F\:\\project\\my_sdk\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
-path.1=classes.dex
-renamed.1=classes2.dex
+#Thu Jul 25 17:06:42 CST 2019
+base.0=D\:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=F\:\\project\\my_sdk\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12

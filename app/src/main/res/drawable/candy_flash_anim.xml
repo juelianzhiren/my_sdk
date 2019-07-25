@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_01"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_02"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_03"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_04"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_05"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_06"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_07"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_08"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_09"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_10"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_11"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_12"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_13"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_14"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_15"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_16"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_17"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_18"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_19"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_20"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_21"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_22"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_23"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_24"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_25"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_26"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_27"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_28"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_29"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_30"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_31"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_32"
+        android:duration="150"/>
+
+    <item
+        android:drawable="@drawable/ic_candy_flash_33"
+        android:duration="150"/>
+
+</animation-list>

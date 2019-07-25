@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.OneDataSourceAdapter;
+import com.ztq.sdk.helper.MyHandlerThread;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -140,32 +141,56 @@ public class Utils {
         }
     }
 
-    public static void showToast(Context context, String msg) {
+    public static void showToast(Context context, final String msg) {
         if (context == null || isNullOrNil(msg)) {
             return;
         }
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.toast, null);
-        TextView text = (TextView) view.findViewById(R.id.toast_msg_tv);
+        final View view = inflater.inflate(R.layout.toast, null);
+        final TextView text = (TextView) view.findViewById(R.id.toast_msg_tv);
         text.setText(msg);
         if(mToast == null) {
             mToast = new Toast(context);
             mToast.setDuration(Toast.LENGTH_LONG);
             mToast.setGravity(Gravity.CENTER, 0, -100);
             mToast.setView(view);
+        } else {
+            mToast.cancel();
+            MyHandlerThread.postToMainThreadDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    text.setText(msg);
+                    mToast.setView(view);
+                    mToast.show();
+                }
+            }, 100);
         }
         mToast.show();
     }
 
-    public static void showToast(Context context, int resId) {
+    public static void showToast(Context context, final int resId) {
         if (context == null || resId <= 0) {
             return;
         }
-        if (mToast == null) {
-            mToast = Toast.makeText(context, resId, Toast.LENGTH_LONG);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View view = inflater.inflate(R.layout.toast, null);
+        final TextView text = (TextView) view.findViewById(R.id.toast_msg_tv);
+        text.setText(resId);
+        if(mToast == null) {
+            mToast = new Toast(context);
+            mToast.setDuration(Toast.LENGTH_LONG);
+            mToast.setGravity(Gravity.CENTER, 0, -100);
+            mToast.setView(view);
         } else {
             mToast.cancel();
-            mToast.setText(resId);
+            MyHandlerThread.postToMainThreadDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    text.setText(resId);
+                    mToast.setView(view);
+                    mToast.show();
+                }
+            }, 100);
         }
         mToast.show();
     }
