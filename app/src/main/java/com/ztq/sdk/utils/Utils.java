@@ -30,6 +30,12 @@ import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.OneDataSourceAdapter;
 import com.ztq.sdk.helper.MyHandlerThread;
 
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -730,7 +736,7 @@ public class Utils {
     /**
      * 动态刷新listview的单条数据,
      */
-    private void updateSingleItemInListview(ListView listView, OneDataSourceAdapter adapter, int position) {
+    public static void updateSingleItemInListview(ListView listView, OneDataSourceAdapter adapter, int position) {
         if (listView == null || adapter == null || position < 0) {
             return;
         }
@@ -740,6 +746,75 @@ public class Utils {
         if (position >= visibleFirstPosi && position < visibleLastPosi) {
             View view = listView.getChildAt(position - visibleFirstPosi);
             adapter.getView(position, view, listView);
+        }
+    }
+
+    // 每个拼音单元长度以7个字符长度为标准,拼音居中,末尾优先
+    public static String formatCenterUnit(String unit) {
+        String result = unit;
+        switch(unit.length()) {
+            case 1:
+                result = "   " + result + "   ";
+                break;
+            case 2:
+                result = "  " + result + "   ";
+                break;
+            case 3:
+                result = "  " + result + "  ";
+                break;
+            case 4:
+                result = " " + result + "  ";
+                break;
+            case 5:
+                result = " " + result + " ";
+                break;
+            case 6:
+                result = result + " ";
+                break;
+        }
+        return result;
+    }
+
+    public static String[] getPinyinString(String hanzi) {
+        if (hanzi != null && hanzi.length() > 0) {
+            String[] pinyin = new String[hanzi.length()];
+            HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+            format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+            format.setToneType(HanyuPinyinToneType.WITH_TONE_NUMBER);
+            for (int index = 0; index < hanzi.length(); index++) {
+                char c = hanzi.charAt(index);
+                try {
+                    String[] pinyinUnit = PinyinHelper.toHanyuPinyinStringArray(c, format);
+                    Log.v(TAG, "char, pinyin " + index + ": " + pinyin[index] + "; " + (pinyinUnit!= null ? pinyinUnit : "; null"));
+                    if (pinyinUnit == null) {
+                        pinyin[index] = "null";  // 非汉字字符，如标点符号
+                        continue;
+                    } else {
+                        Log.v(TAG, "char, pinyin " + index + ": pinyinUnit[0] = " + pinyinUnit[0]);
+                        pinyin[index] = formatCenterUnit(pinyinUnit[0].substring(0, pinyinUnit[0].length() - 1)) + pinyinUnit[0].charAt(pinyinUnit[0].length() - 1);  // 带音调且长度固定为7个字符长度,,拼音居中,末尾优先
+                        Log.e(TAG, pinyin[index]);
+                    }
+                } catch (BadHanyuPinyinOutputFormatCombination badHanyuPinyinOutputFormatCombination) {
+                    badHanyuPinyinOutputFormatCombination.printStackTrace();
+                }
+            }
+            return pinyin;
+        } else {
+            return null;
+        }
+    }
+
+    public static String[] getFormatHanzi(String hanzi) {
+        if (hanzi != null && hanzi.length() > 0) {
+            char[] c = hanzi.toCharArray();
+            String[] result = new String[c.length];
+            for (int index = 0; index < c.length; index++) {
+                result[index] = c[index] + "";
+                Log.v(TAG, "char " + index + "; " + c[index]);
+            }
+            return result;
+        } else {
+            return null;
         }
     }
 }
