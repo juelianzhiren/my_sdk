@@ -1,7 +1,11 @@
 #Internal package file, do not edit.
-#Thu Jul 25 17:06:42 CST 2019
+#Fri Jul 26 22:10:43 CST 2019
+1.base=F\:\\project\\my_sdk\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
 0.baseType=DIRECTORY
-0.base=D\:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
 0.path=classes.dex
 0.set=DEX
-count=1
+0.base=F\:\\project\\my_sdk\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
+1.path=classes.dex

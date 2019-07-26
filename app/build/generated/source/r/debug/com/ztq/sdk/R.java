@@ -619,17 +619,18 @@ public final class R {
     public static final int packed=0x7f04000d;
     public static final int parent=0x7f04000e;
     public static final int percent=0x7f04000f;
-    public static final int right=0x7f040010;
-    public static final int spread=0x7f040011;
-    public static final int spread_inside=0x7f040012;
-    public static final int standard=0x7f040013;
-    public static final int start=0x7f040014;
-    public static final int toast_msg_tv=0x7f040015;
-    public static final int top=0x7f040016;
-    public static final int tv1=0x7f040017;
-    public static final int tv2=0x7f040018;
-    public static final int tv3=0x7f040019;
-    public static final int wrap=0x7f04001a;
+    public static final int pinyin_tv=0x7f040010;
+    public static final int right=0x7f040011;
+    public static final int spread=0x7f040012;
+    public static final int spread_inside=0x7f040013;
+    public static final int standard=0x7f040014;
+    public static final int start=0x7f040015;
+    public static final int toast_msg_tv=0x7f040016;
+    public static final int top=0x7f040017;
+    public static final int tv1=0x7f040018;
+    public static final int tv2=0x7f040019;
+    public static final int tv3=0x7f04001a;
+    public static final int wrap=0x7f04001b;
   }
   public static final class layout {
     public static final int activity_main=0x7f050000;

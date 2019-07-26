@@ -46,11 +46,11 @@ public class PinyinTextView extends TextView {
 
     public void initTextPaint() {
         textPaint.setColor(color);
-        textPaint.setTextSize(40);
+        textPaint.setTextSize(60);
         textPaint.setStrokeWidth(density * 2);
 
         pinyinPaint.setColor(color);
-        pinyinPaint.setTextSize(40);
+        pinyinPaint.setTextSize(30);
         pinyinPaint.setStrokeWidth(density * 2);
 
         density = getResources().getDisplayMetrics().density;
@@ -102,33 +102,31 @@ public class PinyinTextView extends TextView {
         int widthMode = View.MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
         width = View.MeasureSpec.getSize(widthMeasureSpec);
-        if (textPaint != null) {
-            if (pinyin != null && pinyin.length != 0) {
-                float pinyinWidth = 0;
-                int totalColumns = 1;
-                for (int index = 0; index < pinyin.length; index++) {
+        if (pinyin != null && pinyin.length != 0) {
+            float pinyinWidth = 0;
+            int totalColumns = 1;
+            for (int index = 0; index < pinyin.length; index++) {
 
-                    Log.v(TAG, "2222 pinyin[" + index + "] = " + pinyin[index] + "; flag = " + TextUtils.equals(pinyin[index], "null"));
+                Log.v(TAG, "2222 pinyin[" + index + "] = " + pinyin[index] + "; flag = " + TextUtils.equals(pinyin[index], "null"));
 
-                    float pinyinUnitWidth = pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));
-                    float hanziUnitWidth = textPaint.measureText(hanzi[index]);
-                    float unitWidth = (pinyinUnitWidth >= hanziUnitWidth ? pinyinUnitWidth : hanziUnitWidth);
-                    if (TextUtils.equals(pinyin[index], "null")) {
-                        pinyinWidth = pinyinWidth + textPaint.measureText(hanzi[index]);
-                    } else {
-                        Log.v(TAG, "index = " + index + "; pinyin[index] = " + pinyin[index] + "; length = " + pinyin[index].length());
-                        pinyinWidth += unitWidth;
-                    }
-                    if (pinyinWidth > width) {
-                        indexList.add(index);
-                        totalColumns++;
-                        pinyinWidth = (TextUtils.equals(pinyin[index], "null") ? textPaint.measureText(hanzi[index]) : unitWidth);
-                    }
+                float pinyinUnitWidth = pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));
+                float hanziUnitWidth = textPaint.measureText(hanzi[index]);
+                float unitWidth = (pinyinUnitWidth >= hanziUnitWidth ? pinyinUnitWidth : hanziUnitWidth);
+                if (TextUtils.equals(pinyin[index], "null")) {
+                    pinyinWidth += textPaint.measureText(hanzi[index]);
+                } else {
+                    Log.v(TAG, "index = " + index + "; pinyin[index] = " + pinyin[index] + "; length = " + pinyin[index].length());
+                    pinyinWidth += unitWidth;
                 }
-                height = (int) Math.ceil(totalColumns * (textPaint.getFontSpacing() + pinyinPaint.getFontSpacing() + density * 2));
-            } else if (hanzi != null) {
-                height = (int) textPaint.getFontSpacing();
+                if (pinyinWidth > width) {
+                    indexList.add(index);
+                    totalColumns++;
+                    pinyinWidth = (TextUtils.equals(pinyin[index], "null") ? textPaint.measureText(hanzi[index]) : unitWidth);
+                }
             }
+            height = (int) Math.ceil(totalColumns * (textPaint.getFontSpacing() + pinyinPaint.getFontSpacing() + density * 2));
+        } else if (hanzi != null) {
+            height = (int) textPaint.getFontSpacing();
         }
         setMeasuredDimension(width, height);
     }
@@ -137,16 +135,19 @@ public class PinyinTextView extends TextView {
     protected void onDraw(Canvas canvas) {
         int gravity = getGravity();
         float widthMesure = 0f;
+        float pinyin_Width = pinyinPaint.measureText(combinePinEnd(0, pinyin.length));
+        float hanzi_Width = textPaint.measureText(combineHanziEnd(0, hanzi.length));
+        float maxWidth = pinyin_Width >= hanzi_Width ? pinyin_Width : hanzi_Width;
         if (indexList.isEmpty()) {
             // 单行数据处理
             if (pinyin != null && pinyin.length > 0) {
                 if (gravity == Gravity.CENTER) {
-                    widthMesure = (getWidth() - pinyinPaint.measureText(combinePinEnd(0, pinyin.length))) / 2;
+                    widthMesure = (getWidth() - maxWidth) / 2;
                 }
-                Log.e(TAG, "widthMesure1 === " + widthMesure + "; combinePinEnd = " + combinePinEnd(0, pinyin.length));
+                Log.e(TAG, "widthMesure1 === " + widthMesure + "; maxWidth = " + maxWidth);
             } else if (hanzi != null && hanzi.length > 0) {
                 if (gravity == Gravity.CENTER) {
-                    widthMesure = (getWidth() - textPaint.measureText(combineHanziEnd(0, hanzi.length))) / 2;
+                    widthMesure = (getWidth() - hanzi_Width) / 2;
                 }
             }
         }
@@ -156,8 +157,12 @@ public class PinyinTextView extends TextView {
         if (pinyin != null && pinyin.length > 0) {
             for (int index = 0; index < pinyin.length; index++) {
                 Log.v(TAG, "pinyin[" + index + "] = " + pinyin[index]);
+                float pinyinUnitWidth = pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));
+                float hanziUnitWidth = textPaint.measureText(hanzi[index]);
+                boolean flag = pinyinUnitWidth >= hanziUnitWidth;
+                float unitWidth = flag ? pinyinUnitWidth : hanziUnitWidth;
                 if (!TextUtils.equals(pinyin[index], "null") && !TextUtils.equals(pinyin[index], " ")) {
-                    pinyinWidth = widthMesure + pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));
+                    pinyinWidth = widthMesure + unitWidth;
                     if (pinyinWidth > getWidth()) {
                         comlum++;
                         widthMesure = 0;
@@ -165,12 +170,13 @@ public class PinyinTextView extends TextView {
                         if (indexList.size() > 0 && indexList.get(indexList.size() - 1) == index) {
                             Log.v(TAG, "more than one line");
                             if (gravity == Gravity.CENTER) {
-                                widthMesure = (getWidth() - pinyinPaint.measureText(combinePinEnd(index, pinyin.length))) / 2;
+                                widthMesure = (getWidth() - maxWidth) / 2;
                             }
                         }
                     }
-                    canvas.drawText(pinyin[index].substring(0, pinyin[index].length() - 1), widthMesure, (comlum * 2 - 1) * (pinyinPaint.getFontSpacing()), pinyinPaint);
-                    Log.e(TAG, "widthmeasure2 === " + widthMesure + "; y = " + (comlum * 2 - 1) * (pinyinPaint.getFontSpacing()));
+
+                    canvas.drawText(pinyin[index].substring(0, pinyin[index].length() - 1), (flag ? widthMesure : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2), comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing(), pinyinPaint);
+                    Log.e(TAG, "widthmeasure2 === " + widthMesure + "; y = " + (comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing()));
                     String tone = " ";
                     switch (pinyin[index].charAt(pinyin[index].length() - 1)) {
                         case '1':
@@ -186,7 +192,7 @@ public class PinyinTextView extends TextView {
                             tone = "ˋ";
                             break;
                     }
-                    int toneIndex = pinyin[index].length() - 3;  // 去掉数字和空格符
+                    int toneIndex = pinyin[index].length() - 3;  // 去掉数字和空格符,这里是等于5
                     Log.v(TAG, "toneIndex = " + toneIndex);
                     int stateIndex = -1;
                     for (; toneIndex >= 0; toneIndex--) {
@@ -206,14 +212,14 @@ public class PinyinTextView extends TextView {
                     if (stateIndex != -1) {
                         // 没有声母存在时，stateIndex一直为-1 （'嗯' 转成拼音后变成 ng,
                         // 导致没有声母存在，stateIndex一直为-1，数组越界crash）
-                        canvas.drawText(tone, widthMesure + pinyinPaint.measureText(pinyin[index].substring(0, stateIndex)) + (pinyinPaint.measureText(pinyin[index].charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2, (comlum * 2 - 1) * (textPaint.getFontSpacing()), pinyinPaint);
+                        canvas.drawText(tone, (flag ? widthMesure : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2) + pinyinPaint.measureText(pinyin[index].substring(0, stateIndex)) + (pinyinPaint.measureText(pinyin[index].charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2, comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing(), pinyinPaint);
                         Log.v(TAG, "tone y = " + (comlum * 2 - 1) * (textPaint.getFontSpacing()));
                     }
-                    canvas.drawText(hanzi[index], widthMesure + (pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1)) - textPaint.measureText(hanzi[index])) / 2 - moveHalfIfNeed(pinyin[index].substring(0, pinyin[index].length() - 1), textPaint), (comlum * 2) * (textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
+                    canvas.drawText(hanzi[index], flag ? (widthMesure + (pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1)) - textPaint.measureText(hanzi[index])) / 2 - moveHalfIfNeed(pinyin[index].substring(0, pinyin[index].length() - 1), textPaint)) : widthMesure, comlum * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
                     if (index + 1 < pinyin.length && TextUtils.equals("null", pinyin[index + 1])) {
-                        widthMesure = widthMesure + pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));
+                        widthMesure += unitWidth;
                     } else {
-                        widthMesure = widthMesure + pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));    // 下个字符为拼音
+                        widthMesure += unitWidth;    // 下个字符为拼音
                     }
                     count = count + 1;       // 有效拼音
                 } else if (TextUtils.equals(pinyin[index], "null")) {
@@ -222,8 +228,8 @@ public class PinyinTextView extends TextView {
                         comlum++;
                         widthMesure = 0;
                     }
-                    canvas.drawText(hanzi[index], widthMesure, (comlum * 2) * textPaint.getFontSpacing(), textPaint);
-                    widthMesure = widthMesure + textPaint.measureText(hanzi[index]);
+                    canvas.drawText(hanzi[index], widthMesure, comlum * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);
+                    widthMesure += textPaint.measureText(hanzi[index]);
                     count = count + 1;
                 }
             }
