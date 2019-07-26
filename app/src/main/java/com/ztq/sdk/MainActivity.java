@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
         });
 
         mPinyinTv = findViewById(R.id.pinyin_tv);
-        String hanzi = "我哦我我我哦我饿哦我饿哦额我哦我额欧国联公安狗带大师傅";
+        String hanzi = "我哦我我我哦我饿哦我饿哦额我SDFADFA哦我额欧国联公安狗带大师傅";
         String[] hanzis = Utils.getFormatHanzi(hanzi);
         String[] pinyins = Utils.getPinyinString(hanzi);
         Log.v(TAG, "hanzis length = " + hanzis.length + "; pinyins length = " + pinyins.length);

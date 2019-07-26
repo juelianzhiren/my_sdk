@@ -28,9 +28,8 @@ public class PinyinTextView extends TextView {
     private ArrayList<Integer> indexList = new ArrayList<>();    // 存储每行首个String位置
     private int comlum = 1;
     private float density;
-
-    private boolean isScrollEnable;
     private float pinyinWidth = 0;
+    private int unitWidth = 0;
 
     public PinyinTextView(Context context) {
         this(context, null);
@@ -87,7 +86,6 @@ public class PinyinTextView extends TextView {
 
     public void setScrollEnable(boolean isScrollEnable) {
         Log.e(TAG, "isScrollEnable == " + isScrollEnable);
-        this.isScrollEnable = isScrollEnable;
         if (isScrollEnable) {
             setMovementMethod(ScrollingMovementMethod.getInstance());
         } else {
@@ -112,19 +110,22 @@ public class PinyinTextView extends TextView {
 
                     Log.v(TAG, "2222 pinyin[" + index + "] = " + pinyin[index] + "; flag = " + TextUtils.equals(pinyin[index], "null"));
 
+                    float pinyinUnitWidth = pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));
+                    float hanziUnitWidth = textPaint.measureText(hanzi[index]);
+                    float unitWidth = (pinyinUnitWidth >= hanziUnitWidth ? pinyinUnitWidth : hanziUnitWidth);
                     if (TextUtils.equals(pinyin[index], "null")) {
                         pinyinWidth = pinyinWidth + textPaint.measureText(hanzi[index]);
                     } else {
                         Log.v(TAG, "index = " + index + "; pinyin[index] = " + pinyin[index] + "; length = " + pinyin[index].length());
-                        pinyinWidth = pinyinWidth + pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1));
+                        pinyinWidth += unitWidth;
                     }
                     if (pinyinWidth > width) {
                         indexList.add(index);
                         totalColumns++;
-                        pinyinWidth = (TextUtils.equals(pinyin[index], "null") ? textPaint.measureText(pinyin[index]) : textPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1)));
+                        pinyinWidth = (TextUtils.equals(pinyin[index], "null") ? textPaint.measureText(hanzi[index]) : unitWidth);
                     }
                 }
-                height = (int) Math.ceil((totalColumns * 2) * (textPaint.getFontSpacing() + density * 1));
+                height = (int) Math.ceil(totalColumns * (textPaint.getFontSpacing() + pinyinPaint.getFontSpacing() + density * 2));
             } else if (hanzi != null) {
                 height = (int) textPaint.getFontSpacing();
             }
