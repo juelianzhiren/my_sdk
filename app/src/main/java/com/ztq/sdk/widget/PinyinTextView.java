@@ -50,7 +50,7 @@ public class PinyinTextView extends TextView {
         textPaint.setStrokeWidth(density * 2);
 
         pinyinPaint.setColor(color);
-        pinyinPaint.setTextSize(30);
+        pinyinPaint.setTextSize(20);
         pinyinPaint.setStrokeWidth(density * 2);
 
         density = getResources().getDisplayMetrics().density;
@@ -131,13 +131,22 @@ public class PinyinTextView extends TextView {
         setMeasuredDimension(width, height);
     }
 
+    private float getMaxNumber(int startIndex) {
+        if (pinyinPaint == null || textPaint == null || startIndex >= pinyin.length) {
+            return 0.0f;
+        }
+        float pinyin_Width = pinyinPaint.measureText(combinePinEnd(startIndex, pinyin.length));
+        float hanzi_Width = textPaint.measureText(combineHanziEnd(startIndex, hanzi.length));
+        float maxWidth = pinyin_Width >= hanzi_Width ? pinyin_Width : hanzi_Width;
+        return maxWidth;
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         int gravity = getGravity();
         float widthMesure = 0f;
-        float pinyin_Width = pinyinPaint.measureText(combinePinEnd(0, pinyin.length));
-        float hanzi_Width = textPaint.measureText(combineHanziEnd(0, hanzi.length));
-        float maxWidth = pinyin_Width >= hanzi_Width ? pinyin_Width : hanzi_Width;
+
+        float maxWidth = getMaxNumber(0);
         if (indexList.isEmpty()) {
             // 单行数据处理
             if (pinyin != null && pinyin.length > 0) {
@@ -145,10 +154,6 @@ public class PinyinTextView extends TextView {
                     widthMesure = (getWidth() - maxWidth) / 2;
                 }
                 Log.e(TAG, "widthMesure1 === " + widthMesure + "; maxWidth = " + maxWidth);
-            } else if (hanzi != null && hanzi.length > 0) {
-                if (gravity == Gravity.CENTER) {
-                    widthMesure = (getWidth() - hanzi_Width) / 2;
-                }
             }
         }
         int count = 0;
@@ -161,6 +166,9 @@ public class PinyinTextView extends TextView {
                 float hanziUnitWidth = textPaint.measureText(hanzi[index]);
                 boolean flag = pinyinUnitWidth >= hanziUnitWidth;
                 float unitWidth = flag ? pinyinUnitWidth : hanziUnitWidth;
+
+                Log.v(TAG, "hanzi[" + index + "] = " + hanzi[index] + "; pinyinStr = " + pinyin[index].substring(0, pinyin[index].length() - 1) + "; hanziUnitWidth = " + hanziUnitWidth + "; pinyinUnitWidth = " + pinyinUnitWidth);
+
                 if (!TextUtils.equals(pinyin[index], "null") && !TextUtils.equals(pinyin[index], " ")) {
                     pinyinWidth = widthMesure + unitWidth;
                     if (pinyinWidth > getWidth()) {
@@ -170,13 +178,13 @@ public class PinyinTextView extends TextView {
                         if (indexList.size() > 0 && indexList.get(indexList.size() - 1) == index) {
                             Log.v(TAG, "more than one line");
                             if (gravity == Gravity.CENTER) {
-                                widthMesure = (getWidth() - maxWidth) / 2;
+                                widthMesure = (getWidth() - getMaxNumber(index)) / 2;
                             }
                         }
                     }
 
-                    canvas.drawText(pinyin[index].substring(0, pinyin[index].length() - 1), (flag ? widthMesure : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2), comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing(), pinyinPaint);
-                    Log.e(TAG, "widthmeasure2 === " + widthMesure + "; y = " + (comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing()));
+                    canvas.drawText(pinyin[index].substring(0, pinyin[index].length() - 1), (flag ? widthMesure : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2), comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing() + (pinyinPaint.getFontMetrics().descent - pinyinPaint.getFontMetrics().ascent) / 2, pinyinPaint);
+                    Log.e(TAG, "widthmeasure2 === " + widthMesure + "; y = " + (comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing()) + "; baseline = " + (pinyinPaint.getFontMetrics().ascent - pinyinPaint.getFontMetrics().descent));
                     String tone = " ";
                     switch (pinyin[index].charAt(pinyin[index].length() - 1)) {
                         case '1':
@@ -212,15 +220,15 @@ public class PinyinTextView extends TextView {
                     if (stateIndex != -1) {
                         // 没有声母存在时，stateIndex一直为-1 （'嗯' 转成拼音后变成 ng,
                         // 导致没有声母存在，stateIndex一直为-1，数组越界crash）
-                        canvas.drawText(tone, (flag ? widthMesure : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2) + pinyinPaint.measureText(pinyin[index].substring(0, stateIndex)) + (pinyinPaint.measureText(pinyin[index].charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2, comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing(), pinyinPaint);
+
+                        float toneX = flag ? widthMesure + pinyinPaint.measureText(pinyin[index].substring(0, stateIndex)) + (pinyinPaint.measureText(pinyin[index].charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2 : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2 + pinyinPaint.measureText(pinyin[index].substring(0, stateIndex)) + (pinyinPaint.measureText(pinyin[index].charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2;
+                        canvas.drawText(tone, toneX, comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing() + (pinyinPaint.getFontMetrics().descent - pinyinPaint.getFontMetrics().ascent) / 2, pinyinPaint);
                         Log.v(TAG, "tone y = " + (comlum * 2 - 1) * (textPaint.getFontSpacing()));
                     }
                     canvas.drawText(hanzi[index], flag ? (widthMesure + (pinyinPaint.measureText(pinyin[index].substring(0, pinyin[index].length() - 1)) - textPaint.measureText(hanzi[index])) / 2 - moveHalfIfNeed(pinyin[index].substring(0, pinyin[index].length() - 1), textPaint)) : widthMesure, comlum * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
-                    if (index + 1 < pinyin.length && TextUtils.equals("null", pinyin[index + 1])) {
-                        widthMesure += unitWidth;
-                    } else {
-                        widthMesure += unitWidth;    // 下个字符为拼音
-                    }
+                    Log.e(TAG, "widthmeasure2 === " + widthMesure + "; y = " + (comlum * pinyinPaint.getFontSpacing() + (comlum) * textPaint.getFontSpacing()));
+                    widthMesure += unitWidth;
+                    Log.v(TAG, "unitWidth = " + unitWidth);
                     count = count + 1;       // 有效拼音
                 } else if (TextUtils.equals(pinyin[index], "null")) {
                     float hanziWidth = widthMesure + textPaint.measureText(hanzi[index]);
