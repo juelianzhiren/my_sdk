@@ -46,6 +46,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -775,9 +776,9 @@ public class Utils {
         return result;
     }
 
-    public static String[] getPinyinString(String hanzi) {
+    public static List<String> getPinyinString(String hanzi) {
         if (hanzi != null && hanzi.length() > 0) {
-            String[] pinyin = new String[hanzi.length()];
+            List<String> pinyinList = new ArrayList<>();
             HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
             format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
             format.setToneType(HanyuPinyinToneType.WITH_TONE_NUMBER);
@@ -785,34 +786,33 @@ public class Utils {
                 char c = hanzi.charAt(index);
                 try {
                     String[] pinyinUnit = PinyinHelper.toHanyuPinyinStringArray(c, format);
-                    Log.v(TAG, "char, pinyin " + index + ": " + pinyin[index] + "; " + (pinyinUnit!= null ? pinyinUnit : "; null"));
                     if (pinyinUnit == null) {
-                        pinyin[index] = "null";  // 非汉字字符，如标点符号
+                        pinyinList.add(index, "null");  // 非汉字字符，如标点符号
                         continue;
                     } else {
                         Log.v(TAG, "char, pinyin " + index + ": pinyinUnit[0] = " + pinyinUnit[0]);
-                        pinyin[index] = formatCenterUnit(pinyinUnit[0].substring(0, pinyinUnit[0].length() - 1)) + pinyinUnit[0].charAt(pinyinUnit[0].length() - 1);  // 带音调且长度固定为7个字符长度,,拼音居中,末尾优先
-                        Log.e(TAG, pinyin[index]);
+                        pinyinList.add(index, formatCenterUnit(pinyinUnit[0].substring(0, pinyinUnit[0].length() - 1)) + pinyinUnit[0].charAt(pinyinUnit[0].length() - 1));  // 带音调且长度固定为7个字符长度,,拼音居中,末尾优先
+                        Log.e(TAG, pinyinList.get(index));
                     }
                 } catch (BadHanyuPinyinOutputFormatCombination badHanyuPinyinOutputFormatCombination) {
                     badHanyuPinyinOutputFormatCombination.printStackTrace();
                 }
             }
-            return pinyin;
+            return pinyinList;
         } else {
             return null;
         }
     }
 
-    public static String[] getFormatHanzi(String hanzi) {
+    public static List<String> getFormatHanzi(String hanzi) {
         if (hanzi != null && hanzi.length() > 0) {
             char[] c = hanzi.toCharArray();
-            String[] result = new String[c.length];
+            List<String> hanziList = new ArrayList<>();
             for (int index = 0; index < c.length; index++) {
-                result[index] = c[index] + "";
+               hanziList.add(c[index] + "");
                 Log.v(TAG, "char " + index + "; " + c[index]);
             }
-            return result;
+            return hanziList;
         } else {
             return null;
         }

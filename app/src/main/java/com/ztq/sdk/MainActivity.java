@@ -2,6 +2,7 @@ package com.ztq.sdk;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,8 @@ import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
+
+import java.util.List;
 
 public class MainActivity extends Activity {
     private final String TAG = "noahedu.MainActivity";
@@ -70,12 +73,16 @@ public class MainActivity extends Activity {
 
         mPinyinTv = findViewById(R.id.pinyin_tv);
         String hanzi = "我哦我我我哦我饿哦我adbdfa我我哦我我范德萨范德萨撒地方双方都反倒是";
-        String[] hanzis = Utils.getFormatHanzi(hanzi);
-        String[] pinyins = Utils.getPinyinString(hanzi);
-        Log.v(TAG, "hanzis length = " + hanzis.length + "; pinyins length = " + pinyins.length);
-        mPinyinTv.setHanzi(hanzis);
-        mPinyinTv.setPinyin(pinyins);
+        List<String> hanziList = Utils.getFormatHanzi(hanzi);
+        List<String> pinyinList = Utils.getPinyinString(hanzi);
+        Log.v(TAG, "hanzis length = " + hanziList.size() + "; pinyins length = " + pinyinList.size());
+        mPinyinTv.setHanziList(hanziList);
+        mPinyinTv.setPinyinList(pinyinList);
         mPinyinTv.setScrollEnable(true);
+        mPinyinTv.setTextSize(60);
+        mPinyinTv.setTextColor(Color.BLACK);
+        mPinyinTv.setPinyinSize(30);
+        mPinyinTv.setPinyinColor(Color.RED);
     }
 
     @Override
