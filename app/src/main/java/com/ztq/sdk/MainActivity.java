@@ -78,6 +78,7 @@ public class MainActivity extends Activity {
         Log.v(TAG, "hanzis length = " + hanziList.size() + "; pinyins length = " + pinyinList.size());
         mPinyinTv.setHanziList(hanziList);
         mPinyinTv.setPinyinList(pinyinList);
+        mPinyinTv.setmIsPinyinGeneratedByPinyin4jJar(true);
         mPinyinTv.setScrollEnable(true);
         mPinyinTv.setTextSize(60);
         mPinyinTv.setTextColor(Color.BLACK);

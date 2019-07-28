@@ -63,6 +63,10 @@ public class PinyinTextView extends TextView {
         Log.v(TAG, "screenWidth = " + screenWidth + "; screenHeight = " + screenHeight);
     }
 
+    public void setmIsPinyinGeneratedByPinyin4jJar(boolean mIsPinyinGeneratedByPinyin4jJar) {
+        this.mIsPinyinGeneratedByPinyin4jJar = mIsPinyinGeneratedByPinyin4jJar;
+    }
+
     public void setTextSize(int textSize) {
         textPaint.setTextSize(textSize);
     }
