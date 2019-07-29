@@ -2,12 +2,14 @@ package com.ztq.sdk;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.ztq.sdk.activity.DemoActivity;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.MyImageView;
@@ -16,6 +18,9 @@ import com.ztq.sdk.widget.PinyinTextView;
 import java.nio.channels.OverlappingFileLockException;
 import java.util.List;
 
+/**
+ * 这是测试的Activity
+ */
 public class MainActivity extends Activity {
     private final String TAG = "noahedu.MainActivity";
     private Context mContext;
@@ -77,53 +82,61 @@ public class MainActivity extends Activity {
         List<String> hanziList = Utils.getFormatHanzi(hanzi);
         List<String> pinyinList = Utils.getPinyinString(hanzi);
 
-        pinyinList.clear();
-        pinyinList.add(" wo ");
-        pinyinList.add(" o ");
-        pinyinList.add(" wo ");
-        pinyinList.add(" wo ");
-        pinyinList.add(" wo ");
-        pinyinList.add(" o ");
-        pinyinList.add(" wo ");
-        pinyinList.add(" e ");
-        pinyinList.add(" o ");
-        pinyinList.add(" wo ");
-        pinyinList.add("null");
-        pinyinList.add("null");
-        pinyinList.add("null");
-        pinyinList.add("null");
-        pinyinList.add("null");
-        pinyinList.add("null");
-        pinyinList.add(" wo ");
-        pinyinList.add(" wo");
-        pinyinList.add(" o ");
-        pinyinList.add(" wo ");
-        pinyinList.add(" wo ");
-        pinyinList.add(" fan ");
-        pinyinList.add(" de ");
-        pinyinList.add(" sha ");
-        pinyinList.add(" fan ");
-        pinyinList.add(" de ");
-        pinyinList.add(" sha ");
-        pinyinList.add(" sha ");
-        pinyinList.add(" di ");
-        pinyinList.add(" fang ");
-        pinyinList.add(" shuang ");
-        pinyinList.add(" fang ");
-        pinyinList.add(" du ");
-        pinyinList.add(" fan ");
-        pinyinList.add(" dao ");
-        pinyinList.add(" shi ");
+//        pinyinList.clear();
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" o ");
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" o ");
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" e ");
+//        pinyinList.add(" o ");
+//        pinyinList.add(" wo ");
+//        pinyinList.add("null");
+//        pinyinList.add("null");
+//        pinyinList.add("null");
+//        pinyinList.add("null");
+//        pinyinList.add("null");
+//        pinyinList.add("null");
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" wo");
+//        pinyinList.add(" o ");
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" wo ");
+//        pinyinList.add(" fan ");
+//        pinyinList.add(" de ");
+//        pinyinList.add(" sha ");
+//        pinyinList.add(" fan ");
+//        pinyinList.add(" de ");
+//        pinyinList.add(" sha ");
+//        pinyinList.add(" sha ");
+//        pinyinList.add(" di ");
+//        pinyinList.add(" fang ");
+//        pinyinList.add(" shuang ");
+//        pinyinList.add(" fang ");
+//        pinyinList.add(" du ");
+//        pinyinList.add(" fan ");
+//        pinyinList.add(" dao ");
+//        pinyinList.add(" shi ");
 
         Log.v(TAG, "hanzis length = " + hanziList.size() + "; pinyins length = " + pinyinList.size());
         mPinyinTv.setHanziList(hanziList);
         mPinyinTv.setPinyinList(pinyinList);
-        mPinyinTv.setmIsPinyinGeneratedByPinyin4jJar(false);
-        mPinyinTv.setScrollEnable(false);
-        mPinyinTv.setTextSize(60);
+        mPinyinTv.setmIsPinyinGeneratedByPinyin4jJar(true);
+        mPinyinTv.setScrollEnable(true);
+        mPinyinTv.setTextSize(80);
         mPinyinTv.setTextColor(Color.BLACK);
-        mPinyinTv.setPinyinSize(30);
+        mPinyinTv.setPinyinSize(40);
         mPinyinTv.setPinyinColor(Color.RED);
+
+        findViewById(R.id.jump_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DemoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
