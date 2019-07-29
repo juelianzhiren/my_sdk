@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
         });
 
         mPinyinTv = findViewById(R.id.pinyin_tv);
-        String hanzi = "我哦我我我哦我饿哦我adbdfa我我哦我我范德萨范德萨撒地方双方都反倒是";
+        String hanzi = "我哦我我我哦我饿哦我adbdfa我我哦我我范德萨范德萨撒地方双方都反倒是我我我哦我我我哦我打算佛佛打扫反倒是偶觉得发顺丰加大了对富士康里发了发的书";
         List<String> hanziList = Utils.getFormatHanzi(hanzi);
         List<String> pinyinList = Utils.getPinyinString(hanzi);
 
