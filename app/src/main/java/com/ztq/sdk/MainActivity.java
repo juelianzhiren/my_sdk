@@ -13,6 +13,7 @@ import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
+import java.nio.channels.OverlappingFileLockException;
 import java.util.List;
 
 public class MainActivity extends Activity {
@@ -75,11 +76,50 @@ public class MainActivity extends Activity {
         String hanzi = "我哦我我我哦我饿哦我adbdfa我我哦我我范德萨范德萨撒地方双方都反倒是";
         List<String> hanziList = Utils.getFormatHanzi(hanzi);
         List<String> pinyinList = Utils.getPinyinString(hanzi);
+
+        pinyinList.clear();
+        pinyinList.add(" wo ");
+        pinyinList.add(" o ");
+        pinyinList.add(" wo ");
+        pinyinList.add(" wo ");
+        pinyinList.add(" wo ");
+        pinyinList.add(" o ");
+        pinyinList.add(" wo ");
+        pinyinList.add(" e ");
+        pinyinList.add(" o ");
+        pinyinList.add(" wo ");
+        pinyinList.add("null");
+        pinyinList.add("null");
+        pinyinList.add("null");
+        pinyinList.add("null");
+        pinyinList.add("null");
+        pinyinList.add("null");
+        pinyinList.add(" wo ");
+        pinyinList.add(" wo");
+        pinyinList.add(" o ");
+        pinyinList.add(" wo ");
+        pinyinList.add(" wo ");
+        pinyinList.add(" fan ");
+        pinyinList.add(" de ");
+        pinyinList.add(" sha ");
+        pinyinList.add(" fan ");
+        pinyinList.add(" de ");
+        pinyinList.add(" sha ");
+        pinyinList.add(" sha ");
+        pinyinList.add(" di ");
+        pinyinList.add(" fang ");
+        pinyinList.add(" shuang ");
+        pinyinList.add(" fang ");
+        pinyinList.add(" du ");
+        pinyinList.add(" fan ");
+        pinyinList.add(" dao ");
+        pinyinList.add(" shi ");
+
         Log.v(TAG, "hanzis length = " + hanziList.size() + "; pinyins length = " + pinyinList.size());
         mPinyinTv.setHanziList(hanziList);
         mPinyinTv.setPinyinList(pinyinList);
-        mPinyinTv.setmIsPinyinGeneratedByPinyin4jJar(true);
-        mPinyinTv.setScrollEnable(true);
+        mPinyinTv.setmIsPinyinGeneratedByPinyin4jJar(false);
+        mPinyinTv.setScrollEnable(false);
         mPinyinTv.setTextSize(60);
         mPinyinTv.setTextColor(Color.BLACK);
         mPinyinTv.setPinyinSize(30);
