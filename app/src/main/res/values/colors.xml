@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="white">#ffffff</color>
+    <color name="new_blue_bg">#58c9f2</color>
+    <color name="circle_bg">#6a000000</color>
 </resources>
