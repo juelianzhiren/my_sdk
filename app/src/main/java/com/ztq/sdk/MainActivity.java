@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.ztq.sdk.activity.DemoActivity;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.Utils;
+import com.ztq.sdk.widget.CircleProgressBar;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
@@ -28,6 +29,9 @@ public class MainActivity extends Activity {
     private Button mBtn;
     private MyAnimationDrawable myAnimationDrawable;
     private PinyinTextView mPinyinTv;
+    private CircleProgressBar mCircleProgressBar;
+    private boolean mIsPause = false;
+    private int mProgress = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +141,8 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        mCircleProgressBar = findViewById(R.id.cbr);
     }
 
     @Override
@@ -149,5 +155,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        mIsPause = !mIsPause;
+        mProgress++;
+        mCircleProgressBar.setmIsPause(mIsPause);
+        mCircleProgressBar.setCurrentProgress(mProgress);
     }
 }

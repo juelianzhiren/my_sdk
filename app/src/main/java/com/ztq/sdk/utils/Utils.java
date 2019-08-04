@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -584,8 +585,10 @@ public class Utils {
      * 创建图片文件
      *
      * @param res
-     * @param inputPath  原始图片地址
+     * @param uri  原始图片uri
      * @param outputPath 转换后图片地址
+     * @param reqWidth
+     * @param reqHeight
      */
     public static Bitmap createBitmapFile(ContentResolver res, Uri uri, String outputPath, int reqWidth, int reqHeight) {
         if (res == null || uri == null || Utils.isNullOrNil(outputPath) || reqWidth <= 0 || reqHeight <= 0) {
@@ -816,5 +819,24 @@ public class Utils {
         } else {
             return null;
         }
+    }
+
+    public static Bitmap getBitmapFromDrawableRes(Context context, int resId) {
+        if (context == null || resId <= 0) {
+            return  null;
+        }
+        Resources res = context.getResources();
+        Bitmap bitmap = BitmapFactory.decodeResource(res, resId);
+        return bitmap;
+    }
+
+    public static Bitmap changeBitmap(Bitmap bitmap, float scale) {
+        if (bitmap == null || scale <= 0) {
+            return null;
+        }
+        Matrix matrix = new Matrix();
+        matrix.postScale(scale, scale);
+        Bitmap newBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        return newBitmap;
     }
 }
