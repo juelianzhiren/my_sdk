@@ -126,9 +126,6 @@ public class CircleProgressBar extends View {
         mNewBitmap = Utils.changeBitmap(bitmap, (float) (mRadius) / source);
         bitmap.recycle();
         int left = (width - mNewBitmap.getWidth()) / 2;
-        if (mIsPause) {
-            left += 5;               // 为了使图标看起来更居中一些
-        }
         canvas.drawBitmap(mNewBitmap, left, (height - mNewBitmap.getHeight()) / 2, mImagePaint);
     }
 }
