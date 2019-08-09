@@ -1,10 +1,14 @@
 package com.ztq.sdk.widget;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import com.ztq.sdk.R;
 
 public class SelectableTextView extends AppCompatTextView {
     private final String TAG = "noahedu.SelectableTextView";
@@ -27,8 +31,7 @@ public class SelectableTextView extends AppCompatTextView {
 
     private void init(Context context) {
         this.mContext = context;
-
-
+        mNinePatchDrawable = (NinePatchDrawable) getContext().getDrawable(R.drawable.ic_smear_part);
     }
 
     @Override
@@ -48,5 +51,10 @@ public class SelectableTextView extends AppCompatTextView {
                 break;
         }
         return true;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
     }
 }
