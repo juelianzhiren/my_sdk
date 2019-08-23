@@ -201,22 +201,5 @@ public class MyAnimationDrawable {
      */
     public void stopAnim() {
         mIsRunning = false;
-        if (mImageFrames != null) {
-            for(int i = 0; i < mImageFrames.size(); i++) {
-                MyFrame frame = mImageFrames.get(i);
-                if (frame != null && frame.drawable != null) {
-                    Drawable drawable = frame.drawable;
-                    if (drawable instanceof BitmapDrawable) {
-                        BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-                        if (bitmapDrawable != null && bitmapDrawable.getBitmap() != null) {
-                            Bitmap bitmap = bitmapDrawable.getBitmap();
-                            if (bitmap != null && !bitmap.isRecycled()) {
-                                bitmap.recycle();
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }  
