@@ -7,4 +7,8 @@
     <color name="white">#ffffff</color>
     <color name="new_blue_bg">#58c9f2</color>
     <color name="circle_bg">#6a000000</color>
+
+    <color name="blue">#0000ff</color>
+    <color name="middle_blue">#00BFE1</color>
+    <color name="yellow">#ffff00</color>
 </resources>

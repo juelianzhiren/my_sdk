@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.ztq.sdk.activity.DemoActivity;
 import com.ztq.sdk.model.MyAnimationDrawable;
+import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.CircleProgressBar;
 import com.ztq.sdk.widget.MyImageView;
@@ -143,6 +144,8 @@ public class MainActivity extends Activity {
         });
 
         mCircleProgressBar = findViewById(R.id.cbr);
+
+        Log.v(TAG, "AppStore.apk md5 value is " + SignMd5.getMd5(this));
     }
 
     @Override

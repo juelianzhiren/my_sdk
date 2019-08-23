@@ -1,4 +1,4 @@
-package com.ztq.sdk.widget;
+package com.noahedu.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,10 +6,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.utils.Utils;
+
 
 /**
  * Created by ztq on 2019/8/1.
@@ -21,14 +23,16 @@ public class CircleProgressBar extends View {
     private Paint mArcPaint;
     private int mMaxProgress = 100;
     private int mCurrentProgress = 0;
-    private int mCircleBgColor = getContext().getResources().getColor(R.color.circle_bg);
-    private int mArcColor = getContext().getResources().getColor(R.color.new_blue_bg);
+    private int mCircleBgColor = getContext().getResources().getColor(R.color.new_blue_bg);
+    private int mArcColor = getContext().getResources().getColor(R.color.blue);
     private int mStrokeWidth = 5;
     private int mRadius;
     private boolean mIsPause;   // 是否暂停
     private Context mContext;
     private Paint mImagePaint;
     private Bitmap mNewBitmap;
+    private boolean mIsShowTextProgress;
+    private Paint mProgressPaint;
 
     public CircleProgressBar(Context context) {
         this(context, null);
@@ -62,11 +66,24 @@ public class CircleProgressBar extends View {
         mImagePaint = new Paint();
         mImagePaint.setAntiAlias(true);
         mImagePaint.setDither(true);
+
+        mProgressPaint = new Paint();
+        mProgressPaint.setAntiAlias(true);
+        mProgressPaint.setDither(true);
+        mProgressPaint.setTextSize(40);
     }
 
     public void setCurrentProgress(int mCurrentProgress) {
         this.mCurrentProgress = mCurrentProgress;
         invalidate();
+    }
+
+    public void setMaxProgress(int mMaxProgress) {
+        this.mMaxProgress = mMaxProgress;
+    }
+
+    public void setIsShowTextProgress(boolean mIsShowTextProgress) {
+        this.mIsShowTextProgress = mIsShowTextProgress;
     }
 
     public void setCircleBgColor(int mCircleBgColor) {
@@ -110,20 +127,35 @@ public class CircleProgressBar extends View {
             canvas.drawArc(oval, -90, (mCurrentProgress * 360) / mMaxProgress, false, mArcPaint);
         }
 
-        Bitmap bitmap = Utils.getBitmapFromDrawableRes(mContext, R.drawable.ic_pause);
-        if (mIsPause) {
-            bitmap = Utils.getBitmapFromDrawableRes(mContext, R.drawable.ic_play);
+        if (!mIsShowTextProgress) {
+            Bitmap bitmap = Utils.getBitmapFromDrawableRes(mContext, R.drawable.ic_pause);
+            if (mIsPause) {
+                bitmap = Utils.getBitmapFromDrawableRes(mContext, R.drawable.ic_play);
+            }
+            int sourceWidth = bitmap.getWidth();
+            int sourceHeight = bitmap.getHeight();
+            int source = sourceHeight > sourceWidth ? sourceHeight : sourceWidth;
+            if (mNewBitmap != null && !mNewBitmap.isRecycled()) {
+                mNewBitmap.recycle();
+                mNewBitmap = null;
+            }
+            mNewBitmap = Utils.changeBitmap(bitmap, (float) (mRadius) / source);
+            bitmap.recycle();
+            int left = (width - mNewBitmap.getWidth()) / 2;
+            canvas.drawBitmap(mNewBitmap, left, (height - mNewBitmap.getHeight()) / 2, mImagePaint);
+        } else {
+            String progressStr = mCurrentProgress + "/" + mMaxProgress;
+            float progressWidth = mProgressPaint.measureText(progressStr);
+            Paint.FontMetrics fm = mProgressPaint.getFontMetrics();
+            double textHeight = Math.ceil(fm.bottom - fm.top);
+            int left = (int)(width - progressWidth) /2;
+            int top = (int)((height - textHeight) / 2 + Math.abs(fm.top));
+            Log.v(TAG, "width = " + width + "; height = " + height + "; progressWidth = " + progressWidth + "; textHeight = " + textHeight + "; top = " + fm.top);
+            mProgressPaint.setColor(getResources().getColor(R.color.yellow));
+            canvas.drawText(progressStr, 0, 1, left, top, mProgressPaint);
+            mProgressPaint.setColor(getResources().getColor(R.color.middle_blue));
+            int interval = (int)mProgressPaint.measureText(progressStr.substring(0, 1));
+            canvas.drawText(progressStr, 1, progressStr.length(), left + interval, top, mProgressPaint);
         }
-        int sourceWidth = bitmap.getWidth();
-        int sourceHeight = bitmap.getHeight();
-        int source = sourceHeight > sourceWidth ? sourceHeight : sourceWidth;
-        if (mNewBitmap != null && !mNewBitmap.isRecycled()) {
-            mNewBitmap.recycle();
-            mNewBitmap = null;
-        }
-        mNewBitmap = Utils.changeBitmap(bitmap, (float) (mRadius) / source);
-        bitmap.recycle();
-        int left = (width - mNewBitmap.getWidth()) / 2;
-        canvas.drawBitmap(mNewBitmap, left, (height - mNewBitmap.getHeight()) / 2, mImagePaint);
     }
 }
