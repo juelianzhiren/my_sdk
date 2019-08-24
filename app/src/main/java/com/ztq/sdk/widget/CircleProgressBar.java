@@ -148,14 +148,14 @@ public class CircleProgressBar extends View {
             float progressWidth = mProgressPaint.measureText(progressStr);
             Paint.FontMetrics fm = mProgressPaint.getFontMetrics();
             double textHeight = Math.ceil(fm.bottom - fm.top);
-            int left = (int)(width - progressWidth) /2;
+            int left = (int)(width - progressWidth) / 2;
             int top = (int)((height - textHeight) / 2 + Math.abs(fm.top));
             Log.v(TAG, "width = " + width + "; height = " + height + "; progressWidth = " + progressWidth + "; textHeight = " + textHeight + "; top = " + fm.top);
             mProgressPaint.setColor(getResources().getColor(R.color.yellow));
-            canvas.drawText(progressStr, 0, 1, left, top, mProgressPaint);
+            canvas.drawText(progressStr, 0, String.valueOf(mCurrentProgress).length(), left, top, mProgressPaint);
             mProgressPaint.setColor(getResources().getColor(R.color.middle_blue));
-            int interval = (int)mProgressPaint.measureText(progressStr.substring(0, 1));
-            canvas.drawText(progressStr, 1, progressStr.length(), left + interval, top, mProgressPaint);
+            int interval = (int)mProgressPaint.measureText(progressStr.substring(0, String.valueOf(mCurrentProgress).length()));
+            canvas.drawText(progressStr, String.valueOf(mCurrentProgress).length(), progressStr.length(), left + interval, top, mProgressPaint);
         }
     }
 }
