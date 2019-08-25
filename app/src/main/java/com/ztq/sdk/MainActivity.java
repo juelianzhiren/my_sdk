@@ -9,11 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.noahedu.widget.CircleProgressBar;
 import com.ztq.sdk.activity.DemoActivity;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
+import com.ztq.sdk.widget.CircleProgressBar;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
@@ -143,6 +143,7 @@ public class MainActivity extends Activity {
         });
 
         mCircleProgressBar = findViewById(R.id.cbr);
+        mCircleProgressBar.setIsShowTextProgress(true);
 
         Log.v(TAG, "AppStore.apk md5 value is " + SignMd5.getMd5(this));
     }

@@ -32,7 +32,9 @@ public class PinyinTextView extends TextView {
     private float density;
     private float width = 0;
 
-    /**拼音字符串是否由pinyin4j生成的*/
+    /**
+     * 拼音字符串是否由pinyin4j生成的
+     */
     private boolean mIsPinyinGeneratedByPinyin4jJar;
 
     public PinyinTextView(Context context) {
@@ -142,7 +144,7 @@ public class PinyinTextView extends TextView {
         } else {
             if (hanziList != null && hanziList.size() != 0 && pinyinList != null) {
                 boolean flag = false;
-                for(int index = 0; index < hanziList.size(); index++) {
+                for (int index = 0; index < hanziList.size(); index++) {
                     String hanzi = hanziList.get(index);
                     if (!Utils.isNullOrNil(hanzi)) {
                         if (index < pinyinList.size()) {
@@ -179,7 +181,7 @@ public class PinyinTextView extends TextView {
         if (pinyinList == null || hanziList == null) {
             return 0.0f;
         }
-        for(int i = startIndex; i < pinyinList.size(); i++) {
+        for (int i = startIndex; i < pinyinList.size(); i++) {
             String pinyin = pinyinList.get(i);
             String hanzi = hanziList.get(i);
             if (Utils.isNullOrNil(pinyin) || Utils.isNullOrNil(hanzi)) {
@@ -357,10 +359,10 @@ public class PinyinTextView extends TextView {
                                 }
                             }
                             if (flag) {
-                                canvas.drawText(hanzi, widthMesure,comlum * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
+                                canvas.drawText(hanzi, widthMesure, comlum * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
                             } else {
-                                canvas.drawText(hanzi,(hanziUnitWidth >= pinyinUnitWidth ? widthMesure : widthMesure + (pinyinUnitWidth - hanziUnitWidth) / 2),comlum * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);
-                                canvas.drawText(pinyin, (hanziUnitWidth >= pinyinUnitWidth ? (widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2) : widthMesure),comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing() + pinyinPaint.getFontMetrics().bottom, pinyinPaint);
+                                canvas.drawText(hanzi, (hanziUnitWidth >= pinyinUnitWidth ? widthMesure : widthMesure + (pinyinUnitWidth - hanziUnitWidth) / 2), comlum * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);
+                                canvas.drawText(pinyin, (hanziUnitWidth >= pinyinUnitWidth ? (widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2) : widthMesure), comlum * pinyinPaint.getFontSpacing() + (comlum - 1) * textPaint.getFontSpacing() + pinyinPaint.getFontMetrics().bottom, pinyinPaint);
                                 Paint.FontMetrics fm = pinyinPaint.getFontMetrics();
                                 float top = fm.top;
                                 float bottom = fm.bottom;

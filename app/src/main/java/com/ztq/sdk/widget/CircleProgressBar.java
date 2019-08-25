@@ -1,4 +1,4 @@
-package com.noahedu.widget;
+package com.ztq.sdk.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -150,6 +150,7 @@ public class CircleProgressBar extends View {
             double textHeight = Math.ceil(fm.bottom - fm.top);
             int left = (int)(width - progressWidth) / 2;
             int top = (int)((height - textHeight) / 2 + Math.abs(fm.top));
+            Log.v(TAG, "top = " + fm.top + "; ascent = " + fm.ascent + "; descent = "  + fm.descent + "; bottom = " + fm.bottom + "; leading = " + fm.leading);
             Log.v(TAG, "width = " + width + "; height = " + height + "; progressWidth = " + progressWidth + "; textHeight = " + textHeight + "; top = " + fm.top);
             mProgressPaint.setColor(getResources().getColor(R.color.yellow));
             canvas.drawText(progressStr, 0, String.valueOf(mCurrentProgress).length(), left, top, mProgressPaint);
