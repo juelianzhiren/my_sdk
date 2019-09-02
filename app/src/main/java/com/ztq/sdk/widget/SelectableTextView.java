@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 import com.ztq.sdk.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 public class SelectableTextView extends AppCompatTextView {
     private final String TAG = "noahedu.SelectableTextView";
     private Context mContext;
@@ -26,6 +31,8 @@ public class SelectableTextView extends AppCompatTextView {
     private boolean mIsSliding;
     private int mMoveTouchX;
     private int mMoveTouchY;
+    private OnSelectableTextViewListener mOnSelectableTextViewListener;
+    private List<SelectionInfo> mSelectionInfoList;
 
     public SelectableTextView(Context context) {
         this(context, null);
@@ -43,6 +50,11 @@ public class SelectableTextView extends AppCompatTextView {
     private void init(Context context) {
         this.mContext = context;
         mNinePatchDrawable = (NinePatchDrawable) getContext().getDrawable(R.drawable.ic_smear_part);
+        mSelectionInfoList = new ArrayList<>();
+    }
+
+    public void setOnSelectableTextViewListener(OnSelectableTextViewListener mOnSelectableTextViewListener) {
+        this.mOnSelectableTextViewListener = mOnSelectableTextViewListener;
     }
 
     @Override
@@ -60,7 +72,10 @@ public class SelectableTextView extends AppCompatTextView {
                 Log.v(TAG, "mSelectedLine = " + mSelectedLine);
                 this.mIsSliding = true;
                 if (mIsTouchValid) {
-
+                    if (mOnSelectableTextViewListener != null) {
+                        mOnSelectableTextViewListener.startSelectWord();
+                    }
+                    manageSelected(offsetForTouch, offsetForTouch);
                     return true;
                 }
                 break;
@@ -76,6 +91,7 @@ public class SelectableTextView extends AppCompatTextView {
                         this.mIsSliding = false;
                         return true;
                     }
+                    manageSelected(offsetForTouch, getValidTextNumber(offsetForTouch, offsetForMoving));
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -86,6 +102,108 @@ public class SelectableTextView extends AppCompatTextView {
                 break;
         }
         return true;
+    }
+
+    private int getValidTextNumber(int startOffset, int endOffset) {
+        int validTextCount = 0;
+        int i = 0;
+        if (startOffset > endOffset) {
+            for(i = startOffset; i >= endOffset; i--) {
+                if (isValidText(i)) {
+                    validTextCount++;
+                }
+                if (validTextCount > MAX_WORDS_SIZE) {
+                    return i;
+                }
+            }
+        } else {
+            for(i = startOffset; i <= endOffset; i++) {
+                if (isValidText(i)) {
+                    validTextCount++;
+                }
+                if (validTextCount > MAX_WORDS_SIZE) {
+                    return i;
+                }
+            }
+        }
+        return i + 1;
+    }
+
+    private boolean isValidText(int index) {
+        boolean flag = true;
+        char var2 = this.getTextCharByIndex(index);
+        if (CharacterUtils.isChinesePunctuation(var2) || !CharacterUtils.isChineseByBlock(var2)) {
+            flag = false;
+        }
+        return flag;
+    }
+
+    private char getTextCharByIndex(int index) {
+        char[] chars = this.getText().toString().toCharArray();
+        return index >= chars.length ? ' ' : chars[index];
+    }
+
+    private void manageSelected(int offsetStart, int offsetEnd) {
+        ArrayList<Integer> list = this.createListByRange(getSelectedRanges(offsetStart, offsetEnd));
+        ArrayList tempList = new ArrayList();
+        for(int i = 0; i < mSelectionInfoList.size(); i++) {
+            SelectionInfo selectionInfo = mSelectionInfoList.get(i);
+            ArrayList<Integer> itemList = createListByRange(getSelectedRanges(selectionInfo.getStartIndex(), selectionInfo.getEndIndex()));
+            tempList.clear();
+            tempList.addAll(list);
+            tempList.retainAll(itemList);
+            if (!tempList.isEmpty()) {
+                ArrayList var8 = this.removeCommonElement(itemList, tempList);
+                list = this.removeCommonElement(list, tempList);
+                this.mSelectionInfoList.addAll(this.getSelectionInfoByRangeArray(getRangeArrayByRangeList(var8)));
+            } else {
+                this.mSelectionInfoList.add(selectionInfo);
+            }
+        }
+    }
+
+    private ArrayList<SelectionInfo> getSelectionInfoByRangeArray(int[] arr) {
+        
+    }
+
+    private int[] getRangeArrayByRangeList(ArrayList<Integer> list) {
+        Collections.sort(list);
+        int[] arr = new int[2];
+        arr[0] = list.get(0);
+        arr[1] = list.get(list.size() - 1);
+        return arr;
+    }
+
+    private ArrayList<Integer> removeCommonElement(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+        ArrayList list = new ArrayList();
+        int size = list1.size();
+
+        for(int i = 0; i < size; ++i) {
+            if (!list2.contains(list1.get(i))) {
+                list.add(list1.get(i));
+            }
+        }
+        return list;
+    }
+
+    private ArrayList<Integer> createListByRange(int[] arr) {
+        ArrayList list = new ArrayList();
+        for(int i = arr[0]; i <= arr[1]; i++) {
+            list.add(i);
+        }
+        return list;
+    }
+
+    private int[] getSelectedRanges(int start, int end) {
+        int[] arr = new int[2];
+        if (start < end) {
+            arr[0] = start;
+            arr[1] = end;
+        } else {
+            arr[0] = end;
+            arr[1] = start;
+        }
+        return arr;
     }
 
     /**
@@ -150,24 +268,42 @@ public class SelectableTextView extends AppCompatTextView {
             this.mEndIndex = endIndex;
         }
 
-        public int getmStartIndex() {
+        public int getStartIndex() {
             return mStartIndex;
         }
 
-        public void setmStartIndex(int mStartIndex) {
+        public void setStartIndex(int mStartIndex) {
             this.mStartIndex = mStartIndex;
         }
 
-        public int getmEndIndex() {
+        public int getEndIndex() {
             return mEndIndex;
         }
 
-        public void setmEndIndex(int mEndIndex) {
+        public void setEndIndex(int mEndIndex) {
             this.mEndIndex = mEndIndex;
         }
 
         public String getSelectedText() {
             return this.mTextiew.getText().subSequence(this.mStartIndex, this.mEndIndex + 1).toString();
         }
+    }
+
+    public ArrayList<String> getSelectedTextList() {
+        ArrayList list = new ArrayList();
+        if (this.mSelectionInfoList != null) {
+            Iterator iterator = this.mSelectionInfoList.iterator();
+
+            while(iterator.hasNext()) {
+                list.add(((SelectionInfo)iterator.next()).getSelectedText());
+            }
+        }
+        return list;
+    }
+
+    public interface OnSelectableTextViewListener {
+        void endSelectWord();
+
+        void startSelectWord();
     }
 }
