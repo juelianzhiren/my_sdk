@@ -155,15 +155,29 @@ public class SelectableTextView extends AppCompatTextView {
             if (!tempList.isEmpty()) {
                 ArrayList var8 = this.removeCommonElement(itemList, tempList);
                 list = this.removeCommonElement(list, tempList);
-                this.mSelectionInfoList.addAll(this.getSelectionInfoByRangeArray(getRangeArrayByRangeList(var8)));
+                mSelectionInfoList.add(getSelectionInfoByRangeArray(getRangeArrayByRangeList(var8)));
             } else {
-                this.mSelectionInfoList.add(selectionInfo);
+                mSelectionInfoList.add(selectionInfo);
             }
+        }
+        if (list != null && list.size() != 0) {
+
         }
     }
 
     private ArrayList<SelectionInfo> getSelectionInfoByRangeArray(int[] arr) {
-        
+        ArrayList var4 = new ArrayList();
+        int var3 = arr.length / 2;
+
+        for (int var2 = 0; var2 < var3; ++var2) {
+            var4.add(this.creatSelctionInfo(arr[var2 % 2 + var2], arr[var2 % 2 + var2 + 1]));
+        }
+
+        return var4;
+    }
+
+    private SelectionInfo creatSelctionInfo(int startIndex, int endIndex) {
+        return new SelectionInfo(this, startIndex, endIndex);
     }
 
     private int[] getRangeArrayByRangeList(ArrayList<Integer> list) {
