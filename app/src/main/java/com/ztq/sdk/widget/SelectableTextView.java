@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.utils.CharacterUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -155,7 +156,7 @@ public class SelectableTextView extends AppCompatTextView {
             if (!tempList.isEmpty()) {
                 ArrayList var8 = this.removeCommonElement(itemList, tempList);
                 list = this.removeCommonElement(list, tempList);
-                mSelectionInfoList.add(getSelectionInfoByRangeArray(getRangeArrayByRangeList(var8)));
+                mSelectionInfoList.addAll(getSelectionInfoByRangeArray(getRangeArrayByRangeList(var8)));
             } else {
                 mSelectionInfoList.add(selectionInfo);
             }
