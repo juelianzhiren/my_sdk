@@ -18,7 +18,7 @@ public class DemoActivity extends Activity {
         setContentView(R.layout.activity_demo);
 
         mSelectableTv = findViewById(R.id.selectable_tv);
-        mSelectableTv.setText("我我饿哦哦我哦哦我饿我哦房东偶发的搜房度搜啊欧迪芬辅导老师都爱发拉风的搜阿斯顿发了的撒讲道理两间房的酸辣粉领导领导拉收到了sad领导看两三点加适量的健康李开复达萨罗联发科大厦");
+        mSelectableTv.setText("我我饿哦哦！我哦哦我饿我哦房东。偶发的搜房度搜，啊欧迪芬。辅导老师都爱发，拉风的搜阿斯顿发了的撒讲道理两间房的酸辣粉领导领导拉收到了sad领导看两三点加适量的健康李开复达萨罗联发科大厦");
     }
 
     @Override

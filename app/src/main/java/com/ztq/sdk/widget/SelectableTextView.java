@@ -57,7 +57,7 @@ public class SelectableTextView extends AppCompatTextView {
 
     private void init(Context context) {
         this.mContext = context;
-        mNinePatchDrawable = getContext().getDrawable(R.drawable.ic_smear_part);
+        mNinePatchDrawable = mContext.getResources().getDrawable(R.drawable.ic_smear_part);
         mSelectionInfoList = new ArrayList<>();
         mSelectionInfoListTemp = new ArrayList<>();
 
