@@ -2,8 +2,10 @@ package com.ztq.sdk.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Layout;
 import android.util.AttributeSet;
@@ -34,6 +36,11 @@ public class SelectableTextView extends AppCompatTextView {
     private int mMoveTouchY;
     private OnSelectableTextViewListener mOnSelectableTextViewListener;
     private List<SelectionInfo> mSelectionInfoList;
+    private List<SelectionInfo> mSelectionInfoListTemp;
+    private int mMaxTextLength;
+    private int mLineSpacing;
+    private Rect mSelectedBound;
+    private RectF rectF;
 
     public SelectableTextView(Context context) {
         this(context, null);
@@ -50,8 +57,12 @@ public class SelectableTextView extends AppCompatTextView {
 
     private void init(Context context) {
         this.mContext = context;
-        mNinePatchDrawable = (NinePatchDrawable) getContext().getDrawable(R.drawable.ic_smear_part);
+        mNinePatchDrawable = getContext().getDrawable(R.drawable.ic_smear_part);
         mSelectionInfoList = new ArrayList<>();
+        mSelectionInfoListTemp = new ArrayList<>();
+
+        this.mSelectedBound = new Rect();
+        rectF = new RectF();
     }
 
     public void setOnSelectableTextViewListener(OnSelectableTextViewListener mOnSelectableTextViewListener) {
@@ -60,31 +71,31 @@ public class SelectableTextView extends AppCompatTextView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int offsetForTouch = 0;
+        int offsetForTouch = (int) event.getRawX();
         int offsetForMoving = 0;
-        switch(event.getAction()) {
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Log.v(TAG, "MotionEvent.ACTION_DOWN");
-                mTouchX = (int)event.getX();
-                mTouchY = (int)event.getY();
+                mTouchX = (int) event.getX();
+                mTouchY = (int) event.getY();
                 offsetForTouch = getPreciseOffset(mTouchX, mTouchY);
                 mIsTouchValid = checkIsValid(offsetForTouch);
                 mSelectedLine = getLayout().getLineForOffset(offsetForTouch);
                 Log.v(TAG, "mSelectedLine = " + mSelectedLine);
                 this.mIsSliding = true;
                 if (mIsTouchValid) {
-                    if (mOnSelectableTextViewListener != null) {
-                        mOnSelectableTextViewListener.startSelectWord();
-                    }
+                    startSelectionText();
                     manageSelected(offsetForTouch, offsetForTouch);
+                    verifySelectionInfo();
+                    postInvalidate();
                     return true;
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.v(TAG, "MotionEvent.ACTION_MOVE");
                 if (mIsTouchValid && mIsSliding) {
-                    mMoveTouchX = (int)event.getX();
-                    mMoveTouchY = (int)event.getY();
+                    mMoveTouchX = (int) event.getX();
+                    mMoveTouchY = (int) event.getY();
                     offsetForTouch = getPreciseOffset(mTouchX, mTouchY);
                     offsetForMoving = getPreciseOffset(mMoveTouchX, mMoveTouchY);
                     int line = getLayout().getLineForOffset(offsetForMoving);
@@ -93,36 +104,93 @@ public class SelectableTextView extends AppCompatTextView {
                         return true;
                     }
                     manageSelected(offsetForTouch, getValidTextNumber(offsetForTouch, offsetForMoving));
+                    verifySelectionInfo();
+                    postInvalidate();
                 }
                 break;
             case MotionEvent.ACTION_UP:
-
+                Log.v(TAG, "MotionEvent.ACTION_UP");
+                endSelectionText();
                 break;
             case MotionEvent.ACTION_CANCEL:
-
+                Log.v(TAG, "MotionEvent.ACTION_CANCEL");
+                endSelectionText();
                 break;
         }
         return true;
+    }
+
+    private void verifySelectionInfo() {
+        int var1 = 0;
+        while(var1 < this.mSelectionInfoList.size()) {
+            SelectionInfo var5 = (SelectionInfo)this.mSelectionInfoList.get(var1);
+            int var2 = var5.getStartIndex();
+            int var4 = var5.getEndIndex();
+
+            int var3;
+            while(true) {
+                var3 = var4;
+                if (this.checkIsValid(var2)) {
+                    break;
+                }
+                var3 = var4;
+                if (var2 > var4) {
+                    break;
+                }
+                ++var2;
+            }
+
+            while(!this.checkIsValid(var3) && var2 <= var3) {
+                --var3;
+            }
+
+            if (var2 <= var3) {
+                var5.setStartIndex(var2);
+                var5.setEndIndex(var3);
+                ++var1;
+            } else {
+                this.mSelectionInfoList.remove(var1);
+            }
+        }
+    }
+
+    private void startSelectionText() {
+        if (mOnSelectableTextViewListener != null) {
+            mOnSelectableTextViewListener.startSelectWord();
+        }
+        this.mSelectionInfoListTemp.clear();
+        this.mSelectionInfoListTemp.addAll(this.mSelectionInfoList);
+    }
+
+    private void endSelectionText() {
+        mIsTouchValid = false;
+        this.mSelectionInfoListTemp.clear();
+        this.mSelectionInfoListTemp.addAll(this.mSelectionInfoList);
+        if (this.mOnSelectableTextViewListener != null) {
+            this.mOnSelectableTextViewListener.endSelectWord();
+        }
+        verifySelectionInfo();
+        postInvalidate();
     }
 
     private int getValidTextNumber(int startOffset, int endOffset) {
         int validTextCount = 0;
         int i = 0;
         if (startOffset > endOffset) {
-            for(i = startOffset; i >= endOffset; i--) {
+            for (i = startOffset; i >= endOffset; i--) {
                 if (isValidText(i)) {
                     validTextCount++;
                 }
-                if (validTextCount > MAX_WORDS_SIZE) {
+                if (validTextCount >= MAX_WORDS_SIZE) {
                     return i;
                 }
             }
         } else {
-            for(i = startOffset; i <= endOffset; i++) {
+            for (i = startOffset; i <= endOffset; i++) {
                 if (isValidText(i)) {
                     validTextCount++;
                 }
-                if (validTextCount > MAX_WORDS_SIZE) {
+                if (validTextCount >= MAX_WORDS_SIZE) {
                     return i;
                 }
             }
@@ -147,9 +215,11 @@ public class SelectableTextView extends AppCompatTextView {
     private void manageSelected(int offsetStart, int offsetEnd) {
         ArrayList<Integer> list = this.createListByRange(getSelectedRanges(offsetStart, offsetEnd));
         ArrayList tempList = new ArrayList();
-        for(int i = 0; i < mSelectionInfoList.size(); i++) {
-            SelectionInfo selectionInfo = mSelectionInfoList.get(i);
-            ArrayList<Integer> itemList = createListByRange(getSelectedRanges(selectionInfo.getStartIndex(), selectionInfo.getEndIndex()));
+        mSelectionInfoList.clear();
+        for (int i = 0; i < mSelectionInfoListTemp.size(); i++) {
+            SelectionInfo selectionInfo = mSelectionInfoListTemp.get(i);
+            ArrayList<Integer> itemList =
+                    createListByRange(getSelectedRanges(selectionInfo.getStartIndex(), selectionInfo.getEndIndex()));
             tempList.clear();
             tempList.addAll(list);
             tempList.retainAll(itemList);
@@ -162,38 +232,57 @@ public class SelectableTextView extends AppCompatTextView {
             }
         }
         if (list != null && list.size() != 0) {
-
+            List<Integer> rangeList = this.getRangeArrayByRangeList(list);
+            this.mSelectionInfoList.addAll(this.getSelectionInfoByRangeArray(rangeList));
         }
     }
 
-    private ArrayList<SelectionInfo> getSelectionInfoByRangeArray(int[] arr) {
-        ArrayList var4 = new ArrayList();
-        int var3 = arr.length / 2;
-
-        for (int var2 = 0; var2 < var3; ++var2) {
-            var4.add(this.creatSelctionInfo(arr[var2 % 2 + var2], arr[var2 % 2 + var2 + 1]));
+    private ArrayList<SelectionInfo> getSelectionInfoByRangeArray(List<Integer> list) {
+        ArrayList resultList = new ArrayList();
+        int size = list.size() / 2;
+        for (int i = 0; i < size; ++i) {
+            resultList.add(this.creatSelctionInfo(list.get(2 * i), list.get(2 * i + 1)));
         }
-
-        return var4;
+        return resultList;
     }
 
     private SelectionInfo creatSelctionInfo(int startIndex, int endIndex) {
         return new SelectionInfo(this, startIndex, endIndex);
     }
 
-    private int[] getRangeArrayByRangeList(ArrayList<Integer> list) {
+    private List<Integer> getRangeArrayByRangeList(ArrayList<Integer> list) {
         Collections.sort(list);
-        int[] arr = new int[2];
-        arr[0] = list.get(0);
-        arr[1] = list.get(list.size() - 1);
-        return arr;
+        List<Integer> resultList = new ArrayList<>();
+        int a = Integer.MIN_VALUE;
+        int nextValue = 0;
+        for (int i = 0; i < list.size(); i++) {
+            nextValue = a;
+            if (a != Integer.MIN_VALUE) {
+                nextValue = a + 1;
+            }
+            if (nextValue == Integer.MIN_VALUE) {
+                a = list.get(i);
+                resultList.add(a);
+            } else {
+                a = nextValue;
+                if (nextValue != list.get(i)) {
+                    resultList.add(nextValue - 1);
+                    a = list.get(i);
+                    resultList.add(a);
+                }
+            }
+        }
+        if (nextValue != Integer.MIN_VALUE) {
+            resultList.add(nextValue);
+        }
+        return resultList;
     }
 
     private ArrayList<Integer> removeCommonElement(ArrayList<Integer> list1, ArrayList<Integer> list2) {
         ArrayList list = new ArrayList();
         int size = list1.size();
 
-        for(int i = 0; i < size; ++i) {
+        for (int i = 0; i < size; ++i) {
             if (!list2.contains(list1.get(i))) {
                 list.add(list1.get(i));
             }
@@ -203,7 +292,7 @@ public class SelectableTextView extends AppCompatTextView {
 
     private ArrayList<Integer> createListByRange(int[] arr) {
         ArrayList list = new ArrayList();
-        for(int i = arr[0]; i <= arr[1]; i++) {
+        for (int i = arr[0]; i <= arr[1]; i++) {
             list.add(i);
         }
         return list;
@@ -223,6 +312,7 @@ public class SelectableTextView extends AppCompatTextView {
 
     /**
      * 判断是否
+     *
      * @param offset 偏移量
      * @return
      */
@@ -241,7 +331,7 @@ public class SelectableTextView extends AppCompatTextView {
 
     private boolean isValidByChar(char character) {
         boolean flag = true;
-        for(int i = 0; i < INVALID_CHARS.length; i++) {
+        for (int i = 0; i < INVALID_CHARS.length; i++) {
             if (character == INVALID_CHARS[i]) {
                 flag = false;
                 break;
@@ -254,9 +344,9 @@ public class SelectableTextView extends AppCompatTextView {
         Layout layout = getLayout();
         int offset = 0;
         if (layout != null) {
-            offset = layout.getOffsetForHorizontal(layout.getLineForVertical(touchY), (float)touchX);
-            Log.v(TAG, "lineForVertical = " + layout.getLineForVertical(touchY) + "; getOffsetForHorizontal = " + layout.getOffsetForHorizontal(layout.getLineForVertical(touchY), (float)touchX) + "; layout.getPrimaryHorizontal(offset) = " + layout.getPrimaryHorizontal(offset) + "; touchX = " + touchX + "; layout.getOffsetToLeftOf(offset) = " + layout.getOffsetToLeftOf(offset));
-            if ((int)layout.getPrimaryHorizontal(offset) > touchX) {
+            offset = layout.getOffsetForHorizontal(layout.getLineForVertical(touchY), (float) touchX);
+            Log.v(TAG, "lineForVertical = " + layout.getLineForVertical(touchY) + "; " + "getOffsetForHorizontal = " + layout.getOffsetForHorizontal(layout.getLineForVertical(touchY), (float) touchX) + "; layout.getPrimaryHorizontal(offset) = " + layout.getPrimaryHorizontal(offset) + "; touchX = " + touchX + "; layout.getOffsetToLeftOf(offset) = " + layout.getOffsetToLeftOf(offset));
+            if ((int) layout.getPrimaryHorizontal(offset) > touchX) {
                 return layout.getOffsetToLeftOf(offset);
             }
         }
@@ -264,8 +354,52 @@ public class SelectableTextView extends AppCompatTextView {
     }
 
     @Override
+    public void setText(CharSequence text, BufferType type) {
+        super.setText(text, type);
+        this.mMaxTextLength = this.getText().length();
+        if (Build.VERSION.SDK_INT >= 16) {
+            this.mLineSpacing = (int) this.getLineSpacingExtra();
+        }
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
+        Log.v(TAG, "onDraw");
         super.onDraw(canvas);
+        int size = mSelectionInfoList.size();
+        for (int i = 0; i < size; i++) {
+            int startIndex = ((SelectionInfo) mSelectionInfoList.get(i)).getStartIndex();
+            int endIndex = ((SelectionInfo) mSelectionInfoList.get(i)).getEndIndex() + 1;
+            if (endIndex >= this.mMaxTextLength) {
+                endIndex = this.mMaxTextLength;
+            }
+            int lineOffsetForStartIndex = getLayout().getLineForOffset(startIndex);
+            int lineOffsetForEndIndex = getLayout().getLineForOffset(endIndex);
+            for (int j = lineOffsetForStartIndex; j <= lineOffsetForEndIndex; j++) {
+                getLayout().getLineBounds(j, mSelectedBound);
+                rectF.top = (float) mSelectedBound.top;
+                rectF.bottom = mSelectedBound.bottom;
+                rectF.left = mSelectedBound.left;
+                rectF.right = mSelectedBound.right;
+                if (j == lineOffsetForStartIndex) {
+                    rectF.left = (float) ((int) this.getLayout().getPrimaryHorizontal(startIndex));
+                }
+                if (j == lineOffsetForEndIndex) {
+                    rectF.right = (float) ((int) this.getLayout().getPrimaryHorizontal(endIndex));
+                }
+                manageDrawPadding(rectF);
+                mNinePatchDrawable.setBounds((int) rectF.left, (int) rectF.top, (int) rectF.right, (int) rectF.bottom);
+                mNinePatchDrawable.draw(canvas);
+            }
+        }
+    }
+
+    private RectF manageDrawPadding(RectF var1) {
+        var1.top -= 0.0F;
+        var1.bottom += 0.0F;
+        var1.left -= 3F;
+        var1.right += 3F;
+        return var1;
     }
 
     public static class SelectionInfo {
@@ -308,9 +442,10 @@ public class SelectableTextView extends AppCompatTextView {
         ArrayList list = new ArrayList();
         if (this.mSelectionInfoList != null) {
             Iterator iterator = this.mSelectionInfoList.iterator();
-
-            while(iterator.hasNext()) {
-                list.add(((SelectionInfo)iterator.next()).getSelectedText());
+            while (iterator.hasNext()) {
+                String text = ((SelectionInfo) iterator.next()).getSelectedText();
+                list.add(text);
+                Log.v(TAG, "text = " + text);
             }
         }
         return list;
