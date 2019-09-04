@@ -86,7 +86,6 @@ public class SelectableTextView extends AppCompatTextView {
                 if (mIsTouchValid) {
                     startSelectionText();
                     manageSelected(offsetForTouch, offsetForTouch);
-                    verifySelectionInfo();
                     postInvalidate();
                     return true;
                 }
@@ -103,8 +102,8 @@ public class SelectableTextView extends AppCompatTextView {
                         this.mIsSliding = false;
                         return true;
                     }
+                    Log.v(TAG, "validTextNumber = " + getValidTextNumber(offsetForTouch, offsetForMoving) + "; offsetForTouch = " + offsetForTouch);
                     manageSelected(offsetForTouch, getValidTextNumber(offsetForTouch, offsetForMoving));
-                    verifySelectionInfo();
                     postInvalidate();
                 }
                 break;
@@ -118,40 +117,6 @@ public class SelectableTextView extends AppCompatTextView {
                 break;
         }
         return true;
-    }
-
-    private void verifySelectionInfo() {
-        int var1 = 0;
-        while(var1 < this.mSelectionInfoList.size()) {
-            SelectionInfo var5 = (SelectionInfo)this.mSelectionInfoList.get(var1);
-            int var2 = var5.getStartIndex();
-            int var4 = var5.getEndIndex();
-
-            int var3;
-            while(true) {
-                var3 = var4;
-                if (this.checkIsValid(var2)) {
-                    break;
-                }
-                var3 = var4;
-                if (var2 > var4) {
-                    break;
-                }
-                ++var2;
-            }
-
-            while(!this.checkIsValid(var3) && var2 <= var3) {
-                --var3;
-            }
-
-            if (var2 <= var3) {
-                var5.setStartIndex(var2);
-                var5.setEndIndex(var3);
-                ++var1;
-            } else {
-                this.mSelectionInfoList.remove(var1);
-            }
-        }
     }
 
     private void startSelectionText() {
@@ -169,7 +134,6 @@ public class SelectableTextView extends AppCompatTextView {
         if (this.mOnSelectableTextViewListener != null) {
             this.mOnSelectableTextViewListener.endSelectWord();
         }
-        verifySelectionInfo();
         postInvalidate();
     }
 
@@ -185,6 +149,7 @@ public class SelectableTextView extends AppCompatTextView {
                     return i;
                 }
             }
+            return i + 1;
         } else {
             for (i = startOffset; i <= endOffset; i++) {
                 if (isValidText(i)) {
@@ -194,8 +159,8 @@ public class SelectableTextView extends AppCompatTextView {
                     return i;
                 }
             }
+            return i - 1;
         }
-        return i + 1;
     }
 
     private boolean isValidText(int index) {
@@ -218,8 +183,7 @@ public class SelectableTextView extends AppCompatTextView {
         mSelectionInfoList.clear();
         for (int i = 0; i < mSelectionInfoListTemp.size(); i++) {
             SelectionInfo selectionInfo = mSelectionInfoListTemp.get(i);
-            ArrayList<Integer> itemList =
-                    createListByRange(getSelectedRanges(selectionInfo.getStartIndex(), selectionInfo.getEndIndex()));
+            ArrayList<Integer> itemList = createListByRange(getSelectedRanges(selectionInfo.getStartIndex(), selectionInfo.getEndIndex()));
             tempList.clear();
             tempList.addAll(list);
             tempList.retainAll(itemList);
@@ -231,10 +195,13 @@ public class SelectableTextView extends AppCompatTextView {
                 mSelectionInfoList.add(selectionInfo);
             }
         }
+        Log.v(TAG, "list size = " + list.size());
         if (list != null && list.size() != 0) {
             List<Integer> rangeList = this.getRangeArrayByRangeList(list);
+            Log.v(TAG, "rangeList size = " + rangeList.size());
             this.mSelectionInfoList.addAll(this.getSelectionInfoByRangeArray(rangeList));
         }
+        Log.v(TAG, "mSelectionInfoList size = " + mSelectionInfoList.size());
     }
 
     private ArrayList<SelectionInfo> getSelectionInfoByRangeArray(List<Integer> list) {
@@ -272,8 +239,8 @@ public class SelectableTextView extends AppCompatTextView {
                 }
             }
         }
-        if (nextValue != Integer.MIN_VALUE) {
-            resultList.add(nextValue);
+        if (a != Integer.MIN_VALUE) {
+            resultList.add(a);
         }
         return resultList;
     }
