@@ -839,4 +839,83 @@ public class Utils {
         Bitmap newBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         return newBitmap;
     }
+
+    /**
+     * 方法描述：判断某一应用是否正在运行(有个缺点，除了桌面外，其它系统的app信息获取不到)
+     * Created by cafeting on 2017/2/4.
+     *
+     * @param context     上下文
+     * @param packageName 应用的包名
+     * @return true 表示正在运行，false 表示没有运行
+     */
+    public static boolean isAppRunning(Context context, String packageName) {
+        if (context == null || isNullOrNil(packageName)) {
+            return false;
+        }
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(100);
+        Log.v(TAG, "list size = " + list.size());
+        if (list.size() <= 0) {
+            return false;
+        }
+        for (ActivityManager.RunningTaskInfo info : list) {
+            Log.v(TAG, "list packagename = " + info.baseActivity.getPackageName());
+            if (info.baseActivity.getPackageName().equals(packageName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 判断某一 uid 的程序是否有正在运行的进程，即是否存活(有个缺点，除了桌面外，其它系统的app信息获取不到)
+     * Created by cafeting on 2017/2/4.
+     *
+     * @param context     上下文
+     * @param uid 已安装应用的 uid
+     * @return true 表示正在运行，false 表示没有运行
+     */
+    public static boolean isProcessRunning(Context context, int uid) {
+        if (context == null || uid < 0) {
+            return false;
+        }
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningServiceInfo> runningServiceInfos = am.getRunningServices(200);
+        if (runningServiceInfos.size() > 0) {
+            for (ActivityManager.RunningServiceInfo appProcess : runningServiceInfos){
+                if (uid == appProcess.uid) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //获取已安装应用的 uid，-1 表示未安装此应用或程序异常
+    public static int getPackageUid(Context context, String packageName) {
+        if (context == null || isNullOrNil(packageName)) {
+            return -1;
+        }
+        try {
+            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(packageName, 0);
+            if (applicationInfo != null) {
+                return applicationInfo.uid;
+            }
+        } catch (Exception e) {
+            return -1;
+        }
+        return -1;
+    }
+
+    public static boolean isAppOrProcessRunnings(Context context, String packageName) {
+        int uid = getPackageUid(context, packageName);
+        if(uid > 0){
+            boolean isAppRunning = isAppRunning(context, packageName);
+            boolean isProcessRunning = isProcessRunning(context, uid);
+            Log.v(TAG, "isAppRunning = " + isAppRunning + "; isProcessRunning = " + isProcessRunning);
+            return isAppRunning | isProcessRunning;
+        }else{
+            return false;
+        }
+    }
 }

@@ -146,6 +146,9 @@ public class MainActivity extends Activity {
         mCircleProgressBar.setIsShowTextProgress(true);
 
         Log.v(TAG, "AppStore.apk md5 value is " + SignMd5.getMd5(this));
+        String packageName = "com.noahedu.hanzidictation";
+        boolean isRunning = Utils.isAppOrProcessRunnings(this, packageName);
+        Log.v(TAG, "isAppOrProcessRunning = " + isRunning);
     }
 
     @Override
