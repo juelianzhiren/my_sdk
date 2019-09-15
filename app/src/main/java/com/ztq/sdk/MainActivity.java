@@ -82,10 +82,10 @@ public class MainActivity extends Activity {
         });
 
         mPinyinTv = findViewById(R.id.pinyin_tv);
-        String hanzi = "我哦我我我哦我饿哦我adbdfa我我哦我我范德萨范德萨撒地方双方都反倒是我我我哦我我我哦我打算佛佛打扫反倒是偶觉得发顺丰加大了对富士康里发了发的书";
+        String hanzi = "我哦我我我哦我饿哦我adbdfa我我哦\n我我范德萨范德萨撒地方双方都反倒是为我离我而哦我我饿哦我我饿哦我嗯哦哦饿哦沃尔沃浪费\n了打算理发静安寺法拉第十六大是否发大水";
         List<String> hanziList = Utils.getFormatHanzi(hanzi);
-        List<String> pinyinList = Utils.getPinyinString(hanzi);
 
+        List<String> pinyinList = Utils.getPinyinString(hanzi);
 //        pinyinList.clear();
 //        pinyinList.add(" wo ");
 //        pinyinList.add(" o ");
@@ -106,6 +106,7 @@ public class MainActivity extends Activity {
 //        pinyinList.add(" wo ");
 //        pinyinList.add(" wo");
 //        pinyinList.add(" o ");
+//        pinyinList.add("null");
 //        pinyinList.add(" wo ");
 //        pinyinList.add(" wo ");
 //        pinyinList.add(" fan ");
@@ -125,9 +126,13 @@ public class MainActivity extends Activity {
 //        pinyinList.add(" shi ");
 
         Log.v(TAG, "hanzis length = " + hanziList.size() + "; pinyins length = " + pinyinList.size());
+        for(int i = 0; i < hanziList.size(); i++) {
+            Log.v(TAG, "hanzi 111 " + i + ": " + hanziList.get(i).equals("\n"));
+        }
         mPinyinTv.setHanziList(hanziList);
         mPinyinTv.setPinyinList(pinyinList);
-        mPinyinTv.setmIsPinyinGeneratedByPinyin4jJar(true);
+        mPinyinTv.organzieData();
+        mPinyinTv.setIsPinyinComposeOf7Chars(true);
         mPinyinTv.setScrollEnable(true);
         mPinyinTv.setTextSize(80);
         mPinyinTv.setTextColor(Color.BLACK);
@@ -146,9 +151,6 @@ public class MainActivity extends Activity {
         mCircleProgressBar.setIsShowTextProgress(true);
 
         Log.v(TAG, "AppStore.apk md5 value is " + SignMd5.getMd5(this));
-        String packageName = "com.noahedu.hanzidictation";
-        boolean isRunning = Utils.isAppOrProcessRunnings(this, packageName);
-        Log.v(TAG, "isAppOrProcessRunning = " + isRunning);
     }
 
     @Override
