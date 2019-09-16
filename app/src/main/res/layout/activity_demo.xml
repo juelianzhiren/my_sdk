@@ -20,5 +20,23 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myview"
+        android:visibility="gone"
         android:layout_marginTop="20dp"/>
+
+    <com.ztq.sdk.widget.SlideBackAndForthViewGroup
+        android:id="@+id/slide_view"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:background="@color/blue">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_launcher"/>
+    </com.ztq.sdk.widget.SlideBackAndForthViewGroup>
 </android.support.constraint.ConstraintLayout>

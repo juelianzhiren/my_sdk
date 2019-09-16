@@ -18,6 +18,10 @@ import com.ztq.sdk.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 自定义TextView，可显示拼音和文本，支持"\n"字符换行
+ * 在布局文件中声明android:gravity="center"支持整体内容水平居中
+ */
 public class PinyinTextView extends TextView {
     private final String TAG = "noahedu.PinyinTextView";
 
@@ -28,7 +32,6 @@ public class PinyinTextView extends TextView {
     private TextPaint pinyinPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
 
     private ArrayList<Integer> indexList = new ArrayList<>();    // 存储每行首个String位置
-    private int comlum = 1;
     private float density;
     private float width = 0;
 
@@ -51,6 +54,8 @@ public class PinyinTextView extends TextView {
     }
 
     public void initTextPaint() {
+        density = getResources().getDisplayMetrics().density;
+
         textPaint.setColor(color);
         textPaint.setTextSize(60);
         textPaint.setStrokeWidth(density * 2);
@@ -58,8 +63,6 @@ public class PinyinTextView extends TextView {
         pinyinPaint.setColor(color);
         pinyinPaint.setTextSize(20);
         pinyinPaint.setStrokeWidth(density * 2);
-
-        density = getResources().getDisplayMetrics().density;
 
         int screenWidth = getResources().getDisplayMetrics().widthPixels;
         int screenHeight = getResources().getDisplayMetrics().heightPixels;
@@ -243,65 +246,73 @@ public class PinyinTextView extends TextView {
     protected void onDraw(Canvas canvas) {
         Log.v(TAG, "onDraw");
         int gravity = getGravity();
-        float widthMesure = 0f;
+        Log.v(TAG, "gravity = " + gravity);
+        float offset = 0f;
 
         float pinyinUnitWidth = 0;
         float hanziUnitWidth = 0;
         boolean flag = false;
         float unitWidth = 0;
-        if (mIsPinyinComposeOf7Chars) {
-            for(int i = 0; i < indexList.size(); i++) {
-                widthMesure = 0;
-                int startIndex = indexList.get(i);
-                String hanzi = hanziList.get(startIndex);
-                int endIndex = hanziList.size();
 
-                if (i != indexList.size() - 1) {
-                    endIndex = indexList.get(i + 1);
+        for(int i = 0; i < indexList.size(); i++) {
+            offset = 0;
+            int startIndex = indexList.get(i);
+            String hanzi = hanziList.get(startIndex);
+            int endIndex = hanziList.size();
+
+            if (i != indexList.size() - 1) {
+                endIndex = indexList.get(i + 1);
+            }
+            if (indexList.size() == 1) {
+                if (gravity == Gravity.CENTER) {
+                    offset = (getWidth() - getMaxLength(0, pinyinList.size())) / 2;
                 }
-                if (indexList.size() == 1) {
+            } else {
+                Log.v(TAG, "line " + i + ": " + hanzi + "; flag = " + flag + "; " + hanzi.equals("\n"));
+                if (!hanzi.equals("\n")) {
                     if (gravity == Gravity.CENTER) {
-                        widthMesure = (getWidth() - getMaxLength(0, pinyinList.size())) / 2;
+                        offset = (getWidth() - getMaxLength(startIndex, endIndex)) / 2;
                     }
                 } else {
-                    Log.v(TAG, "line " + i + ": " + hanzi + "; flag = " + flag + "; " + hanzi.equals("\n"));
-                    if (!hanzi.equals("\n")) {
-                        if (gravity == Gravity.CENTER) {
-                            widthMesure = (getWidth() - getMaxLength(startIndex, endIndex)) / 2;
-                        }
-                    } else {
-                        if (gravity == Gravity.CENTER) {
-                            startIndex = getIndex(startIndex + 1);
-                            widthMesure = (getWidth() - getMaxLength(startIndex, endIndex)) / 2;
+                    if (gravity == Gravity.CENTER) {
+                        startIndex = getIndex(startIndex + 1);
+                        offset = (getWidth() - getMaxLength(startIndex, endIndex)) / 2;
 
-                            Log.v(TAG, "==\n, widthMeasure = " + widthMesure);
-                        }
+                        Log.v(TAG, "==\n, offset = " + offset);
                     }
                 }
-                Log.v(TAG, "widthMeasure = " + widthMesure + "; startIndex = " + startIndex + "; endIndex = " + endIndex + "; getWidth = " + getWidth() + "; getMaxLength = " + getMaxLength(startIndex, endIndex));
-                for(int j = startIndex; j < endIndex; j++) {
-                    hanzi = hanziList.get(j);
-                    String pinyin = pinyinList.get(j);
-                    if (hanzi.equals("\n")) {
-                        continue;
+            }
+            Log.v(TAG, "offset = " + offset + "; startIndex = " + startIndex + "; endIndex = " + endIndex + "; getWidth = " + getWidth() + "; getMaxLength = " + getMaxLength(startIndex, endIndex));
+            for(int j = startIndex; j < endIndex; j++) {
+                hanzi = hanziList.get(j);
+                String pinyin = pinyinList.get(j);
+                if (hanzi.equals("\n")) {
+                    continue;
+                } else {
+                    Log.v(TAG, "pinyin = " + pinyin);
+                    if (Utils.isNullOrNil(pinyin) || pinyin.toLowerCase().equals("null")) {
+                        flag = true;
+                        unitWidth = textPaint.measureText(hanzi);
                     } else {
-                        Log.v(TAG, "pinyin = " + pinyin);
-                        if (Utils.isNullOrNil(pinyin) || pinyin.toLowerCase().equals("null")) {
-                            flag = true;
-                            unitWidth = textPaint.measureText(hanzi);
-                        } else {
-                            pinyinUnitWidth = pinyinPaint.measureText(pinyinList.get(j).substring(0, pinyinList.get(j).length() - 1));
-                            hanziUnitWidth = textPaint.measureText(hanziList.get(j));
-                            flag = false;
+                        flag = false;
+                        if (mIsPinyinComposeOf7Chars) {
+                            pinyinUnitWidth = pinyinPaint.measureText(pinyin.substring(0, pinyin.length() - 1));
+                            hanziUnitWidth = textPaint.measureText(hanzi);
                             unitWidth = pinyinUnitWidth >= hanziUnitWidth ? pinyinUnitWidth : hanziUnitWidth;
-                        }
-                        if (flag) {
-                            canvas.drawText(hanziList.get(j), widthMesure, (i + 1) * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);
                         } else {
-                            canvas.drawText(hanziList.get(j), pinyinUnitWidth >= hanziUnitWidth ? (widthMesure + (pinyinPaint.measureText(pinyinList.get(j).substring(0, pinyinList.get(j).length() - 1)) - textPaint.measureText(hanziList.get(j))) / 2 - moveHalfIfNeed(pinyinList.get(j).substring(0, pinyinList.get(j).length() - 1), textPaint)) : widthMesure, (i + 1) * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
-                            canvas.drawText(pinyinList.get(j).substring(0, pinyinList.get(j).length() - 1), (pinyinUnitWidth >= hanziUnitWidth ? widthMesure : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2), (i + 1) * pinyinPaint.getFontSpacing() + i * textPaint.getFontSpacing() + pinyinPaint.getFontMetrics().bottom, pinyinPaint);
+                            pinyinUnitWidth = pinyinPaint.measureText(pinyin);
+                            hanziUnitWidth = textPaint.measureText(hanzi);
+                            unitWidth = (pinyinUnitWidth >= hanziUnitWidth ? pinyinUnitWidth : hanziUnitWidth);
+                        }
+                    }
+                    if (flag) {
+                        canvas.drawText(hanzi, offset, (i + 1) * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
+                    } else {
+                        if (mIsPinyinComposeOf7Chars) {
+                            canvas.drawText(hanzi, pinyinUnitWidth >= hanziUnitWidth ? (offset + (pinyinPaint.measureText(pinyin.substring(0, pinyin.length() - 1)) - textPaint.measureText(hanzi)) / 2 - moveHalfIfNeed(pinyin.substring(0, pinyin.length() - 1), textPaint)) : offset, (i + 1) * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
+                            canvas.drawText(pinyin.substring(0, pinyin.length() - 1), (pinyinUnitWidth >= hanziUnitWidth ? offset : offset + (hanziUnitWidth - pinyinUnitWidth) / 2), (i + 1) * pinyinPaint.getFontSpacing() + i * textPaint.getFontSpacing() + pinyinPaint.getFontMetrics().bottom, pinyinPaint);
                             String tone = " ";
-                            switch (pinyinList.get(j).charAt(pinyinList.get(j).length() - 1)) {
+                            switch (pinyin.charAt(pinyin.length() - 1)) {
                                 case '1':
                                     tone = "ˉ";
                                     break;
@@ -315,84 +326,34 @@ public class PinyinTextView extends TextView {
                                     tone = "ˋ";
                                     break;
                             }
-                            int toneIndex = pinyinList.get(j).length() - 3;  // 去掉数字和空格符,这里是等于5
+                            int toneIndex = pinyin.length() - 3;  // 去掉数字和空格符,这里是等于5
                             Log.v(TAG, "toneIndex = " + toneIndex);
                             int stateIndex = -1;
                             for (; toneIndex >= 0; toneIndex--) {
-                                if (pinyinList.get(j).charAt(toneIndex) == 'a' || pinyinList.get(j).charAt(toneIndex) == 'e'
-                                        || pinyinList.get(j).charAt(toneIndex) == 'i' || pinyinList.get(j).charAt(toneIndex) == 'o'
-                                        || pinyinList.get(j).charAt(toneIndex) == 'u' || pinyinList.get(j).charAt(toneIndex) == 'v') {
-                                    if (stateIndex == -1 || pinyinList.get(j).charAt(toneIndex) < pinyinList.get(j).charAt(stateIndex)) {
+                                if (pinyin.charAt(toneIndex) == 'a' || pinyin.charAt(toneIndex) == 'e'
+                                        || pinyin.charAt(toneIndex) == 'i' || pinyin.charAt(toneIndex) == 'o'
+                                        || pinyin.charAt(toneIndex) == 'u' || pinyin.charAt(toneIndex) == 'v') {
+                                    if (stateIndex == -1 || pinyin.charAt(toneIndex) < pinyin.charAt(stateIndex)) {
                                         stateIndex = toneIndex;
                                     }
                                 }
                             }
                             // iu同时存在规则
-                            if (pinyinList.get(j).contains("u") && pinyinList.get(j).contains("i") && !pinyinList.get(j).contains("a") && !pinyinList.get(j).contains("o") && !pinyinList.get(j).contains("e")) {
-                                stateIndex = pinyinList.get(j).indexOf("u") > pinyinList.get(j).indexOf("i") ? pinyinList.get(j).indexOf("u") : pinyinList.get(j).indexOf("i");
+                            if (pinyin.contains("u") && pinyin.contains("i") && !pinyin.contains("a") && !pinyin.contains("o") && !pinyin.contains("e")) {
+                                stateIndex = pinyin.indexOf("u") > pinyin.indexOf("i") ? pinyin.indexOf("u") : pinyin.indexOf("i");
                             }
                             Log.e(TAG, "stateIndex === " + stateIndex + "; tone = " + tone);
                             if (stateIndex != -1) {
                                 // 没有声母存在时，stateIndex一直为-1 （'嗯' 转成拼音后变成 ng,
                                 // 导致没有声母存在，stateIndex一直为-1，数组越界crash）
 
-                                float toneX = pinyinUnitWidth >= hanziUnitWidth ? widthMesure + pinyinPaint.measureText(pinyinList.get(j).substring(0, stateIndex)) + (pinyinPaint.measureText(pinyinList.get(j).charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2 : widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2 + pinyinPaint.measureText(pinyinList.get(j).substring(0, stateIndex)) + (pinyinPaint.measureText(pinyinList.get(j).charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2;
+                                float toneX = pinyinUnitWidth >= hanziUnitWidth ? offset + pinyinPaint.measureText(pinyin.substring(0, stateIndex)) + (pinyinPaint.measureText(pinyin.charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2 : offset + (hanziUnitWidth - pinyinUnitWidth) / 2 + pinyinPaint.measureText(pinyin.substring(0, stateIndex)) + (pinyinPaint.measureText(pinyin.charAt(stateIndex) + "") - pinyinPaint.measureText(tone + "")) / 2;
                                 canvas.drawText(tone, toneX, (i + 1) * pinyinPaint.getFontSpacing() + i * textPaint.getFontSpacing() + pinyinPaint.getFontMetrics().bottom, pinyinPaint);
                                 Log.v(TAG, "tone y = " + ((i + 1) * 2 - 1) * (textPaint.getFontSpacing()));
                             }
-                        }
-                        widthMesure += unitWidth;
-                    }
-                }
-            }
-        } else {
-            for(int i = 0; i < indexList.size(); i++) {
-                widthMesure = 0;
-                int startIndex = indexList.get(i);
-                String hanzi = hanziList.get(startIndex);
-                int endIndex = hanziList.size();
-
-                if (i != indexList.size() - 1) {
-                    endIndex = indexList.get(i + 1);
-                }
-                if (indexList.size() == 1) {
-                    if (gravity == Gravity.CENTER) {
-                        widthMesure = (getWidth() - getMaxLength(0, pinyinList.size())) / 2;
-                    }
-                } else {
-                    if (!hanzi.equals("\n")) {
-                        if (gravity == Gravity.CENTER) {
-                            widthMesure = (getWidth() - getMaxLength(startIndex, endIndex)) / 2;
-                        }
-                    } else {
-                        if (gravity == Gravity.CENTER) {
-                            startIndex = getIndex(startIndex + 1);
-                            widthMesure = (getWidth() - getMaxLength(startIndex, endIndex)) / 2;
-                        }
-                    }
-                }
-                Log.v(TAG, "widthMeasure = " + widthMesure + "; startIndex = " + startIndex + "; endIndex = " + endIndex + "; getWidth = " + getWidth() + "; getMaxLength = " + getMaxLength(startIndex, endIndex));
-                for(int j = startIndex; j < endIndex; j++) {
-                    hanzi = hanziList.get(j);
-                    String pinyin = pinyinList.get(j);
-                    if (hanzi.equals("\n")) {
-                        continue;
-                    } else {
-                        Log.v(TAG, "pinyin = " + pinyin);
-                        if (Utils.isNullOrNil(pinyin) || pinyin.toLowerCase().equals("null")) {
-                            flag = true;
-                            unitWidth = textPaint.measureText(hanzi);
                         } else {
-                            pinyinUnitWidth = pinyinPaint.measureText(pinyin);
-                            hanziUnitWidth = textPaint.measureText(hanzi);
-                            unitWidth = (pinyinUnitWidth >= hanziUnitWidth ? pinyinUnitWidth : hanziUnitWidth);
-                            flag = false;
-                        }
-                        if (flag) {
-                            canvas.drawText(hanzi, widthMesure, (i + 1) * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);  // 由于拼音长度固定，采用居中显示策略，计算拼音实际长度不需要去掉拼音后面空格
-                        } else {
-                            canvas.drawText(hanzi, (hanziUnitWidth >= pinyinUnitWidth ? widthMesure : widthMesure + (pinyinUnitWidth - hanziUnitWidth) / 2), (i + 1) * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);
-                            canvas.drawText(pinyin, (hanziUnitWidth >= pinyinUnitWidth ? (widthMesure + (hanziUnitWidth - pinyinUnitWidth) / 2) : widthMesure), (i + 1) * pinyinPaint.getFontSpacing() + i * textPaint.getFontSpacing() + pinyinPaint.getFontMetrics().bottom, pinyinPaint);
+                            canvas.drawText(hanzi, (hanziUnitWidth >= pinyinUnitWidth ? offset : offset + (pinyinUnitWidth - hanziUnitWidth) / 2), (i + 1) * (pinyinPaint.getFontSpacing() + textPaint.getFontSpacing()), textPaint);
+                            canvas.drawText(pinyin, (hanziUnitWidth >= pinyinUnitWidth ? (offset + (hanziUnitWidth - pinyinUnitWidth) / 2) : offset), (i + 1) * pinyinPaint.getFontSpacing() + i * textPaint.getFontSpacing() + pinyinPaint.getFontMetrics().bottom, pinyinPaint);
                             Paint.FontMetrics fm = pinyinPaint.getFontMetrics();
                             float top = fm.top;
                             float bottom = fm.bottom;
@@ -401,8 +362,8 @@ public class PinyinTextView extends TextView {
                             float leading = fm.leading;
                             Log.v(TAG, "delta = " + ((pinyinPaint.getFontMetrics().descent - pinyinPaint.getFontMetrics().ascent) / 2) + "; " + leading + "; top = " + top + "; bottom = " + bottom + "; ascent = " + ascent + "; descent = " + descent);
                         }
-                        widthMesure += unitWidth;
                     }
+                    offset += unitWidth;
                 }
             }
         }
