@@ -10,7 +10,7 @@ import android.widget.Scroller;
 
 /**
  * Created by ztq on 2019/9/12.
- * 可来回滑动的viewgroup，但有个限制，在布局中，宽高必须为全屏
+ * 可来回滑动的viewgroup，切放开手后会自动滑回到初始处，但有个限制，在布局中，宽高必须为全屏
  */
 public class SlideBackAndForthViewGroup extends RelativeLayout {
     private final String TAG = "noahedu.SlideBackAndForthView";
@@ -21,6 +21,10 @@ public class SlideBackAndForthViewGroup extends RelativeLayout {
     private int mCurrentY;
     private int mMovingX;
     private int mMovingY;
+    private int mActivePointerId = -1;
+    private int mLeftX;
+    private int mDiffX;
+    private boolean mIsScrolling;
 
     public SlideBackAndForthViewGroup(Context context) {
         this(context, null);
@@ -40,10 +44,13 @@ public class SlideBackAndForthViewGroup extends RelativeLayout {
         mScroller = new Scroller(context);
         final ViewConfiguration configuration = ViewConfiguration.get(getContext());
         mTouchSlop = configuration.getScaledTouchSlop();
+
+        Log.v(TAG, "mTouchSlop = " + mTouchSlop);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        Log.v(TAG, "onInterceptTouchEvent, action = " + ev.getAction());
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (!mScroller.isFinished()) {
@@ -55,7 +62,7 @@ public class SlideBackAndForthViewGroup extends RelativeLayout {
             case MotionEvent.ACTION_MOVE:
                 mMovingX = (int)ev.getX();
                 mMovingY = (int)ev.getY();
-                if (Math.sqrt(Math.pow(mMovingX - mCurrentX, 2) + Math.pow(mMovingY - mCurrentY, 2)) > 10) {
+                if (Math.sqrt(Math.pow(mMovingX - mCurrentX, 2) + Math.pow(mMovingY - mCurrentY, 2)) >= mTouchSlop) {
                     return true;
                 }
                 break;
@@ -69,19 +76,70 @@ public class SlideBackAndForthViewGroup extends RelativeLayout {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                mCurrentX = (int)event.getX();
-                mCurrentY = (int)event.getY();
+                Log.v(TAG, "action_down");
+                if (!mScroller.isFinished()) {
+                    mScroller.abortAnimation();
+                }
+                mActivePointerId = event.getPointerId(0);
+                int pointerIndex = event.findPointerIndex(mActivePointerId);
+                float x = 0;
+                float y = 0;
+                try {
+                    mCurrentX = (int)event.getX(pointerIndex);
+                    mCurrentY = (int)event.getY(pointerIndex);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    break;
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+                mIsScrolling = false;
                 Log.v(TAG, "mCurrentX = " + mCurrentX + "; mCurrentY = " + mCurrentY);
                 break;
             case MotionEvent.ACTION_MOVE:
-                mMovingX = (int)event.getX();
-                mMovingY = (int)event.getY();
-                Log.v(TAG, "mMovingX = " + mMovingX + "; mMovingY = " + mMovingY);
-                awakenScrollBars();
-                mScroller.startScroll(mCurrentX, mCurrentY, (mMovingX - mCurrentX), (mMovingY - mCurrentY));
-                scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+                Log.v(TAG, "action_move");
+                pointerIndex = event.findPointerIndex(mActivePointerId);
+                x = 0;
+                y = 0;
+                try {
+                    x = event.getX(pointerIndex);
+                    y = event.getY(pointerIndex);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    break;
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+                mDiffX = (int) Math.abs(x - mCurrentX);
+                boolean xMoved = mDiffX > mTouchSlop;
+                if (xMoved) {
+                    mIsScrolling = true;
+                    try {
+                        mMovingX = (int) event.getX(pointerIndex);
+                        mMovingY = (int) event.getY(pointerIndex);
+                        Log.v(TAG, "mMovingX = " + mMovingX + "; mMovingY = " + mMovingY + "; pointerIndex = " + pointerIndex);
+                        invalidate();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
                 break;
             case MotionEvent.ACTION_UP:
+                mIsScrolling = false;
+                pointerIndex = event.findPointerIndex(mActivePointerId);
+                try {
+                    mMovingX = (int) event.getX(pointerIndex);
+                    mMovingY = (int) event.getY(pointerIndex);
+                    mLeftX += mMovingX - mCurrentX;
+                    Log.v(TAG, "action_up, mMovingX = " + mMovingX + "; mMovingY = " + mMovingY + "; pointerIndex = " + pointerIndex + "; mLeftX = " + mLeftX);
+                    int durationTime = Math.abs(mLeftX);
+                    if (durationTime == 0) {
+                        durationTime = 1000;
+                    }
+                    mScroller.startScroll(-mLeftX, 0, mLeftX, 0, durationTime);
+                    invalidate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                invalidate();
                 break;
         }
         return true;
@@ -89,8 +147,18 @@ public class SlideBackAndForthViewGroup extends RelativeLayout {
 
     @Override
     public void computeScroll() {
-        boolean flag = mScroller.computeScrollOffset();
-        Log.v(TAG, "computeScrollOffset = " + flag);
-//        super.computeScroll();
+        Log.v(TAG, "computeScrollOffset = " + mScroller.computeScrollOffset() + "; mIsScrolling = " + mIsScrolling);
+        if (mScroller.computeScrollOffset()) {
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            mMovingX = mScroller.getCurrX();
+            mCurrentX = mMovingX;
+            mLeftX = mCurrentX;
+            postInvalidate();
+        } else {
+            if (mIsScrolling) {
+                scrollTo(-(mMovingX - mCurrentX + mLeftX), 0);
+                Log.v(TAG, "mMovingX = " + mMovingX + "; scrollTo = " + (-(mMovingX - mCurrentX + mLeftX)) + "; mCurrentX = " + mCurrentX + "; mLeftX = " + mLeftX + "; mDiffX = " + mDiffX + "; diff = " + (mMovingX - mCurrentX));
+            }
+        }
     }
 }
