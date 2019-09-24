@@ -47,14 +47,14 @@
 
             <com.ztq.sdk.widget.GifView
                 android:id="@+id/gifview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/pikacu" />
 
             <pl.droidsonroids.gif.GifImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:src="@drawable/pikacu" />
         </RelativeLayout>
     </com.ztq.sdk.widget.SlideBackAndForthViewGroup>
