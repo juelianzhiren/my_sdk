@@ -1,5 +1,5 @@
 <resources>
-    <declare-styleable name="GifView">
+    <declare-styleable name="gifview">
         <attr name="isgifimage" format="boolean"/>
     </declare-styleable>
 </resources>

@@ -34,9 +34,11 @@ public class GifView extends ImageView {
     public GifView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         //获取自定义属性isgifimage
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.GifView);
-        mIsGifImage = array.getBoolean(R.styleable.GifView_isgifimage, true);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.gifview);
+        mIsGifImage = array.getBoolean(R.styleable.gifview_isgifimage, false);
         array.recycle();//获取自定义属性完毕后需要recycle，不然会对下次获取造成影响
+
+        Log.v(TAG, "misGifImage = " + mIsGifImage);
 
         //获取ImageView的默认src属性
         mImageId = attrs.getAttributeResourceValue( "http://schemas.android.com/apk/res/android", "src", 0);
