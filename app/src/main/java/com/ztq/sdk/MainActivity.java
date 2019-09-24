@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.ztq.sdk.activity.BigPictureActivity;
 import com.ztq.sdk.activity.DemoActivity;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
@@ -143,6 +144,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, DemoActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.jump_big_picuture_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BigPictureActivity.class);
                 startActivity(intent);
             }
         });

@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.DemoActivity"/>
+        <activity android:name=".activity.DemoActivity"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".activity.BigPictureActivity"/>
     </application>
 
 </manifest>
