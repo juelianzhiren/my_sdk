@@ -2,9 +2,11 @@ package com.ztq.sdk.model;
 
 import android.content.Context;
 import android.graphics.PointF;
+import android.util.Log;
 import android.view.MotionEvent;
 
 public class MoveGestureDetector extends BaseGestureDetector {
+    private final String TAG = "noahedu.MoveGestureDetector";
     private PointF mCurrentPointer;
     private PointF mPrePointer;
     //仅仅为了减少创建内存
@@ -26,10 +28,12 @@ public class MoveGestureDetector extends BaseGestureDetector {
         switch (actionCode) {
             case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_UP:
+                Log.v(TAG, "handleInProgressEvent. action_cancel or action_up");
                 mListenter.onMoveEnd(this);
                 resetState();
                 break;
             case MotionEvent.ACTION_MOVE:
+                Log.v(TAG, "handleInProgressEvent. action_move");
                 updateStateByEvent(event);
                 boolean update = mListenter.onMove(this);
                 if (update) {
@@ -45,11 +49,13 @@ public class MoveGestureDetector extends BaseGestureDetector {
         int actionCode = event.getAction() & MotionEvent.ACTION_MASK;
         switch (actionCode) {
             case MotionEvent.ACTION_DOWN:
+                Log.v(TAG, "handleStartProgressEvent. action_down");
                 resetState();//防止没有接收到CANCEL or UP ,保险起见
                 mPreMotionEvent = MotionEvent.obtain(event);
                 updateStateByEvent(event);
                 break;
             case MotionEvent.ACTION_MOVE:
+                Log.v(TAG, "handleStartProgressEvent. action_move");
                 mGestureInProgress = mListenter.onMoveBegin(this);
                 break;
         }

@@ -1,9 +1,11 @@
 package com.ztq.sdk.model;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.MotionEvent;
 
 public abstract class BaseGestureDetector {
+    private final String TAG = "noahedu.BaseGestureDetector";
     protected boolean mGestureInProgress;
     protected MotionEvent mPreMotionEvent;
     protected MotionEvent mCurrentMotionEvent;
@@ -14,6 +16,7 @@ public abstract class BaseGestureDetector {
     }
 
     public boolean onToucEvent(MotionEvent event) {
+        Log.v(TAG, "mGestureInProgress = " + mGestureInProgress);
         if (!mGestureInProgress) {
             handleStartProgressEvent(event);
         } else {

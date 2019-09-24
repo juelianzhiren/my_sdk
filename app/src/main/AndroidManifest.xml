@@ -19,7 +19,8 @@
 
         <activity android:name=".activity.DemoActivity"
             android:hardwareAccelerated="false"/>
-        <activity android:name=".activity.BigPictureActivity"/>
+        <activity android:name=".activity.BigPictureActivity"
+            android:hardwareAccelerated="true"/>
     </application>
 
 </manifest>

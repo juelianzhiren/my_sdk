@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.ztq.sdk.activity.BigPictureActivity;
 import com.ztq.sdk.activity.DemoActivity;
+import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
@@ -39,6 +40,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        new MyHandlerThread();
         mContext = this;
         mIv = findViewById(R.id.iv);
         mBtn = findViewById(R.id.btn);
