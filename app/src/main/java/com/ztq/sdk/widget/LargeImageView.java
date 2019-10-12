@@ -127,8 +127,17 @@ public class LargeImageView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        long t1 = System.currentTimeMillis();
+        if (mBitmap != null) {
+            mBitmap.recycle();
+            mBitmap = null;
+        }
         mBitmap = mDecoder.decodeRegion(mRect, options);
+        long t3 = System.currentTimeMillis();
+        Log.v(TAG, "onDraw, get bitmap time = " + (t3 - t1) + "ms, bitmap size = " + mBitmap.getByteCount() / 1024.0 / 1024.0 + "m");
         canvas.drawBitmap(mBitmap, 0, 0, null);
+        long t2 = System.currentTimeMillis();
+        Log.v(TAG, "onDraw, duration time = " + (t2 - t1) + "ms");
     }
 
     @Override

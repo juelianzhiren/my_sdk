@@ -1,4 +1,4 @@
-package com.example.administrator.myapplication;
+package com.ztq.sdk;
 
 import android.content.Context;
 import android.graphics.Canvas;

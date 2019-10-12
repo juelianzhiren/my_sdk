@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.ztq.sdk.activity.BigPictureActivity;
 import com.ztq.sdk.activity.DemoActivity;
-import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
@@ -40,7 +39,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new MyHandlerThread();
         mContext = this;
         mIv = findViewById(R.id.iv);
         mBtn = findViewById(R.id.btn);
@@ -141,7 +139,7 @@ public class MainActivity extends Activity {
         mPinyinTv.setTextColor(Color.BLACK);
         mPinyinTv.setPinyinSize(40);
         mPinyinTv.setPinyinColor(Color.RED);
-
+        mPinyinTv.setIsShowPinyin(false);
         findViewById(R.id.jump_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,6 +159,9 @@ public class MainActivity extends Activity {
         mCircleProgressBar.setIsShowTextProgress(true);
 
         Log.v(TAG, "AppStore.apk md5 value is " + SignMd5.getMd5(this));
+
+        long maxMemory = Runtime.getRuntime().maxMemory();
+        Log.v(TAG, "maxMemory = " + maxMemory / 1024.0 / 1024.0 + "m");
     }
 
     @Override
