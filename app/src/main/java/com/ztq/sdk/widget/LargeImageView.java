@@ -46,6 +46,7 @@ public class LargeImageView extends View {
 
     private Rect mSrcRect;
     private Rect mTarRect;
+    private Rect m3By3Rect;
 
     static {
         options.inPreferredConfig = Bitmap.Config.RGB_565;
@@ -76,6 +77,7 @@ public class LargeImageView extends View {
     public void init() {
         mSrcRect = new Rect();
         mTarRect = new Rect();
+        m3By3Rect = new Rect();
         mDetector = new MoveGestureDetector(getContext(),
                 new MoveGestureDetector.SimpleMoveGestureDetector() {
             @Override
@@ -112,15 +114,15 @@ public class LargeImageView extends View {
                     Bitmap bitmap = unit.getBitmap();
                     final Rect rect = unit.getRect();
                     if (rect != null) {
-                        Log.v(TAG, "updateBitmapUnitArrs, i = " + i + "; j = " + j + "; bitmap = " + bitmap);
+                        Log.v(TAG, "updateBitmapUnitArrs, i = " + i + "; j = " + j + "; bitmap = " + bitmap + "; isLoading = " + unit.isLoading());
                         if (isBelongTo3By3Area(rect, mRect)) {
                             if (bitmap == null && !unit.isLoading()) {
+                                unit.setIsLoading(true);
                                 MyHandlerThread.postToWorker1(new Runnable() {
                                     @Override
                                     public void run() {
-                                        unit.setIsLoading(true);
                                         Bitmap bitmap0 = mDecoder.decodeRegion(rect, options);
-                                        Log.v(TAG, "i = " + i1 + "; j = " + j1 + ";" + "updateBitmapUnitArrs, decodeRegion");
+                                        Log.v(TAG, "i = " + i1 + "; j = " + j1 + ";" + "updateBitmapUnitArrs, decodeRegion, bitmap = " + bitmap0);
                                         unit.setBitmap(bitmap0);
                                         unit.setIsLoading(false);
                                     }
@@ -242,6 +244,8 @@ public class LargeImageView extends View {
                 }
             }
         }
+        long t2 = System.currentTimeMillis();
+        Log.v(TAG, "onDraw time = " + (t2 - t1) + "ms");
     }
 
     private void generateData(int width, int height) {
@@ -330,9 +334,12 @@ public class LargeImageView extends View {
         if (sourceRect == null || targetRect == null) {
             return false;
         }
-        Rect _3By3Rect = new Rect(targetRect.left - BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST, targetRect.top - BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST, targetRect.right + BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST, targetRect.bottom + BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST);
+        m3By3Rect.left = targetRect.left - BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST;
+        m3By3Rect.top = targetRect.top - BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST;
+        m3By3Rect.right = targetRect.right + BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST;
+        m3By3Rect.bottom = targetRect.bottom + BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST;
         Log.v(TAG, "isBelongTo3By3Area before, left = " + sourceRect.left + "; right = " + sourceRect.right + "; top = " + sourceRect.top + "; bottom = " + sourceRect.bottom);
-        boolean flag = _3By3Rect.intersect(sourceRect);
+        boolean flag = m3By3Rect.intersects(sourceRect.left, sourceRect.top, sourceRect.right, sourceRect.bottom);
         Log.v(TAG, "isBelongTo3By3Area after, left = " + sourceRect.left + "; right = " + sourceRect.right + "; top = " + sourceRect.top + "; bottom = " + sourceRect.bottom);
         return flag;
     }
