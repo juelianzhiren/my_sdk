@@ -112,8 +112,7 @@ public class LargeImageView extends View {
                     Bitmap bitmap = unit.getBitmap();
                     final Rect rect = unit.getRect();
                     if (rect != null) {
-                        Log.v(TAG, "updateBitmapUnitArrs, i = " + i + "; j = " + j + "; bitmap = "
-                                + bitmap);
+                        Log.v(TAG, "updateBitmapUnitArrs, i = " + i + "; j = " + j + "; bitmap = " + bitmap);
                         if (isBelongTo3By3Area(rect, mRect)) {
                             if (bitmap == null && !unit.isLoading()) {
                                 MyHandlerThread.postToWorker1(new Runnable() {
@@ -121,8 +120,7 @@ public class LargeImageView extends View {
                                     public void run() {
                                         unit.setIsLoading(true);
                                         Bitmap bitmap0 = mDecoder.decodeRegion(rect, options);
-                                        Log.v(TAG, "i = " + i1 + "; j = " + j1 + ";" +
-                                                "updateBitmapUnitArrs, decodeRegion");
+                                        Log.v(TAG, "i = " + i1 + "; j = " + j1 + ";" + "updateBitmapUnitArrs, decodeRegion");
                                         unit.setBitmap(bitmap0);
                                         unit.setIsLoading(false);
                                     }
@@ -190,9 +188,7 @@ public class LargeImageView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.v(TAG, "onTouchEvent, " + ((event.getAction() == MotionEvent.ACTION_DOWN) ?
-                "action_down" : (event.getAction() == MotionEvent.ACTION_MOVE) ? "action_move" :
-                "action_up or action_cancel"));
+        Log.v(TAG, "onTouchEvent, " + ((event.getAction() == MotionEvent.ACTION_DOWN) ? "action_down" : (event.getAction() == MotionEvent.ACTION_MOVE) ? "action_move" : "action_up or action_cancel"));
         mDetector.onToucEvent(event);
         return true;
     }
@@ -247,50 +243,6 @@ public class LargeImageView extends View {
         }
     }
 
-    /**
-     * 获取sourceRect与targetRect相交的rect
-     *
-     * @param sourceRect
-     * @param targetRect
-     * @return
-     */
-    private Rect getInterserctRect(Rect sourceRect, Rect targetRect) {
-        if (sourceRect == null || targetRect == null) {
-            return null;
-        }
-        boolean flag = sourceRect.intersect(targetRect.left, targetRect.top, targetRect.right,
-                targetRect.bottom);
-        Rect rect = new Rect();
-        if (flag) {
-            if (targetRect.left >= sourceRect.left) {
-                rect.left = targetRect.left;
-            } else {
-                rect.left = sourceRect.left;
-            }
-            if (targetRect.top >= sourceRect.top) {
-                rect.top = targetRect.top;
-            } else {
-                rect.top = sourceRect.top;
-            }
-            if (targetRect.right >= sourceRect.right) {
-                rect.right = sourceRect.right;
-            } else {
-                rect.right = targetRect.right;
-            }
-            if (targetRect.bottom >= sourceRect.bottom) {
-                rect.bottom = sourceRect.bottom;
-            } else {
-                rect.bottom = targetRect.bottom;
-            }
-        }
-        return rect;
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
     private void generateData(int width, int height) {
         BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST = width;
         BitmapUnit.ROW_LAST_UNIT_PIXELS = width;
@@ -330,10 +282,8 @@ public class LargeImageView extends View {
         }
 
         mBitmapUnitArrs = new BitmapUnit[mArrSizeH][mArrSizeW];
-        Log.v(TAG, "width = " + width + "; height = " + height + "; mArrSizeW = " + mArrSizeW +
-                "; mArrSizeH = " + mArrSizeH);
-        Log.v(TAG,
-                "mRect, left = " + mRect.left + "; right = " + mRect.right + "; top = " + mRect.top + "; bottom = " + mRect.bottom);
+        Log.v(TAG, "width = " + width + "; height = " + height + "; mArrSizeW = " + mArrSizeW + "; mArrSizeH = " + mArrSizeH);
+        Log.v(TAG, "mRect, left = " + mRect.left + "; right = " + mRect.right + "; top = " + mRect.top + "; bottom = " + mRect.bottom);
         for (int i = 0; i < mArrSizeH; i++) {
             for (int j = 0; j < mArrSizeW; j++) {
                 BitmapUnit unit = new BitmapUnit();
@@ -360,8 +310,7 @@ public class LargeImageView extends View {
                     unit.setBitmap(bitmap);
                     unit.setIsLoading(false);
                 }
-                Log.v(TAG,
-                        "i = " + i + "; j = " + j + "; bitmap = " + bitmap + "; left = " + rect.left + "; right = " + rect.right + "; top = " + rect.top + "; bottom = " + rect.bottom);
+                Log.v(TAG, "i = " + i + "; j = " + j + "; bitmap = " + bitmap + "; left = " + rect.left + "; right = " + rect.right + "; top = " + rect.top + "; bottom = " + rect.bottom);
                 unit.setRect(rect);
                 mBitmapUnitArrs[i][j] = unit;
             }
@@ -380,15 +329,10 @@ public class LargeImageView extends View {
         if (sourceRect == null || targetRect == null) {
             return false;
         }
-        Rect _3By3Rect = new Rect(targetRect.left - BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST,
-                targetRect.top - BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST,
-                targetRect.right + BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST,
-                targetRect.bottom + BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST);
-        Log.v(TAG,
-                "isBelongTo3By3Area before, left = " + sourceRect.left + "; right = " + sourceRect.right + "; top = " + sourceRect.top + "; bottom = " + sourceRect.bottom);
+        Rect _3By3Rect = new Rect(targetRect.left - BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST, targetRect.top - BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST, targetRect.right + BitmapUnit.ROW_UNIT_PIXELS_EXCEPT_LAST, targetRect.bottom + BitmapUnit.COLUMN_UNIT_PIXELS_EXCEPT_LAST);
+        Log.v(TAG, "isBelongTo3By3Area before, left = " + sourceRect.left + "; right = " + sourceRect.right + "; top = " + sourceRect.top + "; bottom = " + sourceRect.bottom);
         boolean flag = _3By3Rect.intersect(sourceRect);
-        Log.v(TAG,
-                "isBelongTo3By3Area after, left = " + sourceRect.left + "; right = " + sourceRect.right + "; top = " + sourceRect.top + "; bottom = " + sourceRect.bottom);
+        Log.v(TAG, "isBelongTo3By3Area after, left = " + sourceRect.left + "; right = " + sourceRect.right + "; top = " + sourceRect.top + "; bottom = " + sourceRect.bottom);
         return flag;
     }
 }
