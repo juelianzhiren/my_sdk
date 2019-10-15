@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
         mPinyinTv.setTextColor(Color.BLACK);
         mPinyinTv.setPinyinSize(40);
         mPinyinTv.setPinyinColor(Color.RED);
-        mPinyinTv.setIsShowPinyin(false);
+//        mPinyinTv.setIsShowPinyin(false);
         findViewById(R.id.jump_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

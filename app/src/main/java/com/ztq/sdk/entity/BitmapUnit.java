@@ -1,6 +1,7 @@
 package com.ztq.sdk.entity;
 
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 
 /**
  * Created by ztq on 2019/10/12.
@@ -16,10 +17,17 @@ public class BitmapUnit {
     private int mRowIndex = 0;
     /**列序号*/
     private int mColumnIndex = 0;
-    /**每行占用的像素值*/
-    public static final int ROW_UNIT_LENGTH = 1000;
-    /**每列占用的像素值*/
-    public static final int COLUMN_UNIT_LENGTH = 1000;
+    /**矩形对象*/
+    private Rect mRect;
+
+    /**每行占用的像素值(除去最后一行)*/
+    public static int ROW_UNIT_PIXELS_EXCEPT_LAST = 1000;
+    /**每列占用的像素值（除去最后一列）*/
+    public static int COLUMN_UNIT_PIXELS_EXCEPT_LAST = 1000;
+    /**最后一行占用的像素值*/
+    public static int ROW_LAST_UNIT_PIXELS = 1000;
+    /**最后一列占用的像素值*/
+    public static int COLUMN_LAST_UNIT_PIXELS = 1000;
 
     public Bitmap getBitmap() {
         return mBitmap;
@@ -35,6 +43,30 @@ public class BitmapUnit {
 
     public void setIsLoading(boolean mIsLoading) {
         this.mIsLoading = mIsLoading;
+    }
+
+    public int getRowIndex() {
+        return mRowIndex;
+    }
+
+    public void setRowIndex(int mRowIndex) {
+        this.mRowIndex = mRowIndex;
+    }
+
+    public int getColumnIndex() {
+        return mColumnIndex;
+    }
+
+    public void setColumnIndex(int mColumnIndex) {
+        this.mColumnIndex = mColumnIndex;
+    }
+
+    public Rect getRect() {
+        return mRect;
+    }
+
+    public void setRect(Rect mRect) {
+        this.mRect = mRect;
     }
 
     /**

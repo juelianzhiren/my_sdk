@@ -34,11 +34,6 @@ public class PinyinTextView extends TextView {
     private ArrayList<Integer> indexList = new ArrayList<>();    // 存储每行首个String位置
     private float density;
     private float width = 0;
-    private boolean mIsShowPinyin = true;
-
-    public void setIsShowPinyin(boolean mIsShowPinyin) {
-        this.mIsShowPinyin = mIsShowPinyin;
-    }
 
     /**
      * 每个拼音是否由7个字符组成，
@@ -135,10 +130,6 @@ public class PinyinTextView extends TextView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (!mIsShowPinyin) {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-            return;
-        }
         Log.v(TAG, "onMeasure");
         // 需要根据文本测量高度
         int height = 0;
@@ -253,13 +244,9 @@ public class PinyinTextView extends TextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (!mIsShowPinyin) {
-            super.onDraw(canvas);
-            return;
-        }
         Log.v(TAG, "onDraw");
         int gravity = getGravity();
-        Log.v(TAG, "gravity = " + gravity);
+        Log.v(TAG, "gravity = " + gravity + "; center_horizontal = " + Gravity.CENTER_HORIZONTAL);
         float offset = 0f;
 
         float pinyinUnitWidth = 0;

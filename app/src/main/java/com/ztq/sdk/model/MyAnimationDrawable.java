@@ -201,5 +201,6 @@ public class MyAnimationDrawable {
      */
     public void stopAnim() {
         mIsRunning = false;
+        mHander.removeCallbacksAndMessages(null);
     }
 }  
