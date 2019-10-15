@@ -34,4 +34,10 @@ public class BigPictureActivity extends Activity {
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        mLargeImageView.clear();
+        super.onDestroy();
+    }
 }

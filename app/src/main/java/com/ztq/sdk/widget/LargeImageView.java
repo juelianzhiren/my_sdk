@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by zhy on 15/5/16.
+ * Created by ztq on 19/10/15.
  */
 public class LargeImageView extends View {
     private final String TAG = "noahedu.LargeImageView";
@@ -131,6 +131,7 @@ public class LargeImageView extends View {
                                 bitmap.recycle();
                                 bitmap = null;
                                 unit.setBitmap(null);
+                                Log.v(TAG, "i = " + i + "; j = " + j + ", bitmap recycle");
                             }
                         }
                     }
@@ -334,5 +335,18 @@ public class LargeImageView extends View {
         boolean flag = _3By3Rect.intersect(sourceRect);
         Log.v(TAG, "isBelongTo3By3Area after, left = " + sourceRect.left + "; right = " + sourceRect.right + "; top = " + sourceRect.top + "; bottom = " + sourceRect.bottom);
         return flag;
+    }
+
+    public void clear() {
+        mDecoder.recycle();
+        for(int i = 0; i < mBitmapUnitArrs.length; i++) {
+            for(int j = 0; j < mBitmapUnitArrs[i].length; j++) {
+                BitmapUnit unit = mBitmapUnitArrs[i][j];
+                Bitmap bitmap = unit.getBitmap();
+                if (bitmap != null) {
+                    bitmap.recycle();
+                }
+            }
+        }
     }
 }
