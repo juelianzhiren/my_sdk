@@ -28,7 +28,7 @@ public class BigPictureActivity extends Activity {
 
         mLargeImageView = (LargeImageView) findViewById(R.id.big_picture_iv);
         try {
-            InputStream inputStream = getAssets().open("world.jpg");
+            InputStream inputStream = getAssets().open("qingming.jpg");
             mLargeImageView.setInputStream(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
