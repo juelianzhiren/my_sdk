@@ -1,6 +1,8 @@
 package com.ztq.sdk;
 
 import android.app.Application;
+import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.ztq.sdk.helper.MyHandlerThread;
 
@@ -15,5 +17,9 @@ public class MyApplication extends Application {
         super.onCreate();
 
         new MyHandlerThread();
+
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        float density = metrics.density;
+        Log.v(TAG, "density = " + density);
     }
 }

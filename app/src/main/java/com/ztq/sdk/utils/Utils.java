@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
@@ -917,5 +918,22 @@ public class Utils {
         }else{
             return false;
         }
+    }
+
+    /**
+     * 判断mediaPlayer是否在播放
+     * @param player
+     * @return
+     */
+    public static boolean isPlaying(MediaPlayer player) {
+        boolean flag = false;
+        if (player != null) {
+            try {
+                flag = player.isPlaying();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return flag;
     }
 }

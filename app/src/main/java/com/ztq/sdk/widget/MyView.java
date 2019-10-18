@@ -4,8 +4,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.media.MediaPlayer;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,15 +21,17 @@ public class MyView extends TextView {
 
     public MyView(Context context) {
         this(context, null);
+        Log.v(TAG, "MyView Constructor one parammeter");
     }
 
     public MyView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        Log.v(TAG, "MyView Constructor two parammeters");
     }
 
     public MyView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
+        Log.v(TAG, "MyView Constructor three parammeter");
         init(context);
     }
 
@@ -40,7 +45,68 @@ public class MyView extends TextView {
     }
 
     @Override
+    protected void onFinishInflate() {
+        Log.v(TAG, "MyView onFinishInflate");
+        super.onFinishInflate();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.v(TAG, "MyView onMeasure");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        Log.v(TAG, "MyView onLayout");
+        super.onLayout(changed, left, top, right, bottom);
+    }
+
+    @Override
+    protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
+        Log.v(TAG, "MyView onFocusChanged, focused = " + focused);
+        super.onFocusChanged(focused, direction, previouslyFocusedRect);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        Log.v(TAG, "MyView onWindowFocusChanged, hasWindowFocus = " + hasWindowFocus);
+        super.onWindowFocusChanged(hasWindowFocus);
+    }
+
+    @Override
+    protected void onWindowVisibilityChanged(int visibility) {
+        Log.v(TAG, "MyView onWindowVisibilityChanged, visibility = " + visibility);
+        super.onWindowVisibilityChanged(visibility);
+    }
+
+    @Override
+    protected void onVisibilityChanged(View changedView, int visibility) {
+        Log.v(TAG, "MyView onVisibilityChanged, visibility = " + visibility);
+        super.onVisibilityChanged(changedView, visibility);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        Log.v(TAG, "MyView onAttachedToWindow");
+        super.onAttachedToWindow();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        Log.v(TAG, "MyView onDetachedFromWindow");
+        super.onDetachedFromWindow();
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        Log.v(TAG, "MyView onSizeChanged");
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
+        Log.v(TAG, "MyView onDraw");
         super.onDraw(canvas);
         int baseLineY = 200;
 
