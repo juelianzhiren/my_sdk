@@ -133,4 +133,11 @@ public class MyHandlerThread {
             getMainHandler().removeCallbacks(callbackList.get(i));
         }
     }
+
+    public static void removeMainThreadRunnable(Runnable runnable) {
+        if (runnable == null) {
+            return;
+        }
+        getMainHandler().removeCallbacks(runnable);
+    }
 }

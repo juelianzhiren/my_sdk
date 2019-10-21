@@ -6,10 +6,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
+import android.text.Layout;
+import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 /**
@@ -18,6 +21,8 @@ import android.widget.TextView;
 public class MyView extends TextView {
     private final String TAG = "noahedu.MyView";
     private TextPaint mPaint;
+    private StaticLayout mStaticLayout;
+    private TextPaint mTextPaint;
 
     public MyView(Context context) {
         this(context, null);
@@ -42,6 +47,23 @@ public class MyView extends TextView {
         mPaint.setColor(Color.RED);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setTextSize(80);
+
+        mTextPaint = new TextPaint();
+        mTextPaint.setTextAlign(Paint.Align.LEFT);
+        mTextPaint.setAntiAlias(true);
+        mTextPaint.setColor(Color.RED);
+        mTextPaint.setStyle(Paint.Style.FILL);
+        mTextPaint.setTextSize(80);
+
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                mStaticLayout = new StaticLayout("居中显示", mTextPaint, getWidth(), Layout.Alignment.ALIGN_CENTER, 1f, 0f, false);
+                invalidate();
+                getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
+
     }
 
     @Override
@@ -138,5 +160,12 @@ public class MyView extends TextView {
         //绘制bottom直线
         mPaint.setColor(Color.parseColor("#1E90FF"));
         canvas.drawLine(0, bottom, getWidth(), bottom, mPaint);
+
+        if (getWidth() * getHeight() != 0 && mStaticLayout != null) {
+            canvas.save();
+            canvas.translate(0, getHeight() / 2 - mStaticLayout.getHeight() / 2);
+            mStaticLayout.draw(canvas);
+            canvas.restore();
+        }
     }
 }

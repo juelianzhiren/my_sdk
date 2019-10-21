@@ -13,6 +13,7 @@ import android.widget.SeekBar;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.entity.LyricsEntity;
+import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.LyricsView;
 
@@ -74,10 +75,19 @@ public class LyricsActivity extends Activity {
             public void run() {
                 if (Utils.isPlaying(mPlayer)) {
                     int currentTime = mPlayer.getCurrentPosition();
-                    Log.v(TAG, "currentTime = " + currentTime);
                     if (mMediaDuration > 0) {
                         mSeekBar.setProgress(currentTime * mSeekBar.getMax() / mMediaDuration);
                     }
+                    final int currentline = mLyricsView.getCurrentIndex(currentTime);
+                    mLyricsView.setCurrentLine(currentline);
+                    Log.v(TAG, "currentTime = " + currentTime + "; currentline = " + currentline);
+                    MyHandlerThread.postToMainThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mLyricsView.updateOffset(currentline);
+                        }
+                    });
+//                    mLyricsView.invalidate();
                 }
             }
         }, 0, 1000);
@@ -95,6 +105,7 @@ public class LyricsActivity extends Activity {
             //播放 assets/send_it.m4a音乐文件
             AssetFileDescriptor fd = getAssets().openFd("send_it.m4a");
             mPlayer.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
+            mPlayer.setLooping(true);
             mPlayer.prepare();
             mMediaDuration = mPlayer.getDuration();
         } catch (IOException e) {
@@ -108,8 +119,14 @@ public class LyricsActivity extends Activity {
     private void loadLyris() {
         String lyricsText = getLyricsText("send_it_en.lrc");
         List<LyricsEntity> lyricsList = parseLyricsListFromLyricsText(lyricsText);
-        mLyricsView.setLyriceList(lyricsList);
-        mLyricsView.invalidate();
+        mLyricsView.setLyricsList(lyricsList);
+        MyHandlerThread.postToMainThreadDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mLyricsView.initEntryListStaticLayout();
+                mLyricsView.invalidate();
+            }
+        }, 500);
     }
 
     @Override
@@ -225,7 +242,16 @@ public class LyricsActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    mPlayer.seekTo(progress * mMediaDuration / mSeekBar.getMax());
+                    int currentTime = progress * mMediaDuration / mSeekBar.getMax();
+                    mPlayer.seekTo(currentTime);
+                    if (mMediaDuration > 0) {
+                        mSeekBar.setProgress(currentTime * mSeekBar.getMax() / mMediaDuration);
+                    }
+                    int currentline = mLyricsView.getCurrentIndex(currentTime);
+                    mLyricsView.setCurrentLine(currentline);
+                    Log.v(TAG, "currentTime = " + currentTime + "; currentline = " + currentline);
+                    mLyricsView.updateOffset(currentline);
+                    mLyricsView.invalidate();
                 }
             }
 

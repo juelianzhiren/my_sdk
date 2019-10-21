@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="visible"
+        android:background="#d600ff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -29,6 +30,7 @@
         android:id="@+id/slide_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

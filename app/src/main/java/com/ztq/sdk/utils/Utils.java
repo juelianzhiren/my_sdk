@@ -213,6 +213,42 @@ public class Utils {
     }
 
     /**
+     * 将100000ms转化成00:10的形式
+     * @param millisecs
+     * @return
+     */
+    public static String getFormatTime(long millisecs) {
+        if (millisecs <= 0) {
+            return "00:00";
+        }
+        int seconds = (int)millisecs / 1000;
+        int minutes = 0;
+        int hours = 0;
+        if (seconds < 60) {
+            return getCompleteStr(minutes) + ":" + getCompleteStr(seconds);
+        } else if (seconds < 3600) {
+            minutes = seconds / 60;
+            seconds = seconds % 60;
+            return getCompleteStr(minutes) + ":" + getCompleteStr(seconds);
+        } else {
+            hours = seconds / 3600;
+            minutes = (seconds - hours * 3600) / 60;
+            seconds = (seconds - hours * 3600) % 60;
+            return getCompleteStr(hours) + ":" + getCompleteStr(minutes) + ":" + getCompleteStr(seconds);
+        }
+    }
+
+    public static String getCompleteStr(int secondsOrMinutes) {
+        String result = "";
+        if (secondsOrMinutes < 10) {
+            result = "0" + secondsOrMinutes;
+        } else if (secondsOrMinutes < 60) {
+            result = secondsOrMinutes + "";
+        }
+        return result;
+    }
+
+    /**
      * 在dir的文件下新建.nomedia文件，用来屏蔽媒体软件扫描
      * @param dirStr
      */
