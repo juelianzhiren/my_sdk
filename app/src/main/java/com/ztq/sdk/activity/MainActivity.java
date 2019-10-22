@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -168,6 +170,16 @@ public class MainActivity extends Activity {
 
         long maxMemory = Runtime.getRuntime().maxMemory();
         Log.v(TAG, "maxMemory = " + maxMemory / 1024.0 / 1024.0 + "m");
+
+        Log.v(TAG, "manufacture = " + Build.MANUFACTURER);
+        //华为角标的实现
+        if (Build.MANUFACTURER.equalsIgnoreCase("huawei")) {
+            Bundle extra = new Bundle();
+            extra.putString("package", "com.ztq.sdk");
+            extra.putString("class", "com.ztq.sdk.activity.MainActivity");
+            extra.putInt("badgenumber", 3);
+            mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
+        }
     }
 
     @Override
