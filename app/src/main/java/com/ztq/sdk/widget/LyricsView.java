@@ -143,10 +143,19 @@ public class LyricsView extends View {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             Log.v(TAG, "onScroll, distanceY = " + distanceY);
+            if (mLyricsList == null || mLyricsList.size() == 0) {
+                return false;
+            }
             offset1 += distanceY;
             mIsTouching = true;
+
+            if (offset1 < mLyricsList.get(0).getOffset()) {
+                offset1 = (int)mLyricsList.get(0).getOffset();
+            } else if (offset1 > mLyricsList.get(mLyricsList.size() - 1).getOffset()) {
+                offset1 = (int)mLyricsList.get(mLyricsList.size() - 1).getOffset();
+            }
             int currentline = getCurrentIndexFromOffset(offset1);
-            Log.v(TAG, "onScroll currentline = " + currentline + "; offset1 = " + offset1);
+            Log.v(TAG, "onScroll currentline = " + currentline + "; offset1 = " + offset1 + "; mLyricsList size = " + mLyricsList.size());
             if (currentline != -1) {
                 mCurrentLine = currentline;
                 LyricsEntity entity = mLyricsList.get(currentline);
@@ -162,14 +171,13 @@ public class LyricsView extends View {
                 }
                 invalidate();
             }
-            invalidate();
             return true;
         }
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             Log.v(TAG, "onFling");
-            MyHandlerThread.postToMainThreadDelayed(mHideTimeTextRunnable, 2500);
+            MyHandlerThread.postToMainThreadDelayed(mHideTimeTextRunnable, 2000);
             return true;
         }
 
@@ -201,7 +209,11 @@ public class LyricsView extends View {
             LyricsEntity entity = mLyricsList.get(i);
             if (entity != null) {
                 float offset = entity.getOffset();
-                if (offset < offset1) {
+                Log.v(TAG, "offset = " + offset + "; offset1 = " + offset1);
+                if (offset <= offset1) {
+                    result = i;
+                }
+                if (Math.abs(offset - offset1) <= 10) {
                     result = i;
                 }
             }
