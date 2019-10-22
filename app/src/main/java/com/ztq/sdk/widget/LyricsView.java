@@ -267,9 +267,10 @@ public class LyricsView extends View {
                 public void onAnimationUpdate(ValueAnimator animation) {
                     if (!mIsTouching) {
                         mOffset = (int)animation.getAnimatedValue();
-                        offset1 = mOffset;
+                        offset1 = -mOffset + getHeight();
                         invalidate();
                     }
+                    Log.v(TAG, "mIsTouching = " + mIsTouching + "; mOffset = " + mOffset + "; offset1 = " + offset1);
                 }
             });
             mAnimator.start();
