@@ -32,6 +32,7 @@ public class LyricsView extends View {
     private float mDividerHeight;          // 歌词之间的垂直间距
     private GestureDetector mGestureDetector;
     private int mOffset;
+    private int offset1;
     private float mLyricsPadding;
     private int mTextGravity;
     private float mCurrentTextSize;
@@ -55,11 +56,13 @@ public class LyricsView extends View {
     private int mAnimationDuration;
 
     private boolean mIsTouching = false;
+    private SeekBarListener mSeekBarListener;
 
     private Runnable mHideTimeTextRunnable = new Runnable() {
         @Override
         public void run() {
             mIsShowTimeline = false;
+            mIsTouching = false;
             invalidate();
         }
     };
@@ -126,6 +129,10 @@ public class LyricsView extends View {
         });
     }
 
+    public void setSeekBarListener(SeekBarListener mSeekBarListener) {
+        this.mSeekBarListener = mSeekBarListener;
+    }
+
     private GestureDetector.SimpleOnGestureListener mSimpleOnGestureListener = new GestureDetector.SimpleOnGestureListener() {
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
@@ -136,12 +143,23 @@ public class LyricsView extends View {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             Log.v(TAG, "onScroll, distanceY = " + distanceY);
-            mOffset -= distanceY;
+            offset1 += distanceY;
             mIsTouching = true;
-            int currentline = getCurrentIndexFromOffset(mOffset);
-            Log.v(TAG, "onScroll currentline = " + currentline + "; mOffset = " + mOffset);
+            int currentline = getCurrentIndexFromOffset(offset1);
+            Log.v(TAG, "onScroll currentline = " + currentline + "; offset1 = " + offset1);
             if (currentline != -1) {
                 mCurrentLine = currentline;
+                LyricsEntity entity = mLyricsList.get(currentline);
+                LyricsEntity firstEntity = mLyricsList.get(0);
+                if (entity != null && firstEntity != null) {
+                    mOffset = getHeight() / 2 - (int) (entity.getOffset() - firstEntity.getOffset());
+                }
+                if (mCurrentLine < mLyricsList.size()) {
+                    long time = mLyricsList.get(mCurrentLine).getStartTime();
+                    if (mSeekBarListener != null) {
+                        mSeekBarListener.seekTo(time);
+                    }
+                }
                 invalidate();
             }
             invalidate();
@@ -151,7 +169,6 @@ public class LyricsView extends View {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             Log.v(TAG, "onFling");
-            mIsTouching = false;
             MyHandlerThread.postToMainThreadDelayed(mHideTimeTextRunnable, 2500);
             return true;
         }
@@ -238,6 +255,7 @@ public class LyricsView extends View {
                 public void onAnimationUpdate(ValueAnimator animation) {
                     if (!mIsTouching) {
                         mOffset = (int)animation.getAnimatedValue();
+                        offset1 = mOffset;
                         invalidate();
                     }
                 }
@@ -252,7 +270,7 @@ public class LyricsView extends View {
      * @return true，如果歌词有效，否则false
      */
     public boolean hasLrc() {
-        return !mLyricsList.isEmpty();
+        return !(mLyricsList == null || mLyricsList.isEmpty());
     }
 
     public void initEntryListStaticLayout() {
@@ -263,6 +281,7 @@ public class LyricsView extends View {
             lrcEntry.initStaticLayout(mLrcPaint, (int) getLrcWidth(), mTextGravity);
         }
         mOffset = getHeight() / 2;
+        offset1 = mOffset;
         for(int i = 0; i < mLyricsList.size(); i++) {
             setOffset(i);
         }
@@ -304,19 +323,21 @@ public class LyricsView extends View {
         int centerY = getHeight() / 2;
         float y = mOffset;
         Log.v(TAG, "mOffset = " + mOffset);
-        for (int i = 0; i < mLyricsList.size(); i++) {
-            if (i > 0) {
-                y += (mLyricsList.get(i - 1).getHeight() + mLyricsList.get(i).getHeight()) / 2 + mDividerHeight;
-            }
-            if (mLyricsList.get(i).getStaticLayout() != null) {
-                if (mCurrentLine == i) {
-                    mLrcPaint.setColor(mCurrentTextColor);
-                    mLrcPaint.setTextSize(mCurrentTextSize);
-                } else {
-                    mLrcPaint.setColor(mNormalTextColor);
-                    mLrcPaint.setTextSize(mNormalTextSize);
+        if (mLyricsList != null) {
+            for (int i = 0; i < mLyricsList.size(); i++) {
+                if (i > 0) {
+                    y += (mLyricsList.get(i - 1).getHeight() + mLyricsList.get(i).getHeight()) / 2 + mDividerHeight;
                 }
-                drawText(canvas, mLyricsList.get(i).getStaticLayout(), y);
+                if (mLyricsList.get(i).getStaticLayout() != null) {
+                    if (mCurrentLine == i) {
+                        mLrcPaint.setColor(mCurrentTextColor);
+                        mLrcPaint.setTextSize(mCurrentTextSize);
+                    } else {
+                        mLrcPaint.setColor(mNormalTextColor);
+                        mLrcPaint.setTextSize(mNormalTextSize);
+                    }
+                    drawText(canvas, mLyricsList.get(i).getStaticLayout(), y);
+                }
             }
         }
 
@@ -346,5 +367,9 @@ public class LyricsView extends View {
         canvas.translate(mLyricsPadding, y - staticLayout.getHeight() / 2);
         staticLayout.draw(canvas);
         canvas.restore();
+    }
+
+    public interface SeekBarListener {
+        public void seekTo(long milliseconds);
     }
 }

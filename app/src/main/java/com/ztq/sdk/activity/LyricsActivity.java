@@ -279,5 +279,13 @@ public class LyricsActivity extends Activity {
                 return true;
             }
         });
+
+        mLyricsView.setSeekBarListener(new LyricsView.SeekBarListener() {
+            @Override
+            public void seekTo(long milliseconds) {
+                mPlayer.seekTo((int)milliseconds);
+                mSeekBar.setProgress((int)milliseconds * mSeekBar.getMax() / mMediaDuration);
+            }
+        });
     }
 }
