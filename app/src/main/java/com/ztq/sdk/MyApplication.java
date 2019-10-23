@@ -22,4 +22,16 @@ public class MyApplication extends Application {
         float density = metrics.density;
         Log.v(TAG, "density = " + density);
     }
+
+    @Override
+    public void onTrimMemory(int level) {
+        Log.v(TAG, "onTrimMemory, level = " + level);
+        super.onTrimMemory(level);
+    }
+
+    @Override
+    public void onTerminate() {
+        Log.v(TAG, "onTerminate");
+        super.onTerminate();
+    }
 }
