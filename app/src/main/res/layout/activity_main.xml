@@ -66,11 +66,33 @@
         android:layout_marginTop="140dp"/>
 
     <Button
+        android:id="@+id/jump_to_gridview_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="跳转到gridview"
+        app:layout_constraintLeft_toRightOf="@id/jump_to_lyrics_btn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="140dp"/>
+
+    <Button
         android:id="@+id/jump_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="跳转到DemoActivity"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="200dp"/>
+
+    <Button
+        android:id="@+id/jump_to_zoom_image_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="跳转到zoomImage"
+        app:layout_constraintLeft_toRightOf="@id/jump_btn"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="200dp"/>

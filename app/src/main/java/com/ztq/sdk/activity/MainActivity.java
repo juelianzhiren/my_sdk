@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -163,6 +164,21 @@ public class MainActivity extends Activity {
             }
         });
 
+        findViewById(R.id.jump_to_gridview_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, GridviewActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.jump_to_zoom_image_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ZoomImageActivity.class);
+                startActivity(intent);
+            }
+        });
+
         mCircleProgressBar = findViewById(R.id.cbr);
         mCircleProgressBar.setIsShowTextProgress(true);
 
@@ -180,6 +196,8 @@ public class MainActivity extends Activity {
             extra.putInt("badgenumber", 3);
             mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
         }
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        Log.v(TAG, "screen width = " + dm.widthPixels + "; height = " + dm.heightPixels);
     }
 
     @Override

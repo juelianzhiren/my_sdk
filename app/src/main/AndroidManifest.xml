@@ -30,5 +30,7 @@
             android:hardwareAccelerated="true"/>
 
         <activity android:name=".activity.LyricsActivity"/>
+        <activity android:name=".activity.GridviewActivity"/>
+        <activity android:name=".activity.ZoomImageActivity"/>
     </application>
 </manifest>
