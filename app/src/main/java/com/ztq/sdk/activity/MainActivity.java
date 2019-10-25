@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 
 import com.ztq.sdk.R;
@@ -179,6 +181,14 @@ public class MainActivity extends Activity {
             }
         });
 
+        mIv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Log.v(TAG, "iv, width = " + mIv.getWidth() + "; height = " + mIv.getHeight());
+                mIv.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
+
         mCircleProgressBar = findViewById(R.id.cbr);
         mCircleProgressBar.setIsShowTextProgress(true);
 
@@ -197,7 +207,9 @@ public class MainActivity extends Activity {
             mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
         }
         DisplayMetrics dm = getResources().getDisplayMetrics();
-        Log.v(TAG, "screen width = " + dm.widthPixels + "; height = " + dm.heightPixels);
+        Log.v(TAG, "screen width = " + dm.widthPixels + "; height = " + dm.heightPixels + "; densityDpi = " + dm.densityDpi + "; xdpi = " + dm.xdpi + "; ydpi = " + dm.ydpi);
+        Drawable drawable = getResources().getDrawableForDensity(R.drawable.ic_pause, 160);
+        Log.v(TAG, "drawable = " + drawable);
     }
 
     @Override
