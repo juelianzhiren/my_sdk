@@ -3,6 +3,9 @@ package com.ztq.sdk.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.ztq.sdk.R;
 
@@ -19,5 +22,13 @@ public class ZoomImageActivity extends Activity {
         setContentView(R.layout.activity_zoom_image);
 
         mContext = this;
+
+        findViewById(R.id.zoom_image_view_rl).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.v(TAG, "onTouch");
+                return true;
+            }
+        });
     }
 }

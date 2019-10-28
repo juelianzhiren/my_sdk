@@ -84,6 +84,60 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                 }
                 return true;
             }
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                Log.v(TAG, "onSingleTapUp");
+                return super.onSingleTapUp(e);
+            }
+
+            @Override
+            public void onLongPress(MotionEvent e) {
+                Log.v(TAG, "onLongPress");
+                super.onLongPress(e);
+            }
+
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                Log.v(TAG, "onScroll");
+                return super.onScroll(e1, e2, distanceX, distanceY);
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                Log.v(TAG, "onFling");
+                return super.onFling(e1, e2, velocityX, velocityY);
+            }
+
+            @Override
+            public void onShowPress(MotionEvent e) {
+                Log.v(TAG, "onShowPress");
+                super.onShowPress(e);
+            }
+
+            @Override
+            public boolean onDown(MotionEvent e) {
+                Log.v(TAG, "onDown");
+                return super.onDown(e);
+            }
+
+            @Override
+            public boolean onDoubleTapEvent(MotionEvent e) {
+                Log.v(TAG, "onDoubleTapEvent");
+                return super.onDoubleTapEvent(e);
+            }
+
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                Log.v(TAG, "onSingleTapConfirmed");
+                return super.onSingleTapConfirmed(e);
+            }
+
+            @Override
+            public boolean onContextClick(MotionEvent e) {
+                Log.v(TAG, "onContextClick");
+                return super.onContextClick(e);
+            }
         });
         mScaleGestureDetector = new ScaleGestureDetector(context, this);
         this.setOnTouchListener(this);
@@ -135,6 +189,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                 ZoomImageView.this.postDelayed(this, 16);
             } else {
                 // 设置为目标的缩放比例
+                Log.v(TAG, "run(), mTargetScale = " + mTargetScale + "; currentScale = " + currentScale);
                 final float deltaScale = mTargetScale / currentScale;
                 mScaleMatrix.postScale(deltaScale, deltaScale, x, y);
                 checkBorderAndCenterWhenScale();
@@ -156,7 +211,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         float scale = getScale();
         float scaleFactor = detector.getScaleFactor();
 
-        Log.v(TAG, "onScale, scaleFactor = " + scaleFactor);
+        Log.v(TAG, "onScale, scaleFactor = " + scaleFactor + "; scale = " + scale);
 
         if (getDrawable() == null)
             return true;
@@ -196,7 +251,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         int width = getWidth();
         int height = getHeight();
 
-        // 如果宽或高大于屏幕，则控制范围
+        // 如果图片宽或高大于屏幕，则控制范围
         if (rect.width() >= width) {
             if (rect.left > 0) {
                 deltaX = -rect.left;
@@ -220,7 +275,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         if (rect.height() < height) {
             deltaY = height * 0.5f - rect.bottom + 0.5f * rect.height();
         }
-        Log.e(TAG, "deltaX = " + deltaX + " , deltaY = " + deltaY);
+        Log.e(TAG, "checkBorderAndCenterWhenScale, deltaX = " + deltaX + " , deltaY = " + deltaY + "; left = " + rect.left + "; top = " + rect.top);
 
         mScaleMatrix.postTranslate(deltaX, deltaY);
     }
@@ -331,7 +386,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                Log.e(TAG, "ACTION_UP");
+                Log.e(TAG, "ACTION_UP or ACTION_CANCEL");
                 lastPointerCount = 0;
                 break;
         }
@@ -393,6 +448,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
 
             Log.e(TAG, "initScale = " + initScale + "; translateX = " + (width - dw) / 2 + "; translateY = " + (height - dh) / 2);
             mScaleMatrix.postTranslate((width - dw) / 2, (height - dh) / 2);
+//            mScaleMatrix.postTranslate(0, 0);
             mScaleMatrix.postScale(scale, scale, getWidth() / 2, getHeight() / 2);
             // 图片移动至屏幕中心
             setImageMatrix(mScaleMatrix);

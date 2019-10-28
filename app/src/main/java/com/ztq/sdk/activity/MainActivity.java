@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -204,12 +206,24 @@ public class MainActivity extends Activity {
             extra.putString("package", "com.ztq.sdk");
             extra.putString("class", "com.ztq.sdk.activity.MainActivity");
             extra.putInt("badgenumber", 3);
-            mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
+//            mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
         }
         DisplayMetrics dm = getResources().getDisplayMetrics();
-        Log.v(TAG, "screen width = " + dm.widthPixels + "; height = " + dm.heightPixels + "; densityDpi = " + dm.densityDpi + "; xdpi = " + dm.xdpi + "; ydpi = " + dm.ydpi);
+        Log.v(TAG, "screen width = " + dm.widthPixels + "; height = " + dm.heightPixels + "; densityDpi = " + dm.densityDpi + "; xdpi = " + dm.xdpi + "; ydpi = " + dm.ydpi + "; scaledDensity = " +dm.scaledDensity);
         Drawable drawable = getResources().getDrawableForDensity(R.drawable.ic_pause, 160);
         Log.v(TAG, "drawable = " + drawable);
+
+        Matrix matrix = new Matrix();
+        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        matrix.setValues(new float[]{1, 2, 3, 1, 2, 3, 1, 2, 3});
+//        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        matrix.postTranslate(-1, -2);
+        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        matrix.postScale(-1, -2);
+        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        RectF r = new RectF(-45, 6, 150, 50);
+        matrix.mapRect(r);
+        Log.d(TAG, "matrix -r.left = " + r.left + ", right = " + r.right + ", top = " + r.top + ", bottom = " + r.bottom);
     }
 
     @Override
