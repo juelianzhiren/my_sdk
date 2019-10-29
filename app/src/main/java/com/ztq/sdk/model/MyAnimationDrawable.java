@@ -2,16 +2,15 @@ package com.ztq.sdk.model;
 
 import android.content.Context;
 import android.content.res.XmlResourceParser;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
 
-import org.apache.commons.io.IOUtils;
+import com.ztq.sdk.utils.Utils;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -98,7 +97,7 @@ public class MyAnimationDrawable {
 
                                         Log.v(TAG, i + ": resId = " + parser.getAttributeValue(i).substring(1));
 
-                                        bytes = IOUtils.toByteArray(context.getResources().openRawResource(resId));
+                                        bytes = Utils.inputStream2ByteArray(context.getResources().openRawResource(resId));
                                     } else if (parser.getAttributeName(i).equals(ATTRIBUTE_DURATION)) {
                                         duration = parser.getAttributeIntValue(i, 1000);
 
