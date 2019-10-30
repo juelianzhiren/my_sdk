@@ -22,7 +22,7 @@ public class DownloadManager {
         mDownloadList = new ArrayList<>();
     }
 
-    public DownloadManager getInstance(){
+    public static DownloadManager getInstance(){
         if (mInstance == null) {
             synchronized (DownloadManager.class) {
                 if (mInstance == null) {
@@ -37,8 +37,41 @@ public class DownloadManager {
         if (context == null || item == null || mFixedThreadPool == null || mFixedThreadPool.isShutdown() || mFixedThreadPool.isTerminated()) {
             return;
         }
+        for(int i = 0; i < mDownloadList.size(); i++) {
+            DownloadItem item1 = mDownloadList.get(i);
+            if (item1.equals(item)) {     // 如果之前已经添加了下载任务，则直接返回
+                return;
+            }
+        }
+        mDownloadList.add(item);
         DownloadRunnable runnable = new DownloadRunnable(context, item);
         mFixedThreadPool.execute(runnable);
+    }
+
+    public void pauseDownloadTask(DownloadItem item) {
+        if (item == null) {
+            return;
+        }
+        item.setState(DownloadItem.STATE_PAUSE);
+    }
+
+    public void resumeDownloadTask(DownloadItem item) {
+        if (item == null) {
+            return;
+        }
+        item.setState(DownloadItem.STATE_DOWNLOADING);
+        item.notify();
+    }
+
+    public void removeTask(DownloadItem item) {
+        mDownloadList.remove(item);
+    }
+
+    public void removeAllTask() {
+        for(int i = 0; i < mDownloadList.size(); i++) {
+            DownloadItem item1 = mDownloadList.get(i);
+            mDownloadList.remove(item1);
+        }
     }
 
     public List<DownloadItem> getDownloadList() {
