@@ -80,7 +80,7 @@ public class DownloadManager {
 
     public void destroy() {
         if (mFixedThreadPool != null && !mFixedThreadPool.isShutdown() && !mFixedThreadPool.isTerminated()) {
-            mFixedThreadPool.shutdown();
+            mFixedThreadPool.shutdownNow();
         }
         mInstance = null;
     }
