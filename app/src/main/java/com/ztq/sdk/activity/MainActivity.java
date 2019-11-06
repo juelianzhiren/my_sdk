@@ -10,11 +10,13 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.model.MyAnimationDrawable;
@@ -182,6 +184,13 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.overdraw_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, OverdrawActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mIv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -224,6 +233,16 @@ public class MainActivity extends Activity {
         RectF r = new RectF(-45, 6, 150, 50);
         matrix.mapRect(r);
         Log.d(TAG, "matrix -r.left = " + r.left + ", right = " + r.right + ", top = " + r.top + ", bottom = " + r.bottom);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                // 子线程中弹出toast
+                Toast.makeText(mContext, "提示一下！", Toast.LENGTH_LONG).show();
+                Looper.loop();
+            }
+        }).start();
     }
 
     @Override

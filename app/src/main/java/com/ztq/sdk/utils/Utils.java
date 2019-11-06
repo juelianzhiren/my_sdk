@@ -1003,4 +1003,15 @@ public class Utils {
         }
         return null;
     }
+
+    public static int[] getScreeenSize(Context context) {
+        if (context == null) {
+            return null;
+        }
+        int arr[] = new int[2];
+        DisplayMetrics dm = context.getResources().getDisplayMetrics();
+        arr[0] = dm.widthPixels;
+        arr[1] = dm.heightPixels;
+        return arr;
+    }
 }

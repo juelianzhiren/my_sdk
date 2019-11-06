@@ -32,5 +32,6 @@
         <activity android:name=".activity.LyricsActivity"/>
         <activity android:name=".activity.GridviewActivity"/>
         <activity android:name=".activity.ZoomImageActivity"/>
+        <activity android:name=".activity.OverdrawActivity" />
     </application>
 </manifest>
