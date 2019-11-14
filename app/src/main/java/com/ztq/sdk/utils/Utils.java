@@ -8,6 +8,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -1013,5 +1015,30 @@ public class Utils {
         arr[0] = dm.widthPixels;
         arr[1] = dm.heightPixels;
         return arr;
+    }
+
+    /**
+     * 方法：检查表中某列是否存在
+     *
+     * @param db
+     * @param tableName 表名
+     * @param columnName 列名
+     * @return
+     */
+    public static boolean checkColumnExists(SQLiteDatabase db, String tableName, String columnName) {
+        boolean result = false;
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("select * from sqlite_master where name = ? and sql like ?", new String[] { tableName, "%" + columnName + "%" });
+            result = (null != cursor && cursor.moveToFirst());
+        } catch (Exception e) {
+            Log.e(TAG, "checkColumnExists exception: " + e.getMessage());
+        } finally {
+            if (null != cursor && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+        return result;
     }
 }

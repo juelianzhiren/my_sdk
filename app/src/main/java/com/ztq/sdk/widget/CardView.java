@@ -1,5 +1,7 @@
 package com.ztq.sdk.widget;
 
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +11,8 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.utils.Utils;
@@ -41,6 +45,27 @@ public class CardView extends View {
         }
         setBackgroundColor(Color.WHITE);
         mScreenRect = new Rect(0, 0, Utils.getScreeenSize(getContext())[0], Utils.getScreeenSize(getContext())[1]);
+
+        // 以下是属性动画的几句代码
+        ValueAnimator va = ValueAnimator.ofObject(new TypeEvaluator() {
+            @Override
+            public Object evaluate(float fraction, Object startValue, Object endValue) {
+                int start = (int) startValue;
+                int end = (int) endValue;
+                Log.v(TAG, "startValue = " + startValue + "; endValue = " + endValue + "; fraction = " + fraction);
+                return 2 * (start + fraction * (end - start));
+            }
+        }, 0, 100);
+        va.setInterpolator(new LinearInterpolator());
+        va.setDuration(1666);
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float value = (float) animation.getAnimatedValue();
+                Log.v(TAG, "value = " + value);
+            }
+        });
+        va.start();
     }
 
     @Override
