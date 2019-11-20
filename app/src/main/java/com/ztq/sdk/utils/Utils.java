@@ -1041,4 +1041,75 @@ public class Utils {
         }
         return result;
     }
+
+    public interface NetTimeListener {
+        void onReceiveTime(long time);
+    }
+
+    public static void getTimeFromNet(final NetTimeListener listener) {
+        MyHandlerThread.postToWorker(new Runnable() {
+            @Override
+            public void run() {
+                HttpURLConnection urlConnection = null;
+                try {
+                    URL url = new URL("http://quan.suning.com/getSysTime.do");
+                    urlConnection = (HttpURLConnection) url.openConnection();//生成连接对象
+                    urlConnection.setConnectTimeout(5000);
+                    urlConnection.setRequestMethod("GET");
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                    String response = convertStreamToString(in);
+                    final JSONObject json = new JSONObject(response);
+                    if (json.has("sysTime2")) {
+                        final String date = json.getString("sysTime2");
+                        long time =  dateToTimestamp(date);
+                        if (listener != null) {
+                            listener.onReceiveTime(time);
+                        }
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    long time = System.currentTimeMillis();
+                    if (listener != null) {
+                        listener.onReceiveTime(time);
+                    }
+                } finally {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                }
+            }
+        });
+    }
+
+    public static final long dateToTimestamp(String time) {
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        final Date date;
+        try {
+            date = dateFormat.parse(time);
+        } catch (ParseException e) {
+            return 0;
+        }
+        return date.getTime();
+    }
+
+    private static String convertStreamToString(InputStream is) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append('\n');
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
 }
