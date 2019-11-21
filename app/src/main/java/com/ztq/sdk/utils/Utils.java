@@ -40,6 +40,10 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -48,9 +52,13 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -1047,7 +1055,7 @@ public class Utils {
     }
 
     public static void getTimeFromNet(final NetTimeListener listener) {
-        MyHandlerThread.postToWorker(new Runnable() {
+        MyHandlerThread.postToWorker1(new Runnable() {
             @Override
             public void run() {
                 HttpURLConnection urlConnection = null;
