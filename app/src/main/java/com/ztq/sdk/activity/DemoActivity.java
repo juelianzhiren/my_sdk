@@ -3,10 +3,14 @@ package com.ztq.sdk.activity;
 import android.app.Activity;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.widget.ProgressButton;
+import com.ztq.sdk.widget.ProgressView;
 import com.ztq.sdk.widget.GifView;
 import com.ztq.sdk.widget.SelectableTextView;
 
@@ -14,9 +18,13 @@ import com.ztq.sdk.widget.SelectableTextView;
  * Created by ztq on 2019/7/29.
  */
 public class DemoActivity extends Activity {
+    private final String TAG = "noahedu.DemoActivity";
     private SelectableTextView mSelectableTv;
     private GifView mGifView;
     private ImageView mLayerDrawableIv;
+    private ProgressView mDownloadView;
+    private ProgressButton mDownloadBtn;
+    private int mProgress;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,35 @@ public class DemoActivity extends Activity {
 
             }
         });
+
+        mDownloadView = findViewById(R.id.demo_download_view);
+        mDownloadView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.v(TAG, "download click");
+            }
+        });
+        mDownloadBtn = findViewById(R.id.demo_download_btn);
+        mDownloadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.v(TAG, "download btn click");
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mProgress++;
+        if (mProgress > 100) {
+            mProgress = 100;
+        }
+        mDownloadView.setProgressAndText(mProgress / 100.0f, mProgress + "%");
+        Log.v(TAG, "mProgress = " + mProgress);
+
+        mDownloadBtn.setText(mProgress + "%");
+        mDownloadBtn.setProgress(mProgress / 100.0f);
     }
 
     @Override

@@ -7,4 +7,8 @@
     <dimen name="lrc_timeline_height">1dp</dimen>
     <dimen name="lrc_drawable_width">30dp</dimen>
     <dimen name="lrc_time_width">40dp</dimen>
+
+    <dimen name="progress_button_stroke_width">2dp</dimen>
+    <dimen name="progress_button_round_radius">10dp</dimen>
+    <dimen name="progress_button_text_size">20dp</dimen>
 </resources>

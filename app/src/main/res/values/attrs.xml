@@ -24,4 +24,14 @@
             <enum name="right" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="ProgressView">
+        <attr name="roundRadius" format="dimension" />          <!--圆角半径-->
+        <attr name="strokeWidth" format="dimension" />          <!--stroke宽度-->
+        <attr name="progressAreaColor" format="reference|color" />  <!-- 进度颜色 -->
+        <attr name="blankAreaColor" format="reference|color" />     <!-- 非进度颜色 -->
+        <attr name="textSize" format="dimension" />              <!-- 文本大小 -->
+        <attr name="fillBeforeTextColor" format="reference|color" /> <!-- 被进度覆盖前文本颜色 -->
+        <attr name="fillAfterTextColor" format="reference|color" />  <!--  被进度覆盖后文本的颜色 -->
+    </declare-styleable>
 </resources>
