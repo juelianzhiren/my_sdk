@@ -1,13 +1,18 @@
 package com.ztq.sdk.activity;
 
+import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
@@ -29,6 +34,8 @@ public class DemoActivity extends Activity {
     private ProgressButton mDownloadBtn;
     private int mProgress;
     private Context mContext;
+    private Button mBtn;
+    private ConstraintLayout mConstraintLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,13 +80,41 @@ public class DemoActivity extends Activity {
             }
         });
         mDownloadBtn = findViewById(R.id.demo_download_btn);
+        mConstraintLayout = findViewById(R.id.constatinlayout);
+        mBtn = findViewById(R.id.demo_btn);
+        final Button btn = new Button(mContext);
+        btn.setText("动画1");
+        mConstraintLayout.addView(btn);
         mDownloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.v(TAG, "download btn click");
                 AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, R.animator.property_animator);
-                set.setTarget(mDownloadBtn);
+                set.setTarget(btn);
+                btn.setVisibility(View.VISIBLE);
                 set.start();
+                performAnimate();
+                set.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        Log.v(TAG, "onAnimationStart");
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        Log.v(TAG, "onAnimationEnd");
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                        Log.v(TAG, "onAnimationCancel");
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+                        Log.v(TAG, "onAnimationRepeat");
+                    }
+                });
             }
         });
     }
@@ -102,5 +137,27 @@ public class DemoActivity extends Activity {
     public void onBackPressed() {
         mSelectableTv.getSelectedTextList();
         super.onBackPressed();
+    }
+
+    private void performAnimate() {
+        ViewWrapper wrapper = new ViewWrapper(mBtn);
+        ObjectAnimator.ofInt(wrapper, "width", 500).setDuration(5000).start();
+    }
+
+    private static class ViewWrapper {
+        private View mTarget;
+
+        public ViewWrapper(View target) {
+            mTarget = target;
+        }
+
+        public int getWidth() {
+            return mTarget.getLayoutParams().width;
+        }
+
+        public void setWidth(int width) {
+            mTarget.getLayoutParams().width = width;
+            mTarget.requestLayout();
+        }
     }
 }
