@@ -1,6 +1,9 @@
 package com.ztq.sdk.activity;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,12 +28,14 @@ public class DemoActivity extends Activity {
     private ProgressView mDownloadView;
     private ProgressButton mDownloadBtn;
     private int mProgress;
+    private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
 
+        mContext = this;
         mSelectableTv = findViewById(R.id.selectable_tv);
         mSelectableTv.setText(
                 "我我饿哦哦！我哦哦我饿我哦房东。偶发的搜房度搜，啊欧迪芬。辅导老师都爱发，拉风的搜阿斯顿发了的撒讲道理两间房的酸辣粉领导领导拉收到了sad" +
@@ -72,6 +77,9 @@ public class DemoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Log.v(TAG, "download btn click");
+                AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, R.animator.property_animator);
+                set.setTarget(mDownloadBtn);
+                set.start();
             }
         });
     }
