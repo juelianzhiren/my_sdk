@@ -95,6 +95,15 @@
         android:layout_marginTop="200dp"/>
 
     <Button
+        android:id="@+id/jump_to_animation_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="animation例子"
+        app:layout_constraintRight_toLeftOf="@id/jump_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="200dp"/>
+
+    <Button
         android:id="@+id/jump_to_zoom_image_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

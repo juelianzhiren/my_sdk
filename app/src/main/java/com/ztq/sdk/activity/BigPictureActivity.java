@@ -7,6 +7,7 @@ import android.graphics.BitmapRegionDecoder;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.widget.LargeImageView;

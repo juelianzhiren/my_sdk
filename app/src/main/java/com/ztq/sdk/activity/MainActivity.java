@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.RectF;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -243,6 +244,14 @@ public class MainActivity extends Activity {
                 Looper.loop();
             }
         }).start();
+
+        findViewById(R.id.jump_to_animation_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, AnimationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
