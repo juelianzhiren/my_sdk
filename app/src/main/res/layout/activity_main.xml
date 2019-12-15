@@ -95,6 +95,10 @@
         android:layout_marginTop="200dp"/>
 
     <Button
+        android:id="@+id/ndk_demo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ndk demo"
         android:id="@+id/jump_to_animation_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

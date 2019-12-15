@@ -10,6 +10,11 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            moduleName "jni-test"
+            abiFilters "armeabi","armeabi-v7a"
+        }
     }
     buildTypes {
         release {
@@ -21,6 +26,11 @@ android {
         main {
             assets.srcDirs = ['assets', 'assets/']
             jniLibs.srcDirs = ['libs']
+    }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
         }
     }
 }
