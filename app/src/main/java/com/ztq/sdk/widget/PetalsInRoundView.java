@@ -149,20 +149,20 @@ public class PetalsInRoundView extends View {
      * @param canvas
      */
     private void drawPetalsPart(Canvas canvas) {
-        drawPetalsPart(canvas, true, true);
-
-        drawPetalsPart(canvas, false, true);
+        int firstDrawIndex = mHighlightIndex < mPetalNameList.size() - 1 ? mHighlightIndex + 1 : 0;
+        drawPetalsPart(canvas, true, true, firstDrawIndex);
+        drawPetalsPart(canvas, false, false, mHighlightIndex);
+        drawPetalsPart(canvas, true, false, mHighlightIndex);
+        for(int i = (mHighlightIndex - 1 + mPetalNameList.size()) % mPetalNameList.size(); i > firstDrawIndex; i--) {
+            drawPetalsPart(canvas, false, true, i);
+            drawPetalsPart(canvas, true, true, i);
+        }
+        drawPetalsPart(canvas, false, true, firstDrawIndex);
     }
 
-    private void drawPetalsPart(Canvas canvas, boolean isLeftPetalPart, boolean isNormalPetal) {
+    private void drawPetalsPart(Canvas canvas, boolean isLeftPetalPart, boolean isNormalPetal, int index) {
         if (mPetalNameList == null || mPetalNameList.size() == 0 || mEachPetalAngle == 0) {
             return;
-        }
-        int firstDrawIndex = -1;
-        if (mHighlightIndex < mPetalNameList.size() - 1) {
-            firstDrawIndex = mHighlightIndex + 1;
-        } else {
-            firstDrawIndex = 0;
         }
         int resId = R.drawable.ic_normal_petal_left;
         if (isLeftPetalPart && isNormalPetal) {
@@ -192,11 +192,11 @@ public class PetalsInRoundView extends View {
             rotateX = 0;
         }
         canvas.translate(translateX,  mCircleRadius - newHeight);
-        int degree = (int)((firstDrawIndex + 0.5) * mEachPetalAngle * 360 / (2 * Math.PI));
+        int degree = (int)((index + 0.5) * mEachPetalAngle * 360 / (2 * Math.PI));
         //旋转的角度是以度为单位
         canvas.rotate(degree, rotateX, newHeight);
 
-        Log.v(TAG, "degree = " + ((firstDrawIndex + 0.5) * mEachPetalAngle) * 360 / (2 * Math.PI) + "; " + width * raido + "; " + height * raido);
+        Log.v(TAG, "degree = " + ((index + 0.5) * mEachPetalAngle) * 360 / (2 * Math.PI) + "; " + width * raido + "; " + height * raido);
         canvas.drawBitmap(targetBitmap, 0, 0, null);
         canvas.restore();
     }
