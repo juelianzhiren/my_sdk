@@ -11,4 +11,8 @@
     <dimen name="progress_button_stroke_width">2dp</dimen>
     <dimen name="progress_button_round_radius">10dp</dimen>
     <dimen name="progress_button_text_size">20dp</dimen>
+
+    <dimen name="petals_round_view_circle_border_stroke_width">3dp</dimen>
+    <dimen name="petals_round_view_thin_radius_line_width">2dp</dimen>
+    <dimen name="petals_round_view_thick_radius_line_width">4dp</dimen>
 </resources>

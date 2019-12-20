@@ -35,5 +35,6 @@
         <activity android:name=".activity.OverdrawActivity" />
         <activity android:name=".activity.NdkDemoActivity" />
         <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.PetalsRoundActivity" />
     </application>
 </manifest>

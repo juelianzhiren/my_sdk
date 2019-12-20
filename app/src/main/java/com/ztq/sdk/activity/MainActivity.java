@@ -259,6 +259,14 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.petals_round_view_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, PetalsRoundActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

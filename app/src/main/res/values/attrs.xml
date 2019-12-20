@@ -34,4 +34,13 @@
         <attr name="fillBeforeTextColor" format="reference|color" /> <!-- 被进度覆盖前文本颜色 -->
         <attr name="fillAfterTextColor" format="reference|color" />  <!--  被进度覆盖后文本的颜色 -->
     </declare-styleable>
+
+    <declare-styleable name="PetalsRoundView">
+        <attr name="normalFillArcColor" format="reference|color" />      <!--经过圆心的实心圆弧颜色(非高亮)-->
+        <attr name="highlightFillArcColor" format="reference|color" />   <!--经过圆心的实心圆弧颜色(高亮)-->
+        <attr name="circleBorderStrokeWidth" format="dimension" />       <!--圆形外边边界stroke宽度-->
+        <attr name="thinRadiusLineWidth" format="dimension" />           <!--细半径线的宽度-->
+        <attr name="thickRadiusLineWidth" format="dimension" />          <!--粗半径线的宽度-->
+        <attr name="radiusLineColor" format="reference|color" />         <!--半径线的颜色-->
+    </declare-styleable>
 </resources>
