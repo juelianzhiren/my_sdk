@@ -32,6 +32,7 @@ public class PetalsRoundActivity extends Activity {
 
         PetalsInfo info = new PetalsInfo();
         info.setName("三年级上册一");
+
         List<PetalsInfo.PetalEntity> list = new ArrayList<>();
         PetalsInfo.PetalEntity entity = new PetalsInfo.PetalEntity();
         List<String> childList = new ArrayList<>();
@@ -41,6 +42,7 @@ public class PetalsRoundActivity extends Activity {
         entity.setName("A");
         entity.setChildList(childList);
         list.add(entity);
+
         entity = new PetalsInfo.PetalEntity();
         entity.setName("B");
         childList = new ArrayList<>();
@@ -49,6 +51,7 @@ public class PetalsRoundActivity extends Activity {
         childList.add("B3");
         entity.setChildList(childList);
         list.add(entity);
+
         entity = new PetalsInfo.PetalEntity();
         entity.setName("C");
         childList = new ArrayList<>();
@@ -57,6 +60,7 @@ public class PetalsRoundActivity extends Activity {
         childList.add("C3");
         entity.setChildList(childList);
         list.add(entity);
+
         entity = new PetalsInfo.PetalEntity();
         entity.setName("D");
         childList = new ArrayList<>();
@@ -65,25 +69,56 @@ public class PetalsRoundActivity extends Activity {
         childList.add("是");
         entity.setChildList(childList);
         list.add(entity);
+
         entity = new PetalsInfo.PetalEntity();
         entity.setName("E");
+        childList = new ArrayList<>();
+        childList.add("大");
+        childList.add("东西");
+        childList.add("的");
+        entity.setChildList(childList);
         list.add(entity);
+
         entity = new PetalsInfo.PetalEntity();
         entity.setName("F");
+        childList = new ArrayList<>();
+        childList.add("有");
+        childList.add("西");
+        childList.add("都");
+        entity.setChildList(childList);
         list.add(entity);
+
         entity = new PetalsInfo.PetalEntity();
         entity.setName("G");
+        childList = new ArrayList<>();
+        childList.add("人");
+        childList.add("东");
+        childList.add("他");
+        entity.setChildList(childList);
         list.add(entity);
+
         entity = new PetalsInfo.PetalEntity();
         entity.setName("H");
+        childList = new ArrayList<>();
+        childList.add("大小洗");
+        childList.add("东西");
+        childList.add("的");
+        entity.setChildList(childList);
         list.add(entity);
+
         info.setPetalList(list);
         mPetalsInRoundView.setPetalsInfo(info);
-
+        mPetalsInRoundView.setHighlightIndex(1);
         mPetalsInRoundView.setOnInnerCircleClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.v(TAG, "innner click");
+            }
+        });
+        mPetalsInRoundView.setSectorClickListener(new PetalsInRoundView.SectorClickListener() {
+            @Override
+            public void onClick(int groupIndex, int childIndex) {
+                Log.v(TAG, "SectorClickListener, groupIndex = " + groupIndex + "; childIndex = " + childIndex);
             }
         });
     }

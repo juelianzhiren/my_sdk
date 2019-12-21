@@ -30,9 +30,11 @@ import java.util.List;
 public class PetalsInRoundView extends View {
     private static final String TAG = "noahedu.PetalsInRoundView";
     private static final int INNER_CIRCLE_MAX_LEN_EACH_LINE = 3;
-
+    /**每个小扇形内每行显示的字符数*/
+    private static final int SECTOR_TEXT_MAX_LEN_EACH_LINE = 2;
     private Context mContext;
     private Paint mPaint;
+    private TextPaint mTextPaint;
     /**高亮的序号*/
     private int mHighlightIndex;
     /**圆形半径(加上圆环的半径长)*/
@@ -120,6 +122,8 @@ public class PetalsInRoundView extends View {
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        mTextPaint = new TextPaint();
+        mTextPaint.setAntiAlias(true);
     }
 
     @Override
@@ -146,9 +150,8 @@ public class PetalsInRoundView extends View {
         if (mCircleRadius <= 0 || mCircleRadius <= mCircleBorderStrokeWidth) {
             return;
         }
-        Log.v(TAG, "mWidth = " + mWidth + "; mHeight = " + mHeight + "");
         drawCirclePart(canvas);
-        drawLinePart(canvas);
+        drawLinePartAndSectorText(canvas);
         drawPetalsPart(canvas);
         drawInnerCircle(canvas);
     }
@@ -168,21 +171,22 @@ public class PetalsInRoundView extends View {
     }
 
     /**
-     * 画园内的直线
+     * 画园内的直线和扇形文字
      * @param canvas
      */
-    private void drawLinePart(Canvas canvas) {
+    private void drawLinePartAndSectorText(Canvas canvas) {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
             return;
         }
         mPaint.setColor(mRadiusLineColor);
         mEachPetalAngle = 2 * Math.PI / mPetalsInfo.getPetalList().size();
-        float delta = (float)(mCircleBorderStrokeWidth + 0.1 * (mCircleRadius - mCircleBorderStrokeWidth));
-        RectF oval = new RectF(0, 0,  2 * mCircleRadius, 2 * mCircleRadius);
+        float delta1 = (float)(0.1 * (mCircleRadius - mCircleBorderStrokeWidth));
+        float delta = mCircleBorderStrokeWidth + delta1;
+        RectF oval = new RectF(delta, delta,  2 * mCircleRadius - delta, 2 * mCircleRadius - delta);
         //先画粗线
-        for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
+        int petalsSize = mPetalsInfo.getPetalList().size();
+        for(int i = 0; i < petalsSize; i++) {
             double angle = i * mEachPetalAngle;
-            Log.v(TAG, "i = " + i + "; angle = " + angle + "; sin = " + Math.sin(angle) + "; cos = " + (-Math.cos(angle)));
             double targetX = mCircleRadius + (mCircleRadius - mCircleBorderStrokeWidth) * Math.sin(angle);
             double targetY = mCircleRadius + (mCircleRadius - mCircleBorderStrokeWidth) * (-Math.cos(angle));
             mPaint.setStrokeWidth(mThickRadiusLineWidth);
@@ -193,21 +197,37 @@ public class PetalsInRoundView extends View {
             if (entity != null) {
                 List<String> childNameList = entity.getChildList();
                 if (childNameList != null && childNameList.size() != 0) {
-                    Log.v(TAG, "childNameList size = " + childNameList.size());
-                    for(int j = 0; j < childNameList.size(); j++) {
-                        double eachChildEachPetalAngle = mEachPetalAngle / childNameList.size();
+                    int childSize = childNameList.size();
+                    double eachChildEachPetalAngle = mEachPetalAngle / childSize;
+                    for(int j = 0; j < childSize; j++) {
                         double childAngle = angle + (j + 1) * eachChildEachPetalAngle;
                         String childName = childNameList.get(j);
-                        Path path = new Path();
+                        mTextPaint.setTextSize(mOuterSectorTextSize);
+                        mTextPaint.setColor(mOuterSectorTextColor);
 
-                        mPaint.setTextSize(mOuterSectorTextSize);
-                        mPaint.setColor(mOuterSectorTextColor);
-                        float startAngle = (float)((childAngle - eachChildEachPetalAngle) * 360 / (2 * Math.PI)) - 90 + 5;
-                        float sweepAngle = (float)(eachChildEachPetalAngle * 360 / (2 * Math.PI));
-                        Log.v(TAG, "startAngle = " + startAngle + "; sweepAngle = " + sweepAngle);
-                        path.addArc(oval, startAngle, sweepAngle);
-
-                        canvas.drawTextOnPath(childName, path, 0, 50, mPaint);
+                        int textLines = childName.length() % SECTOR_TEXT_MAX_LEN_EACH_LINE == 0 ? childName.length() / SECTOR_TEXT_MAX_LEN_EACH_LINE : childName.length() / SECTOR_TEXT_MAX_LEN_EACH_LINE + 1;
+                        for(int k = 0; k < textLines; k++ ) {
+                            String subName = "";                      // 每个小扇形内每行显示的字符
+                            if (k == textLines - 1) {
+                                subName = childName.substring(k * SECTOR_TEXT_MAX_LEN_EACH_LINE, childName.length());
+                            } else {
+                                subName = childName.substring(k * SECTOR_TEXT_MAX_LEN_EACH_LINE, (k + 1) * SECTOR_TEXT_MAX_LEN_EACH_LINE);
+                            }
+                            float subWidth = mTextPaint.measureText(subName);
+                            float subHeight = mTextPaint.getFontSpacing();
+                            float deltaHeight = delta1 / 2 + (k + 1 / 2) * subHeight;    // 每行文字中心离外层的圆边界高度差（不包含圆形外边边界strokestroke）
+                            double radio = subWidth / ((mCircleRadius - mCircleBorderStrokeWidth - deltaHeight) * 2 * Math.PI / (petalsSize * childSize));
+                            float deltaAngle = 0;                    // 每行文字与相应扇形缩进的角度
+                            if (radio < 1 && radio > 0) {
+                                deltaAngle = (float)((1 - radio) / 2 * Math.toDegrees(eachChildEachPetalAngle));
+                            }
+                            Path path = new Path();
+                            float startAngle = (float)(Math.toDegrees(childAngle - eachChildEachPetalAngle) - Math.toDegrees(Math.PI / 2)) + deltaAngle;
+                            float sweepAngle = (float)Math.toDegrees(eachChildEachPetalAngle);
+                            path.addArc(oval, startAngle, sweepAngle);
+                            Log.v(TAG, "startAngle = " + startAngle + "; sweepAngle = " + sweepAngle + "; i = " + i + "; j = " + j + "; k = " + k + "; subName = " + subName);
+                            canvas.drawTextOnPath(subName, path, 0, deltaHeight - 1 / 2 * subHeight, mTextPaint);
+                        }
                         if (j == childNameList.size() - 1) {   // 最后一个细线不用画
                             continue;
                         }
@@ -232,13 +252,18 @@ public class PetalsInRoundView extends View {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
             return;
         }
-        int firstDrawIndex = mHighlightIndex < mPetalsInfo.getPetalList().size() - 1 ? mHighlightIndex + 1 : 0;
+        if (mHighlightIndex >= mPetalsInfo.getPetalList().size() || mHighlightIndex < 0) {
+            mHighlightIndex = 0;
+        }
+        int firstDrawIndex = mHighlightIndex <= mPetalsInfo.getPetalList().size() - 1 ? mHighlightIndex + 1 : 0;
         drawPetalsPart(canvas, true, true, firstDrawIndex);
         drawPetalsPart(canvas, false, false, mHighlightIndex);
         drawPetalsPart(canvas, true, false, mHighlightIndex);
-        for(int i = (mHighlightIndex - 1 + mPetalsInfo.getPetalList().size()) % mPetalsInfo.getPetalList().size(); i > firstDrawIndex; i--) {
-            drawPetalsPart(canvas, false, true, i);
-            drawPetalsPart(canvas, true, true, i);
+        for(int i = mHighlightIndex - 1 + mPetalsInfo.getPetalList().size(); i > firstDrawIndex; i--) {
+            int index = i % mPetalsInfo.getPetalList().size();
+            Log.v(TAG, mHighlightIndex - 1 + mPetalsInfo.getPetalList().size() + "; firstDrawIndex = " + firstDrawIndex + "; i = " + i);
+            drawPetalsPart(canvas, false, true, index);
+            drawPetalsPart(canvas, true, true, index);
         }
         drawPetalsPart(canvas, false, true, firstDrawIndex);
     }
@@ -275,11 +300,11 @@ public class PetalsInRoundView extends View {
             rotateX = 0;
         }
         canvas.translate(translateX,  mCircleRadius - newHeight);
-        int degree = (int)((index + 0.5) * mEachPetalAngle * 360 / (2 * Math.PI));
+        int degree = (int)Math.toDegrees((index + 0.5) * mEachPetalAngle);
         //旋转的角度是以度为单位
         canvas.rotate(degree, rotateX, newHeight);
 
-        Log.v(TAG, "degree = " + ((index + 0.5) * mEachPetalAngle) * 360 / (2 * Math.PI) + "; " + width * raido + "; " + height * raido);
+        Log.v(TAG, "degree = " + (Math.toDegrees((index + 0.5) * mEachPetalAngle)) + "; " + width * raido + "; " + height * raido);
         canvas.drawBitmap(targetBitmap, 0, 0, null);
         canvas.restore();
     }
@@ -308,8 +333,8 @@ public class PetalsInRoundView extends View {
             int textline = isDivisible ? name.length() / mInnerCircleMaxLenEachLine : name.length() / mInnerCircleMaxLenEachLine + 1;   // 文字行数
             Log.v(TAG, "textline = " + textline + "; name = " + name.length());
 
-            mPaint.setTextSize(mInnerCircleTextSize);
-            mPaint.setColor(mInnerCircleTextColor);
+            mTextPaint.setTextSize(mInnerCircleTextSize);
+            mTextPaint.setColor(mInnerCircleTextColor);
             String chileName = "";
             for (int i = 0; i < textline; i++) {
                 if (i == textline - 1) {
@@ -317,13 +342,14 @@ public class PetalsInRoundView extends View {
                 } else {
                     chileName += name.substring(mInnerCircleMaxLenEachLine * i, mInnerCircleMaxLenEachLine * (i + 1));
                 }
-                float textWidth = mPaint.measureText(chileName);
-                float textHeight = mPaint.getFontSpacing();
+                float textWidth = mTextPaint.measureText(chileName);
+                float textHeight = mTextPaint.getFontSpacing();
                 float x = mCircleRadius - textWidth / 2;
-                float y = mCircleRadius + (i + 1 - textline / 2) * textHeight - 10;
-                Log.v(TAG, "textWidth = " + textWidth + "; textHeight = " + textHeight + "; name = " + name + "; textline = " + textline + "; " + y);
+                float y = mCircleRadius + (i + 1 - textline / 2) * textHeight - mTextPaint.getFontMetrics().bottom;
 
-                canvas.drawText(chileName, x, y, mPaint);
+                Log.v(TAG, "top = " + mTextPaint.getFontMetrics().top + "; bottom = " + mTextPaint.getFontMetrics().bottom + "; descent = " + mTextPaint.getFontMetrics().descent + "; ascent = " + mTextPaint.getFontMetrics().ascent + "; leading = " + mTextPaint.getFontMetrics().leading);
+
+                canvas.drawText(chileName, x, y, mTextPaint);
             }
         }
     }
@@ -342,6 +368,9 @@ public class PetalsInRoundView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null) {
+            return false;
+        }
         int action = event.getAction();
         Log.v(TAG, "onTouchEvent, action = " + action);
         float touchX = event.getX();
@@ -349,15 +378,26 @@ public class PetalsInRoundView extends View {
         if (action == MotionEvent.ACTION_DOWN) {
             return true;
         } else if (action == MotionEvent.ACTION_UP) {
-            Log.v(TAG, "judgePointIsInInnerCircle = " + judgePointIsInInnerCircle(touchX, touchY) + "; touchX = " + touchX + "; touchY = " + touchY);
-            if (judgePointIsInInnerCircle(touchX, touchY)) {
+            if (judgePointIsInCircle(touchX, touchY, mInnerCircleRadius - mInnerRingWidth)) {
                 if (mOnInnerCircleClickListener != null) {
                     mOnInnerCircleClickListener.onClick(this);
                 }
             } else {
-                int groupIndex = getBelongedLargetSector(touchX, touchY);
-                if () {
-
+                if (mPetalsInfo.getPetalList().size() != 0) {
+                    for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
+                        PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
+                        if (entity != null && entity.getChildList() != null) {
+                            for(int j = 0; j < entity.getChildList().size(); j++){
+                                if (isBelongToCertainArea(touchX, touchY, i, j)) {
+                                    if (mSectorClickListener != null) {
+                                        mSectorClickListener.onClick(i, j);
+                                    }
+                                    break;
+                                }
+                            }
+                            // TODO 这里添加花瓣点击监听
+                        }
+                    }
                 }
             }
         }
@@ -365,44 +405,78 @@ public class PetalsInRoundView extends View {
     }
 
     /**
-     * 获取点（x,y)属于哪个序号的大扇形内，即花瓣对应的大扇形序号，如果不属于任何一个，则返回-1
+     * 判断点（x,y)是否属于特定区域内，特定区域为：序号为groupIndex的大扇形内的序号为childIndex的子扇形内，
+     * 而且在半径为mCircleRadius-mCircleBorderStrokeWidth、半径为mCircleRadius * ratioOfPetalImgHeightToCircle两个圆包围的圆环内
      * @return
      */
-    private int getBelongedLargetSector(float x, float y) {
+    private boolean isBelongToCertainArea(float x, float y, int groupIndex, int childIndex) {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
-            return -1;
-        }
-        if (!judgePointIsInOuterCircle(x, y)) {
-            return -1;
-        }
-        
-    }
-
-    private boolean judgePointIsInOuterCircle(float x, float y) {
-        if (x < 0 || y < 0) {
             return false;
         }
-        return Math.sqrt(Math.pow(x - mCircleRadius, 2) + Math.sqrt(Math.pow(y - mCircleRadius, 2))) <= mCircleRadius - mCircleBorderStrokeWidth;
-    }
-
-    private boolean judgePointIsInInnerCircle(float x, float y) {
-        if (x < 0 || y < 0) {
+        if (groupIndex >= mPetalsInfo.getPetalList().size()) {
             return false;
         }
-        return Math.sqrt(Math.pow(x - mCircleRadius, 2) + Math.sqrt(Math.pow(y - mCircleRadius, 2))) <= (mInnerCircleRadius - mInnerRingWidth);
+        PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(groupIndex);
+        if (entity == null || entity.getChildList() == null || childIndex >= entity.getChildList().size()) {
+            return false;
+        }
+
+        boolean result = judgePointIsInCircle(x, y, mCircleRadius-mCircleBorderStrokeWidth);
+        result = result && !judgePointIsInCircle(x, y, mCircleRadius * ratioOfPetalImgHeightToCircle);
+        double angle = getAngle(x, y);
+        double startAngle = Math.toDegrees(groupIndex * mEachPetalAngle + childIndex * mEachPetalAngle / entity.getChildList().size());
+        double endAngle = Math.toDegrees(groupIndex * mEachPetalAngle + (childIndex + 1) * mEachPetalAngle / entity.getChildList().size());
+        Log.v(TAG, "result angle = " + angle + "; startAngle = " + startAngle + "; endAngle = " + endAngle);
+        result = result && (angle >= startAngle && angle <= endAngle);
+        return result;
+    }
+
+    /**
+     * 获取角度，规则如下：以（mCircleRadius, mCircleRadius）为原点，原点指向（mCircleRadius，0）的线段为x正轴
+     * 原点指向（2*mCircleRadius，mCircleRadius）为y正轴，获取原点指向(x,y)与x正轴的夹角
+     * @param x
+     * @param y
+     * @return
+     */
+    private double getAngle(float x, float y) {
+        double result = 0;
+        if (x >= mCircleRadius && y <= mCircleRadius) {          // 夹角在0-90度之间
+            result = Math.toDegrees(Math.asin((x - mCircleRadius) / Math.sqrt(Math.pow(x - mCircleRadius, 2) + Math.pow(mCircleRadius - y, 2))));
+        } else if (x >= mCircleRadius && y >= mCircleRadius) {   // 夹角在90-180度之间
+            result = Math.toDegrees(Math.PI / 2) + Math.toDegrees(Math.asin((y - mCircleRadius) / Math.sqrt(Math.pow(x - mCircleRadius, 2) + Math.pow(y - mCircleRadius, 2))));
+        } else if (x <= mCircleRadius && y >= mCircleRadius) {   // 夹角在180-270度之间
+            result = Math.toDegrees(Math.PI) + Math.toDegrees(Math.asin((mCircleRadius - x) / Math.sqrt(Math.pow(mCircleRadius - x, 2) + Math.pow(mCircleRadius - y, 2))));
+        } else if (x <= mCircleRadius && y <= mCircleRadius) {   // 夹角在270-360度之间
+            result = Math.toDegrees(3 * Math.PI / 2) + Math.toDegrees(Math.asin((mCircleRadius - y) / Math.sqrt(Math.pow(mCircleRadius - x, 2) + Math.pow(mCircleRadius - y, 2))));
+        }
+        return result;
+    }
+
+    /**
+     * 判断点（x,y)是否在圆心（mCircleRadius，mCircleRadius），半径为radius的圆内
+     * @param x
+     * @param y
+     * @param radius
+     * @return
+     */
+    private boolean judgePointIsInCircle(float x, float y, float radius) {
+        if (x < 0 || y < 0 || radius <= 0) {
+            return false;
+        }
+        return Math.sqrt(Math.pow(x - mCircleRadius, 2) + Math.pow(y - mCircleRadius, 2)) < radius;
     }
 
     /**
      * 点击花瓣的监听
      */
     public interface PetalClickListener{
-        public void onClick(View view, int index);
+        public void onClick(int index);
     }
 
     /**
      * 点击外围扇形的点击监听
      */
     public interface SectorClickListener {
-        public void onClick(View view, int groupIndex, int childIndex);
+        public void onClick(int groupIndex, int childIndex);
     }
 }
