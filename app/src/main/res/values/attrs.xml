@@ -38,9 +38,19 @@
     <declare-styleable name="PetalsRoundView">
         <attr name="normalFillArcColor" format="reference|color" />      <!--经过圆心的实心圆弧颜色(非高亮)-->
         <attr name="highlightFillArcColor" format="reference|color" />   <!--经过圆心的实心圆弧颜色(高亮)-->
+        <attr name="ratioOfPetalImgHeightToCircle" format="float" />     <!--花瓣图片的高度占据大圆的比例-->
         <attr name="circleBorderStrokeWidth" format="dimension" />       <!--圆形外边边界stroke宽度-->
         <attr name="thinRadiusLineWidth" format="dimension" />           <!--细半径线的宽度-->
         <attr name="thickRadiusLineWidth" format="dimension" />          <!--粗半径线的宽度-->
         <attr name="radiusLineColor" format="reference|color" />         <!--半径线的颜色-->
+        <attr name="innerCircleRadius" format="dimension" />             <!--内圈圆的半径大小（包括内圆环）-->
+        <attr name="innerRingWidth" format="dimension" />                <!--内圈圆环的宽度-->
+        <attr name="innerRingColor" format="reference|color" />          <!--内圈圆环的颜色-->
+        <attr name="innerCircleExceptRingColor" format="color" />        <!--内圈圆（不包含圆环）的颜色-->
+        <attr name="innerCircleTextSize" format="dimension" />           <!--内圈圆文字大小-->
+        <attr name="innerCircleTextColor" format="reference|color" />    <!--内圈圆文本颜色-->
+        <attr name="outerSectorTextSize" format="dimension" />           <!--外层扇形的文字大小-->
+        <attr name="outerSectorTextColor" format="reference|color" />    <!--外层扇形的文字颜色-->
+        <attr name="innerCircleMaxLenEachLine" format="integer" />       <!--内圈圆的文本一行最多显示多少个字-->
     </declare-styleable>
 </resources>

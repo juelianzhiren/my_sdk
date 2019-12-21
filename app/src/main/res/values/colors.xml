@@ -23,4 +23,6 @@
 
     <color name="gray">#909090</color>
     <color name="light_gray">#DCDCDC</color>
+    <color name="light_gray_ring">#6F6F6F</color>
+    <color name="middle_black">#1E1E1E</color>
 </resources>
