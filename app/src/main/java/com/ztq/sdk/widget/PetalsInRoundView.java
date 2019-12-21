@@ -354,9 +354,35 @@ public class PetalsInRoundView extends View {
                 if (mOnInnerCircleClickListener != null) {
                     mOnInnerCircleClickListener.onClick(this);
                 }
+            } else {
+                int groupIndex = getBelongedLargetSector(touchX, touchY);
+                if () {
+
+                }
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    /**
+     * 获取点（x,y)属于哪个序号的大扇形内，即花瓣对应的大扇形序号，如果不属于任何一个，则返回-1
+     * @return
+     */
+    private int getBelongedLargetSector(float x, float y) {
+        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
+            return -1;
+        }
+        if (!judgePointIsInOuterCircle(x, y)) {
+            return -1;
+        }
+        
+    }
+
+    private boolean judgePointIsInOuterCircle(float x, float y) {
+        if (x < 0 || y < 0) {
+            return false;
+        }
+        return Math.sqrt(Math.pow(x - mCircleRadius, 2) + Math.sqrt(Math.pow(y - mCircleRadius, 2))) <= mCircleRadius - mCircleBorderStrokeWidth;
     }
 
     private boolean judgePointIsInInnerCircle(float x, float y) {

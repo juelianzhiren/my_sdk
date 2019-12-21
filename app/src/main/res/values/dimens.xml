@@ -17,6 +17,6 @@
     <dimen name="petals_round_view_thick_radius_line_width">4dp</dimen>
     <dimen name="petals_round_view_inner_circle_radius">80dp</dimen>
     <dimen name="petals_round_view_inner_ring_width">20dp</dimen>
-    <dimen name="petals_round_view_inner_circle_text_size">18dp</dimen>
-    <dimen name="petals_round_view_outer_sector_text_size">16dp</dimen>
+    <dimen name="petals_round_view_inner_circle_text_size">22dp</dimen>
+    <dimen name="petals_round_view_outer_sector_text_size">20dp</dimen>
 </resources>
