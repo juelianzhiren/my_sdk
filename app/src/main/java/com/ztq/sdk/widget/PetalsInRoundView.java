@@ -261,7 +261,6 @@ public class PetalsInRoundView extends View {
         drawPetalsPart(canvas, true, false, mHighlightIndex);
         for(int i = mHighlightIndex - 1 + mPetalsInfo.getPetalList().size(); i > firstDrawIndex; i--) {
             int index = i % mPetalsInfo.getPetalList().size();
-            Log.v(TAG, mHighlightIndex - 1 + mPetalsInfo.getPetalList().size() + "; firstDrawIndex = " + firstDrawIndex + "; i = " + i);
             drawPetalsPart(canvas, false, true, index);
             drawPetalsPart(canvas, true, true, index);
         }
@@ -346,9 +345,6 @@ public class PetalsInRoundView extends View {
                 float textHeight = mTextPaint.getFontSpacing();
                 float x = mCircleRadius - textWidth / 2;
                 float y = mCircleRadius + (i + 1 - textline / 2) * textHeight - mTextPaint.getFontMetrics().bottom;
-
-                Log.v(TAG, "top = " + mTextPaint.getFontMetrics().top + "; bottom = " + mTextPaint.getFontMetrics().bottom + "; descent = " + mTextPaint.getFontMetrics().descent + "; ascent = " + mTextPaint.getFontMetrics().ascent + "; leading = " + mTextPaint.getFontMetrics().leading);
-
                 canvas.drawText(chileName, x, y, mTextPaint);
             }
         }
@@ -372,7 +368,6 @@ public class PetalsInRoundView extends View {
             return false;
         }
         int action = event.getAction();
-        Log.v(TAG, "onTouchEvent, action = " + action);
         float touchX = event.getX();
         float touchY = event.getY();
         if (action == MotionEvent.ACTION_DOWN) {
