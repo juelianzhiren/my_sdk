@@ -39,7 +39,7 @@ public class PetalsRoundActivity extends Activity {
         childList.add("A1");
         childList.add("A2");
         childList.add("A3");
-        entity.setName("A");
+        entity.setName("A类");
         entity.setChildList(childList);
         list.add(entity);
 
@@ -53,7 +53,7 @@ public class PetalsRoundActivity extends Activity {
         list.add(entity);
 
         entity = new PetalsInfo.PetalEntity();
-        entity.setName("C");
+        entity.setName("第三类");
         childList = new ArrayList<>();
         childList.add("C1");
         childList.add("C2");
@@ -62,7 +62,7 @@ public class PetalsRoundActivity extends Activity {
         list.add(entity);
 
         entity = new PetalsInfo.PetalEntity();
-        entity.setName("D");
+        entity.setName("我们");
         childList = new ArrayList<>();
         childList.add("我");
         childList.add("们");
@@ -71,7 +71,7 @@ public class PetalsRoundActivity extends Activity {
         list.add(entity);
 
         entity = new PetalsInfo.PetalEntity();
-        entity.setName("E");
+        entity.setName("我拉拉队");
         childList = new ArrayList<>();
         childList.add("大");
         childList.add("东西");
@@ -119,6 +119,12 @@ public class PetalsRoundActivity extends Activity {
             @Override
             public void onClick(int groupIndex, int childIndex) {
                 Log.v(TAG, "SectorClickListener, groupIndex = " + groupIndex + "; childIndex = " + childIndex);
+            }
+        });
+        mPetalsInRoundView.setPetalClickListener(new PetalsInRoundView.PetalClickListener() {
+            @Override
+            public void onClick(int index) {
+                Log.v(TAG, "PetalClickListener, index = " + index);
             }
         });
     }

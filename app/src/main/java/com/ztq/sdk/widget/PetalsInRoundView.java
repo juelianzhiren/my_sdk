@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.Layout;
 import android.text.StaticLayout;
@@ -32,6 +33,10 @@ public class PetalsInRoundView extends View {
     private static final int INNER_CIRCLE_MAX_LEN_EACH_LINE = 3;
     /**每个小扇形内每行显示的字符数*/
     private static final int SECTOR_TEXT_MAX_LEN_EACH_LINE = 2;
+    /**每个花瓣内每行显示的字符数*/
+    private static final int PETAL_AREA_MAX_LEN_EACH_LINE = 2;
+    private static final float DISTANCE_RAIDO_OF_RECT_CENTER_POINT_TO_SHARP_CORNER = 0.18f;
+    private float mDistanceOfRectCenterPointToCircleCenter;
     private Context mContext;
     private Paint mPaint;
     private TextPaint mTextPaint;
@@ -56,7 +61,7 @@ public class PetalsInRoundView extends View {
     /**每份花瓣占用的角度*/
     private double mEachPetalAngle;
     /**花瓣竖直方向的高占整个圆半径的比例*/
-    private float ratioOfPetalImgHeightToCircle = 0.75f;
+    private float mRatioOfPetalImgHeightToCircle = 0.75f;
     /**内圈圆的半径大小（包含圆环）*/
     private float mInnerCircleRadius;
     /**内圈圆环的宽度*/
@@ -75,6 +80,14 @@ public class PetalsInRoundView extends View {
     private int mOuterSectorTextColor;
     /**内圈圆内一行最多显示多少个字*/
     private int mInnerCircleMaxLenEachLine;
+    /**花瓣内文字大小*/
+    private float mPetalTextSize;
+    /**花瓣内文字颜色(非高亮状态)*/
+    private int mPetalNormalTextColor;
+    /**花瓣内文字颜色(高亮状态)*/
+    private int mPetalHighlightTextColor;
+    /**花瓣内的文本一行最多显示多少个字*/
+    private int mPetalAreaMaxLenEachLine;
 
     /**点击内圈圆的监听响应*/
     private OnClickListener mOnInnerCircleClickListener;
@@ -104,7 +117,7 @@ public class PetalsInRoundView extends View {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.PetalsRoundView);
         mNormalFillArcColor = typedArray.getColor(R.styleable.PetalsRoundView_normalFillArcColor, getResources().getColor(R.color.gray));
         mHighlightFillArcColor = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillArcColor, getResources().getColor(R.color.white));
-        ratioOfPetalImgHeightToCircle = typedArray.getFloat(R.styleable.PetalsRoundView_ratioOfPetalImgHeightToCircle, 0.75f);
+        mRatioOfPetalImgHeightToCircle = typedArray.getFloat(R.styleable.PetalsRoundView_ratioOfPetalImgHeightToCircle, 0.75f);
         mCircleBorderStrokeWidth = typedArray.getDimension(R.styleable.PetalsRoundView_circleBorderStrokeWidth, getResources().getDimension(R.dimen.petals_round_view_circle_border_stroke_width));
         mThinRadiusLineWidth = typedArray.getDimension(R.styleable.PetalsRoundView_thinRadiusLineWidth, getResources().getDimension(R.dimen.petals_round_view_thin_radius_line_width));
         mThickRadiusLineWidth = typedArray.getDimension(R.styleable.PetalsRoundView_thickRadiusLineWidth, getResources().getDimension(R.dimen.petals_round_view_thick_radius_line_width));
@@ -118,6 +131,10 @@ public class PetalsInRoundView extends View {
         mOuterSectorTextSize = typedArray.getDimension(R.styleable.PetalsRoundView_outerSectorTextSize, getResources().getDimension(R.dimen.petals_round_view_outer_sector_text_size));
         mOuterSectorTextColor = typedArray.getColor(R.styleable.PetalsRoundView_outerSectorTextColor, getResources().getColor(R.color.light_gray));
         mInnerCircleMaxLenEachLine = typedArray.getInt(R.styleable.PetalsRoundView_innerCircleMaxLenEachLine, INNER_CIRCLE_MAX_LEN_EACH_LINE);
+        mPetalTextSize = typedArray.getDimension(R.styleable.PetalsRoundView_petalTextSize, getResources().getDimension(R.dimen.petals_round_view_petal_text_size));
+        mPetalNormalTextColor = typedArray.getColor(R.styleable.PetalsRoundView_petalNormalTextColor, getResources().getColor(R.color.white));
+        mPetalHighlightTextColor = typedArray.getColor(R.styleable.PetalsRoundView_petalHighlightTextColor, getResources().getColor(R.color.black));
+        mPetalAreaMaxLenEachLine = typedArray.getInt(R.styleable.PetalsRoundView_petalAreaMaxLenEachLine, PETAL_AREA_MAX_LEN_EACH_LINE);
         typedArray.recycle();
 
         mPaint = new Paint();
@@ -153,6 +170,7 @@ public class PetalsInRoundView extends View {
         drawCirclePart(canvas);
         drawLinePartAndSectorText(canvas);
         drawPetalsPart(canvas);
+        drawPetalsText(canvas);
         drawInnerCircle(canvas);
     }
 
@@ -284,7 +302,7 @@ public class PetalsInRoundView extends View {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        float raido = (float)(mCircleRadius * ratioOfPetalImgHeightToCircle) / height;
+        float raido = (float)(mCircleRadius * mRatioOfPetalImgHeightToCircle) / height;
         float newWidth = width * raido;
         float newHeight = height * raido;
         Bitmap targetBitmap = Bitmap.createScaledBitmap(bitmap, (int)newWidth, (int)newHeight, false);
@@ -306,6 +324,52 @@ public class PetalsInRoundView extends View {
         Log.v(TAG, "degree = " + (Math.toDegrees((index + 0.5) * mEachPetalAngle)) + "; " + width * raido + "; " + height * raido);
         canvas.drawBitmap(targetBitmap, 0, 0, null);
         canvas.restore();
+    }
+
+    /**
+     * 画花瓣内的文字，这里利用的思路是不管文字是占用一行，还是占用两行，
+     * 文字所在的矩形的中心点我们暂定是在花瓣的尖角与圆心的连线上，且离尖角的距离是一定值，这里设置为0.15 * mCircleRadius
+     * @param canvas
+     */
+    private void drawPetalsText(Canvas canvas) {
+        if (mCircleRadius <= 0 || mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
+            return;
+        }
+        List<PetalsInfo.PetalEntity> list = mPetalsInfo.getPetalList();
+        mDistanceOfRectCenterPointToCircleCenter = (mRatioOfPetalImgHeightToCircle - DISTANCE_RAIDO_OF_RECT_CENTER_POINT_TO_SHARP_CORNER) * mCircleRadius;
+        mEachPetalAngle = 2 * Math.PI / list.size();
+        for(int i = 0; i < list.size(); i++) {
+            PetalsInfo.PetalEntity entity = list.get(i);
+            if (entity == null || Utils.isNullOrNil(entity.getName())) {
+                continue;
+            }
+            String name = entity.getName();
+            double sharpCornerAngle = (i + 1f / 2) * mEachPetalAngle ;
+            Log.v(TAG, "sharpCornerAngle = " + sharpCornerAngle + "; " + Math.toDegrees(sharpCornerAngle));
+            int lines = name.length() % mPetalAreaMaxLenEachLine == 0 ? name.length() / mPetalAreaMaxLenEachLine : name.length() / mPetalAreaMaxLenEachLine + 1;
+            double centerPointX = mCircleRadius + mDistanceOfRectCenterPointToCircleCenter * Math.sin(sharpCornerAngle);
+            double centerPointY = mCircleRadius - mDistanceOfRectCenterPointToCircleCenter * Math.cos(sharpCornerAngle);
+            mTextPaint.setTextSize(mPetalTextSize);
+            if (i == mHighlightIndex) {
+                mTextPaint.setColor(mPetalHighlightTextColor);
+            } else {
+                mTextPaint.setColor(mPetalNormalTextColor);
+            }
+            float fontHeight = mTextPaint.getFontSpacing();
+            for(int j = 0; j < lines; j++) {
+                if (j > 1) {
+                    break;                            //加一个限制:最多显示两行
+                }
+                String childName = "";
+                if (j == lines - 1) {
+                    childName = name.substring(mPetalAreaMaxLenEachLine * j, name.length());
+                } else {
+                    childName = name.substring(mPetalAreaMaxLenEachLine * j, mPetalAreaMaxLenEachLine * (j + 1));
+                }
+                float width = mTextPaint.measureText(childName);
+                canvas.drawText(childName, (float)(centerPointX - width / 2), (float)(centerPointY + (j + 1 - lines / 2f) * fontHeight - mTextPaint.getFontMetrics().bottom), mTextPaint);
+            }
+        }
     }
 
     /**
@@ -390,13 +454,47 @@ public class PetalsInRoundView extends View {
                                     break;
                                 }
                             }
-                            // TODO 这里添加花瓣点击监听
+                            String name = entity.getName();
+                            if (Utils.isNullOrNil(name)) {
+                                continue;
+                            }
+                            if (isBelongToCertainRect(touchX, touchY, i, name)) {
+                                if (mPetalClickListener != null) {
+                                    mPetalClickListener.onClick(i);
+                                }
+                            }
                         }
                     }
                 }
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    /**
+     * 判断点(x,y)是否在特定矩形内，矩形规则如下：以花瓣文字矩形的中心点为中心点，左右各扩展PETAL_AREA_MAX_LEN_EACH_LINE/2个中文字符，上下各扩展一个中文字符
+     * @param x
+     * @param y
+     * @param petalName
+     * @return
+     */
+    private boolean isBelongToCertainRect(float x, float y, int index, String petalName) {
+        if (Utils.isNullOrNil(petalName)) {
+            return false;
+        }
+        double sharpCornerAngle = (index + 1f / 2) * mEachPetalAngle ;
+        Log.v(TAG, "sharpCornerAngle = " + sharpCornerAngle + "; " + Math.toDegrees(sharpCornerAngle));
+        float centerPointX = (float)(mCircleRadius + mDistanceOfRectCenterPointToCircleCenter * Math.sin(sharpCornerAngle));
+        float centerPointY = (float)(mCircleRadius - mDistanceOfRectCenterPointToCircleCenter * Math.cos(sharpCornerAngle));
+       mTextPaint.setTextSize(mPetalTextSize);
+        float fontHeight = mTextPaint.getFontSpacing();
+        String str = "";
+        for(int i = 0; i < mPetalAreaMaxLenEachLine; i++) {
+            str += "我";
+        }
+        float width = mTextPaint.measureText(str);
+        RectF rect = new RectF(centerPointX - width / 2, centerPointY - fontHeight, centerPointX + width / 2, centerPointY + fontHeight);
+        return rect.contains(x, y);
     }
 
     /**
@@ -417,7 +515,7 @@ public class PetalsInRoundView extends View {
         }
 
         boolean result = judgePointIsInCircle(x, y, mCircleRadius-mCircleBorderStrokeWidth);
-        result = result && !judgePointIsInCircle(x, y, mCircleRadius * ratioOfPetalImgHeightToCircle);
+        result = result && !judgePointIsInCircle(x, y, mCircleRadius * mRatioOfPetalImgHeightToCircle);
         double angle = getAngle(x, y);
         double startAngle = Math.toDegrees(groupIndex * mEachPetalAngle + childIndex * mEachPetalAngle / entity.getChildList().size());
         double endAngle = Math.toDegrees(groupIndex * mEachPetalAngle + (childIndex + 1) * mEachPetalAngle / entity.getChildList().size());
