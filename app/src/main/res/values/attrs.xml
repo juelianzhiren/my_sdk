@@ -52,5 +52,10 @@
         <attr name="outerSectorTextSize" format="dimension" />           <!--外层扇形的文字大小-->
         <attr name="outerSectorTextColor" format="reference|color" />    <!--外层扇形的文字颜色-->
         <attr name="innerCircleMaxLenEachLine" format="integer" />       <!--内圈圆的文本一行最多显示多少个字-->
+        <attr name="petalTextSize" format="dimension" />                 <!--花瓣内的文字大小-->
+        <attr name="petalNormalTextColor" format="reference|color" />    <!--花瓣内的文字颜色(非高亮)-->
+        <attr name="petalHighlightTextColor" format="reference|color" /> <!--花瓣内的文字颜色(高亮)-->
+        <attr name="petalAreaMaxLenEachLine" format="integer" />         <!--花瓣内的文本一行最多显示多少个字 -->
+        <attr name="petalAreaTextMaxLines" format="integer" />           <!--花瓣内的文字最多显示多少行（默认两行）-->
     </declare-styleable>
 </resources>
