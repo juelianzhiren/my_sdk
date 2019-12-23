@@ -12,6 +12,7 @@ import android.graphics.RectF;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -46,10 +47,10 @@ public class PetalsInRoundView extends View {
     private int mHighlightIndex;
     /**圆形半径(加上圆环的半径长)*/
     private float mCircleRadius;
-    /**经过圆心的实心圆弧颜色(非高亮)*/
-    private int mNormalFillArcColor;
-    /**经过圆心的实心圆弧颜色(高亮)*/
-    private int mHighlightFillArcColor;
+    /**经过圆心的实心扇形颜色(非高亮)*/
+    private int mNormalFillSectorColor;
+    /**经过圆心的实心扇形颜色(高亮)*/
+    private int mHighlightFillSectorColor;
     /**圆形外边边界stroke宽度*/
     private float mCircleBorderStrokeWidth;
     /**细半径线的宽度*/
@@ -119,8 +120,8 @@ public class PetalsInRoundView extends View {
     private void init(Context context, AttributeSet attrs) {
         mContext = context;
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.PetalsRoundView);
-        mNormalFillArcColor = typedArray.getColor(R.styleable.PetalsRoundView_normalFillArcColor, getResources().getColor(R.color.gray));
-        mHighlightFillArcColor = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillArcColor, getResources().getColor(R.color.white));
+        mNormalFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_normalFillSectorColor, getResources().getColor(R.color.gray));
+        mHighlightFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillSectorColor, getResources().getColor(R.color.slight_gray));
         mRatioOfPetalImgHeightToCircle = typedArray.getFloat(R.styleable.PetalsRoundView_ratioOfPetalImgHeightToCircle, 0.75f);
         mCircleBorderStrokeWidth = typedArray.getDimension(R.styleable.PetalsRoundView_circleBorderStrokeWidth, getResources().getDimension(R.dimen.petals_round_view_circle_border_stroke_width));
         mThinRadiusLineWidth = typedArray.getDimension(R.styleable.PetalsRoundView_thinRadiusLineWidth, getResources().getDimension(R.dimen.petals_round_view_thin_radius_line_width));
@@ -172,6 +173,9 @@ public class PetalsInRoundView extends View {
         if (mCircleRadius <= 0 || mCircleRadius <= mCircleBorderStrokeWidth) {
             return;
         }
+        if (mHighlightIndex >= mPetalsInfo.getPetalList().size() || mHighlightIndex < 0) {
+            mHighlightIndex = 0;
+        }
         drawCirclePart(canvas);
         drawLinePartAndSectorText(canvas);
         drawPetalsPart(canvas);
@@ -185,8 +189,26 @@ public class PetalsInRoundView extends View {
      */
     private void drawCirclePart(Canvas canvas) {
         mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setColor(mNormalFillArcColor);
-        canvas.drawCircle(mCircleRadius, mCircleRadius, mCircleRadius - mCircleBorderStrokeWidth, mPaint);
+        if (mPetalsInfo != null && mPetalsInfo.getPetalList() != null && mPetalsInfo.getPetalList().size() != 0) {
+            mEachPetalAngle = 2 * Math.PI / mPetalsInfo.getPetalList().size();
+            float left = mCircleBorderStrokeWidth;
+            float right = 2 * mCircleRadius - mCircleBorderStrokeWidth;
+            float top = mCircleBorderStrokeWidth;
+            float bottom = 2 * mCircleRadius - mCircleBorderStrokeWidth;
+            RectF rectF = new RectF(left, top, right, bottom);
+            for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
+                float startAngle = (float)Math.toDegrees(i * mEachPetalAngle - Math.PI / 2);
+                if (i == mHighlightIndex) {
+                    mPaint.setColor(mHighlightFillSectorColor);
+                } else {
+                    mPaint.setColor(mNormalFillSectorColor);
+                }
+                canvas.drawArc(rectF, startAngle, (float)Math.toDegrees(mEachPetalAngle), true, mPaint);
+            }
+        } else {
+            mPaint.setColor(mNormalFillSectorColor);
+            canvas.drawCircle(mCircleRadius, mCircleRadius, mCircleRadius - mCircleBorderStrokeWidth, mPaint);
+        }
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(mRadiusLineColor);
         mPaint.setStrokeWidth(mCircleBorderStrokeWidth);
@@ -275,9 +297,6 @@ public class PetalsInRoundView extends View {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
             return;
         }
-        if (mHighlightIndex >= mPetalsInfo.getPetalList().size() || mHighlightIndex < 0) {
-            mHighlightIndex = 0;
-        }
         int firstDrawIndex = mHighlightIndex <= mPetalsInfo.getPetalList().size() - 1 ? mHighlightIndex + 1 : 0;
         drawPetalsPart(canvas, true, true, firstDrawIndex);
         drawPetalsPart(canvas, false, false, mHighlightIndex);
@@ -345,7 +364,7 @@ public class PetalsInRoundView extends View {
         mEachPetalAngle = 2 * Math.PI / list.size();
         for(int i = 0; i < list.size(); i++) {
             PetalsInfo.PetalEntity entity = list.get(i);
-            if (entity == null || Utils.isNullOrNil(entity.getName())) {
+            if (entity == null || TextUtils.isEmpty(entity.getName())) {
                 continue;
             }
             String name = entity.getName();
@@ -391,7 +410,7 @@ public class PetalsInRoundView extends View {
         mPaint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(mCircleRadius, mCircleRadius, mInnerCircleRadius - mInnerRingWidth, mPaint);
 
-        if (mPetalsInfo != null && !Utils.isNullOrNil(mPetalsInfo.getName())) {
+        if (mPetalsInfo != null && !TextUtils.isEmpty(mPetalsInfo.getName())) {
             String name = mPetalsInfo.getName();
             if (mInnerCircleMaxLenEachLine <= 0) {
                 mInnerCircleMaxLenEachLine = INNER_CIRCLE_MAX_LEN_EACH_LINE;
@@ -460,7 +479,7 @@ public class PetalsInRoundView extends View {
                                 }
                             }
                             String name = entity.getName();
-                            if (Utils.isNullOrNil(name)) {
+                            if (TextUtils.isEmpty(name)) {
                                 continue;
                             }
                             if (isBelongToCertainRect(touchX, touchY, i, name)) {
@@ -485,7 +504,7 @@ public class PetalsInRoundView extends View {
      * @return
      */
     private boolean isBelongToCertainRect(float x, float y, int index, String petalName) {
-        if (Utils.isNullOrNil(petalName)) {
+        if (TextUtils.isEmpty(petalName)) {
             return false;
         }
         double sharpCornerAngle = (index + 1f / 2) * mEachPetalAngle ;

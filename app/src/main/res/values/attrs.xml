@@ -36,8 +36,8 @@
     </declare-styleable>
 
     <declare-styleable name="PetalsRoundView">
-        <attr name="normalFillArcColor" format="reference|color" />      <!--经过圆心的实心圆弧颜色(非高亮)-->
-        <attr name="highlightFillArcColor" format="reference|color" />   <!--经过圆心的实心圆弧颜色(高亮)-->
+        <attr name="normalFillSectorColor" format="reference|color" />   <!--经过圆心的实心扇形颜色(非高亮)-->
+        <attr name="highlightFillSectorColor" format="reference|color" /><!--经过圆心的实心扇形颜色(高亮)-->
         <attr name="ratioOfPetalImgHeightToCircle" format="float" />     <!--花瓣图片的高度占据大圆的比例-->
         <attr name="circleBorderStrokeWidth" format="dimension" />       <!--圆形外边边界stroke宽度-->
         <attr name="thinRadiusLineWidth" format="dimension" />           <!--细半径线的宽度-->
