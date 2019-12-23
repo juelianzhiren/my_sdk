@@ -173,7 +173,7 @@ public class PetalsInRoundView extends View {
         if (mCircleRadius <= 0 || mCircleRadius <= mCircleBorderStrokeWidth) {
             return;
         }
-        if (mHighlightIndex >= mPetalsInfo.getPetalList().size() || mHighlightIndex < 0) {
+        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mHighlightIndex >= mPetalsInfo.getPetalList().size() || mHighlightIndex < 0) {
             mHighlightIndex = 0;
         }
         drawCirclePart(canvas);
