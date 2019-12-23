@@ -467,6 +467,7 @@ public class PetalsInRoundView extends View {
                                 if (mPetalClickListener != null) {
                                     mPetalClickListener.onClick(i);
                                 }
+                                break;
                             }
                         }
                     }
