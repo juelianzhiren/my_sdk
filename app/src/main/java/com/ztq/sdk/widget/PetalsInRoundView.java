@@ -375,7 +375,7 @@ public class PetalsInRoundView extends View {
         if (!judgePointIsInOuterCircle(x, y)) {
             return -1;
         }
-        
+
     }
 
     private boolean judgePointIsInOuterCircle(float x, float y) {
