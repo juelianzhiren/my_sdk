@@ -19,6 +19,7 @@ import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -75,16 +76,15 @@ import java.util.zip.ZipOutputStream;
 public class Utils {
     private static final String TAG = "noahedu.Utils";
     private static Toast mToast;
-
-    public static boolean isNullOrNil(String str) {
-        if (str == null || str.length() == 0) {
-            return true;
-        }
-        return false;
-    }
+    public static final String LEFT_BRACKET = "[";
+    public static final String RIGHT_BRACKET = "]";
+    public static final String COLON = ":";
+    public static final String DOT = ".";
+    public static final String DASH = "-";
+    public static final int MINUTE_CONTAINS_SECONDS_OR_HOUR_CONTATNS_MINUTE = 60;
 
     public static String getNullOrNil(String str) {
-        if (isNullOrNil(str)) {
+        if (TextUtils.isEmpty(str)) {
             return "";
         }
         return str;
@@ -93,11 +93,42 @@ public class Utils {
     public static int getInt(String str) {
         int result = 0;
         try {
-            result = Integer.valueOf(str);
-        } catch (Exception e) {
+            result = Integer.parseInt(str);
+        } catch(Exception e) {
             e.printStackTrace();
         }
         return result;
+    }
+
+    /**
+     * 获取到形如[02:30.10]的时间数，单位为毫秒
+     * @param timeStr
+     * @return
+     */
+    public static int getTime(String timeStr) {
+        if (TextUtils.isEmpty(timeStr)) {
+            return -1;
+        }
+        timeStr = timeStr.replace(LEFT_BRACKET, "").replace(RIGHT_BRACKET, "");
+        int time = 0;
+        String[] arr = timeStr.split(COLON);
+        if (arr != null) {
+            for(int i = 0; i < arr.length; i++) {
+                String str = arr[i];
+                if (!TextUtils.isEmpty(str)) {
+                    time += (int)(getFloat(str) * Math.pow(MINUTE_CONTAINS_SECONDS_OR_HOUR_CONTATNS_MINUTE, arr.length - 1 - i) * 1000);
+                }
+            }
+        }
+        return time;
+    }
+
+
+    public static boolean isNullOrNil(String str) {
+        if (str == null || str.length() == 0) {
+            return true;
+        }
+        return false;
     }
 
     public static float getFloat(String str) {

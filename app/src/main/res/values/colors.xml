@@ -9,7 +9,6 @@
     <color name="circle_bg">#6a000000</color>
 
     <color name="blue">#0000ff</color>
-    <color name="middle_blue">#00BFE1</color>
     <color name="yellow">#ffff00</color>
 
     <color name="lrc_normal_text_color">#9E9E9E</color>
@@ -26,4 +25,13 @@
     <color name="light_gray_ring">#6F6F6F</color>
     <color name="middle_black">#1E1E1E</color>
     <color name="slight_gray">#EDEDED</color>
+
+    <color name="slight_gray_click">#CBCBCB</color>
+    <color name="gray_click">#707070</color>
+    <color name="light_yellow">#FFF483</color>
+    <color name="light_yellow_pressed">#F8EA5E</color>
+    <color name="light_green">#C4F4F6</color>
+    <color name="light_green_pressed">#37EDF4</color>
+    <color name="middle_blue">#a3d5d7</color>
+    <color name="sector_text_color">#79b6b9</color>
 </resources>

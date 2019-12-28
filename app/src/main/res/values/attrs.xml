@@ -37,7 +37,9 @@
 
     <declare-styleable name="PetalsRoundView">
         <attr name="normalFillSectorColor" format="reference|color" />   <!--经过圆心的实心扇形颜色(非高亮)-->
+        <attr name="normalFillSectorColorClick" format="reference|color"/><!--经过圆心的实心扇形点击时的颜色(非高亮)-->
         <attr name="highlightFillSectorColor" format="reference|color" /><!--经过圆心的实心扇形颜色(高亮)-->
+        <attr name="highlightFillSectorColorClick" format="reference|color"/><!--经过圆心的实心扇形颜色点击时的颜色((高亮)-->
         <attr name="ratioOfPetalImgHeightToCircle" format="float" />     <!--花瓣图片的高度占据大圆的比例-->
         <attr name="circleBorderStrokeWidth" format="dimension" />       <!--圆形外边边界stroke宽度-->
         <attr name="thinRadiusLineWidth" format="dimension" />           <!--细半径线的宽度-->
@@ -51,11 +53,16 @@
         <attr name="innerCircleTextColor" format="reference|color" />    <!--内圈圆文本颜色-->
         <attr name="outerSectorTextSize" format="dimension" />           <!--外层扇形的文字大小-->
         <attr name="outerSectorTextColor" format="reference|color" />    <!--外层扇形的文字颜色-->
+        <attr name="outerSectorHighlightTextColor" format="reference|color"/><!--外层扇形的文字颜色（高亮扇形）-->
         <attr name="innerCircleMaxLenEachLine" format="integer" />       <!--内圈圆的文本一行最多显示多少个字-->
         <attr name="petalTextSize" format="dimension" />                 <!--花瓣内的文字大小-->
         <attr name="petalNormalTextColor" format="reference|color" />    <!--花瓣内的文字颜色(非高亮)-->
         <attr name="petalHighlightTextColor" format="reference|color" /> <!--花瓣内的文字颜色(高亮)-->
         <attr name="petalAreaMaxLenEachLine" format="integer" />         <!--花瓣内的文本一行最多显示多少个字 -->
         <attr name="petalAreaTextMaxLines" format="integer" />           <!--花瓣内的文字最多显示多少行（默认两行）-->
+        <attr name="petalAreaBottomTextSize" format="dimension" />       <!--花瓣底部文字大小-->
+        <attr name="petalAreaBottomTextColor" format="reference|color" /><!--花瓣底部文字颜色-->
+        <attr name="distanceOfPetalBottomTextToInnerCircleCorner" format="float" /><!--每片花瓣底部文字所在的圆距离内层圆边界的距离与整个圆半径的比例-->
+        <attr name="ratioOfSectorTextTopToCircleBorder" format="float" /><!--扇形文字顶部距离圆边界与圆半径的比例（不包含stroke区域）-->
     </declare-styleable>
 </resources>

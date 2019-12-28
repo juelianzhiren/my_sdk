@@ -108,22 +108,22 @@ public class PetalsRoundActivity extends Activity {
 
         info.setPetalList(list);
         mPetalsInRoundView.setPetalsInfo(info);
-        mPetalsInRoundView.setHighlightIndex(1);
-        mPetalsInRoundView.setOnInnerCircleClickListener(new View.OnClickListener() {
+        mPetalsInRoundView.setHighlightIndex(1, 0);
+        mPetalsInRoundView.setInnerCircleClickListener(new PetalsInRoundView.InnerCircleClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick() {
                 Log.v(TAG, "innner click");
             }
         });
         mPetalsInRoundView.setSectorClickListener(new PetalsInRoundView.SectorClickListener() {
             @Override
-            public void onClick(int groupIndex, int childIndex) {
+            public void onClick(int groupIndex, int childIndex, boolean isFromUser) {
                 Log.v(TAG, "SectorClickListener, groupIndex = " + groupIndex + "; childIndex = " + childIndex);
             }
         });
         mPetalsInRoundView.setPetalClickListener(new PetalsInRoundView.PetalClickListener() {
             @Override
-            public void onClick(int index) {
+            public void onClick(int index, boolean isFromUser) {
                 Log.v(TAG, "PetalClickListener, index = " + index);
             }
         });

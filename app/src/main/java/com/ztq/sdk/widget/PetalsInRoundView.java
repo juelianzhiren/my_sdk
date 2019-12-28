@@ -7,15 +7,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Rect;
 import android.graphics.RectF;
-import android.text.Layout;
-import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.SoundEffectConstants;
 import android.view.View;
 
 import com.ztq.sdk.R;
@@ -38,19 +36,31 @@ public class PetalsInRoundView extends View {
     private static final int PETAL_AREA_MAX_LEN_EACH_LINE = 2;
     /**每个花瓣内最多显示的行数*/
     private static final int PETAL_AREA_TEXT_MAX_LINES = 2;
+    /**每片花瓣文字的中心点离花瓣尖角的距离与整个圆半径的比例*/
     private static final float DISTANCE_RAIDO_OF_RECT_CENTER_POINT_TO_SHARP_CORNER = 0.18f;
+    /**每片花瓣底部文字所在的圆距离内层圆边界的距离与整个圆半径的比例*/
+    private static final float DISTANCE_RAIDO_OF_PETAL_BOTTOM_TEXT_TO_INNER_CIRCLE_CORNER = 0.05f;
+    private static final float RATIO_OF_SECTOR_TEXT_TOP_TO_CIRCEL_BORDER = 0.07f;
     private float mDistanceOfRectCenterPointToCircleCenter;
     private Context mContext;
     private Paint mPaint;
     private TextPaint mTextPaint;
     /**高亮的序号*/
-    private int mHighlightIndex;
+    private int mHighlightGroupIndex = -1;
+    private int mHighlightChildIndex = -1;
+    private List<Integer> mHighlightChildIndexList;
+    private String mHighlightGroupName;
+    private String mHighlightChildName;
     /**圆形半径(加上圆环的半径长)*/
     private float mCircleRadius;
     /**经过圆心的实心扇形颜色(非高亮)*/
     private int mNormalFillSectorColor;
+    /**经过圆心的实心扇形点击时的颜色(非高亮)*/
+    private int mNormalFillSectorColorClick;
     /**经过圆心的实心扇形颜色(高亮)*/
     private int mHighlightFillSectorColor;
+    /**经过圆心的实心扇形颜色(高亮)*/
+    private int mHighlightFillSectorColorClick;
     /**圆形外边边界stroke宽度*/
     private float mCircleBorderStrokeWidth;
     /**细半径线的宽度*/
@@ -79,8 +89,10 @@ public class PetalsInRoundView extends View {
     private int mInnerCircleTextColor;
     /**外圈扇形的文字大小*/
     private float mOuterSectorTextSize;
-    /**外圈圆的文字颜色*/
+    /**外圈扇形的文字颜色*/
     private int mOuterSectorTextColor;
+    /**外圈高亮扇形的文字颜色*/
+    private int mOuterSectorHighlightTextColor;
     /**内圈圆内一行最多显示多少个字*/
     private int mInnerCircleMaxLenEachLine;
     /**花瓣内文字大小*/
@@ -93,15 +105,24 @@ public class PetalsInRoundView extends View {
     private int mPetalAreaMaxLenEachLine;
     /**花瓣内的文字最多显示多少行（默认两行）*/
     private int mPetalAreaTextMaxLines;
+    /**花瓣底部的文字大小*/
+    private float mPetalAreaBottomTextSize;
+    /**花瓣底部的文字颜色*/
+    private int mPetalAreaBottomTextColor;
+    private float mDistanceOfPetalBottomTextToInnerCircleCorner;
+    /**扇形文字顶部距离圆边界与圆半径的比例（不包含stroke区域）*/
+    private float mRatioOfSectorTextTopToCircleBorder;
 
     /**点击内圈圆的监听响应*/
-    private OnClickListener mOnInnerCircleClickListener;
+    private InnerCircleClickListener mInnerCircleClickListener;
     /**点击花瓣的监听*/
     private PetalClickListener mPetalClickListener;
     /**点击外围扇形的监听*/
     private SectorClickListener mSectorClickListener;
     /**花瓣信息（包含花瓣的列表信息）*/
     private PetalsInfo mPetalsInfo;
+    /**是否触摸内圈*/
+    private boolean mIsTouchInnerCircle;
 
     public PetalsInRoundView(Context context) {
         this(context, null);
@@ -120,13 +141,15 @@ public class PetalsInRoundView extends View {
     private void init(Context context, AttributeSet attrs) {
         mContext = context;
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.PetalsRoundView);
-        mNormalFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_normalFillSectorColor, getResources().getColor(R.color.gray));
-        mHighlightFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillSectorColor, getResources().getColor(R.color.slight_gray));
+        mNormalFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_normalFillSectorColor, getResources().getColor(R.color.light_green));
+        mNormalFillSectorColorClick = typedArray.getColor(R.styleable.PetalsRoundView_normalFillSectorColor, getResources().getColor(R.color.light_green_pressed));
+        mHighlightFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillSectorColor, getResources().getColor(R.color.light_yellow));
+        mHighlightFillSectorColorClick = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillSectorColor, getResources().getColor(R.color.light_yellow_pressed));
         mRatioOfPetalImgHeightToCircle = typedArray.getFloat(R.styleable.PetalsRoundView_ratioOfPetalImgHeightToCircle, 0.75f);
         mCircleBorderStrokeWidth = typedArray.getDimension(R.styleable.PetalsRoundView_circleBorderStrokeWidth, getResources().getDimension(R.dimen.petals_round_view_circle_border_stroke_width));
         mThinRadiusLineWidth = typedArray.getDimension(R.styleable.PetalsRoundView_thinRadiusLineWidth, getResources().getDimension(R.dimen.petals_round_view_thin_radius_line_width));
         mThickRadiusLineWidth = typedArray.getDimension(R.styleable.PetalsRoundView_thickRadiusLineWidth, getResources().getDimension(R.dimen.petals_round_view_thick_radius_line_width));
-        mRadiusLineColor = typedArray.getColor(R.styleable.PetalsRoundView_radiusLineColor, getResources().getColor(R.color.light_gray));
+        mRadiusLineColor = typedArray.getColor(R.styleable.PetalsRoundView_radiusLineColor, getResources().getColor(R.color.middle_blue));
         mInnerCircleRadius = typedArray.getDimension(R.styleable.PetalsRoundView_innerCircleRadius, getResources().getDimension(R.dimen.petals_round_view_inner_circle_radius));
         mInnerRingWidth = typedArray.getDimension(R.styleable.PetalsRoundView_innerRingWidth, getResources().getDimension(R.dimen.petals_round_view_inner_ring_width));
         mInnerRingColor = typedArray.getColor(R.styleable.PetalsRoundView_innerRingColor, getResources().getColor(R.color.light_gray_ring));
@@ -134,13 +157,18 @@ public class PetalsInRoundView extends View {
         mInnerCircleTextSize = typedArray.getDimension(R.styleable.PetalsRoundView_innerCircleTextSize, getResources().getDimension(R.dimen.petals_round_view_inner_circle_text_size));
         mInnerCircleTextColor = typedArray.getColor(R.styleable.PetalsRoundView_innerCircleTextColor, getResources().getColor(R.color.white));
         mOuterSectorTextSize = typedArray.getDimension(R.styleable.PetalsRoundView_outerSectorTextSize, getResources().getDimension(R.dimen.petals_round_view_outer_sector_text_size));
-        mOuterSectorTextColor = typedArray.getColor(R.styleable.PetalsRoundView_outerSectorTextColor, getResources().getColor(R.color.light_gray));
+        mOuterSectorTextColor = typedArray.getColor(R.styleable.PetalsRoundView_outerSectorTextColor, getResources().getColor(R.color.sector_text_color));
+        mOuterSectorHighlightTextColor = typedArray.getColor(R.styleable.PetalsRoundView_outerSectorHighlightTextColor, getResources().getColor(R.color.black));
         mInnerCircleMaxLenEachLine = typedArray.getInt(R.styleable.PetalsRoundView_innerCircleMaxLenEachLine, INNER_CIRCLE_MAX_LEN_EACH_LINE);
         mPetalTextSize = typedArray.getDimension(R.styleable.PetalsRoundView_petalTextSize, getResources().getDimension(R.dimen.petals_round_view_petal_text_size));
         mPetalNormalTextColor = typedArray.getColor(R.styleable.PetalsRoundView_petalNormalTextColor, getResources().getColor(R.color.white));
         mPetalHighlightTextColor = typedArray.getColor(R.styleable.PetalsRoundView_petalHighlightTextColor, getResources().getColor(R.color.black));
         mPetalAreaMaxLenEachLine = typedArray.getInt(R.styleable.PetalsRoundView_petalAreaMaxLenEachLine, PETAL_AREA_MAX_LEN_EACH_LINE);
         mPetalAreaTextMaxLines = typedArray.getInt(R.styleable.PetalsRoundView_petalAreaTextMaxLines, PETAL_AREA_TEXT_MAX_LINES);
+        mPetalAreaBottomTextSize = typedArray.getDimension(R.styleable.PetalsRoundView_petalAreaBottomTextSize, getResources().getDimension(R.dimen.petals_round_view_petal_bottom_text_size));
+        mPetalAreaBottomTextColor = typedArray.getColor(R.styleable.PetalsRoundView_petalAreaBottomTextColor, getResources().getColor(R.color.gray));
+        mDistanceOfPetalBottomTextToInnerCircleCorner = typedArray.getFloat(R.styleable.PetalsRoundView_distanceOfPetalBottomTextToInnerCircleCorner, DISTANCE_RAIDO_OF_PETAL_BOTTOM_TEXT_TO_INNER_CIRCLE_CORNER);
+        mRatioOfSectorTextTopToCircleBorder = typedArray.getFloat(R.styleable.PetalsRoundView_ratioOfSectorTextTopToCircleBorder, RATIO_OF_SECTOR_TEXT_TOP_TO_CIRCEL_BORDER);
         typedArray.recycle();
 
         mPaint = new Paint();
@@ -157,8 +185,69 @@ public class PetalsInRoundView extends View {
         mHeight = getMeasuredHeight();
     }
 
-    public void setHighlightIndex(int mHighlightIndex) {
-        this.mHighlightIndex = mHighlightIndex;
+    public void setHighlightIndex(int mHighlightGroupIndex,int mHighlightChildIndex) {
+        if (!(this.mHighlightGroupIndex == mHighlightGroupIndex && this.mHighlightChildIndex == mHighlightChildIndex)) {
+            this.mHighlightGroupIndex = mHighlightGroupIndex;
+            this.mHighlightChildIndex = mHighlightChildIndex;
+            invalidate();
+        }
+    }
+
+    public void setHighlightChildIndexList(List<Integer> mHighlightChildIndexList) {
+        this.mHighlightChildIndexList = mHighlightChildIndexList;
+    }
+
+    public void setHighlightName(String highlightGroupName, String highlightChildName) {
+        if (!(Utils.getNullOrNil(mHighlightGroupName).equals(Utils.getNullOrNil(highlightGroupName)) && Utils.getNullOrNil(mHighlightChildName).equals(Utils.getNullOrNil(highlightChildName)))) {
+            mHighlightGroupName = highlightGroupName;
+            mHighlightChildName = highlightChildName;
+            convertHighlightNameToIndex(highlightGroupName, highlightChildName);
+            Log.v(TAG, "mHighLightGroupIndex = " + mHighlightGroupIndex + "; mHighlightChildIndex = " + mHighlightChildIndex);
+            invalidate();
+        }
+    }
+
+    /**
+     * 将将高亮的名字转化为对应的序号
+     * @param highlightGroupName
+     * @param highlightChildName
+     */
+    private void convertHighlightNameToIndex(String highlightGroupName, String highlightChildName) {
+        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
+            return;
+        }
+        mHighlightGroupIndex = -1;
+        mHighlightChildIndex = -1;
+        if (TextUtils.isEmpty(highlightGroupName)) {
+            mHighlightGroupIndex = -1;
+            return;
+        }
+        if (TextUtils.isEmpty(highlightChildName)) {
+            mHighlightChildIndex = -1;
+        }
+        List<PetalsInfo.PetalEntity> list = mPetalsInfo.getPetalList();
+        loop:
+        for(int i = 0; i < list.size(); i++) {
+            PetalsInfo.PetalEntity bean = list.get(i);
+            if (bean != null) {
+                if (Utils.getNullOrNil(bean.getName()).equals(highlightGroupName)) {
+                    mHighlightGroupIndex = i;
+                    List<String> childList = bean.getChildList();
+                    if (childList != null && childList.size() != 0) {
+                        for(int j = 0; j < childList.size(); j++) {
+                            String str = childList.get(j);
+                            if (!Utils.isNullOrNil(str)) {
+                                if (Utils.getNullOrNil(str).equals(highlightChildName)) {
+                                    mHighlightChildIndex = j;
+                                    break loop;
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
     }
 
     public void setPetalsInfo(PetalsInfo mPetalsInfo) {
@@ -173,10 +262,14 @@ public class PetalsInRoundView extends View {
         if (mCircleRadius <= 0 || mCircleRadius <= mCircleBorderStrokeWidth) {
             return;
         }
-        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mHighlightIndex >= mPetalsInfo.getPetalList().size() || mHighlightIndex < 0) {
-            mHighlightIndex = 0;
+
+        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mHighlightGroupIndex >= mPetalsInfo.getPetalList().size() || mHighlightGroupIndex < 0
+            || mPetalsInfo.getPetalList().get(mHighlightGroupIndex) == null
+            || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList() == null
+            || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList().size() <= mHighlightChildIndex) {
+            mHighlightChildIndex = -1;
         }
-        drawCirclePart(canvas);
+        drawCircleAndSectorPart(canvas);
         drawLinePartAndSectorText(canvas);
         drawPetalsPart(canvas);
         drawPetalsText(canvas);
@@ -184,10 +277,10 @@ public class PetalsInRoundView extends View {
     }
 
     /**
-     * 画圆形区域
+     * 画圆形及扇形区域
      * @param canvas
      */
-    private void drawCirclePart(Canvas canvas) {
+    private void drawCircleAndSectorPart(Canvas canvas) {
         mPaint.setStyle(Paint.Style.FILL);
         if (mPetalsInfo != null && mPetalsInfo.getPetalList() != null && mPetalsInfo.getPetalList().size() != 0) {
             mEachPetalAngle = 2 * Math.PI / mPetalsInfo.getPetalList().size();
@@ -197,13 +290,55 @@ public class PetalsInRoundView extends View {
             float bottom = 2 * mCircleRadius - mCircleBorderStrokeWidth;
             RectF rectF = new RectF(left, top, right, bottom);
             for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
-                float startAngle = (float)Math.toDegrees(i * mEachPetalAngle - Math.PI / 2);
-                if (i == mHighlightIndex) {
-                    mPaint.setColor(mHighlightFillSectorColor);
-                } else {
-                    mPaint.setColor(mNormalFillSectorColor);
+                float startAngle = (float) Math.toDegrees(i * mEachPetalAngle - Math.PI / 2);
+                int size = mPetalsInfo.getPetalList().get(i).getChildList().size();
+                double mEachPetalChildAngle = mEachPetalAngle / size;
+                float startChildAngle = startAngle;
+                for (int j = 0; j < size; j++) {
+                    float startDrawChildAngle = startChildAngle + (float) Math.toDegrees(mEachPetalChildAngle) * j;
+                    if(i == mHighlightGroupIndex && -1 == mHighlightChildIndex) {
+                        Log.v(TAG, "mHighlightChildIndexList = " + mHighlightChildIndexList + "; ");
+                        if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {          // 如果变量highlightChildIndexList有值,只是高亮其中几个方法，并不是全部
+                            Log.v(TAG, "j = " + j + "; contains = " + mHighlightChildIndexList.contains(j));
+                            if (mHighlightChildIndexList.contains(j)) {
+                                if (i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
+                                    mPaint.setColor(mHighlightFillSectorColorClick);
+                                } else {
+                                    mPaint.setColor(mHighlightFillSectorColor);
+                                }
+                            } else {
+                                if(i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
+                                    mPaint.setColor(mNormalFillSectorColorClick);
+                                } else {
+                                    mPaint.setColor(mNormalFillSectorColor);
+                                }
+                            }
+                            canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                        } else {
+                            if (i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
+                                mPaint.setColor(mHighlightFillSectorColorClick);
+                            } else {
+                                mPaint.setColor(mHighlightFillSectorColor);
+                            }
+                            canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                        }
+                    } else if(i == mHighlightGroupIndex && j == mHighlightChildIndex) {
+                        if(i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
+                            mPaint.setColor(mHighlightFillSectorColorClick);
+                        } else {
+                            mPaint.setColor(mHighlightFillSectorColor);
+                        }
+                        canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                    } else {
+                        if(i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
+                            mPaint.setColor(mNormalFillSectorColorClick);
+                        } else {
+                            mPaint.setColor(mNormalFillSectorColor);
+                        }
+                        canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                    }
+
                 }
-                canvas.drawArc(rectF, startAngle, (float)Math.toDegrees(mEachPetalAngle), true, mPaint);
             }
         } else {
             mPaint.setColor(mNormalFillSectorColor);
@@ -225,7 +360,7 @@ public class PetalsInRoundView extends View {
         }
         mPaint.setColor(mRadiusLineColor);
         mEachPetalAngle = 2 * Math.PI / mPetalsInfo.getPetalList().size();
-        float delta1 = (float)(0.1 * (mCircleRadius - mCircleBorderStrokeWidth));
+        float delta1 = (float)(mRatioOfSectorTextTopToCircleBorder * (mCircleRadius - mCircleBorderStrokeWidth));
         float delta = mCircleBorderStrokeWidth + delta1;
         RectF oval = new RectF(delta, delta,  2 * mCircleRadius - delta, 2 * mCircleRadius - delta);
         //先画粗线
@@ -248,7 +383,21 @@ public class PetalsInRoundView extends View {
                         double childAngle = angle + (j + 1) * eachChildEachPetalAngle;
                         String childName = childNameList.get(j);
                         mTextPaint.setTextSize(mOuterSectorTextSize);
-                        mTextPaint.setColor(mOuterSectorTextColor);
+                        if ((i == mHighlightGroupIndex && mHighlightChildIndex == -1)) {
+                            if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {
+                                if (mHighlightChildIndexList.contains(j)) {
+                                    mTextPaint.setColor(mOuterSectorHighlightTextColor);
+                                } else {
+                                    mTextPaint.setColor(mOuterSectorTextColor);
+                                }
+                            } else {
+                                mTextPaint.setColor(mOuterSectorHighlightTextColor);
+                            }
+                        } else if (i == mHighlightGroupIndex && mHighlightChildIndex != -1 && mHighlightChildIndex == j) {
+                            mTextPaint.setColor(mOuterSectorHighlightTextColor);
+                        } else {
+                            mTextPaint.setColor(mOuterSectorTextColor);
+                        }
 
                         int textLines = childName.length() % SECTOR_TEXT_MAX_LEN_EACH_LINE == 0 ? childName.length() / SECTOR_TEXT_MAX_LEN_EACH_LINE : childName.length() / SECTOR_TEXT_MAX_LEN_EACH_LINE + 1;
                         for(int k = 0; k < textLines; k++ ) {
@@ -260,7 +409,7 @@ public class PetalsInRoundView extends View {
                             }
                             float subWidth = mTextPaint.measureText(subName);
                             float subHeight = mTextPaint.getFontSpacing();
-                            float deltaHeight = delta1 / 2 + (k + 1 / 2) * subHeight;    // 每行文字中心离外层的圆边界高度差（不包含圆形外边边界strokestroke）
+                            float deltaHeight = delta1 / 2 + (k + 1 / 2) * subHeight;    // 每行文字中心离外层的圆边界高度差（不包含圆形外边边界stroke）
                             double radio = subWidth / ((mCircleRadius - mCircleBorderStrokeWidth - deltaHeight) * 2 * Math.PI / (petalsSize * childSize));
                             float deltaAngle = 0;                    // 每行文字与相应扇形缩进的角度
                             if (radio < 1 && radio > 0) {
@@ -268,7 +417,7 @@ public class PetalsInRoundView extends View {
                             }
                             Path path = new Path();
                             float startAngle = (float)(Math.toDegrees(childAngle - eachChildEachPetalAngle) - Math.toDegrees(Math.PI / 2)) + deltaAngle;
-                            float sweepAngle = (float)Math.toDegrees(eachChildEachPetalAngle);
+                            float sweepAngle = (float) Math.toDegrees(eachChildEachPetalAngle);
                             path.addArc(oval, startAngle, sweepAngle);
                             Log.v(TAG, "startAngle = " + startAngle + "; sweepAngle = " + sweepAngle + "; i = " + i + "; j = " + j + "; k = " + k + "; subName = " + subName);
                             canvas.drawTextOnPath(subName, path, 0, deltaHeight - 1 / 2 * subHeight, mTextPaint);
@@ -288,6 +437,13 @@ public class PetalsInRoundView extends View {
         }
     }
 
+    public void setIndexListEmptyWhenListIsNotEmpty() {
+        if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {
+            mHighlightChildIndexList.clear();
+            mHighlightChildIndex = -2;
+        }
+    }
+
     /**
      * 画花瓣，每个花瓣分成两半，分两次画，注释下：假如当前高亮的花瓣序号为0，则先画序号为1 的左半片，
      * 再画高亮花瓣的右半片，而后高亮花瓣的左半片，依次以逆时针的顺序每次画半片花瓣，最后画序号为1的右半片
@@ -297,31 +453,90 @@ public class PetalsInRoundView extends View {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
             return;
         }
-        int firstDrawIndex = mHighlightIndex <= mPetalsInfo.getPetalList().size() - 1 ? mHighlightIndex + 1 : 0;
-        drawPetalsPart(canvas, true, true, firstDrawIndex);
-        drawPetalsPart(canvas, false, false, mHighlightIndex);
-        drawPetalsPart(canvas, true, false, mHighlightIndex);
-        for(int i = mHighlightIndex - 1 + mPetalsInfo.getPetalList().size(); i > firstDrawIndex; i--) {
-            int index = i % mPetalsInfo.getPetalList().size();
-            drawPetalsPart(canvas, false, true, index);
-            drawPetalsPart(canvas, true, true, index);
+        Log.w(TAG, "drawPetalsPart: mHighLightGroupIndex = " + mHighlightGroupIndex);
+        if (mHighlightGroupIndex >= 0 && mHighlightFillSectorColorClick < mPetalsInfo.getPetalList().size()) {     // 如果有高亮序号的话
+            int firstDrawIndex = mHighlightGroupIndex <= mPetalsInfo.getPetalList().size() - 1 ? mHighlightGroupIndex + 1 : 0;
+            int firstDrawIndex1 = firstDrawIndex % mPetalsInfo.getPetalList().size();
+            drawPetalsPart(canvas, true, true, firstDrawIndex1);
+            drawPetalsPart(canvas, false, false, mHighlightGroupIndex);
+            drawPetalsPart(canvas, true, false, mHighlightGroupIndex);
+            for(int i = mHighlightGroupIndex - 1 + mPetalsInfo.getPetalList().size(); i > firstDrawIndex; i--) {
+                int index = i % mPetalsInfo.getPetalList().size();
+                drawPetalsPart(canvas, false, true, index);
+                drawPetalsPart(canvas, true, true, index);
+            }
+            drawPetalsPart(canvas, false, true, firstDrawIndex1);
+        } else {
+            int firstDrawIndex = 0;
+            drawPetalsPart(canvas, true, true, firstDrawIndex);
+            for(int i = mPetalsInfo.getPetalList().size() - 1; i > firstDrawIndex; i--) {
+                drawPetalsPart(canvas, false, true, i);
+                drawPetalsPart(canvas, true, true, i);
+            }
+            drawPetalsPart(canvas, false, true, firstDrawIndex);
         }
-        drawPetalsPart(canvas, false, true, firstDrawIndex);
     }
 
     private void drawPetalsPart(Canvas canvas, boolean isLeftPetalPart, boolean isNormalPetal, int index) {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
             return;
         }
-        int resId = R.drawable.ic_normal_petal_left;
+        Log.w(TAG, "drawPetalsPart: index = "+ index + "; isLeftPetalPart = " + isLeftPetalPart + "; isNormalPetal = " + isNormalPetal + "; mTouchDownGroupIndex = " +mTouchDownGroupIndex + "; mTouchDownChildIndex = " + mTouchDownChildIndex);
+        int resId = R.drawable.ic_normal_petal_left_even;
         if (isLeftPetalPart && isNormalPetal) {
-            resId = R.drawable.ic_normal_petal_left;
+            //如果正处于点击下的状态
+            if(index == mTouchDownGroupIndex && mTouchDownChildIndex == -1) {
+                resId = R.drawable.ic_highlight_petal_left;
+            } else {
+                if (index %2 == 0) {
+                    resId = R.drawable.ic_normal_petal_left_even;
+                } else {
+                    resId = R.drawable.ic_normal_petal_left_odd;
+                }
+            }
         } else if (!isLeftPetalPart && isNormalPetal) {
-            resId = R.drawable.ic_normal_petal_right;
+            //如果正处于点击下的状态
+            if(index == mTouchDownGroupIndex && mTouchDownChildIndex == -1) {
+                resId = R.drawable.ic_highlight_petal_right;
+            } else {
+                if (index % 2 == 0) {
+                    resId = R.drawable.ic_normal_petal_right_even;
+                } else {
+                    resId = R.drawable.ic_normal_petal_right_odd;
+                }
+            }
         } else if (isLeftPetalPart && !isNormalPetal) {
-            resId = R.drawable.ic_highlight_petal_left;
+            //如果需要高亮的花瓣index为-1，则不点亮任何花瓣
+            if(index == -1) {
+                if (index % 2 == 0) {
+                    resId = R.drawable.ic_normal_petal_left_even;
+                } else {
+                    resId = R.drawable.ic_normal_petal_left_odd;
+                }
+            } else {
+                //如果正处于点击下的状态
+                if(index == mTouchDownGroupIndex && mTouchDownChildIndex == -1) {
+                    resId = R.drawable.ic_highlight_petal_left_pressed;
+                } else {
+                    resId = R.drawable.ic_highlight_petal_left;
+                }
+            }
         } else if (!isLeftPetalPart && !isNormalPetal) {
-            resId = R.drawable.ic_highlight_petal_right;
+            //如果需要高亮的花瓣index为-1，则不点亮任何花瓣
+            if(index == -1) {
+                if (index % 2 == 0) {
+                    resId = R.drawable.ic_normal_petal_right_even;
+                } else {
+                    resId = R.drawable.ic_normal_petal_right_odd;
+                }
+            } else {
+                //如果正处于点击下的状态
+                if(index == mTouchDownGroupIndex && mTouchDownChildIndex == -1) {
+                    resId = R.drawable.ic_highlight_petal_right_pressed;
+                } else {
+                    resId = R.drawable.ic_highlight_petal_right;
+                }
+            }
         }
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
         int width = bitmap.getWidth();
@@ -332,22 +547,23 @@ public class PetalsInRoundView extends View {
         Bitmap targetBitmap = Bitmap.createScaledBitmap(bitmap, (int)newWidth, (int)newHeight, false);
         if (targetBitmap != null) {
             bitmap.recycle();
-        }
-        canvas.save();
-        float translateX = mCircleRadius - newWidth;
-        float rotateX = newWidth;
-        if (!isLeftPetalPart) {
-            translateX = mCircleRadius;
-            rotateX = 0;
-        }
-        canvas.translate(translateX,  mCircleRadius - newHeight);
-        int degree = (int)Math.toDegrees((index + 0.5) * mEachPetalAngle);
-        //旋转的角度是以度为单位
-        canvas.rotate(degree, rotateX, newHeight);
 
-        Log.v(TAG, "degree = " + (Math.toDegrees((index + 0.5) * mEachPetalAngle)) + "; " + width * raido + "; " + height * raido);
-        canvas.drawBitmap(targetBitmap, 0, 0, null);
-        canvas.restore();
+            canvas.save();
+            float translateX = mCircleRadius - newWidth;
+            float rotateX = newWidth;
+            if (!isLeftPetalPart) {
+                translateX = mCircleRadius;
+                rotateX = 0;
+            }
+            canvas.translate(translateX,  mCircleRadius - newHeight);
+            float degree = (float) Math.toDegrees((index + 0.5) * mEachPetalAngle);
+            //旋转的角度是以度为单位
+            canvas.rotate(degree, rotateX, newHeight);
+
+            Log.v(TAG, "degree = " + degree + "; translateX = " + translateX + "; translateY = " + (mCircleRadius - newHeight) + "; index = " + index + "; raido = " + raido);
+            canvas.drawBitmap(targetBitmap, 0, 0, null);
+            canvas.restore();
+        }
     }
 
     /**
@@ -364,34 +580,71 @@ public class PetalsInRoundView extends View {
         mEachPetalAngle = 2 * Math.PI / list.size();
         for(int i = 0; i < list.size(); i++) {
             PetalsInfo.PetalEntity entity = list.get(i);
-            if (entity == null || TextUtils.isEmpty(entity.getName())) {
+            if (entity == null) {
                 continue;
             }
             String name = entity.getName();
-            double sharpCornerAngle = (i + 1f / 2) * mEachPetalAngle ;
-            Log.v(TAG, "sharpCornerAngle = " + sharpCornerAngle + "; " + Math.toDegrees(sharpCornerAngle));
+//            name = "伟荣放的地方劳动力佛东大路发电量劳动法";
+            double sharpCornerAngle = (i + 1f / 2) * mEachPetalAngle;
+            Log.v(TAG, "sharpCornerAngle = " + sharpCornerAngle + "; " + Math.toDegrees(sharpCornerAngle) + "; name = " + name);
             int lines = name.length() % mPetalAreaMaxLenEachLine == 0 ? name.length() / mPetalAreaMaxLenEachLine : name.length() / mPetalAreaMaxLenEachLine + 1;
             double centerPointX = mCircleRadius + mDistanceOfRectCenterPointToCircleCenter * Math.sin(sharpCornerAngle);
             double centerPointY = mCircleRadius - mDistanceOfRectCenterPointToCircleCenter * Math.cos(sharpCornerAngle);
             mTextPaint.setTextSize(mPetalTextSize);
-            if (i == mHighlightIndex) {
+            Log.v(TAG, "i = " + i + "; mHighlightGroupIndex = " + mHighlightGroupIndex);
+            if (i == mHighlightGroupIndex) {
                 mTextPaint.setColor(mPetalHighlightTextColor);
             } else {
                 mTextPaint.setColor(mPetalNormalTextColor);
             }
-            float fontHeight = mTextPaint.getFontSpacing();
+            float fontHeight = mTextPaint.getFontMetrics().bottom - mTextPaint.getFontMetrics().top;
             for(int j = 0; j < lines; j++) {
                 if (j > (mPetalAreaTextMaxLines - 1)) {        //加一个限制:最多显示mPetalAreaTextMaxLines行
                     break;
                 }
                 String childName = "";
-                if (j == lines - 1) {
+                int linesTemp = Math.min(lines, mPetalAreaTextMaxLines);
+                if (j == linesTemp - 1) {
                     childName = name.substring(mPetalAreaMaxLenEachLine * j, name.length());
+                    Log.v(TAG, "lines = " + lines + "; mPetalAreaTextMaxLines = " + mPetalAreaTextMaxLines);
+                    if (lines > mPetalAreaTextMaxLines) {               //如果行数超过最大限制行数，则在最大限制行数末尾最后一个字符替换成字符"..."
+                        childName = name.substring(mPetalAreaMaxLenEachLine * j, mPetalAreaMaxLenEachLine *  (j + 1) - 1)+ "...";
+                    }
                 } else {
                     childName = name.substring(mPetalAreaMaxLenEachLine * j, mPetalAreaMaxLenEachLine * (j + 1));
                 }
                 float width = mTextPaint.measureText(childName);
+                Log.v(TAG, "centerX = " + centerPointX + "; centerY = " + centerPointY + "; " + mCircleRadius);
                 canvas.drawText(childName, (float)(centerPointX - width / 2), (float)(centerPointY + (j + 1 - lines / 2f) * fontHeight - mTextPaint.getFontMetrics().bottom), mTextPaint);
+                Log.v(TAG, "bottom = " + mTextPaint.getFontMetrics().bottom + "; des = " + mTextPaint.getFontMetrics().descent + "; asc = " + mTextPaint.getFontMetrics().ascent + "; leading = " + mTextPaint.getFontMetrics().leading + "; top = " + mTextPaint.getFontMetrics().top + "; fontSpace = " + mTextPaint.getFontSpacing());
+            }
+
+            //画花瓣底部的文本，也是需要使用每片花瓣尖角对应的角度, 一行的方式显示，而且呈圆形的方式显示
+            String catalogName = entity.getName();
+            if (!TextUtils.isEmpty(catalogName)) {
+                if (catalogName.contains(Utils.DASH)) {             // 如果有字符"-"，则取"-"之前的字符
+                    catalogName = catalogName.split(Utils.DASH)[0];
+                }
+                if (!TextUtils.isEmpty(catalogName)) {
+                    mTextPaint.setTextSize(mPetalAreaBottomTextSize);
+                    mTextPaint.setColor(mPetalAreaBottomTextColor);
+                    float width = mTextPaint.measureText(catalogName);
+                    //文字显示的圆半径
+                    double radius = mInnerCircleRadius + mDistanceOfPetalBottomTextToInnerCircleCorner * mCircleRadius;
+                    //文字占圆弧的比例
+                    double radio = width / (Math.PI * 2 * radius / list.size());
+                    float deltaAngle = 0;                    // 每行文字与相应扇形缩进的角度
+                    if (radio < 1 && radio > 0) {
+                        deltaAngle = (float)((1 - radio) / 2 * Math.toDegrees(mEachPetalAngle));
+                    }
+
+                    RectF oval = new RectF((float)(mCircleRadius - radius), (float)(mCircleRadius - radius),  (float)(mCircleRadius + radius), (float)(mCircleRadius + radius));
+                    Path path = new Path();
+                    double startAngle = (float)(Math.toDegrees(sharpCornerAngle) - Math.toDegrees(Math.PI / 2)) + deltaAngle / 2;  // 居中偏左一点
+                    float sweepAngle = (float) Math.toDegrees(mEachPetalAngle);
+                    path.addArc(oval, (float)startAngle, sweepAngle);
+                    canvas.drawTextOnPath(catalogName, path, 0, 0, mTextPaint);
+                }
             }
         }
     }
@@ -401,17 +654,33 @@ public class PetalsInRoundView extends View {
      * @param canvas
      */
     private void drawInnerCircle(Canvas canvas) {
-        mPaint.setColor(mInnerRingColor);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(mInnerRingWidth);
-        canvas.drawCircle(mCircleRadius, mCircleRadius, mInnerCircleRadius - mInnerRingWidth, mPaint);
+//        mPaint.setColor(mInnerRingColor);
+//        mPaint.setStyle(Paint.Style.STROKE);
+//        mPaint.setStrokeWidth(mInnerRingWidth);
+//        canvas.drawCircle(mCircleRadius, mCircleRadius, mInnerCircleRadius - mInnerRingWidth, mPaint);
+//
+//        mPaint.setColor(mInnerCircleExceptRingColor);
+//        mPaint.setStyle(Paint.Style.FILL);
+//        canvas.drawCircle(mCircleRadius, mCircleRadius, mInnerCircleRadius - mInnerRingWidth, mPaint);
 
-        mPaint.setColor(mInnerCircleExceptRingColor);
-        mPaint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle(mCircleRadius, mCircleRadius, mInnerCircleRadius - mInnerRingWidth, mPaint);
+        int resId = R.drawable.ic_inner_circle;
+        if (mIsTouchInnerCircle) {
+            resId = R.drawable.ic_inner_circle;
+        }
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        float raido = (float)(2 * mInnerCircleRadius) / height;
+        float newWidth = width * raido;
+        float newHeight = height * raido;
+        Bitmap targetBitmap = Bitmap.createScaledBitmap(bitmap, (int)newWidth, (int)newHeight, false);
+        if (targetBitmap != null) {
+            bitmap.recycle();
+            canvas.drawBitmap(targetBitmap, mCircleRadius - mInnerCircleRadius, mCircleRadius - mInnerCircleRadius, null);
+        }
 
-        if (mPetalsInfo != null && !TextUtils.isEmpty(mPetalsInfo.getName())) {
-            String name = mPetalsInfo.getName();
+        if (mPetalsInfo != null) {
+            String name = Utils.getNullOrNil(mPetalsInfo.getName());
             if (mInnerCircleMaxLenEachLine <= 0) {
                 mInnerCircleMaxLenEachLine = INNER_CIRCLE_MAX_LEN_EACH_LINE;
             }
@@ -438,8 +707,8 @@ public class PetalsInRoundView extends View {
         }
     }
 
-    public void setOnInnerCircleClickListener(OnClickListener mOnInnerCircleClickListener) {
-        this.mOnInnerCircleClickListener = mOnInnerCircleClickListener;
+    public void setInnerCircleClickListener(InnerCircleClickListener mInnerCircleClickListener) {
+        this.mInnerCircleClickListener = mInnerCircleClickListener;
     }
 
     public void setPetalClickListener(PetalClickListener mPetalClickListener) {
@@ -450,6 +719,21 @@ public class PetalsInRoundView extends View {
         this.mSectorClickListener = mSectorClickListener;
     }
 
+    /**
+     * 手指按下时的控件
+     */
+    public int mTouchDownGroupIndex = -1;
+    public int mTouchDownChildIndex = -1;
+    /**
+     * 手指move最后时所在的控件
+     */
+    public int mTouchUpGroupIndex = -1;
+    public int mTouchUpChildIndex = -1;
+    /**
+     * 只有在手指按下时和手指最后move到的所在控件是
+     * 同一个控件，则会触发点击事件
+     */
+    private boolean mIsClickSameArea = false;
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null) {
@@ -459,39 +743,101 @@ public class PetalsInRoundView extends View {
         float touchX = event.getX();
         float touchY = event.getY();
         if (action == MotionEvent.ACTION_DOWN) {
-            return true;
-        } else if (action == MotionEvent.ACTION_UP) {
-            if (judgePointIsInCircle(touchX, touchY, mInnerCircleRadius - mInnerRingWidth)) {
-                if (mOnInnerCircleClickListener != null) {
-                    mOnInnerCircleClickListener.onClick(this);
-                }
-            } else {
-                if (mPetalsInfo.getPetalList().size() != 0) {
-                    for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
-                        PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
-                        if (entity != null && entity.getChildList() != null) {
-                            for(int j = 0; j < entity.getChildList().size(); j++){
-                                if (isBelongToCertainArea(touchX, touchY, i, j)) {
-                                    if (mSectorClickListener != null) {
-                                        mSectorClickListener.onClick(i, j);
-                                    }
-                                    break;
-                                }
-                            }
-                            String name = entity.getName();
-                            if (TextUtils.isEmpty(name)) {
-                                continue;
-                            }
-                            if (isBelongToCertainRect(touchX, touchY, i, name)) {
-                                if (mPetalClickListener != null) {
-                                    mPetalClickListener.onClick(i);
-                                }
+            if (mPetalsInfo.getPetalList().size() != 0) {
+                for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
+                   PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
+                    if (entity != null && entity.getChildList() != null) {
+                        for(int j = 0; j < entity.getChildList().size(); j++){
+                            if (isBelongToCertainArea(touchX, touchY, i, j)) {
+                                //mSectorClickListener.onClick(i, j);
+                                this.mTouchDownGroupIndex = i;
+                                this.mTouchDownChildIndex = j;
+                                invalidate();
                                 break;
                             }
+                        }
+                        String name = entity.getName();
+                        if (TextUtils.isEmpty(name)) {
+                            continue;
+                        }
+                        if (isBelongToCertainRect(touchX, touchY, i, name)) {
+                            //mPetalClickListener.onClick(i);
+                            this.mTouchDownGroupIndex = i;
+                            this.mTouchDownChildIndex = -1;
+                            invalidate();
+                            break;
                         }
                     }
                 }
             }
+            if (judgePointIsInCircle(touchX, touchY, mInnerCircleRadius)) {
+                mIsTouchInnerCircle = true;
+                invalidate();
+            }
+            return true;
+        } else if (action == MotionEvent.ACTION_MOVE) {
+            if (mPetalsInfo.getPetalList().size() != 0) {
+                for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
+                    PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
+                    if (entity != null && entity.getChildList() != null) {
+                        for(int j = 0; j < entity.getChildList().size(); j++){
+                            if (isBelongToCertainArea(touchX, touchY, i, j)) {
+                                //mSectorClickListener.onClick(i, j);
+                                this.mTouchUpGroupIndex = i;
+                                this.mTouchUpChildIndex = j;
+                                invalidate();
+                                break;
+                            }
+                        }
+                        String name = entity.getName();
+                        if (TextUtils.isEmpty(name)) {
+                            continue;
+                        }
+                        if (isBelongToCertainRect(touchX, touchY, i, name)) {
+                            //mPetalClickListener.onClick(i);
+                            this.mTouchUpGroupIndex = i;
+                            this.mTouchUpChildIndex = -1;
+                            invalidate();
+                            break;
+                        }
+                    }
+                }
+            }
+            if(mTouchDownChildIndex == mTouchUpChildIndex && mTouchDownGroupIndex == mTouchUpGroupIndex) {
+                mIsClickSameArea = true;
+            } else {
+                mIsClickSameArea = false;
+            }
+            return true;
+        } else if (action == MotionEvent.ACTION_UP) {
+            if(mIsClickSameArea) {
+                if(mTouchDownGroupIndex >= 0) {
+                    if(mTouchDownChildIndex >= 0) {
+                        playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
+                        if (mSectorClickListener != null) {
+                            mSectorClickListener.onClick(mTouchDownGroupIndex, mTouchDownChildIndex, true);
+                        }
+                    } else {
+                        playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
+                        if (mPetalClickListener != null) {
+                            mPetalClickListener.onClick(mTouchDownGroupIndex, true);
+                            Log.w(TAG, "onTouchEvent: mTouchDownGroupIndex="+ mTouchDownGroupIndex +"; mTouchDownChildIndex="+ mTouchDownChildIndex);
+                        }
+                    }
+                }
+            }
+            if (mIsTouchInnerCircle && judgePointIsInCircle(touchX, touchY, mInnerCircleRadius)) {
+                playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
+                if (mInnerCircleClickListener != null) {
+                    mInnerCircleClickListener.onClick();
+                }
+            }
+            mTouchDownGroupIndex = -1;
+            mTouchDownChildIndex = -1;
+            mTouchUpGroupIndex = -1;
+            mTouchUpChildIndex = -1;
+            mIsTouchInnerCircle = false;
+            invalidate();
         }
         return super.onTouchEvent(event);
     }
@@ -585,16 +931,66 @@ public class PetalsInRoundView extends View {
     }
 
     /**
+     * 点击内圈的响应
+     */
+    public interface InnerCircleClickListener {
+        public void onClick();
+    }
+
+    /**
      * 点击花瓣的监听
      */
     public interface PetalClickListener{
-        public void onClick(int index);
+        public void onClick(int index, boolean isFromUser);
     }
 
     /**
      * 点击外围扇形的点击监听
      */
     public interface SectorClickListener {
-        public void onClick(int groupIndex, int childIndex);
+        public void onClick(int groupIndex, int childIndex, boolean isFromUser);
+    }
+
+    /**
+     * 根据groupIndex实现点击花瓣的效果
+     * @param groupIndex
+     */
+    public void performPetalClick(int groupIndex, boolean isFromUser) {
+        if (mPetalClickListener != null) {
+            mPetalClickListener.onClick(groupIndex, isFromUser);
+        }
+    }
+
+    /**
+     * 根据groupIndex、childIndex实现点击扇形的效果
+     * @param groupIndex
+     */
+    public void performSectorClick(int groupIndex, int childIndex, boolean isFromUser) {
+        if (mSectorClickListener != null) {
+            mSectorClickListener.onClick(groupIndex, childIndex, isFromUser);
+        }
+    }
+
+    /**
+     * 根据highlightGroupName实现点击花瓣的效果
+     * @param highlightGroupName
+     */
+    public void performPetalClick(String highlightGroupName, boolean isFromUser) {
+        convertHighlightNameToIndex(highlightGroupName, "");
+        if (mPetalClickListener != null) {
+            mPetalClickListener.onClick(mHighlightGroupIndex, isFromUser);
+        }
+    }
+
+    /**
+     * 根据highlightGroupName、highlightChildName实现点击扇形的效果
+     * @param highlightGroupName
+     * @param highlightChildName
+     */
+    public void performSectorClick(String highlightGroupName, String highlightChildName, boolean isFromUser) {
+        convertHighlightNameToIndex(highlightGroupName, highlightChildName);
+        if (mSectorClickListener != null) {
+            mSectorClickListener.onClick(mHighlightGroupIndex, mHighlightChildIndex, isFromUser);
+        }
     }
 }
