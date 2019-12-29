@@ -122,6 +122,7 @@ public class PetalsRoundActivity extends Activity {
                 if (isFromUser) {
                     mPetalsInRoundView.setIndexListEmptyWhenListIsNotEmpty();
                 }
+                mPetalsInRoundView.setHighlightIndex(groupIndex, childIndex);
             }
         });
         mPetalsInRoundView.setPetalClickListener(new PetalsInRoundView.PetalClickListener() {
@@ -131,6 +132,7 @@ public class PetalsRoundActivity extends Activity {
                 if (isFromUser) {
                     mPetalsInRoundView.setIndexListEmptyWhenListIsNotEmpty();
                 }
+                mPetalsInRoundView.setHighlightIndex(groupIndex, -1);
             }
         });
     }
