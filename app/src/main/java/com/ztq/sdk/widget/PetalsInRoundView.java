@@ -235,9 +235,9 @@ public class PetalsInRoundView extends View {
                     List<String> childList = bean.getChildList();
                     if (childList != null && childList.size() != 0) {
                         for(int j = 0; j < childList.size(); j++) {
-                            String str = childList.get(j);
-                            if (!Utils.isNullOrNil(str)) {
-                                if (Utils.getNullOrNil(str).equals(highlightChildName)) {
+                            String childBean = childList.get(j);
+                            if (childBean != null) {
+                                if (Utils.getNullOrNil(childBean).equals(highlightChildName)) {
                                     mHighlightChildIndex = j;
                                     break loop;
                                 }
@@ -264,9 +264,9 @@ public class PetalsInRoundView extends View {
         }
 
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mHighlightGroupIndex >= mPetalsInfo.getPetalList().size() || mHighlightGroupIndex < 0
-            || mPetalsInfo.getPetalList().get(mHighlightGroupIndex) == null
-            || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList() == null
-            || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList().size() <= mHighlightChildIndex) {
+                || mPetalsInfo.getPetalList().get(mHighlightGroupIndex) == null
+                || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList() == null
+                || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList().size() <= mHighlightChildIndex) {
             mHighlightChildIndex = -1;
         }
         drawCircleAndSectorPart(canvas);
@@ -290,12 +290,12 @@ public class PetalsInRoundView extends View {
             float bottom = 2 * mCircleRadius - mCircleBorderStrokeWidth;
             RectF rectF = new RectF(left, top, right, bottom);
             for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
-                float startAngle = (float) Math.toDegrees(i * mEachPetalAngle - Math.PI / 2);
+                float startAngle = (float)Math.toDegrees(i * mEachPetalAngle - Math.PI / 2);
                 int size = mPetalsInfo.getPetalList().get(i).getChildList().size();
                 double mEachPetalChildAngle = mEachPetalAngle / size;
                 float startChildAngle = startAngle;
                 for (int j = 0; j < size; j++) {
-                    float startDrawChildAngle = startChildAngle + (float) Math.toDegrees(mEachPetalChildAngle) * j;
+                    float startDrawChildAngle = startChildAngle + (float)Math.toDegrees(mEachPetalChildAngle) * j;
                     if(i == mHighlightGroupIndex && -1 == mHighlightChildIndex) {
                         Log.v(TAG, "mHighlightChildIndexList = " + mHighlightChildIndexList + "; ");
                         if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {          // 如果变量highlightChildIndexList有值,只是高亮其中几个方法，并不是全部
@@ -313,14 +313,14 @@ public class PetalsInRoundView extends View {
                                     mPaint.setColor(mNormalFillSectorColor);
                                 }
                             }
-                            canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                            canvas.drawArc(rectF, startDrawChildAngle, (float)Math.toDegrees(mEachPetalChildAngle), true, mPaint);
                         } else {
                             if (i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
                                 mPaint.setColor(mHighlightFillSectorColorClick);
                             } else {
                                 mPaint.setColor(mHighlightFillSectorColor);
                             }
-                            canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                            canvas.drawArc(rectF, startDrawChildAngle, (float)Math.toDegrees(mEachPetalChildAngle), true, mPaint);
                         }
                     } else if(i == mHighlightGroupIndex && j == mHighlightChildIndex) {
                         if(i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
@@ -328,14 +328,14 @@ public class PetalsInRoundView extends View {
                         } else {
                             mPaint.setColor(mHighlightFillSectorColor);
                         }
-                        canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                        canvas.drawArc(rectF, startDrawChildAngle, (float)Math.toDegrees(mEachPetalChildAngle), true, mPaint);
                     } else {
                         if(i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
                             mPaint.setColor(mNormalFillSectorColorClick);
                         } else {
                             mPaint.setColor(mNormalFillSectorColor);
                         }
-                        canvas.drawArc(rectF, startDrawChildAngle, (float) Math.toDegrees(mEachPetalChildAngle), true, mPaint);
+                        canvas.drawArc(rectF, startDrawChildAngle, (float)Math.toDegrees(mEachPetalChildAngle), true, mPaint);
                     }
 
                 }
@@ -417,7 +417,7 @@ public class PetalsInRoundView extends View {
                             }
                             Path path = new Path();
                             float startAngle = (float)(Math.toDegrees(childAngle - eachChildEachPetalAngle) - Math.toDegrees(Math.PI / 2)) + deltaAngle;
-                            float sweepAngle = (float) Math.toDegrees(eachChildEachPetalAngle);
+                            float sweepAngle = (float)Math.toDegrees(eachChildEachPetalAngle);
                             path.addArc(oval, startAngle, sweepAngle);
                             Log.v(TAG, "startAngle = " + startAngle + "; sweepAngle = " + sweepAngle + "; i = " + i + "; j = " + j + "; k = " + k + "; subName = " + subName);
                             canvas.drawTextOnPath(subName, path, 0, deltaHeight - 1 / 2 * subHeight, mTextPaint);
@@ -541,10 +541,10 @@ public class PetalsInRoundView extends View {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        float raido = (float)(mCircleRadius * mRatioOfPetalImgHeightToCircle) / height;
-        float newWidth = width * raido;
-        float newHeight = height * raido;
-        Bitmap targetBitmap = Bitmap.createScaledBitmap(bitmap, (int)newWidth, (int)newHeight, false);
+        float raido = (int)(mCircleRadius * mRatioOfPetalImgHeightToCircle) / (float)height;
+        int newWidth = (int)(width * raido);
+        int newHeight = (int)(height * raido);
+        Bitmap targetBitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, false);
         if (targetBitmap != null) {
             bitmap.recycle();
 
@@ -556,11 +556,11 @@ public class PetalsInRoundView extends View {
                 rotateX = 0;
             }
             canvas.translate(translateX,  mCircleRadius - newHeight);
-            float degree = (float) Math.toDegrees((index + 0.5) * mEachPetalAngle);
+            float degree = (float)Math.toDegrees((index + 0.5) * mEachPetalAngle);
             //旋转的角度是以度为单位
             canvas.rotate(degree, rotateX, newHeight);
 
-            Log.v(TAG, "degree = " + degree + "; translateX = " + translateX + "; translateY = " + (mCircleRadius - newHeight) + "; index = " + index + "; raido = " + raido);
+            Log.v(TAG, "degree = " + degree + "; translateX = " + translateX + "; translateY = " + (mCircleRadius - newHeight) + "; index = " + index + "; raido = " + raido + "; radius = " + mCircleRadius + "; newWidth = " + newWidth + "; newHeight = " + newHeight);
             canvas.drawBitmap(targetBitmap, 0, 0, null);
             canvas.restore();
         }
@@ -641,7 +641,7 @@ public class PetalsInRoundView extends View {
                     RectF oval = new RectF((float)(mCircleRadius - radius), (float)(mCircleRadius - radius),  (float)(mCircleRadius + radius), (float)(mCircleRadius + radius));
                     Path path = new Path();
                     double startAngle = (float)(Math.toDegrees(sharpCornerAngle) - Math.toDegrees(Math.PI / 2)) + deltaAngle / 2;  // 居中偏左一点
-                    float sweepAngle = (float) Math.toDegrees(mEachPetalAngle);
+                    float sweepAngle = (float)Math.toDegrees(mEachPetalAngle);
                     path.addArc(oval, (float)startAngle, sweepAngle);
                     canvas.drawTextOnPath(catalogName, path, 0, 0, mTextPaint);
                 }
@@ -745,7 +745,7 @@ public class PetalsInRoundView extends View {
         if (action == MotionEvent.ACTION_DOWN) {
             if (mPetalsInfo.getPetalList().size() != 0) {
                 for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
-                   PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
+                    PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
                     if (entity != null && entity.getChildList() != null) {
                         for(int j = 0; j < entity.getChildList().size(); j++){
                             if (isBelongToCertainArea(touchX, touchY, i, j)) {
@@ -814,11 +814,15 @@ public class PetalsInRoundView extends View {
                 if(mTouchDownGroupIndex >= 0) {
                     if(mTouchDownChildIndex >= 0) {
                         playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
+                        mHighlightGroupIndex = mTouchUpGroupIndex;
+                        mHighlightChildIndex = mTouchUpChildIndex;
                         if (mSectorClickListener != null) {
                             mSectorClickListener.onClick(mTouchDownGroupIndex, mTouchDownChildIndex, true);
                         }
                     } else {
                         playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
+                        mHighlightGroupIndex = mTouchUpGroupIndex;
+                        mHighlightChildIndex = -1;
                         if (mPetalClickListener != null) {
                             mPetalClickListener.onClick(mTouchDownGroupIndex, true);
                             Log.w(TAG, "onTouchEvent: mTouchDownGroupIndex="+ mTouchDownGroupIndex +"; mTouchDownChildIndex="+ mTouchDownChildIndex);
@@ -857,7 +861,7 @@ public class PetalsInRoundView extends View {
         Log.v(TAG, "sharpCornerAngle = " + sharpCornerAngle + "; " + Math.toDegrees(sharpCornerAngle));
         float centerPointX = (float)(mCircleRadius + mDistanceOfRectCenterPointToCircleCenter * Math.sin(sharpCornerAngle));
         float centerPointY = (float)(mCircleRadius - mDistanceOfRectCenterPointToCircleCenter * Math.cos(sharpCornerAngle));
-       mTextPaint.setTextSize(mPetalTextSize);
+        mTextPaint.setTextSize(mPetalTextSize);
         float fontHeight = mTextPaint.getFontSpacing();
         String str = "";
         for(int i = 0; i < mPetalAreaMaxLenEachLine; i++) {

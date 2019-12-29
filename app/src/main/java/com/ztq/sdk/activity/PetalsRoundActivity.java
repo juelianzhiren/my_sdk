@@ -119,12 +119,18 @@ public class PetalsRoundActivity extends Activity {
             @Override
             public void onClick(int groupIndex, int childIndex, boolean isFromUser) {
                 Log.v(TAG, "SectorClickListener, groupIndex = " + groupIndex + "; childIndex = " + childIndex);
+                if (isFromUser) {
+                    mPetalsInRoundView.setIndexListEmptyWhenListIsNotEmpty();
+                }
             }
         });
         mPetalsInRoundView.setPetalClickListener(new PetalsInRoundView.PetalClickListener() {
             @Override
-            public void onClick(int index, boolean isFromUser) {
-                Log.v(TAG, "PetalClickListener, index = " + index);
+            public void onClick(int groupIndex, boolean isFromUser) {
+                Log.v(TAG, "PetalClickListener, groupIndex = " + groupIndex);
+                if (isFromUser) {
+                    mPetalsInRoundView.setIndexListEmptyWhenListIsNotEmpty();
+                }
             }
         });
     }
