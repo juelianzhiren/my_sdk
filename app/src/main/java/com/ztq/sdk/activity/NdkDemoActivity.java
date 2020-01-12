@@ -24,6 +24,6 @@ public class NdkDemoActivity extends Activity {
         mJniInterface = new JniInterface();
         mTv = findViewById(R.id.jni_demo_tv);
         mTv.setText(mJniInterface.get());
-        mJniInterface.set("hello world from JniTestApp");
+        mJniInterface.set("我哦我我我我");
     }
 }

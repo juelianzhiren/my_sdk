@@ -142,9 +142,9 @@ public class PetalsInRoundView extends View {
         mContext = context;
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.PetalsRoundView);
         mNormalFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_normalFillSectorColor, getResources().getColor(R.color.light_green));
-        mNormalFillSectorColorClick = typedArray.getColor(R.styleable.PetalsRoundView_normalFillSectorColor, getResources().getColor(R.color.light_green_pressed));
+        mNormalFillSectorColorClick = typedArray.getColor(R.styleable.PetalsRoundView_normalFillSectorColorClick, getResources().getColor(R.color.light_green_pressed));
         mHighlightFillSectorColor = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillSectorColor, getResources().getColor(R.color.light_yellow));
-        mHighlightFillSectorColorClick = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillSectorColor, getResources().getColor(R.color.light_yellow_pressed));
+        mHighlightFillSectorColorClick = typedArray.getColor(R.styleable.PetalsRoundView_highlightFillSectorColorClick, getResources().getColor(R.color.light_yellow_pressed));
         mRatioOfPetalImgHeightToCircle = typedArray.getFloat(R.styleable.PetalsRoundView_ratioOfPetalImgHeightToCircle, 0.75f);
         mCircleBorderStrokeWidth = typedArray.getDimension(R.styleable.PetalsRoundView_circleBorderStrokeWidth, getResources().getDimension(R.dimen.petals_round_view_circle_border_stroke_width));
         mThinRadiusLineWidth = typedArray.getDimension(R.styleable.PetalsRoundView_thinRadiusLineWidth, getResources().getDimension(R.dimen.petals_round_view_thin_radius_line_width));
@@ -383,6 +383,7 @@ public class PetalsInRoundView extends View {
                         double childAngle = angle + (j + 1) * eachChildEachPetalAngle;
                         String childName = childNameList.get(j);
                         mTextPaint.setTextSize(mOuterSectorTextSize);
+                        mTextPaint.setLetterSpacing(0.1f);
                         if ((i == mHighlightGroupIndex && mHighlightChildIndex == -1)) {
                             if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {
                                 if (mHighlightChildIndexList.contains(j)) {
@@ -591,6 +592,7 @@ public class PetalsInRoundView extends View {
             double centerPointX = mCircleRadius + mDistanceOfRectCenterPointToCircleCenter * Math.sin(sharpCornerAngle);
             double centerPointY = mCircleRadius - mDistanceOfRectCenterPointToCircleCenter * Math.cos(sharpCornerAngle);
             mTextPaint.setTextSize(mPetalTextSize);
+            mTextPaint.setLetterSpacing(0f);
             Log.v(TAG, "i = " + i + "; mHighlightGroupIndex = " + mHighlightGroupIndex);
             if (i == mHighlightGroupIndex) {
                 mTextPaint.setColor(mPetalHighlightTextColor);
@@ -691,6 +693,7 @@ public class PetalsInRoundView extends View {
 
             mTextPaint.setTextSize(mInnerCircleTextSize);
             mTextPaint.setColor(mInnerCircleTextColor);
+            mTextPaint.setLetterSpacing(0f);
             String chileName = "";
             for (int i = 0; i < textline; i++) {
                 if (i == textline - 1) {

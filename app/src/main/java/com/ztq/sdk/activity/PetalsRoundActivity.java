@@ -71,10 +71,10 @@ public class PetalsRoundActivity extends Activity {
         list.add(entity);
 
         entity = new PetalsInfo.PetalEntity();
-        entity.setName("我拉拉队我的的");
+        entity.setName("我拉拉的");
         childList = new ArrayList<>();
         childList.add("大");
-        childList.add("东西");
+        childList.add("东西范德萨发生");
         childList.add("的");
         entity.setChildList(childList);
         list.add(entity);
