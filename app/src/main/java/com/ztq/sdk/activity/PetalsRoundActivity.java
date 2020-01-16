@@ -108,7 +108,7 @@ public class PetalsRoundActivity extends Activity {
 
         info.setPetalList(list);
         mPetalsInRoundView.setPetalsInfo(info);
-        mPetalsInRoundView.setHighlightIndex(1, 0);
+        mPetalsInRoundView.setHighlightIndex(1, 1);
         mPetalsInRoundView.setInnerCircleClickListener(new PetalsInRoundView.InnerCircleClickListener() {
             @Override
             public void onClick() {
@@ -119,9 +119,6 @@ public class PetalsRoundActivity extends Activity {
             @Override
             public void onClick(int groupIndex, int childIndex, boolean isFromUser) {
                 Log.v(TAG, "SectorClickListener, groupIndex = " + groupIndex + "; childIndex = " + childIndex);
-                if (isFromUser) {
-                    mPetalsInRoundView.setIndexListEmptyWhenListIsNotEmpty();
-                }
                 mPetalsInRoundView.setHighlightIndex(groupIndex, childIndex);
             }
         });
@@ -129,9 +126,6 @@ public class PetalsRoundActivity extends Activity {
             @Override
             public void onClick(int groupIndex, boolean isFromUser) {
                 Log.v(TAG, "PetalClickListener, groupIndex = " + groupIndex);
-                if (isFromUser) {
-                    mPetalsInRoundView.setIndexListEmptyWhenListIsNotEmpty();
-                }
                 mPetalsInRoundView.setHighlightIndex(groupIndex, -1);
             }
         });

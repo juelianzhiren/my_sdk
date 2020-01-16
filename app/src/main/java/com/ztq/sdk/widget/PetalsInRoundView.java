@@ -17,9 +17,11 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.constant.Constants;
 import com.ztq.sdk.entity.PetalsInfo;
 import com.ztq.sdk.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,10 +49,8 @@ public class PetalsInRoundView extends View {
     private TextPaint mTextPaint;
     /**高亮的序号*/
     private int mHighlightGroupIndex = -1;
-    private int mHighlightChildIndex = -1;
+    private static final int HIGHLIGHT_CHILD_INDEX_NO_VALUE = -1;
     private List<Integer> mHighlightChildIndexList;
-    private String mHighlightGroupName;
-    private String mHighlightChildName;
     /**圆形半径(加上圆环的半径长)*/
     private float mCircleRadius;
     /**经过圆心的实心扇形颜色(非高亮)*/
@@ -186,10 +186,24 @@ public class PetalsInRoundView extends View {
     }
 
     public void setHighlightIndex(int mHighlightGroupIndex,int mHighlightChildIndex) {
-        if (!(this.mHighlightGroupIndex == mHighlightGroupIndex && this.mHighlightChildIndex == mHighlightChildIndex)) {
+        if (!(this.mHighlightGroupIndex == mHighlightGroupIndex && mHighlightChildIndexList != null && mHighlightChildIndexList.size() == 1 && mHighlightChildIndexList.get(0) != null && mHighlightChildIndexList.get(0) == mHighlightChildIndex)) {
             this.mHighlightGroupIndex = mHighlightGroupIndex;
-            this.mHighlightChildIndex = mHighlightChildIndex;
+            dealWithHighlightChildIndexList();
+            mHighlightChildIndexList.add(mHighlightChildIndex);
             invalidate();
+        }
+    }
+
+    public void setHighlightIndex(int mHighlightGroupIndex,String highlightChildName) {
+        convertHighlightNameToIndex(mHighlightGroupIndex, highlightChildName);
+        invalidate();
+    }
+
+    private void dealWithHighlightChildIndexList() {
+        if (mHighlightChildIndexList == null) {
+            mHighlightChildIndexList = new ArrayList<>();
+        } else {
+            mHighlightChildIndexList.clear();
         }
     }
 
@@ -198,12 +212,47 @@ public class PetalsInRoundView extends View {
     }
 
     public void setHighlightName(String highlightGroupName, String highlightChildName) {
-        if (!(Utils.getNullOrNil(mHighlightGroupName).equals(Utils.getNullOrNil(highlightGroupName)) && Utils.getNullOrNil(mHighlightChildName).equals(Utils.getNullOrNil(highlightChildName)))) {
-            mHighlightGroupName = highlightGroupName;
-            mHighlightChildName = highlightChildName;
-            convertHighlightNameToIndex(highlightGroupName, highlightChildName);
-            Log.v(TAG, "mHighLightGroupIndex = " + mHighlightGroupIndex + "; mHighlightChildIndex = " + mHighlightChildIndex);
-            invalidate();
+        convertHighlightNameToIndex(highlightGroupName, highlightChildName);
+        invalidate();
+    }
+
+    /**
+     * 将将高亮的名字转化为对应的序号
+     * @param highlightGroupIndex
+     * @param highlightChildName
+     */
+    private void convertHighlightNameToIndex(int highlightGroupIndex, String highlightChildIndexs) {
+        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
+            return;
+        }
+
+        List<PetalsInfo.PetalEntity> list = mPetalsInfo.getPetalList();
+        if (highlightGroupIndex >= 0 && highlightGroupIndex < list.size()) {
+            mHighlightGroupIndex = highlightGroupIndex;
+            dealWithHighlightChildIndexList();
+            PetalsInfo.PetalEntity bean = list.get(highlightGroupIndex);
+            if (bean != null) {
+                List<String> childList = bean.getChildList();
+                if (childList != null && childList.size() != 0) {
+                    if (!Utils.isNullOrNil(highlightChildIndexs)) {
+                        String[] arr = highlightChildIndexs.split(Constants.CHARACTER_COMMA);
+                        if (arr != null) {
+                            for (int i = 0; i < arr.length; i++) {
+                                String str = arr[i];
+                                int index = -1;
+                                try {
+                                    index = Integer.parseInt(str);
+                                    mHighlightChildIndexList.add(index);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    } else {
+                        mHighlightChildIndexList.add(HIGHLIGHT_CHILD_INDEX_NO_VALUE);
+                    }
+                }
+            }
         }
     }
 
@@ -217,15 +266,12 @@ public class PetalsInRoundView extends View {
             return;
         }
         mHighlightGroupIndex = -1;
-        mHighlightChildIndex = -1;
         if (TextUtils.isEmpty(highlightGroupName)) {
             mHighlightGroupIndex = -1;
             return;
         }
-        if (TextUtils.isEmpty(highlightChildName)) {
-            mHighlightChildIndex = -1;
-        }
         List<PetalsInfo.PetalEntity> list = mPetalsInfo.getPetalList();
+        dealWithHighlightChildIndexList();
         loop:
         for(int i = 0; i < list.size(); i++) {
             PetalsInfo.PetalEntity bean = list.get(i);
@@ -234,14 +280,26 @@ public class PetalsInRoundView extends View {
                     mHighlightGroupIndex = i;
                     List<String> childList = bean.getChildList();
                     if (childList != null && childList.size() != 0) {
-                        for(int j = 0; j < childList.size(); j++) {
-                            String childBean = childList.get(j);
-                            if (childBean != null) {
-                                if (Utils.getNullOrNil(childBean).equals(highlightChildName)) {
-                                    mHighlightChildIndex = j;
-                                    break loop;
+                        if (!Utils.isNullOrNil(highlightChildName)) {
+                            String[] arr = highlightChildName.split(Constants.CHARACTER_COMMA);
+                            if (arr != null) {
+                                for(int j = 0; j < arr.length; j++) {
+                                    String str = arr[j];
+                                    if (!Utils.isNullOrNil(str)) {
+                                        for(int k = 0; k < childList.size(); k++) {
+                                            String childBean = childList.get(k);
+                                            if (childBean != null) {
+                                                if (Utils.getNullOrNil(childBean).equals(str)) {
+                                                    mHighlightChildIndexList.add(k);
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
+                        } else {
+                            mHighlightChildIndexList.add(HIGHLIGHT_CHILD_INDEX_NO_VALUE);
                         }
                     }
                     break;
@@ -263,17 +321,16 @@ public class PetalsInRoundView extends View {
             return;
         }
 
-        if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mHighlightGroupIndex >= mPetalsInfo.getPetalList().size() || mHighlightGroupIndex < 0
-                || mPetalsInfo.getPetalList().get(mHighlightGroupIndex) == null
-                || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList() == null
-                || mPetalsInfo.getPetalList().get(mHighlightGroupIndex).getChildList().size() <= mHighlightChildIndex) {
-            mHighlightChildIndex = -1;
-        }
         drawCircleAndSectorPart(canvas);
         drawLinePartAndSectorText(canvas);
         drawPetalsPart(canvas);
         drawPetalsText(canvas);
         drawInnerCircle(canvas);
+    }
+
+    private boolean isHighlightChildIndexListOnlyContainNoValue() {
+        boolean flag = (mHighlightChildIndexList != null && mHighlightChildIndexList.size() == 1 && mHighlightChildIndexList.get(0) != null && mHighlightChildIndexList.get(0) == HIGHLIGHT_CHILD_INDEX_NO_VALUE);
+        return flag;
     }
 
     /**
@@ -296,9 +353,9 @@ public class PetalsInRoundView extends View {
                 float startChildAngle = startAngle;
                 for (int j = 0; j < size; j++) {
                     float startDrawChildAngle = startChildAngle + (float)Math.toDegrees(mEachPetalChildAngle) * j;
-                    if(i == mHighlightGroupIndex && -1 == mHighlightChildIndex) {
+                    if(i == mHighlightGroupIndex && mHighlightChildIndexList != null && !isHighlightChildIndexListOnlyContainNoValue()) {
                         Log.v(TAG, "mHighlightChildIndexList = " + mHighlightChildIndexList + "; ");
-                        if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {          // 如果变量highlightChildIndexList有值,只是高亮其中几个方法，并不是全部
+                        if (mHighlightChildIndexList.size() != 0) {          // 如果变量highlightChildIndexList有值,只是高亮其中几个方法，并不是全部
                             Log.v(TAG, "j = " + j + "; contains = " + mHighlightChildIndexList.contains(j));
                             if (mHighlightChildIndexList.contains(j)) {
                                 if (i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
@@ -322,7 +379,7 @@ public class PetalsInRoundView extends View {
                             }
                             canvas.drawArc(rectF, startDrawChildAngle, (float)Math.toDegrees(mEachPetalChildAngle), true, mPaint);
                         }
-                    } else if(i == mHighlightGroupIndex && j == mHighlightChildIndex) {
+                    } else if(i == mHighlightGroupIndex && mHighlightChildIndexList != null && mHighlightChildIndexList.size() == 1 && mHighlightChildIndexList.get(0) != null && mHighlightChildIndexList.get(0) == HIGHLIGHT_CHILD_INDEX_NO_VALUE) {
                         if(i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
                             mPaint.setColor(mHighlightFillSectorColorClick);
                         } else {
@@ -384,7 +441,7 @@ public class PetalsInRoundView extends View {
                         String childName = childNameList.get(j);
                         mTextPaint.setTextSize(mOuterSectorTextSize);
                         mTextPaint.setLetterSpacing(0.1f);
-                        if ((i == mHighlightGroupIndex && mHighlightChildIndex == -1)) {
+                        if (i == mHighlightGroupIndex && !isHighlightChildIndexListOnlyContainNoValue()) {
                             if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {
                                 if (mHighlightChildIndexList.contains(j)) {
                                     mTextPaint.setColor(mOuterSectorHighlightTextColor);
@@ -394,7 +451,7 @@ public class PetalsInRoundView extends View {
                             } else {
                                 mTextPaint.setColor(mOuterSectorHighlightTextColor);
                             }
-                        } else if (i == mHighlightGroupIndex && mHighlightChildIndex != -1 && mHighlightChildIndex == j) {
+                        } else if (i == mHighlightGroupIndex && isHighlightChildIndexListOnlyContainNoValue()) {
                             mTextPaint.setColor(mOuterSectorHighlightTextColor);
                         } else {
                             mTextPaint.setColor(mOuterSectorTextColor);
@@ -435,13 +492,6 @@ public class PetalsInRoundView extends View {
                     }
                 }
             }
-        }
-    }
-
-    public void setIndexListEmptyWhenListIsNotEmpty() {
-        if (mHighlightChildIndexList != null && mHighlightChildIndexList.size() != 0) {
-            mHighlightChildIndexList.clear();
-            mHighlightChildIndex = -2;
         }
     }
 
@@ -818,14 +868,16 @@ public class PetalsInRoundView extends View {
                     if(mTouchDownChildIndex >= 0) {
                         playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
                         mHighlightGroupIndex = mTouchUpGroupIndex;
-                        mHighlightChildIndex = mTouchUpChildIndex;
+                        dealWithHighlightChildIndexList();
+                        mHighlightChildIndexList.add(mTouchUpChildIndex);
                         if (mSectorClickListener != null) {
                             mSectorClickListener.onClick(mTouchDownGroupIndex, mTouchDownChildIndex, true);
                         }
                     } else {
                         playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
                         mHighlightGroupIndex = mTouchUpGroupIndex;
-                        mHighlightChildIndex = -1;
+                        dealWithHighlightChildIndexList();
+                        mHighlightChildIndexList.add(HIGHLIGHT_CHILD_INDEX_NO_VALUE);
                         if (mPetalClickListener != null) {
                             mPetalClickListener.onClick(mTouchDownGroupIndex, true);
                             Log.w(TAG, "onTouchEvent: mTouchDownGroupIndex="+ mTouchDownGroupIndex +"; mTouchDownChildIndex="+ mTouchDownChildIndex);
@@ -986,18 +1038,6 @@ public class PetalsInRoundView extends View {
         convertHighlightNameToIndex(highlightGroupName, "");
         if (mPetalClickListener != null) {
             mPetalClickListener.onClick(mHighlightGroupIndex, isFromUser);
-        }
-    }
-
-    /**
-     * 根据highlightGroupName、highlightChildName实现点击扇形的效果
-     * @param highlightGroupName
-     * @param highlightChildName
-     */
-    public void performSectorClick(String highlightGroupName, String highlightChildName, boolean isFromUser) {
-        convertHighlightNameToIndex(highlightGroupName, highlightChildName);
-        if (mSectorClickListener != null) {
-            mSectorClickListener.onClick(mHighlightGroupIndex, mHighlightChildIndex, isFromUser);
         }
     }
 }
