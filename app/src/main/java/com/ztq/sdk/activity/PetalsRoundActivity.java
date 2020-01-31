@@ -108,6 +108,7 @@ public class PetalsRoundActivity extends Activity {
         info.setPetalList(list);
         mPetalsInRoundView.setPetalsInfo(info);
         mPetalsInRoundView.setHighlightIndex(1, 1);
+        mPetalsInRoundView.setHighlightIndex(1, "0,2");
         mPetalsInRoundView.setInnerCircleClickListener(new PetalsInRoundView.InnerCircleClickListener() {
             @Override
             public void onClick() {
