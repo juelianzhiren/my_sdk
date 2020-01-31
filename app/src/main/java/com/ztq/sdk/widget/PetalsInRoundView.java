@@ -814,6 +814,14 @@ public class PetalsInRoundView extends View {
         if (action == MotionEvent.ACTION_DOWN) {
             mTouchDownX = touchX;
             mTouchDownY = touchY;
+            if (Math.sqrt(Math.pow(touchX - mCircleRadius, 2) + Math.pow(touchY - mCircleRadius, 2)) >= mCircleRadius) {
+                mTouchDownGroupIndex = -1;
+                mTouchDownChildIndex = -1;
+                mTouchUpGroupIndex = -1;
+                mTouchUpChildIndex = -1;
+                invalidate();
+                return true;
+            }
             if (mPetalsInfo.getPetalList().size() != 0) {
                 for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
                     PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
