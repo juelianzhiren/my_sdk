@@ -64,5 +64,6 @@
         <attr name="petalAreaBottomTextColor" format="reference|color" /><!--花瓣底部文字颜色-->
         <attr name="distanceOfPetalBottomTextToInnerCircleCorner" format="float" /><!--每片花瓣底部文字所在的圆距离内层圆边界的距离与整个圆半径的比例-->
         <attr name="ratioOfSectorTextTopToCircleBorder" format="float" /><!--扇形文字顶部距离圆边界与圆半径的比例（不包含stroke区域）-->
+        <attr name="canTurnInCircle" format="boolean" />                 <!--是否可以在圆圈内转动-->
     </declare-styleable>
 </resources>

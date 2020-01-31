@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PointF;
 import android.graphics.RectF;
 import android.text.TextPaint;
 import android.text.TextUtils;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
+import android.view.ViewConfiguration;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.constant.Constants;
@@ -124,6 +126,18 @@ public class PetalsInRoundView extends View {
     /**是否触摸内圈*/
     private boolean mIsTouchInnerCircle;
 
+    private double mLastDeltaAngle;
+    private double mDeltaAngle;
+    private float mTouchSlop;
+    private float mTouchDownX;
+    private float mTouchDownY;
+    private float mTouchMoveX;
+    private float mTouchMoveY;
+    private boolean mIsValid;
+
+    /**是否可以转动*/
+    private boolean mCanTurned;
+
     public PetalsInRoundView(Context context) {
         this(context, null);
     }
@@ -169,12 +183,16 @@ public class PetalsInRoundView extends View {
         mPetalAreaBottomTextColor = typedArray.getColor(R.styleable.PetalsRoundView_petalAreaBottomTextColor, getResources().getColor(R.color.gray));
         mDistanceOfPetalBottomTextToInnerCircleCorner = typedArray.getFloat(R.styleable.PetalsRoundView_distanceOfPetalBottomTextToInnerCircleCorner, DISTANCE_RAIDO_OF_PETAL_BOTTOM_TEXT_TO_INNER_CIRCLE_CORNER);
         mRatioOfSectorTextTopToCircleBorder = typedArray.getFloat(R.styleable.PetalsRoundView_ratioOfSectorTextTopToCircleBorder, RATIO_OF_SECTOR_TEXT_TOP_TO_CIRCEL_BORDER);
+        mCanTurned = typedArray.getBoolean(R.styleable.PetalsRoundView_canTurnInCircle, false);
         typedArray.recycle();
 
+        mCanTurned = true;
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mTextPaint = new TextPaint();
         mTextPaint.setAntiAlias(true);
+
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override
@@ -219,7 +237,7 @@ public class PetalsInRoundView extends View {
     /**
      * 将将高亮的名字转化为对应的序号
      * @param highlightGroupIndex
-     * @param highlightChildName
+     * @param highlightChildIndexs
      */
     private void convertHighlightNameToIndex(int highlightGroupIndex, String highlightChildIndexs) {
         if (mPetalsInfo == null || mPetalsInfo.getPetalList() == null || mPetalsInfo.getPetalList().size() == 0) {
@@ -321,11 +339,18 @@ public class PetalsInRoundView extends View {
             return;
         }
 
+        if (mCanTurned) {
+            canvas.save();
+            canvas.rotate((float)mDeltaAngle, mCircleRadius, mCircleRadius);
+        }
         drawCircleAndSectorPart(canvas);
         drawLinePartAndSectorText(canvas);
         drawPetalsPart(canvas);
         drawPetalsText(canvas);
         drawInnerCircle(canvas);
+        if (mCanTurned) {
+            canvas.restore();
+        }
     }
 
     private boolean isHighlightChildIndexListOnlyContainNoValue() {
@@ -354,9 +379,7 @@ public class PetalsInRoundView extends View {
                 for (int j = 0; j < size; j++) {
                     float startDrawChildAngle = startChildAngle + (float)Math.toDegrees(mEachPetalChildAngle) * j;
                     if(i == mHighlightGroupIndex && mHighlightChildIndexList != null && !isHighlightChildIndexListOnlyContainNoValue()) {
-                        Log.v(TAG, "mHighlightChildIndexList = " + mHighlightChildIndexList + "; ");
                         if (mHighlightChildIndexList.size() != 0) {          // 如果变量highlightChildIndexList有值,只是高亮其中几个方法，并不是全部
-                            Log.v(TAG, "j = " + j + "; contains = " + mHighlightChildIndexList.contains(j));
                             if (mHighlightChildIndexList.contains(j)) {
                                 if (i == mTouchDownGroupIndex && j == mTouchDownChildIndex) {
                                     mPaint.setColor(mHighlightFillSectorColorClick);
@@ -477,7 +500,6 @@ public class PetalsInRoundView extends View {
                             float startAngle = (float)(Math.toDegrees(childAngle - eachChildEachPetalAngle) - Math.toDegrees(Math.PI / 2)) + deltaAngle;
                             float sweepAngle = (float)Math.toDegrees(eachChildEachPetalAngle);
                             path.addArc(oval, startAngle, sweepAngle);
-                            Log.v(TAG, "startAngle = " + startAngle + "; sweepAngle = " + sweepAngle + "; i = " + i + "; j = " + j + "; k = " + k + "; subName = " + subName);
                             canvas.drawTextOnPath(subName, path, 0, deltaHeight - 1 / 2 * subHeight, mTextPaint);
                         }
                         if (j == childNameList.size() - 1) {   // 最后一个细线不用画
@@ -611,7 +633,6 @@ public class PetalsInRoundView extends View {
             //旋转的角度是以度为单位
             canvas.rotate(degree, rotateX, newHeight);
 
-            Log.v(TAG, "degree = " + degree + "; translateX = " + translateX + "; translateY = " + (mCircleRadius - newHeight) + "; index = " + index + "; raido = " + raido + "; radius = " + mCircleRadius + "; newWidth = " + newWidth + "; newHeight = " + newHeight);
             canvas.drawBitmap(targetBitmap, 0, 0, null);
             canvas.restore();
         }
@@ -637,13 +658,11 @@ public class PetalsInRoundView extends View {
             String name = entity.getName();
 //            name = "伟荣放的地方劳动力佛东大路发电量劳动法";
             double sharpCornerAngle = (i + 1f / 2) * mEachPetalAngle;
-            Log.v(TAG, "sharpCornerAngle = " + sharpCornerAngle + "; " + Math.toDegrees(sharpCornerAngle) + "; name = " + name);
             int lines = name.length() % mPetalAreaMaxLenEachLine == 0 ? name.length() / mPetalAreaMaxLenEachLine : name.length() / mPetalAreaMaxLenEachLine + 1;
             double centerPointX = mCircleRadius + mDistanceOfRectCenterPointToCircleCenter * Math.sin(sharpCornerAngle);
             double centerPointY = mCircleRadius - mDistanceOfRectCenterPointToCircleCenter * Math.cos(sharpCornerAngle);
             mTextPaint.setTextSize(mPetalTextSize);
             mTextPaint.setLetterSpacing(0f);
-            Log.v(TAG, "i = " + i + "; mHighlightGroupIndex = " + mHighlightGroupIndex);
             if (i == mHighlightGroupIndex) {
                 mTextPaint.setColor(mPetalHighlightTextColor);
             } else {
@@ -658,7 +677,6 @@ public class PetalsInRoundView extends View {
                 int linesTemp = Math.min(lines, mPetalAreaTextMaxLines);
                 if (j == linesTemp - 1) {
                     childName = name.substring(mPetalAreaMaxLenEachLine * j, name.length());
-                    Log.v(TAG, "lines = " + lines + "; mPetalAreaTextMaxLines = " + mPetalAreaTextMaxLines);
                     if (lines > mPetalAreaTextMaxLines) {               //如果行数超过最大限制行数，则在最大限制行数末尾最后一个字符替换成字符"..."
                         childName = name.substring(mPetalAreaMaxLenEachLine * j, mPetalAreaMaxLenEachLine *  (j + 1) - 1)+ "...";
                     }
@@ -666,7 +684,6 @@ public class PetalsInRoundView extends View {
                     childName = name.substring(mPetalAreaMaxLenEachLine * j, mPetalAreaMaxLenEachLine * (j + 1));
                 }
                 float width = mTextPaint.measureText(childName);
-                Log.v(TAG, "centerX = " + centerPointX + "; centerY = " + centerPointY + "; " + mCircleRadius);
                 canvas.drawText(childName, (float)(centerPointX - width / 2), (float)(centerPointY + (j + 1 - lines / 2f) * fontHeight - mTextPaint.getFontMetrics().bottom), mTextPaint);
                 Log.v(TAG, "bottom = " + mTextPaint.getFontMetrics().bottom + "; des = " + mTextPaint.getFontMetrics().descent + "; asc = " + mTextPaint.getFontMetrics().ascent + "; leading = " + mTextPaint.getFontMetrics().leading + "; top = " + mTextPaint.getFontMetrics().top + "; fontSpace = " + mTextPaint.getFontSpacing());
             }
@@ -739,7 +756,6 @@ public class PetalsInRoundView extends View {
             //是否整除
             boolean isDivisible = name.length() % mInnerCircleMaxLenEachLine == 0;
             int textline = isDivisible ? name.length() / mInnerCircleMaxLenEachLine : name.length() / mInnerCircleMaxLenEachLine + 1;   // 文字行数
-            Log.v(TAG, "textline = " + textline + "; name = " + name.length());
 
             mTextPaint.setTextSize(mInnerCircleTextSize);
             mTextPaint.setColor(mInnerCircleTextColor);
@@ -796,6 +812,8 @@ public class PetalsInRoundView extends View {
         float touchX = event.getX();
         float touchY = event.getY();
         if (action == MotionEvent.ACTION_DOWN) {
+            mTouchDownX = touchX;
+            mTouchDownY = touchY;
             if (mPetalsInfo.getPetalList().size() != 0) {
                 for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
                     PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
@@ -829,6 +847,20 @@ public class PetalsInRoundView extends View {
             }
             return true;
         } else if (action == MotionEvent.ACTION_MOVE) {
+            mTouchMoveX = touchX;
+            mTouchMoveY = touchY;
+            double downAngle = getAngle(mTouchDownX, mTouchDownY);
+            double moveAngle = getAngle(mTouchMoveX, mTouchMoveY);
+            if (mCanTurned) {
+                mDeltaAngle = moveAngle - downAngle + mLastDeltaAngle;
+            }
+            if (Math.sqrt(Math.pow(mTouchMoveX - mTouchDownX, 2) + Math.pow(mTouchMoveY - mTouchDownY, 2)) >= mTouchSlop && mCanTurned) {
+                invalidate();
+                mIsValid = false;
+                return true;
+            } else {
+                mIsValid = true;
+            }
             if (mPetalsInfo.getPetalList().size() != 0) {
                 for(int i = 0; i < mPetalsInfo.getPetalList().size(); i++) {
                     PetalsInfo.PetalEntity entity = mPetalsInfo.getPetalList().get(i);
@@ -863,6 +895,19 @@ public class PetalsInRoundView extends View {
             }
             return true;
         } else if (action == MotionEvent.ACTION_UP) {
+            double downAngle = getAngle(mTouchDownX, mTouchDownY);
+            double upAngle = getAngle(touchX, touchY);
+            if (mCanTurned) {
+                mLastDeltaAngle += upAngle - downAngle;
+            }
+            if (!mIsValid) {
+                mTouchDownGroupIndex = -1;
+                mTouchDownChildIndex = -1;
+                mTouchUpGroupIndex = -1;
+                mTouchUpChildIndex = -1;
+                invalidate();
+                return true;
+            }
             if(mIsClickSameArea) {
                 if(mTouchDownGroupIndex >= 0) {
                     if(mTouchDownChildIndex >= 0) {
@@ -912,8 +957,7 @@ public class PetalsInRoundView extends View {
         if (TextUtils.isEmpty(petalName)) {
             return false;
         }
-        double sharpCornerAngle = (index + 1f / 2) * mEachPetalAngle ;
-        Log.v(TAG, "sharpCornerAngle = " + sharpCornerAngle + "; " + Math.toDegrees(sharpCornerAngle));
+        double sharpCornerAngle = (index + 1f / 2) * mEachPetalAngle;
         float centerPointX = (float)(mCircleRadius + mDistanceOfRectCenterPointToCircleCenter * Math.sin(sharpCornerAngle));
         float centerPointY = (float)(mCircleRadius - mDistanceOfRectCenterPointToCircleCenter * Math.cos(sharpCornerAngle));
         mTextPaint.setTextSize(mPetalTextSize);
@@ -924,7 +968,11 @@ public class PetalsInRoundView extends View {
         }
         float width = mTextPaint.measureText(str);
         RectF rect = new RectF(centerPointX - width / 2, centerPointY - mPetalAreaTextMaxLines / 2f * fontHeight, centerPointX + width / 2, centerPointY + mPetalAreaTextMaxLines / 2f * fontHeight);
-        return rect.contains(x, y);
+        double radius = Math.sqrt(Math.pow(x - mCircleRadius, 2) + Math.pow(y - mCircleRadius, 2));
+        float targetX = (float)(mCircleRadius + radius * Math.sin(Math.toRadians(getAngle(x, y) - mDeltaAngle)));
+        float targetY = (float)(mCircleRadius - radius * Math.cos(Math.toRadians(getAngle(x, y) - mDeltaAngle)));
+        Log.v(TAG, "isBelongToCertainRect, targetX = " + targetX + "; targetY = " + targetY + "; index = " + index + "; sharpCornerAngle = " + Math.toDegrees(sharpCornerAngle) + "; result = " + rect.contains(targetX, targetY) + "; mDeltaAngle = " + mDeltaAngle + "; mCircle = " + mCircleRadius + "; getAngle(x, y) = " + getAngle(x, y));
+        return rect.contains(targetX, targetY);
     }
 
     /**
@@ -944,12 +992,11 @@ public class PetalsInRoundView extends View {
             return false;
         }
 
-        boolean result = judgePointIsInCircle(x, y, mCircleRadius-mCircleBorderStrokeWidth);
+        boolean result = judgePointIsInCircle(x, y, mCircleRadius - mCircleBorderStrokeWidth);
         result = result && !judgePointIsInCircle(x, y, mCircleRadius * mRatioOfPetalImgHeightToCircle);
-        double angle = getAngle(x, y);
+        double angle = (getAngle(x, y) - mDeltaAngle  + Math.toDegrees(2 * Math.PI)) % Math.toDegrees(2 * Math.PI);
         double startAngle = Math.toDegrees(groupIndex * mEachPetalAngle + childIndex * mEachPetalAngle / entity.getChildList().size());
         double endAngle = Math.toDegrees(groupIndex * mEachPetalAngle + (childIndex + 1) * mEachPetalAngle / entity.getChildList().size());
-        Log.v(TAG, "result angle = " + angle + "; startAngle = " + startAngle + "; endAngle = " + endAngle);
         result = result && (angle >= startAngle && angle <= endAngle);
         return result;
     }
