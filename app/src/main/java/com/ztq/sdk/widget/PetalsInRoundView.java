@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PointF;
 import android.graphics.RectF;
 import android.text.TextPaint;
 import android.text.TextUtils;
@@ -186,7 +185,6 @@ public class PetalsInRoundView extends View {
         mCanTurned = typedArray.getBoolean(R.styleable.PetalsRoundView_canTurnInCircle, false);
         typedArray.recycle();
 
-        mCanTurned = true;
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mTextPaint = new TextPaint();

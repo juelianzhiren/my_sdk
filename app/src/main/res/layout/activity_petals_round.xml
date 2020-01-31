@@ -23,5 +23,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:circleBorderStrokeWidth="5dp"
         app:innerCircleRadius="60dp"
-        app:petalAreaMaxLenEachLine="3"/>
+        app:petalAreaMaxLenEachLine="3"
+        app:canTurnInCircle="true"/>
 </android.support.constraint.ConstraintLayout>
