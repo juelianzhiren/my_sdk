@@ -143,6 +143,15 @@
         android:layout_marginTop="260dp"/>
 
     <Button
+        android:id="@+id/mapview_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地图demo"
+        app:layout_constraintLeft_toRightOf="@id/jump_big_picuture_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="320dp"/>
+
+    <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

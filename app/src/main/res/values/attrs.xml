@@ -66,4 +66,8 @@
         <attr name="ratioOfSectorTextTopToCircleBorder" format="float" /><!--扇形文字顶部距离圆边界与圆半径的比例（不包含stroke区域）-->
         <attr name="canTurnInCircle" format="boolean" />                 <!--是否可以在圆圈内转动-->
     </declare-styleable>
+
+    <declare-styleable name="MapView">
+        <attr name="map" format="reference"/>
+    </declare-styleable>
 </resources>

@@ -36,5 +36,6 @@
         <activity android:name=".activity.NdkDemoActivity" />
         <activity android:name=".activity.AnimationActivity" />
         <activity android:name=".activity.PetalsRoundActivity" />
+        <activity android:name=".activity.MapViewActivity" />
     </application>
 </manifest>
