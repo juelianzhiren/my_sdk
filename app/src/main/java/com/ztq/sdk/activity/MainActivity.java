@@ -274,6 +274,13 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        String str1 = com.ztq.sdk.data_structure.Utils.getFirstLetter2("aaccdeff");
+        Log.v(TAG, "str1 = " + str1);
+
+        int test[] = { 7, 5, 6, 4 };
+        int count = com.ztq.sdk.data_structure.Utils.getInversePairsNumber(test);
+        Log.v(TAG, "inversePairsNum = " + count);
     }
 
     @Override
