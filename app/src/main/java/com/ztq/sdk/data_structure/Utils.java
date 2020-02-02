@@ -138,4 +138,121 @@ public class Utils {
         }
         return left + right + count;
     }
+
+    /**
+     * 冒泡排序(交换排序的一种)
+     *
+     * @param a
+     */
+    public static void bubbleSort(int[] a) {
+        if (a == null || a.length == 0) {
+            return;
+        }
+        int temp = 0;
+        for (int i = 0; i < a.length - 1; i++) {
+            boolean flag = false;
+            for (int j = 0; j < a.length - 1 - i; j++) {
+                if (a[j] > a[j + 1]) {
+                    temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            String str = "";
+            for(int j = 0; j < a.length; j++) {
+                str += a[j] + " ";
+            }
+            str = "冒泡排序第" + (i + 1) + "次子步骤后的：" + str;
+            Log.v(TAG, str);
+            if (!flag) {
+                break;
+            }
+        }
+    }
+
+    /**
+     * 快速排序(交换排序的另外一种)
+     *
+     * @param a
+     */
+    public static void quickSort(int[] a) {
+        if (a == null) {
+            return;
+        }
+        quickSort(a, 0, a.length - 1);
+    }
+
+    /**
+     * 快速排序用到的方法
+     * @param a
+     * @param start
+     * @param end
+     */
+    public static void quickSort(int[] a, int start, int end) {
+        if (a == null || a.length == 0 || start < 0 || end > a.length - 1) {
+            return;
+        }
+        int pivot = a[start];
+        int temp = 0;
+        int i = start + 1;
+        int j = end;
+        while (i < j) {
+            while (i < j && a[j] >= pivot) {
+                j--;
+            }
+            while (i < j && a[i] <= pivot) {
+                i++;
+            }
+            Log.v(TAG, "quickSort before, i = " + i + "; j = " + j + "; pivot = " + pivot);
+            if (i < j) {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+            String str = "";
+            for(int k = 0; k < a.length; k++) {
+                str += a[k] + " ";
+            }
+            Log.v(TAG, "quickSort, i = " + i + "; j = " + j + "; 数组为：" + str);
+        }
+        if (a[j] < a[start]) {
+            temp = a[j];
+            a[j] = a[start];
+            a[start] = temp;
+        }
+        if (i - 1 > start) {
+            quickSort(a, start, i - 1);
+        }
+        if (end > j + 1) {
+            quickSort(a, j + 1, end);
+        }
+    }
+
+    /**
+     * 简单选择排序(选择排序的一种)
+     *
+     * @param a
+     */
+    public static void simpleChooseSort(int[] a) {
+        if (a == null || a.length == 0) {
+            return;
+        }
+        int k = 0;
+        int temp = 0;
+        for (int i = 0; i < a.length - 1; i++) {
+            k = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < a[k]) {
+                    k = j;
+                }
+            }
+
+            if (k != i) {
+                temp = a[i];
+                a[i] = a[k];
+                a[k] = temp;
+            }
+        }
+    }
 }
