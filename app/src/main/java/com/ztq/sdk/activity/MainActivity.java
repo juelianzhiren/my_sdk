@@ -285,7 +285,9 @@ public class MainActivity extends Activity {
         int a[] = new int[] { 60, 55, 48, 37, 10, 90, 84, 36, -1};
 //        com.ztq.sdk.data_structure.Utils.bubbleSort(a);
 //        com.ztq.sdk.data_structure.Utils.quickSort(a);
-        com.ztq.sdk.data_structure.Utils.simpleChooseSort(a);
+//        com.ztq.sdk.data_structure.Utils.simpleChooseSort(a);
+//        com.ztq.sdk.data_structure.Utils.directInsertSort(a);
+        com.ztq.sdk.data_structure.Utils.shellSort(a);
     }
 
     @Override

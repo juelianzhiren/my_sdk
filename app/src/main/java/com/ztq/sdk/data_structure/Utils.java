@@ -255,4 +255,68 @@ public class Utils {
             }
         }
     }
+
+    /**
+     * 直接插入排序
+     *
+     * @param a
+     */
+    public static void directInsertSort(int[] a) {
+        if (a == null || a.length == 0) {
+            return;
+        }
+        int temp = 0;
+        for (int i = 1; i < a.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (a[j] < a[j - 1]) {
+                    temp = a[j];
+                    a[j] = a[j - 1];
+                    a[j - 1] = temp;
+                } else {
+                    break;
+                }
+            }
+            String str = "";
+            for(int j = 0; j < a.length; j++) {
+                str += a[j] + " ";
+            }
+            str = "直接插入排序第" + i + "次子步骤后的：" + str;
+            Log.v(TAG, str);
+        }
+    }
+
+    /**
+     * 希尔排序
+     *
+     * @param a
+     */
+    public static void shellSort(int[] a) {
+        if (a == null || a.length == 0) {
+            return;
+        }
+        int increment = a.length / 3;
+        int temp = 0;
+        while (increment >= 1) {
+            for (int i = 0; i < increment; i++) {
+                for (int j = i + increment; j < a.length; j += increment) {
+                    for (int k = j; k >= increment; k -= increment) {
+                        if (a[k] < a[k - increment]) {
+                            temp = a[k];
+                            a[k] = a[k - increment];
+                            a[k - increment] = temp;
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            }
+            increment /= 2; // 这增量有待于改进，最好的方法是所有的增量都是质数，最后一个增量一定是1
+            String str = "";
+            for(int j = 0; j < a.length; j++) {
+                str += a[j] + " ";
+            }
+            str = "希尔排序第" + "次子步骤后的：" + str;
+            Log.v(TAG, str);
+        }
+    }
 }
