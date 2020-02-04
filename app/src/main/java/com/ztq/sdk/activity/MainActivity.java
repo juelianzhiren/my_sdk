@@ -281,11 +281,11 @@ public class MainActivity extends Activity {
         Log.v(TAG, "inversePairsNum = " + count);
 
         int a[] = new int[] { 60, 55, 48, 37, 10, 90, 84, 36, -1};
-//        com.ztq.sdk.data_structure.Utils.bubbleSort(a);
-//        com.ztq.sdk.data_structure.Utils.quickSort(a);
-//        com.ztq.sdk.data_structure.Utils.simpleChooseSort(a);
-//        com.ztq.sdk.data_structure.Utils.directInsertSort(a);
-//        com.ztq.sdk.data_structure.Utils.shellSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.bubbleSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.quickSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.simpleChooseSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.directInsertSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.shellSort(a);
         com.ztq.sdk.data_structure_and_algorithm.Utils.heapSort(a);
     }
 
