@@ -287,6 +287,9 @@ public class MainActivity extends Activity {
 //        com.ztq.sdk.data_structure_and_algorithm.Utils.directInsertSort(a);
 //        com.ztq.sdk.data_structure_and_algorithm.Utils.shellSort(a);
         com.ztq.sdk.data_structure_and_algorithm.Utils.heapSort(a);
+
+        int[] b = new int[] { 1, 2, 3, 3, 3, 3, 4, 5 };
+        com.ztq.sdk.data_structure_and_algorithm.Utils.getNumberOfK(b, 210);
     }
 
     @Override

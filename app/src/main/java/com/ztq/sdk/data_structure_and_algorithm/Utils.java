@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Author: ztq
  * Date: 2020/1/17 10:48
- * Description: 数据结构中的工具类
+ * Description: 数据结构与算法中的工具类
  */
 public class Utils {
     private static final String TAG = "noahedu.Utils";
@@ -421,5 +421,180 @@ public class Utils {
      */
     public static String decimalNumToBinary(int i) {
         return Integer.toBinaryString(i);
+    }
+
+    /**
+     * 统计数字k在排序数组中出现的次数
+     * @param a
+     * @param k
+     * @return
+     */
+    public static int getNumberOfK(int[] a, int k) {
+        int count = 0;
+        if (a != null && a.length != 0) {
+            int firstIndex = getFirstIndexK(a, k, 0, a.length - 1);
+            int lastIndex = getLastIndexK(a, k, 0, a.length - 1);
+            if (firstIndex != -1) {
+                count = lastIndex - firstIndex + 1;
+            }
+        }
+        Log.v(TAG, "count = " + count);
+        return count;
+    }
+
+    private static int getFirstIndexK(int[] a, int k, int startIndex, int endIndex) {
+        if (startIndex > endIndex) {
+            return -1;
+        }
+        int middleIndex = (startIndex + endIndex) / 2;
+        int middleData = a[middleIndex];
+        if (middleData == k) {
+            if ((middleIndex > 0 && a[middleIndex - 1] != k) || middleIndex == 0) {
+                return  middleIndex;
+            } else {
+                endIndex = middleIndex - 1;
+            }
+        } else if (middleData > k) {
+            endIndex = middleIndex - 1;
+        } else {
+            startIndex= middleIndex + 1;
+        }
+        return getFirstIndexK(a, k, startIndex, endIndex);
+    }
+
+    private static int getLastIndexK(int[] a, int k, int startIndex, int endIndex) {
+        if (startIndex > endIndex) {
+            return -1;
+        }
+        int middleIndex = (startIndex + endIndex) / 2;
+        int middleData = a[middleIndex];
+        if (middleData == k) {
+            if ((middleIndex < a.length - 1 && a[middleIndex + 1] != k) || middleIndex == a.length - 1) {
+                return  middleIndex;
+            } else {
+                startIndex = middleIndex + 1;
+            }
+        } else if (middleData > k) {
+            endIndex = middleIndex - 1;
+        } else {
+            startIndex= middleIndex + 1;
+        }
+        return getLastIndexK(a, k, startIndex, endIndex);
+    }
+
+    /**
+     * 0~n-1中缺失的数字
+     * 一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0~n-1之内。
+     * 在范围0~n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字
+     * @param a
+     * @return
+     */
+    public static int getMissingNumber(int[] a) {
+        if (a == null || a.length == 0) {
+            return -1;
+        }
+        int leftIndex = 0;
+        int rightIndex = a.length - 1;
+        while(leftIndex <= rightIndex) {
+            int middleIndex = (leftIndex + rightIndex) >> 1;
+            if (a[middleIndex] != middleIndex) {
+                if (middleIndex == 0 || a[middleIndex - 1] == middleIndex - 1) {
+                    return middleIndex;
+                }
+                rightIndex = middleIndex - 1;
+            } else {
+                leftIndex = middleIndex + 1;
+            }
+        }
+        if (leftIndex == a.length) {
+            return a.length;
+        }
+        return -1;
+    }
+
+    /**
+     * 二叉树的前序遍历
+     * @param treeNode
+     * @param list (遍历的值依次放进list列表中)
+     */
+    public static void preOrder(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
+        if (treeNode == null) {
+            return;
+        }
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(treeNode.getValue());
+        Log.v(TAG, "前序遍历：" + treeNode.getValue());
+        BinaryTreeNode leftTree = treeNode.getLeftNode();
+        if(leftTree != null) {
+            preOrder(leftTree, list);
+        }
+        BinaryTreeNode rightTree = treeNode.getRightNode();
+        if(rightTree != null) {
+            preOrder(rightTree, list);
+        }
+    }
+
+    /**
+     * 二叉树的中序遍历
+     * @param treeNode
+     * @param list (遍历的值依次放进list列表中)
+     */
+    public static void midOrder(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
+        if (treeNode == null) {
+            return;
+        }
+        BinaryTreeNode leftTree = treeNode.getLeftNode();
+        if(leftTree != null) {
+            midOrder(leftTree, list);
+        }
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(treeNode.getValue());
+        Log.v(TAG, "中序遍历：" + treeNode.getValue());
+        BinaryTreeNode rightTree = treeNode.getRightNode();
+        if(rightTree != null) {
+            midOrder(rightTree, list);
+        }
+    }
+
+    /**
+     * 二叉树的后序遍历
+     * @param treeNode
+     * @param list (遍历的值依次放进list列表中)
+     */
+    public static void postOrder(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
+        if (treeNode == null) {
+            return;
+        }
+        BinaryTreeNode leftTree = treeNode.getLeftNode();
+        if(leftTree != null) {
+            postOrder(leftTree, list);
+        }
+        BinaryTreeNode rightTree = treeNode.getRightNode();
+        if(rightTree != null) {
+            postOrder(rightTree, list);
+        }
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(treeNode.getValue());
+        Log.v(TAG, "后序遍历：" + treeNode.getValue());
+    }
+
+    /**
+     * 获取二叉树的深度
+     * @param rootNode
+     * @return
+     */
+    public static int getTreeDepth(BinaryTreeNode<Integer> rootNode) {
+        if (rootNode == null) {
+            return 0;
+        }
+        int leftTreeDepth = getTreeDepth(rootNode.getLeftNode());
+        int rightTreeDepth = getTreeDepth(rootNode.getRightNode());
+        return (leftTreeDepth > rightTreeDepth) ? leftTreeDepth + 1 : rightTreeDepth + 1;
     }
 }
