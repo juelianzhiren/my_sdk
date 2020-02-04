@@ -287,7 +287,8 @@ public class MainActivity extends Activity {
 //        com.ztq.sdk.data_structure.Utils.quickSort(a);
 //        com.ztq.sdk.data_structure.Utils.simpleChooseSort(a);
 //        com.ztq.sdk.data_structure.Utils.directInsertSort(a);
-        com.ztq.sdk.data_structure.Utils.shellSort(a);
+//        com.ztq.sdk.data_structure.Utils.shellSort(a);
+        com.ztq.sdk.data_structure.Utils.heapSort(a);
     }
 
     @Override

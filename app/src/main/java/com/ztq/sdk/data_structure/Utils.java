@@ -319,4 +319,89 @@ public class Utils {
             Log.v(TAG, str);
         }
     }
+
+    /**
+     * 堆排序，这里是最大堆排序
+     */
+    public static void heapSort(int[] a) {
+        int temp = 0;
+        creatMaxHeap(a, 0, a.length - 1);
+        for(int i = a.length - 1; i > 0; i--) {
+            temp = a[0];
+            a[0] = a[i];
+            a[i] = temp;
+            creatMaxHeap(a, 0, i - 1);
+        }
+    }
+
+    /**
+     * 创建最大堆
+     * @param a
+     * @param low
+     * @param high
+     */
+    public static void creatMaxHeap(int[] a, int low, int high) {
+        if (a == null || a.length == 0 || low < 0 || high > a.length - 1 || low >= high) {
+            return;
+        }
+        int j = 0;
+        int k = 0;
+        int temp = 0;
+        for(int i = high / 2; i >= low; i--) {
+            temp = a[i];
+            k = i;
+            j = 2 * k + 1;
+            while(j <= high) {
+                if (((j + 1) <= high) && (a[j] < a[j + 1])) {
+                    j++;
+                }
+                if (temp < a[j]) {
+                    a[k] = a[j];
+                    k = j;
+                    j = 2 * k + 1;
+                } else {
+                    break;
+                }
+            }
+            a[k] = temp;
+            Log.v(TAG, "堆排序：");
+            showHeap(a);
+        }
+        String str = "";
+        for(int n = 0; n < a.length; n++) {
+            str += a[n] + " ";
+        }
+        Log.v(TAG, "堆排序; 数组为：" + str);
+    }
+
+    public static void showHeap(int[] a) {
+        if (a == null || a.length == 0) {
+            return;
+        }
+        String str = "";
+        for(int i = 0; i < a.length; i++) {
+            str += a[i] + " ";
+            if (isPowerOfTwo(i + 2)) {
+                Log.v(TAG, "堆排：" + str);
+                str = "";
+            }
+        }
+    }
+
+    public static boolean isPowerOfTwo(int n) {
+        if (n <= 0) {
+            return false;
+        }
+        int count = 0;
+        while (n != 0) {
+            if ((n & 1) == 1) {
+                count++;
+            }
+            if (count > 1) {
+                return false;
+            }
+            n = n >> 1;
+        }
+        return true;
+    }
 }
