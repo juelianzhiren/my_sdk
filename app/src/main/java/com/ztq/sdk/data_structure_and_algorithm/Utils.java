@@ -1,4 +1,4 @@
-package com.ztq.sdk.data_structure;
+package com.ztq.sdk.data_structure_and_algorithm;
 
 import android.util.Log;
 

@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.RectF;
-import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
@@ -275,11 +273,11 @@ public class MainActivity extends Activity {
             }
         });
 
-        String str1 = com.ztq.sdk.data_structure.Utils.getFirstLetter2("aaccdeff");
+        String str1 = com.ztq.sdk.data_structure_and_algorithm.Utils.getFirstLetter2("aaccdeff");
         Log.v(TAG, "str1 = " + str1);
 
         int test[] = { 7, 5, 6, 4 };
-        int count = com.ztq.sdk.data_structure.Utils.getInversePairsNumber(test);
+        int count = com.ztq.sdk.data_structure_and_algorithm.Utils.getInversePairsNumber(test);
         Log.v(TAG, "inversePairsNum = " + count);
 
         int a[] = new int[] { 60, 55, 48, 37, 10, 90, 84, 36, -1};
@@ -288,7 +286,7 @@ public class MainActivity extends Activity {
 //        com.ztq.sdk.data_structure.Utils.simpleChooseSort(a);
 //        com.ztq.sdk.data_structure.Utils.directInsertSort(a);
 //        com.ztq.sdk.data_structure.Utils.shellSort(a);
-        com.ztq.sdk.data_structure.Utils.heapSort(a);
+        com.ztq.sdk.data_structure_and_algorithm.Utils.heapSort(a);
     }
 
     @Override
