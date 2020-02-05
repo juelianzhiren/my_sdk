@@ -584,6 +584,14 @@ public class Utils {
         Log.v(TAG, "后序遍历：" + treeNode.getValue());
     }
 
+    private  static boolean mIsBalanceBinaryTree = true;
+    /**
+     * 重置mIsBalanceBinaryTree变量值
+     */
+    public static void resetBalanceBinaryTreeData() {
+        mIsBalanceBinaryTree = true;
+    }
+
     /**
      * 获取二叉树的深度
      * @param rootNode
@@ -595,6 +603,94 @@ public class Utils {
         }
         int leftTreeDepth = getTreeDepth(rootNode.getLeftNode());
         int rightTreeDepth = getTreeDepth(rootNode.getRightNode());
+        if (Math.abs(leftTreeDepth - rightTreeDepth) > 1) {
+            mIsBalanceBinaryTree = false;
+        }
         return (leftTreeDepth > rightTreeDepth) ? leftTreeDepth + 1 : rightTreeDepth + 1;
+    }
+
+    /**
+     * 判断是否为平衡二叉树
+     * 平衡二叉树的定义：如果某二叉树中的任意节点的左、右子树的深度相差不超过1，那么它就是一颗平衡二叉树
+     * @param rootNode
+     * @return
+     */
+    public static boolean isBalancedBinaryTree(BinaryTreeNode<Integer> rootNode) {
+        if (rootNode == null) {
+            return true;
+        }
+        getTreeDepth(rootNode);
+        return mIsBalanceBinaryTree;
+    }
+
+    /**
+     * 寻找数组中只出现一次的两个数字
+     * 一个整型数组里除两个数字之外，其它数字都出现了两次，请找出来这两个只出现一次的数字
+     * @param array
+     * @param list 记录这两个只出现一次的数字
+     */
+    public static void findNumsAppearOnce(int[] array, List<Integer> list) {
+        if(array==null || array.length < 2)
+            return;
+        int resultXOR = 0;
+        for (int i = 0; i < array.length; i++) {
+            resultXOR ^= array[i];
+        }
+        int indexOf1 = 0;
+        while (((resultXOR & 1) == 0) && (indexOf1 <= 4 * 8)) {
+            resultXOR = resultXOR >> 1;  //只有n>>1不完整，要n=n>>1
+            indexOf1++;
+        }
+        int num1 = 0;
+        int num2 = 0;
+        for(int i = 0; i < array.length; i++) {
+            if (((array[i] >> indexOf1) & 1) == 1) {
+                num1 ^= array[i];
+            } else {
+                num2 ^= array[i];
+            }
+        }
+        if (list == null) {
+            list = new ArrayList<>();
+        } else {
+            list.clear();
+        }
+        list.add(num1);
+        list.add(num2);
+        Log.v(TAG, "num1 = " + num1 + "; num2 = " + num2);
+    }
+
+    /**
+     * 数组中唯一只出现一次的数字
+     * 在一个数组中除一个数字只出现一次之外，其它数字都出现了三次，请找出那个只出现一次的数字
+     * @param arr
+     * @return
+     */
+    public static int findNumberAppearingOnce(int[] arr) {
+        if (arr == null || arr.length <= 0) {
+            throw new RuntimeException();
+        }
+        int[] bitSum = new int[32];
+        for (int i = 0; i < 32; i++) {
+            bitSum[i] = 0;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            int bitMask = 1;
+            for (int j = 31; j >= 0; j--) {
+                int bit = arr[i] & bitMask; // 注意arr[i]&bitMask不一定等于1或者0，有可能等于00010000
+                if (bit != 0) {
+                    bitSum[j] += 1;
+                }
+                bitMask = bitMask << 1;
+            }
+        }
+        int result = 0;
+        for (int i = 0; i < 32; i++) {
+            result = result << 1;
+
+            result += (bitSum[i] % 3);
+            // result=result<<1; //不能放在后面，否则最前面一位就没了
+        }
+        return result;
     }
 }
