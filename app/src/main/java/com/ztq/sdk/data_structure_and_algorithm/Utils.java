@@ -693,4 +693,46 @@ public class Utils {
         }
         return result;
     }
+
+    /**
+     * 和为sum的连续正数序列
+     * @param sum
+     * @return
+     */
+    public static ArrayList<ArrayList<Integer>> findContinuousSequence(int sum) {
+        ArrayList<ArrayList<Integer>> sequenceList = new ArrayList<ArrayList<Integer>>();
+        if (sum <= 0) {
+            return sequenceList;
+        }
+        int small = 1;
+        int big = 2;
+        int curSum = small + big;
+        while (small <= sum / 2) {
+            if (curSum == sum) {
+                ArrayList<Integer> sequence = new ArrayList<Integer>();
+                for (int i = small; i <= big; i++) {
+                    sequence.add(i);
+                }
+                sequenceList.add(sequence);
+                curSum -= small;
+                small++; // 这两行位置先后要注意
+            }
+            if (curSum < sum) {
+                big++;
+                curSum += big;
+            }
+            if (curSum > sum) {
+                curSum -= small;
+                small++;
+            }
+        }
+//        for(int i = 0; i < sequenceList.size(); i++) {
+//            List list = sequenceList.get(i);
+//            for(int j = 0; j < list.size(); j++) {
+//                System.out.print(list.get(j) + " ");
+//            }
+//            System.out.println();
+//        }
+        return sequenceList;
+    }
 }
