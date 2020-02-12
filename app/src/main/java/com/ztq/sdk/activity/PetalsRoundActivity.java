@@ -12,12 +12,14 @@ import com.ztq.sdk.widget.PetalsInRoundView;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.jessyan.autosize.internal.CancelAdapt;
+
 /**
  * Author: ztq
  * Date: 2019/12/20 12:45
  * Description: ${DESCRIPTION}
  */
-public class PetalsRoundActivity extends Activity {
+public class PetalsRoundActivity extends Activity implements CancelAdapt {
     private static final String TAG = "noahedu.PetalsRoundActivity";
     private Context mContext;
     private PetalsInRoundView mPetalsInRoundView;

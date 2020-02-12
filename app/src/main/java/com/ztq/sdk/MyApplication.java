@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.ztq.sdk.helper.MyHandlerThread;
 
+import me.jessyan.autosize.AutoSizeConfig;
+
 /**
  * Created by ztq on 2019/9/25.
  */

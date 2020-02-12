@@ -1045,7 +1045,7 @@ public class Utils {
         return null;
     }
 
-    public static int[] getScreeenSize(Context context) {
+    public static int[] getScreenSize(Context context) {
         if (context == null) {
             return null;
         }

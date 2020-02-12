@@ -44,7 +44,7 @@ public class CardView extends View {
             mCards[i] = Bitmap.createScaledBitmap(bm, 510, 510, false);
         }
         setBackgroundColor(Color.WHITE);
-        mScreenRect = new Rect(0, 0, Utils.getScreeenSize(getContext())[0], Utils.getScreeenSize(getContext())[1]);
+        mScreenRect = new Rect(0, 0, Utils.getScreenSize(getContext())[0], Utils.getScreenSize(getContext())[1]);
 
         // 以下是属性动画的几句代码
         ValueAnimator va = ValueAnimator.ofObject(new TypeEvaluator() {

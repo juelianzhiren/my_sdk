@@ -3,6 +3,7 @@ package com.ztq.sdk.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.RectF;
@@ -26,6 +27,8 @@ import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
 import java.util.List;
+
+import me.jessyan.autosize.AutoSizeCompat;
 
 /**
  * 这是测试的Activity
@@ -290,6 +293,13 @@ public class MainActivity extends Activity {
 
         int[] b = new int[] { 1, 2, 3, 3, 3, 3, 4, 5 };
         com.ztq.sdk.data_structure_and_algorithm.Utils.getNumberOfK(b, 210);
+
+        com.ztq.sdk.data_structure_and_algorithm.Utils.getLastRemaining(5,1);
+    }
+
+    @Override
+    public Resources getResources() {
+        return super.getResources();
     }
 
     @Override
