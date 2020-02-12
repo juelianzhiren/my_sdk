@@ -755,4 +755,108 @@ public class Utils {
         Log.v(TAG, "last = " + last);
         return last;
     }
+
+    /**
+     * 题目：在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，
+     * 也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3}，
+     * 那么对应的输出是重复的数字2和3。
+     */
+    public static List<Integer> getDuplicate(int[] arr) {
+        if (arr == null || arr.length <= 0) {
+            Log.v(TAG, "数组输入无效！");
+            return null;
+        }
+        for (int a : arr) {
+            if (a < 0 || a > arr.length - 1) {
+                Log.v(TAG, "数字大小超出范围！");
+                return null;
+            }
+        }
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            int temp;
+            while (arr[i] != i) {
+                if (arr[arr[i]] == arr[i]) {
+                    list.add(arr[i]);
+                    break;
+                }
+                // 交换arr[arr[i]]和arr[i]
+                temp = arr[i];
+                arr[i] = arr[temp];
+                arr[temp] = temp;
+            }
+        }
+        if (list.size() != 0) {
+            String str = "";
+            for(int i = 0; i < list.size(); i++) {
+                str += list.get(i) + " ";
+            }
+            Log.v(TAG, "重複的數字為：" + str);
+        }
+        return list;
+    }
+
+    /**
+     * @Description 二维数组中的查找
+     * 题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按
+     * 照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个
+     * 整数，判断数组中是否含有该整数。
+     * @author ztq
+     * @date 2018年7月16日 下午2:20:59
+     */
+    public static int[] find(int[][] matrix, int a) {
+        int[] index = {-1, -1};
+
+        // 判断数组是否正确
+        if (matrix == null || matrix.length <= 0) {
+            Log.v(TAG, "数组无效！");
+            return index;
+        }
+        // 判断数组数字的大小是否符合大小规则
+        int columns = matrix[0].length;
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i].length != columns) {
+                Log.v(TAG, "数组列数不一致！");
+                return index;
+            }
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (i == 0 && j == 0)
+                    // matrix[0][0]不比较
+                    break;
+                if (i == 0) { // 第一行的数，仅和前一列的数比较
+                    if (matrix[i][j] < matrix[i][j - 1]) {
+                        Log.v(TAG, "数组中数字大小不符合要求！");
+                        return index;
+                    }
+                } else if (j == 0) { // 第一列的数，仅和前一行的数比较
+                    if (matrix[i][j] < matrix[i - 1][j]) {
+                        Log.v(TAG, "数组中数字大小不符合要求！");
+                        return index;
+                    }
+                } else if (matrix[i][j] < matrix[i - 1][j] || matrix[i][j] < matrix[i][j - 1]) {
+                    // 其余位置的数字，和前一行或前一列的比较
+                    Log.v(TAG, "数组中数字大小不符合要求！");
+                    return index;
+                }
+            }
+        }
+
+        // 正式查找
+        int row = 0; // 行数
+        int column = matrix[0].length - 1; // 列数
+        while (row <= matrix.length - 1 && column >= 0) {
+            if (a == matrix[row][column]) {
+                index[0] = row;
+                index[1] = column;
+                Log.v(TAG, "数字" + a + "在二维数组中的下标为：" + index[0] + "," + index[1]); // 注意下标是从0开始的
+                return index;
+            } else if (a < matrix[row][column]) {
+                column--;
+            } else {
+                row++;
+            }
+        }
+        Log.v(TAG, "数组中不含数字：" + a);
+        return index;
+    }
 }
