@@ -517,7 +517,7 @@ public class Utils {
      * @param treeNode
      * @param list (遍历的值依次放进list列表中)
      */
-    public static void preOrder(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
+    public static void preOrderTraverse(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
         if (treeNode == null) {
             return;
         }
@@ -528,11 +528,11 @@ public class Utils {
         Log.v(TAG, "前序遍历：" + treeNode.getValue());
         BinaryTreeNode leftTree = treeNode.getLeftNode();
         if(leftTree != null) {
-            preOrder(leftTree, list);
+            preOrderTraverse(leftTree, list);
         }
         BinaryTreeNode rightTree = treeNode.getRightNode();
         if(rightTree != null) {
-            preOrder(rightTree, list);
+            preOrderTraverse(rightTree, list);
         }
     }
 
@@ -541,13 +541,13 @@ public class Utils {
      * @param treeNode
      * @param list (遍历的值依次放进list列表中)
      */
-    public static void midOrder(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
+    public static void midOrderTraverse(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
         if (treeNode == null) {
             return;
         }
         BinaryTreeNode leftTree = treeNode.getLeftNode();
         if(leftTree != null) {
-            midOrder(leftTree, list);
+            midOrderTraverse(leftTree, list);
         }
         if (list == null) {
             list = new ArrayList<>();
@@ -556,7 +556,7 @@ public class Utils {
         Log.v(TAG, "中序遍历：" + treeNode.getValue());
         BinaryTreeNode rightTree = treeNode.getRightNode();
         if(rightTree != null) {
-            midOrder(rightTree, list);
+            midOrderTraverse(rightTree, list);
         }
     }
 
@@ -565,17 +565,17 @@ public class Utils {
      * @param treeNode
      * @param list (遍历的值依次放进list列表中)
      */
-    public static void postOrder(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
+    public static void postOrderTraverse(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
         if (treeNode == null) {
             return;
         }
         BinaryTreeNode leftTree = treeNode.getLeftNode();
         if(leftTree != null) {
-            postOrder(leftTree, list);
+            postOrderTraverse(leftTree, list);
         }
         BinaryTreeNode rightTree = treeNode.getRightNode();
         if(rightTree != null) {
-            postOrder(rightTree, list);
+            postOrderTraverse(rightTree, list);
         }
         if (list == null) {
             list = new ArrayList<>();
@@ -858,5 +858,73 @@ public class Utils {
         }
         Log.v(TAG, "数组中不含数字：" + a);
         return index;
+    }
+
+    /**
+     * 实现空格的替换
+     * 题目：请实现一个函数，把字符串中的每个空格替换成"%20"。例如输入“We are happy.”，
+     * 则输出“We%20are%20happy.”。
+     */
+    public static String replaceSpace(StringBuffer str) {
+        if (str == null) {
+            System.out.println("输入错误！");
+            return null;
+        }
+        int length = str.length();
+        int indexOfOriginal = length - 1;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ' ')
+                length += 2;
+        }
+        str.setLength(length);
+        int indexOfNew = length - 1;
+        while (indexOfNew > indexOfOriginal) {
+            if (str.charAt(indexOfOriginal) != ' ') {
+                str.setCharAt(indexOfNew--, str.charAt(indexOfOriginal));
+            } else {
+                str.setCharAt(indexOfNew--, '0');
+                str.setCharAt(indexOfNew--, '2');
+                str.setCharAt(indexOfNew--, '%');
+            }
+            indexOfOriginal--;
+        }
+        return str.toString();
+    }
+
+    public static BinaryTreeNode<Integer> reConstructBinaryTree(int[] pre, int[] in) {
+        if (pre == null || in == null || pre.length <= 0 || in.length <= 0 || pre.length != in.length) {
+            throw new RuntimeException("数组不符合规范！");
+        }
+        return construct(pre, in, 0, pre.length - 1, 0, in.length - 1);
+    }
+
+    /**
+     *
+     * @Description 由前序遍历序列和中序遍历序列得到根结点
+     * pre、in：始终用最初的前序遍历和中序遍历数组代入
+     * pStart、pEnd：当前树的前序数组开始和结束位置
+     * iStart、iEnd：中序数组开始和结束位置
+     */
+    public static BinaryTreeNode<Integer> construct(int[] pre, int[] in, int preStart, int preEnd, int inStart, int inEnd) {
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(pre[preStart]);
+        if (preStart == preEnd && inStart == inEnd) {
+            if (pre[preStart] != in[inStart])
+                throw new RuntimeException("数组不符合规范！");
+            return root;
+        }
+        int index = inStart; // 用于记录中序遍历序列中根结点的位置
+        while (root.getValue() != in[index] && index <= inEnd) {
+            index++;
+        }
+        if (index > inEnd)
+            throw new RuntimeException("数组不符合规范！");
+        int leftLength = index - inStart;
+        if (leftLength > 0) {
+            root.setLeftNode(construct(pre, in, preStart + 1, preStart + leftLength, inStart, index - 1));
+        }
+        if (leftLength < inEnd - inStart) {
+            root.setRightNode(construct(pre, in, preStart + leftLength + 1, preEnd, index + 1, inEnd));
+        }
+        return root;
     }
 }
