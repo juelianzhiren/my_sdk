@@ -927,4 +927,31 @@ public class Utils {
         }
         return root;
     }
+
+    /**
+     * 题目：给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？
+     * 树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。
+     * @param pNode
+     * @return
+     */
+    public static BinaryTreeNodeWithParentPointer<Integer> getNextNode(BinaryTreeNodeWithParentPointer<Integer> pNode) {
+        if (pNode == null) {
+            Log.v(TAG, "结点为null ");
+            return null;
+        }
+        if (pNode.getRightNode() != null) {
+            pNode = pNode.getRightNode();
+            while (pNode.getLeftNode() != null) {
+                pNode = pNode.getLeftNode();
+            }
+            return pNode;
+        }
+        while (pNode.getParentNode() != null) {
+            if (pNode == pNode.getParentNode().getLeftNode()) {
+                return pNode.getParentNode();
+            }
+            pNode = pNode.getParentNode();
+        }
+        return null;
+    }
 }
