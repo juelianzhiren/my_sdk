@@ -955,7 +955,6 @@ public class Utils {
             }
             pNode = pNode.getParentNode();
         }
-
         return null;
     }
 
@@ -1033,7 +1032,6 @@ public class Utils {
                 }
                 return queue2.poll();
             }
-
             return null;
         }
 
@@ -1041,5 +1039,76 @@ public class Utils {
         public String toString() {
             return this.queue1.toString() + ", " +this.queue2.toString();
         }
+    }
+
+    /**
+     * 对公司所有员工的年龄排序，公司总共有几万名员工
+     */
+    public static void sortAge(int[] ages) {
+        if (ages == null || ages.length < 1) {
+            return;
+        }
+        int oldAge = 80;
+        int youngAge = 20;
+
+        // 初始化一个odlAge+1的数组
+        int[] timeOfAge = new int[oldAge + 1];
+        // 将数组元素都置为0
+        for (int i = 0; i < timeOfAge.length; i++) {
+            timeOfAge[i] = 0;
+        }
+        // 某个年龄出现了多少次，就在timeOfAge数组对应年龄的位置设置多少次
+        for (int j = 0; j < ages.length; j++) {
+            int a = ages[j];
+            timeOfAge[a]++;
+        }
+
+        int index = 0;
+        for (int i = youngAge; i <= oldAge; i++) {     // 按照年龄从小到大依次遍历timeOfAge
+            for (int j = 0; j < timeOfAge[i]; j++) {   // 在timeOfAge中取得各个年龄位置记录的出现次数
+                ages[index] = i;                       // 将新数组从头设置出现的年龄，已经排好序
+                index++;
+            }
+        }
+    }
+
+    /**
+     * 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。
+     * 例如数组{3, 4, 5, 1, 2}为{1, 2, 3, 4, 5}的一个旋转，该数组的最小值为1
+     */
+    public static int minNumberInRotateArray(int[] array) {
+        if (array == null || array.length <= 0) { // 空数组或null时返回0
+            return 0;
+        }
+        int low = 0;
+        int high = array.length - 1;
+        int mid = (low + high) / 2;
+        //升序数组
+        if (array[low] < array[high]) {
+            return array[low];
+        }
+        //中间数字与首尾数字相等
+        if (array[mid] == array[high] && array[mid] == array[low]) {
+            for (int i = 1; i <= high; i++) {
+                if (array[i] < array[i - 1]) {
+                    return array[i];
+                }
+            }
+            return array[low];
+        }
+        //正常情况
+        while (low < high) {
+            if (high - low == 1) {
+                break;
+            }
+            mid = (low + high) / 2;
+            if (array[mid] <= array[high]) {
+                high = mid;
+            }
+            if (array[mid] > array[high]) {
+                low = mid;
+            }
+        }
+        return array[high];    // 别错写成了return high; !!
     }
 }
