@@ -4,7 +4,10 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Author: ztq
@@ -952,6 +955,91 @@ public class Utils {
             }
             pNode = pNode.getParentNode();
         }
+
         return null;
+    }
+
+    /**
+     * 题目：用两个栈实现一个队列类。队列的声明如下，请实现它的两个函数push
+     * 和pop，分别完成在队列尾部插入结点和在队列头部删除结点的功能。
+     */
+    static class QueueByTwoStacks<E>{
+        Stack<E> stack1 = new Stack<E>();
+        Stack<E> stack2 = new Stack<E>();
+
+        /**
+         * 插入结点
+         */
+        public void push(E node) {
+            stack1.push(node);
+        }
+
+        /**
+         * 删除结点
+         */
+        public E pop() {
+            if (stack2.empty()) {
+                if (stack1.empty()) {
+                    throw new RuntimeException("队列为空！");
+                } else {
+                    while (!stack1.empty()) {
+                        stack2.push(stack1.pop());
+                    }
+                }
+            }
+            return stack2.pop();
+        }
+    }
+
+    /**
+     * 两个队列实现一个栈
+     * 一个队列加入元素，弹出元素时，需要把队列中的元素放到另外一个队列中，删除最后一个元素
+     * 两个队列始终保持只有一个队列是有数据的
+     *
+     */
+    static class StackByTwoQueues<T> {
+        private Queue<T> queue1 = new LinkedList<T>();
+        private Queue<T> queue2 = new LinkedList<T>();
+
+        /**
+         * 压栈
+         *
+         * 入栈非空的队列
+         */
+        public boolean push(T t) {
+            if (!queue1.isEmpty()) {
+                return queue1.offer(t);
+            } else {
+                return queue2.offer(t);
+            }
+        }
+
+        /**
+         * 弹出并删除元素
+         */
+        public T pop() {
+            if (queue1.isEmpty() && queue2.isEmpty()) {
+                throw new RuntimeException("queue is empty");
+            }
+            if (!queue1.isEmpty() && queue2.isEmpty()) {
+                while (queue1.size() > 1) {
+                    queue2.offer(queue1.poll());
+                }
+                return queue1.poll();
+            }
+            if (queue1.isEmpty() && !queue2.isEmpty()) {
+                while (queue2.size() > 1) {
+                    queue1.offer(queue2.poll());
+                }
+                return queue2.poll();
+            }
+
+            return null;
+        }
+
+        @Override
+        public String toString() {
+            return this.queue1.toString() + ", " +this.queue2.toString();
+        }
     }
 }
