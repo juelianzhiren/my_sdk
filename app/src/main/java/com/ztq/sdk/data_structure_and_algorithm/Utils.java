@@ -1215,4 +1215,93 @@ public class Utils {
         }
         return sum;
     }
+
+    /**
+     *
+     * @Description 剪绳子
+     *
+     * @author ztq
+     * @date 2018年9月17日 上午9:37:41
+     */
+// 题目：给你一根长度为n绳子，请把绳子剪成m段（m、n都是整数，n>1并且m≥1）。
+// 每段的绳子的长度记为k[0]、k[1]、……、k[m]。k[0]*k[1]*…*k[m]可能的最大乘
+// 积是多少？例如当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此
+// 时得到最大的乘积18。
+    // ======动态规划======
+    public static int maxProductAfterCutting_solution1(int length) {
+        if (length <= 1) {
+            return 0;
+        }
+        if (length == 2) {
+            return 1;
+        }
+        if (length == 3) {
+            return 2;
+        }
+        int[] product = new int[length + 1]; // 用于存放最大乘积值
+        // 下面几个不是乘积，因为其本身长度比乘积大
+        product[0] = 0;
+        product[1] = 1;
+        product[2] = 2;
+        product[3] = 3;
+
+        // 开始从下到上计算长度为i绳子的最大乘积值product[i]
+        for (int i = 4; i <= length; i++) {
+            int max = 0;
+            // 算不同子长度的乘积，找出最大的乘积
+            for (int j = 1; j <= i / 2; j++) {
+                if (max < product[j] * product[i - j]) {
+                    max = product[j] * product[i - j];
+                }
+            }
+            product[i] = max;
+        }
+        return product[length];
+    }
+
+    // =======贪婪算法========
+    public static int maxProductAfterCutting_solution2(int length) {
+        if (length <= 1) {
+            return 0;
+        }
+        if (length == 2) {
+            return 1;
+        }
+        if (length == 3) {
+            return 2;
+        }
+        int timesOf3 = length / 3;
+        int timesOf2 = 0;
+        if (length - timesOf3 * 3 == 1) {
+            timesOf3--;
+        }
+        timesOf2 = (length - timesOf3 * 3) / 2;
+        return (int) (Math.pow(3, timesOf3) * Math.pow(2, timesOf2));
+    }
+
+    /**
+     * @Description 二进制中1的个数
+     * @author ztq
+     * // 题目：请实现一个函数，输入一个整数，输出该数二进制表示中1的个数。例如
+     * // 把9表示成二进制是1001，有2位是1。因此如果输入9，该函数输出2。
+     */
+    public static int numberOf1_Solution1(int n) {
+        int count = 0;
+        int flag = 1;
+        while (flag != 0) {
+            if ((flag & n) != 0)
+                count++;
+            flag = flag << 1;
+        }
+        return count;
+    }
+
+    public static int numberOf1_Solution2(int n) {
+        int count = 0;
+        while (n != 0) {
+            count++;
+            n = (n - 1) & n;
+        }
+        return count;
+    }
 }
