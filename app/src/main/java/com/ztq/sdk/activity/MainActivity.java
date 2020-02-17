@@ -285,11 +285,11 @@ public class MainActivity extends Activity {
 
         int a[] = new int[] { 60, 55, 48, 37, 10, 90, 84, 36, -1};
 //        com.ztq.sdk.data_structure_and_algorithm.Utils.bubbleSort(a);
-//        com.ztq.sdk.data_structure_and_algorithm.Utils.quickSort(a);
+        com.ztq.sdk.data_structure_and_algorithm.Utils.quickSort(a);
 //        com.ztq.sdk.data_structure_and_algorithm.Utils.simpleChooseSort(a);
 //        com.ztq.sdk.data_structure_and_algorithm.Utils.directInsertSort(a);
 //        com.ztq.sdk.data_structure_and_algorithm.Utils.shellSort(a);
-        com.ztq.sdk.data_structure_and_algorithm.Utils.heapSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.heapSort(a);
 
         int[] b = new int[] { 1, 2, 3, 3, 3, 3, 4, 5 };
         com.ztq.sdk.data_structure_and_algorithm.Utils.getNumberOfK(b, 210);
