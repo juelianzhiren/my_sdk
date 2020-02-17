@@ -1111,4 +1111,108 @@ public class Utils {
         }
         return array[high];    // 别错写成了return high; !!
     }
+
+    /**
+     *
+     * @Description 矩阵中的路径
+     * @author ztq
+     * @date 2018年9月16日 上午11:13:48
+     * // 题目：请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有
+     * // 字符的路径。路径可以从矩阵中任意一格开始，每一步可以在矩阵中向左、右、
+     * // 上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入
+     * // 该格子。例如在下面的3×4的矩阵中包含一条字符串“bfce”的路径（路径中的字
+     * // 母用下划线标出）。但矩阵中不包含字符串“abfb”的路径，因为字符串的第一个
+     * // 字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格子。
+     * // A B T G
+     * // C F C S
+     * // J D E H
+     */
+    public static boolean hasPath(char[] matrix, int rows, int cols, char[] str) {
+        char[][] map = new char[rows][cols];
+        boolean[][] tag = new boolean[rows][cols];
+        int index = 0;
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                map[i][j] = matrix[index++];
+                tag[i][j] = false;
+            }
+        }
+
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                if (map[i][j] == str[0]) {
+                    tag[i][j] = true;
+                    if (hasPathCore(map, i, j, str, 1, tag)) {
+                        return true;
+                    }
+                    tag[i][j] = false;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static boolean hasPathCore(char[][] map, int x, int y, char[] str, int index, boolean[][] tag) {
+        if (str.length == index) {
+            return true;
+        }
+        int[] dx = { 1, -1, 0, 0 };    // 向右、向左、向下、向上方向
+        int[] dy = { 0, 0, 1, -1 };
+        for (int i = 0; i < 4; ++i) {
+            int targetX = x + dx[i];
+            int targetY = y + dy[i];
+            if (targetX < 0 || targetY < 0 || targetX >= map.length || targetY >= map[x].length) {
+                continue;
+            }
+            if (tag[targetX][targetY] == false && map[targetX][targetY] == str[index]) {
+                tag[targetX][targetY] = true;
+                if (hasPathCore(map, targetX, targetY, str, index + 1, tag)) {
+                    return true;
+                }
+                tag[targetX][targetY] = false;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @Description 机器人的运动范围
+     * @author ztq
+     * // 题目：地上有一个m行n列的方格。一个机器人从坐标(0, 0)的格子开始移动，它
+     * // 每一次可以向左、右、上、下移动一格，不能进入已经经过的格子，但不能进入行坐标和列坐标的数位之和
+     * // 大于k的格子。例如，当k为18时，机器人能够进入方格(35, 37)，因为3+5+3+7=18。
+     * // 但它不能进入方格(35, 38)，因为3+5+3+8=19。请问该机器人能够到达多少个格子？
+     */
+    public static int movingCount(int threshold, int rows, int cols) {
+        if (rows <= 0 || cols <= 0 || threshold < 0) {
+            return 0;
+        }
+        boolean[] isVisited = new boolean[rows * cols];
+        for(int i = 0; i < rows * cols; i++) {
+            isVisited[i] = false;
+        }
+        int count = movingCountCore(threshold, rows, cols, 0, 0, isVisited);// 用两种方法试一下
+        return count;
+    }
+
+    private static int movingCountCore(int threshold, int rows, int cols, int row, int col, boolean[] isVisited) {
+        if (row < 0 || col < 0 || row >= rows || col >= cols || isVisited[row * cols + col] || cal(row) + cal(col) > threshold) {
+            return 0;
+        }
+        isVisited[row * cols + col] = true;
+        return 1 + movingCountCore(threshold, rows, cols, row - 1, col, isVisited)
+                + movingCountCore(threshold, rows, cols, row + 1, col, isVisited)
+                + movingCountCore(threshold, rows, cols, row, col - 1, isVisited)
+                + movingCountCore(threshold, rows, cols, row, col + 1, isVisited);
+    }
+
+    private static int cal(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return sum;
+    }
 }
