@@ -28,8 +28,6 @@ import com.ztq.sdk.widget.PinyinTextView;
 
 import java.util.List;
 
-import me.jessyan.autosize.AutoSizeCompat;
-
 /**
  * 这是测试的Activity
  */
@@ -295,6 +293,18 @@ public class MainActivity extends Activity {
         com.ztq.sdk.data_structure_and_algorithm.Utils.getNumberOfK(b, 210);
 
         com.ztq.sdk.data_structure_and_algorithm.Utils.getLastRemaining(5,1);
+
+        addListener();
+    }
+
+    private void addListener() {
+        findViewById(R.id.recyclerview_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, RecyclerViewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
