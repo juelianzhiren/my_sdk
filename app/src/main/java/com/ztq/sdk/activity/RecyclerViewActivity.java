@@ -10,6 +10,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.RecyclerViewAdapter;
+import com.ztq.sdk.item_decoration.StaggeredDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,8 @@ public class RecyclerViewActivity extends Activity implements CancelAdapt{
         //解决item跳动
         manager2.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
         mRecyclerView.setLayoutManager(manager2);
+        mRecyclerView.setAnimation(null);
+//        mRecyclerView.addItemDecoration(new StaggeredDividerItemDecoration(mContext, 5));
         mAdapter = new RecyclerViewAdapter(mContext, mList);
         mRecyclerView.setAdapter(mAdapter);
     }

@@ -23,6 +23,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.ztq.sdk.activity.MainActivity" >
             <intent-filter>
@@ -44,6 +45,21 @@
         <activity android:name="com.ztq.sdk.activity.NdkDemoActivity" />
         <activity android:name="com.ztq.sdk.activity.AnimationActivity" />
         <activity android:name="com.ztq.sdk.activity.PetalsRoundActivity" />
+        <activity android:name="com.ztq.sdk.activity.MapViewActivity" />
+        <activity android:name="com.ztq.sdk.activity.RecyclerViewActivity" />
+
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="540" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="960" />
+
+        <provider
+            android:name="me.jessyan.autosize.InitProvider"
+            android:authorities="com.ztq.sdk.autosize-init-provider"
+            android:exported="false"
+            android:multiprocess="true" />
     </application>
 
 </manifest>

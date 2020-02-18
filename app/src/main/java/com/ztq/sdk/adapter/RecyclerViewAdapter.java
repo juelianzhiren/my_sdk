@@ -43,7 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Log.v(TAG, "onBindViewHolder, position = " + position);
+        Log.v(TAG, "onBindViewHolder, position = " + position + "; " + holder.itemView);
         //将数据和控件绑定
         holder.textView.setText(list.get(position));
         ViewGroup.LayoutParams params = holder.textView.getLayoutParams();
@@ -66,6 +66,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
         params.height = height;
 //        holder.textView.setLayoutParams(params);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override
