@@ -2,6 +2,7 @@ package com.ztq.sdk.data_structure_and_algorithm;
 
 import android.util.Log;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -1375,5 +1376,101 @@ public class Utils {
             n = (n - 1) & n;
         }
         return count;
+    }
+
+    private static boolean mIsInvalid = false;//用全局变量标记是否出错
+    /**
+     * 数值的整数次方
+     * 题目：实现函数double Power(double base, int exponent)，求base的exponent
+     * 次方。不得使用库函数，同时不需要考虑大数问题。
+     * @param base
+     * @param exponent
+     * @return
+     */
+    public static double power(double base, int exponent) {
+        mIsInvalid = false;
+        double result; // double类型
+        if (exponent > 0) {
+            result = powerCore(base, exponent);
+        } else if (exponent < 0) {
+            if (base == 0) {
+                mIsInvalid = true; //0的负数次方不存在
+                return 0;
+            }
+            result = 1 / powerCore(base, -exponent);
+        } else {
+            return 1; //这里0的0次方输出为1
+        }
+        return result;
+    }
+
+    private static double powerCore(double base, int exponent) {
+        if (exponent == 1) {
+            return base;
+        }
+        if (exponent == 0) {
+            return 1;
+        }
+        double result = powerCore(base, exponent >> 1);
+        result *= result;
+        if ((exponent & 0x1) == 1) {
+            result *= base;
+        }
+        return result;
+    }
+
+    //=========方法二============
+    /**
+     * 打印从1到最大的n位数
+     * 采用递归的方法
+     */
+    public static void print1ToMaxOfNDigits2(int n) {
+        if (n <= 0) {
+            return;
+        }
+        char[] number = new char[n];
+        for (int k = 0; k < number.length; k++) {
+            number[k] = '0';
+        }
+        System.out.println(number);
+        for (int i = 0; i <= 9; i++) {
+            makeNumber(n, number, i, 0);
+        }
+    }
+
+    /**
+     * 生成数字
+     */
+    private static void makeNumber(int n, char[] number, int nNumber, int index) {
+        if (index == number.length - 1) {
+            number[index] = (char) (nNumber + '0');
+            printCharNumber2(number); // 打印数字代码与第一个方法一样
+            return;
+        } else {
+            number[index] = (char) (nNumber + '0');
+            for (int i = 0; i <= 9; i++) {
+                makeNumber(n, number, i, index + 1);
+            }
+        }
+    }
+
+    /**
+     * 打印字符数组形成的数字
+     * 自己的方法：找出第一个非零字符位置，往后进行打印
+     */
+    private static void printCharNumber2(char[] number) {
+        int beginner = number.length; // 不写成number.length-1，以防写出0
+        for (int i = 0; i <= number.length - 1; i++) {
+            if ((number[i] - '0') != 0) {
+                beginner = i;
+                break;
+            }
+        }
+        for (int i = beginner; i <= number.length - 1; i++) {
+            System.out.print(number[i]);
+        }
+        if (beginner != number.length) { // 数字为0时，换行符不输出
+            System.out.println();
+        }
     }
 }
