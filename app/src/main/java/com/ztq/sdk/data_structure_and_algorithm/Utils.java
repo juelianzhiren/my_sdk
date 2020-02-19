@@ -2,7 +2,6 @@ package com.ztq.sdk.data_structure_and_algorithm;
 
 import android.util.Log;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -22,6 +21,7 @@ public class Utils {
      * 获取第index个丑数
      * 丑数概念：我们把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。
      * 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第index个丑数。
+     *
      * @param index
      * @return
      */
@@ -64,22 +64,23 @@ public class Utils {
 
     /**
      * 第一次只出现一次的字符
+     *
      * @param str
      */
-    public static String getFirstLetter2(String str){
+    public static String getFirstLetter2(String str) {
         HashMap<Character, Integer> hashMap = new HashMap<>();
 
         for (int i = 0; i < str.length(); i++) {
-            if (hashMap.containsKey(str.charAt(i))){
+            if (hashMap.containsKey(str.charAt(i))) {
                 int value = hashMap.get(str.charAt(i));
                 hashMap.put(str.charAt(i), value + 1);
-            }else {
+            } else {
                 hashMap.put(str.charAt(i), 1);
             }
         }
         String c = "";
         for (int i = 0; i < str.length(); i++) {
-            if (hashMap.get(str.charAt(i)) == 1){
+            if (hashMap.get(str.charAt(i)) == 1) {
                 c = String.valueOf(str.charAt(i));
                 Log.v(TAG, c);
                 break;
@@ -90,6 +91,7 @@ public class Utils {
 
     /**
      * 获取数组中的逆序对数
+     *
      * @param array
      * @return
      */
@@ -106,15 +108,15 @@ public class Utils {
     }
 
     /**
-     * @author ztq
      * @param array 未归并数组
-     * @param copy 用于存储归并后数据的数组
+     * @param copy  用于存储归并后数据的数组
      * @param begin 起始位置
-     * @param end 结束位置
+     * @param end   结束位置
      * @return 逆序数
+     * @author ztq
      */
     private static int iPairs(int[] array, int[] copy, int begin, int end) {
-        if(begin == end) {
+        if (begin == end) {
             return 0;
         }
         int mid = (begin + end) / 2;
@@ -125,8 +127,8 @@ public class Utils {
         int i = mid, j = end, pos = end;
         int count = 0; // 记录相邻子数组间逆序数
 
-        while(i >= begin && j >= mid + 1) {
-            if(array[i] > array[j]) {
+        while (i >= begin && j >= mid + 1) {
+            if (array[i] > array[j]) {
                 copy[pos--] = array[i--];
                 count += j - mid;
             } else {
@@ -134,10 +136,10 @@ public class Utils {
             }
         }
         Log.v(TAG, "i = " + i + "; begin = " + begin + "; j = " + j + "; mid + 1 = " + (mid + 1) + "; pos = " + pos);
-        while(i >= begin) {
+        while (i >= begin) {
             copy[pos--] = array[i--];
         }
-        while(j >= mid + 1) {
+        while (j >= mid + 1) {
             copy[pos--] = array[j--];
         }
         return left + right + count;
@@ -164,7 +166,7 @@ public class Utils {
                 }
             }
             String str = "";
-            for(int j = 0; j < a.length; j++) {
+            for (int j = 0; j < a.length; j++) {
                 str += a[j] + " ";
             }
             str = "冒泡排序第" + (i + 1) + "次子步骤后的：" + str;
@@ -189,6 +191,7 @@ public class Utils {
 
     /**
      * 快速排序用到的方法
+     *
      * @param a
      * @param start
      * @param end
@@ -215,7 +218,7 @@ public class Utils {
                 a[j] = temp;
             }
             String str = "";
-            for(int k = 0; k < a.length; k++) {
+            for (int k = 0; k < a.length; k++) {
                 str += a[k] + " ";
             }
             Log.v(TAG, "quickSort, i = " + i + "; j = " + j + "; 数组为：" + str);
@@ -266,7 +269,7 @@ public class Utils {
     public static void heapSort(int[] a) {
         int temp = 0;
         creatMaxHeap(a, 0, a.length - 1);
-        for(int i = a.length - 1; i > 0; i--) {
+        for (int i = a.length - 1; i > 0; i--) {
             temp = a[0];
             a[0] = a[i];
             a[i] = temp;
@@ -276,6 +279,7 @@ public class Utils {
 
     /**
      * 创建最大堆
+     *
      * @param a
      * @param low
      * @param high
@@ -287,11 +291,11 @@ public class Utils {
         int j = 0;
         int k = 0;
         int temp = 0;
-        for(int i = high / 2; i >= low; i--) {
+        for (int i = high / 2; i >= low; i--) {
             temp = a[i];
             k = i;
             j = 2 * k + 1;
-            while(j <= high) {
+            while (j <= high) {
                 if (((j + 1) <= high) && (a[j] < a[j + 1])) {
                     j++;
                 }
@@ -308,7 +312,7 @@ public class Utils {
             showHeap(a);
         }
         String str = "";
-        for(int n = 0; n < a.length; n++) {
+        for (int n = 0; n < a.length; n++) {
             str += a[n] + " ";
         }
         Log.v(TAG, "堆排序; 数组为：" + str);
@@ -335,7 +339,7 @@ public class Utils {
                 }
             }
             String str = "";
-            for(int j = 0; j < a.length; j++) {
+            for (int j = 0; j < a.length; j++) {
                 str += a[j] + " ";
             }
             str = "直接插入排序第" + i + "次子步骤后的：" + str;
@@ -370,7 +374,7 @@ public class Utils {
             }
             increment /= 2; // 这增量有待于改进，最好的方法是所有的增量都是质数，最后一个增量一定是1
             String str = "";
-            for(int j = 0; j < a.length; j++) {
+            for (int j = 0; j < a.length; j++) {
                 str += a[j] + " ";
             }
             str = "希尔排序第" + "次子步骤后的：" + str;
@@ -380,6 +384,7 @@ public class Utils {
 
     /**
      * 归并排序
+     *
      * @param arr
      */
     public static void mergeSort(int[] arr) {
@@ -399,7 +404,7 @@ public class Utils {
         // 先对左边排序
         mergeSort(arr, low, mid);
         // 先对右边排序
-        mergeSort(arr, mid + 1,high);
+        mergeSort(arr, mid + 1, high);
         // 归并两个有序的子序列
         merge(arr, low, mid, high);
         // 把每一趟排序的结果也输出一下。
@@ -412,8 +417,8 @@ public class Utils {
             return;
         }
         String str = "";
-        for(int i : arr) {
-           str += i + " 0";
+        for (int i : arr) {
+            str += i + " 0";
         }
         Log.v(TAG, str);
     }
@@ -454,7 +459,7 @@ public class Utils {
             return;
         }
         String str = "";
-        for(int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             str += a[i] + " ";
             if (isPowerOfTwo(i + 2)) {
                 Log.v(TAG, "堆排：" + str);
@@ -482,6 +487,7 @@ public class Utils {
 
     /**
      * 判断一个整数是否为奇数
+     *
      * @param i
      * @return
      */
@@ -491,6 +497,7 @@ public class Utils {
 
     /**
      * 将十进制数化成二进制字符串
+     *
      * @param i
      * @return
      */
@@ -500,6 +507,7 @@ public class Utils {
 
     /**
      * 统计数字k在排序数组中出现的次数
+     *
      * @param a
      * @param k
      * @return
@@ -525,14 +533,14 @@ public class Utils {
         int middleData = a[middleIndex];
         if (middleData == k) {
             if ((middleIndex > 0 && a[middleIndex - 1] != k) || middleIndex == 0) {
-                return  middleIndex;
+                return middleIndex;
             } else {
                 endIndex = middleIndex - 1;
             }
         } else if (middleData > k) {
             endIndex = middleIndex - 1;
         } else {
-            startIndex= middleIndex + 1;
+            startIndex = middleIndex + 1;
         }
         return getFirstIndexK(a, k, startIndex, endIndex);
     }
@@ -545,14 +553,14 @@ public class Utils {
         int middleData = a[middleIndex];
         if (middleData == k) {
             if ((middleIndex < a.length - 1 && a[middleIndex + 1] != k) || middleIndex == a.length - 1) {
-                return  middleIndex;
+                return middleIndex;
             } else {
                 startIndex = middleIndex + 1;
             }
         } else if (middleData > k) {
             endIndex = middleIndex - 1;
         } else {
-            startIndex= middleIndex + 1;
+            startIndex = middleIndex + 1;
         }
         return getLastIndexK(a, k, startIndex, endIndex);
     }
@@ -561,6 +569,7 @@ public class Utils {
      * 0~n-1中缺失的数字
      * 一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0~n-1之内。
      * 在范围0~n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字
+     *
      * @param a
      * @return
      */
@@ -570,7 +579,7 @@ public class Utils {
         }
         int leftIndex = 0;
         int rightIndex = a.length - 1;
-        while(leftIndex <= rightIndex) {
+        while (leftIndex <= rightIndex) {
             int middleIndex = (leftIndex + rightIndex) >> 1;
             if (a[middleIndex] != middleIndex) {
                 if (middleIndex == 0 || a[middleIndex - 1] == middleIndex - 1) {
@@ -589,8 +598,9 @@ public class Utils {
 
     /**
      * 二叉树的前序遍历
+     *
      * @param treeNode
-     * @param list (遍历的值依次放进list列表中)
+     * @param list     (遍历的值依次放进list列表中)
      */
     public static void preOrderTraverse(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
         if (treeNode == null) {
@@ -602,26 +612,27 @@ public class Utils {
         list.add(treeNode.getValue());
         Log.v(TAG, "前序遍历：" + treeNode.getValue());
         BinaryTreeNode leftTree = treeNode.getLeftNode();
-        if(leftTree != null) {
+        if (leftTree != null) {
             preOrderTraverse(leftTree, list);
         }
         BinaryTreeNode rightTree = treeNode.getRightNode();
-        if(rightTree != null) {
+        if (rightTree != null) {
             preOrderTraverse(rightTree, list);
         }
     }
 
     /**
      * 二叉树的中序遍历
+     *
      * @param treeNode
-     * @param list (遍历的值依次放进list列表中)
+     * @param list     (遍历的值依次放进list列表中)
      */
     public static void midOrderTraverse(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
         if (treeNode == null) {
             return;
         }
         BinaryTreeNode leftTree = treeNode.getLeftNode();
-        if(leftTree != null) {
+        if (leftTree != null) {
             midOrderTraverse(leftTree, list);
         }
         if (list == null) {
@@ -630,26 +641,27 @@ public class Utils {
         list.add(treeNode.getValue());
         Log.v(TAG, "中序遍历：" + treeNode.getValue());
         BinaryTreeNode rightTree = treeNode.getRightNode();
-        if(rightTree != null) {
+        if (rightTree != null) {
             midOrderTraverse(rightTree, list);
         }
     }
 
     /**
      * 二叉树的后序遍历
+     *
      * @param treeNode
-     * @param list (遍历的值依次放进list列表中)
+     * @param list     (遍历的值依次放进list列表中)
      */
     public static void postOrderTraverse(BinaryTreeNode<Integer> treeNode, List<Integer> list) {
         if (treeNode == null) {
             return;
         }
         BinaryTreeNode leftTree = treeNode.getLeftNode();
-        if(leftTree != null) {
+        if (leftTree != null) {
             postOrderTraverse(leftTree, list);
         }
         BinaryTreeNode rightTree = treeNode.getRightNode();
-        if(rightTree != null) {
+        if (rightTree != null) {
             postOrderTraverse(rightTree, list);
         }
         if (list == null) {
@@ -659,7 +671,8 @@ public class Utils {
         Log.v(TAG, "后序遍历：" + treeNode.getValue());
     }
 
-    private  static boolean mIsBalanceBinaryTree = true;
+    private static boolean mIsBalanceBinaryTree = true;
+
     /**
      * 重置mIsBalanceBinaryTree变量值
      */
@@ -669,6 +682,7 @@ public class Utils {
 
     /**
      * 获取二叉树的深度
+     *
      * @param rootNode
      * @return
      */
@@ -687,6 +701,7 @@ public class Utils {
     /**
      * 判断是否为平衡二叉树
      * 平衡二叉树的定义：如果某二叉树中的任意节点的左、右子树的深度相差不超过1，那么它就是一颗平衡二叉树
+     *
      * @param rootNode
      * @return
      */
@@ -701,11 +716,12 @@ public class Utils {
     /**
      * 寻找数组中只出现一次的两个数字
      * 一个整型数组里除两个数字之外，其它数字都出现了两次，请找出来这两个只出现一次的数字
+     *
      * @param array
-     * @param list 记录这两个只出现一次的数字
+     * @param list  记录这两个只出现一次的数字
      */
     public static void findNumsAppearOnce(int[] array, List<Integer> list) {
-        if(array==null || array.length < 2) {
+        if (array == null || array.length < 2) {
             return;
         }
         int resultXOR = 0;
@@ -719,7 +735,7 @@ public class Utils {
         }
         int num1 = 0;
         int num2 = 0;
-        for(int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (((array[i] >> indexOf1) & 1) == 1) {
                 num1 ^= array[i];
             } else {
@@ -739,6 +755,7 @@ public class Utils {
     /**
      * 数组中唯一只出现一次的数字
      * 在一个数组中除一个数字只出现一次之外，其它数字都出现了三次，请找出那个只出现一次的数字
+     *
      * @param arr
      * @return
      */
@@ -772,6 +789,7 @@ public class Utils {
 
     /**
      * 和为sum的连续正数序列
+     *
      * @param sum
      * @return
      */
@@ -815,17 +833,18 @@ public class Utils {
     /**
      * 获取圆圈中最后剩下的数字
      * 题目：0,1,2,...,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字
-     *       求出这个圆圈里剩下的最后一个数字
+     * 求出这个圆圈里剩下的最后一个数字
+     *
      * @param n
      * @param m
      * @return
      */
     public static int getLastRemaining(int n, int m) {
-        if(n < 1 || m < 1) {
+        if (n < 1 || m < 1) {
             return -1;
         }
         int last = 0;
-        for(int i = 2; i <= n; i++) {
+        for (int i = 2; i <= n; i++) {
             last = (last + m) % i;
         }
         Log.v(TAG, "last = " + last);
@@ -864,7 +883,7 @@ public class Utils {
         }
         if (list.size() != 0) {
             String str = "";
-            for(int i = 0; i < list.size(); i++) {
+            for (int i = 0; i < list.size(); i++) {
                 str += list.get(i) + " ";
             }
             Log.v(TAG, "重複的數字為：" + str);
@@ -975,7 +994,6 @@ public class Utils {
     }
 
     /**
-     *
      * @Description 由前序遍历序列和中序遍历序列得到根结点
      * pre、in：始终用最初的前序遍历和中序遍历数组代入
      * pStart、pEnd：当前树的前序数组开始和结束位置
@@ -1007,6 +1025,7 @@ public class Utils {
     /**
      * 题目：给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？
      * 树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。
+     *
      * @param pNode
      * @return
      */
@@ -1035,7 +1054,7 @@ public class Utils {
      * 题目：用两个栈实现一个队列类。队列的声明如下，请实现它的两个函数push
      * 和pop，分别完成在队列尾部插入结点和在队列头部删除结点的功能。
      */
-    static class QueueByTwoStacks<E>{
+    static class QueueByTwoStacks<E> {
         Stack<E> stack1 = new Stack<E>();
         Stack<E> stack2 = new Stack<E>();
 
@@ -1067,7 +1086,6 @@ public class Utils {
      * 两个队列实现一个栈
      * 一个队列加入元素，弹出元素时，需要把队列中的元素放到另外一个队列中，删除最后一个元素
      * 两个队列始终保持只有一个队列是有数据的
-     *
      */
     static class StackByTwoQueues<T> {
         private Queue<T> queue1 = new LinkedList<T>();
@@ -1075,7 +1093,7 @@ public class Utils {
 
         /**
          * 压栈
-         *
+         * <p>
          * 入栈非空的队列
          */
         public boolean push(T t) {
@@ -1110,7 +1128,7 @@ public class Utils {
 
         @Override
         public String toString() {
-            return this.queue1.toString() + ", " +this.queue2.toString();
+            return this.queue1.toString() + ", " + this.queue2.toString();
         }
     }
 
@@ -1186,7 +1204,6 @@ public class Utils {
     }
 
     /**
-     *
      * @Description 矩阵中的路径
      * @author ztq
      * @date 2018年9月16日 上午11:13:48
@@ -1229,8 +1246,8 @@ public class Utils {
         if (str.length == index) {
             return true;
         }
-        int[] dx = { 1, -1, 0, 0 };    // 向右、向左、向下、向上方向
-        int[] dy = { 0, 0, 1, -1 };
+        int[] dx = {1, -1, 0, 0};    // 向右、向左、向下、向上方向
+        int[] dy = {0, 0, 1, -1};
         for (int i = 0; i < 4; ++i) {
             int targetX = x + dx[i];
             int targetY = y + dy[i];
@@ -1249,7 +1266,6 @@ public class Utils {
     }
 
     /**
-     *
      * @Description 机器人的运动范围
      * @author ztq
      * // 题目：地上有一个m行n列的方格。一个机器人从坐标(0, 0)的格子开始移动，它
@@ -1262,7 +1278,7 @@ public class Utils {
             return 0;
         }
         boolean[] isVisited = new boolean[rows * cols];
-        for(int i = 0; i < rows * cols; i++) {
+        for (int i = 0; i < rows * cols; i++) {
             isVisited[i] = false;
         }
         int count = movingCountCore(threshold, rows, cols, 0, 0, isVisited);// 用两种方法试一下
@@ -1290,9 +1306,7 @@ public class Utils {
     }
 
     /**
-     *
      * @Description 剪绳子
-     *
      * @author ztq
      * @date 2018年9月17日 上午9:37:41
      */
@@ -1379,10 +1393,12 @@ public class Utils {
     }
 
     private static boolean mIsInvalid = false;//用全局变量标记是否出错
+
     /**
      * 数值的整数次方
      * 题目：实现函数double Power(double base, int exponent)，求base的exponent
      * 次方。不得使用库函数，同时不需要考虑大数问题。
+     *
      * @param base
      * @param exponent
      * @return
@@ -1420,6 +1436,7 @@ public class Utils {
     }
 
     //=========方法二============
+
     /**
      * 打印从1到最大的n位数
      * 采用递归的方法
@@ -1477,6 +1494,7 @@ public class Utils {
     /**
      * 在O(1)时间删除链表结点
      * 本题存在缺陷，要求O(1)时间，则无法确定待删除结点的确在表中
+     *
      * @param head
      * @param pToBeDeleted
      */
@@ -1514,6 +1532,7 @@ public class Utils {
      * 调整数组顺序使奇数位于偶数前面
      * 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有
      * 奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+     *
      * @param array
      */
     public static void reOrderArray(int[] array) {
@@ -1543,6 +1562,7 @@ public class Utils {
 
     /**
      * 寻找链表中倒数第k个结点
+     *
      * @param head
      * @param k
      * @return
@@ -1623,6 +1643,7 @@ public class Utils {
 
     /**
      * 输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+     *
      * @param node
      * @return
      */
