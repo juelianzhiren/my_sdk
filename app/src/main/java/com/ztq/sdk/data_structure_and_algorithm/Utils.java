@@ -1509,4 +1509,132 @@ public class Utils {
         }
         return head;
     }
+
+    /**
+     * 调整数组顺序使奇数位于偶数前面
+     * 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有
+     * 奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+     * @param array
+     */
+    public static void reOrderArray(int[] array) {
+        if (array == null || array.length == 0) {
+            return;
+        }
+        int length = array.length;
+        int low = 0;
+        int high = length - 1;
+        int temp;
+        while (low < high) {
+            //向后移动low指针，直到它指向偶数
+            while (low < length && (array[low] & 1) != 0) {
+                low++;
+            }
+            //向前移动high指针，直到它指向奇数
+            while (high >= 0 && (array[high] & 1) == 0) {
+                high--;
+            }
+            if (low < high) {
+                temp = array[low];
+                array[low] = array[high];
+                array[high] = temp;
+            }
+        }
+    }
+
+    /**
+     * 寻找链表中倒数第k个结点
+     * @param head
+     * @param k
+     * @return
+     */
+    public static ListNode findKthToTail(ListNode head, int k) {
+        if (head == null || k <= 0) {
+            return null;
+        }
+        ListNode pAhead = head;
+        for (int i = 1; i < k; i++) {
+            pAhead = pAhead.next;
+            if (pAhead == null) {
+                return null;
+            }
+        }
+        ListNode pBehind = head;
+        while (pAhead.next != null) {
+            pAhead = pAhead.next;
+            pBehind = pBehind.next;
+        }
+        return pBehind;
+    }
+
+    /**
+     * 链表中环的入口结点
+     * 一个链表中包含环，如何找出环的入口结点
+     * 计算环中入口结点
+     */
+    public static ListNode entryNodeOfLoop(ListNode head) {
+        ListNode meetingNode = meetingNode(head);
+        if (meetingNode == null) {
+            return null;
+        }
+
+        //计算环中结点的数目
+        int count = 1;  //环中结点的数目
+        ListNode pNode1 = meetingNode.next;
+        while (pNode1 != meetingNode) {
+            count++;
+            pNode1 = pNode1.next;
+        }
+
+        //先移动pNode1，次数为count
+        pNode1 = head;
+        for (int i = 1; i <= count; i++) {
+            pNode1 = pNode1.next;
+        }
+        ListNode pNode2 = head;
+        while (pNode1 != pNode2) {
+            pNode1 = pNode1.next;
+            pNode2 = pNode2.next;
+        }
+        return pNode1;
+    }
+
+    /**
+     * 确定链表是否有环，采用快慢指针确定
+     * 返回值代表快慢指针相遇时的结点，返回null代表链表无环
+     */
+    private static ListNode meetingNode(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode pSlow = head;
+        ListNode pFast = head;
+        while (pFast != null) {
+            pSlow = pSlow.next;
+            pFast = pFast.next;
+            if (pFast != null) {
+                pFast = pFast.next;
+            }
+            if (pSlow != null && pSlow == pFast) {
+                return pSlow;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+     * @param node
+     * @return
+     */
+    public static ListNode reverseList(ListNode node) {
+        ListNode pre = null;
+        ListNode next = null;
+        while (node != null) {
+            next = node.next;
+            node.next = pre;
+            pre = node;
+            node = next;
+        }
+        return pre;
+    }
 }
