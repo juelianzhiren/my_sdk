@@ -1473,4 +1473,40 @@ public class Utils {
             System.out.println();
         }
     }
+
+    /**
+     * 在O(1)时间删除链表结点
+     * 本题存在缺陷，要求O(1)时间，则无法确定待删除结点的确在表中
+     * @param head
+     * @param pToBeDeleted
+     */
+    public static ListNode deleteNode(ListNode head, ListNode pToBeDeleted) {
+        if (head == null || pToBeDeleted == null) {
+            return head;
+        }
+        //待删除结点不是尾结点
+        if (pToBeDeleted.next != null) {
+            ListNode nextNode = pToBeDeleted.next;
+            pToBeDeleted.value = nextNode.value;
+            pToBeDeleted.next = nextNode.next;
+            nextNode = null;
+            //只有一个结点（即是尾结点，又是头结点）
+        } else if (head == pToBeDeleted) {
+            pToBeDeleted = null;
+            head = null;
+            //链表含多个结点，删除尾结点
+        } else {
+            ListNode preNode = head;
+            while (preNode.next != pToBeDeleted && preNode != null) {
+                preNode = preNode.next;
+            }
+            if (preNode == null) {
+                System.out.println("无法找到待删除结点！");
+                return head;
+            }
+            preNode.next = null;
+            pToBeDeleted = null;
+        }
+        return head;
+    }
 }
