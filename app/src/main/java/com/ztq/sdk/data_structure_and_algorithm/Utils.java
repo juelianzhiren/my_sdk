@@ -1658,4 +1658,71 @@ public class Utils {
         }
         return pre;
     }
+
+    /**
+     * 输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。
+     * 递归版本
+     * @param list1
+     * @param list2
+     */
+    public static ListNode<Integer> merge(ListNode<Integer> list1, ListNode<Integer> list2) {
+        if (list1 == null) {
+            return list2;
+        }
+        if (list2 == null) {
+            return list1;
+        }
+        if (list1.value < list2.value) {
+            list1.next = merge(list1.next, list2);
+            return list1;
+        } else {
+            list2.next = merge(list1, list2.next);
+            return list2;
+        }
+    }
+
+    /**
+     * 输入两棵二叉树A和B，判断B是不是A的子结构。
+     * @param root1
+     * @param root2
+     * @return
+     */
+    public boolean hasSubtree(BinaryTreeNode<Double> root1, BinaryTreeNode<Double> root2) {
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+//        boolean result=false;
+//        if(equal(root1.val, root2.val)) {
+//          result = doesTree1HasTree2(root1, root2);
+//          if(!result)
+//              result=hasSubtree(root1.left, root2)
+//              ||hasSubtree(root1.right, root2);
+//        }
+//        return result;
+        //上面几行可以直接写成：
+        return doesTree1HasTree2(root1, root2) || hasSubtree(root1.getLeftNode(), root2) || hasSubtree(root1.getRightNode(), root2);
+    }
+
+    /**
+     * 判断root结点开始的子树中各个结点是否相同
+     */
+    private boolean doesTree1HasTree2(BinaryTreeNode<Double> root1, BinaryTreeNode<Double> root2) {
+        if (root2 == null) {
+            return true;
+        }
+        if (root1 == null) {
+            return false;
+        }
+        return equal(root1.getValue(), root2.getValue()) && doesTree1HasTree2(root1.getLeftNode(), root2.getLeftNode()) && doesTree1HasTree2(root1.getRightNode(), root2.getRightNode());
+    }
+
+    /**
+     * 判断两个浮点数是否相等
+     */
+    private boolean equal(double num1, double num2) {
+        if (Math.abs(num1 - num2) < 0.0000001) {
+            return true;
+        }
+        return false;
+    }
 }
