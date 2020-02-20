@@ -1731,8 +1731,9 @@ public class Utils {
      * @param root
      */
     public static void mirror(BinaryTreeNode root) {
-        if (root == null)
+        if (root == null) {
             return;
+        }
         //左右子结点交换
         BinaryTreeNode tempNode = root.getLeftNode();
         root.setLeftNode(root.getRightNode());
@@ -1740,5 +1741,28 @@ public class Utils {
 
         mirror(root.getLeftNode());
         mirror(root.getRightNode());
+    }
+
+    /**
+     * 请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和
+     * 它的镜像一样，那么它是对称的。
+     * @param pRoot
+     * @return
+     */
+    public static boolean isSymmetrical(BinaryTreeNode pRoot) {
+        if (pRoot == null) {
+            return true;      //根结点为null时，认为是对称二叉树
+        }
+        return isEqual(pRoot.getLeftNode(), pRoot.getRightNode());
+    }
+
+    private static boolean isEqual(BinaryTreeNode pRoot1, BinaryTreeNode pRoot2) {
+        if (pRoot1 == null && pRoot2 == null) {
+            return true;
+        }
+        if (pRoot1 == null || pRoot2 == null) {
+            return false;
+        }
+        return pRoot1.getValue() == pRoot2.getValue() && isEqual(pRoot1.getLeftNode(), pRoot2.getRightNode()) && isEqual(pRoot1.getRightNode(), pRoot2.getLeftNode());
     }
 }
