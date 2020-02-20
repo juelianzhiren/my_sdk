@@ -1725,4 +1725,20 @@ public class Utils {
         }
         return false;
     }
+
+    /**
+     * 输入一个二叉树，该函数输出它的镜像。
+     * @param root
+     */
+    public static void mirror(BinaryTreeNode root) {
+        if (root == null)
+            return;
+        //左右子结点交换
+        BinaryTreeNode tempNode = root.getLeftNode();
+        root.setLeftNode(root.getRightNode());
+        root.setRightNode(tempNode);
+
+        mirror(root.getLeftNode());
+        mirror(root.getRightNode());
+    }
 }
