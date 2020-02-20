@@ -1749,7 +1749,7 @@ public class Utils {
      * @param pRoot
      * @return
      */
-    public static boolean isSymmetrical(BinaryTreeNode pRoot) {
+    public static boolean isBinaryTreeSymmetrical(BinaryTreeNode pRoot) {
         if (pRoot == null) {
             return true;      //根结点为null时，认为是对称二叉树
         }
