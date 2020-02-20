@@ -1765,4 +1765,121 @@ public class Utils {
         }
         return pRoot1.getValue() == pRoot2.getValue() && isEqual(pRoot1.getLeftNode(), pRoot2.getRightNode()) && isEqual(pRoot1.getRightNode(), pRoot2.getLeftNode());
     }
+
+    /**
+     * 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+     * @param matrix
+     * @param list，记录打印的值
+     */
+    public static void printMatrix(int[][] matrix, List<Integer> list) {
+        if (matrix == null || matrix.length <= 0) {
+            return;
+        }
+        printMatrixInCircle(matrix, 0, list);
+    }
+
+    private static void printMatrixInCircle(int[][] matrix, int start, List<Integer> list) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        int endX = col - 1 - start;
+        int endY = row - 1 - start;
+        if (endX < start || endY < start) {
+            return;
+        }
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        //仅一行
+        if (endY == start) {
+            for (int i = start; i <= endX; i++) {
+                list.add(matrix[start][i]);
+                System.out.print(matrix[start][i] + " ");
+            }
+            return;  //记得结束
+        }
+        //仅一列
+        if (endX == start) {
+            for (int i = start; i <= endY; i++) {
+                list.add(matrix[i][start]);
+                System.out.print(matrix[i][start] + " ");
+            }
+            return;  //记得结束
+        }
+
+        //打印边界
+        for (int i = start; i <= endX; i++) {
+            list.add(matrix[start][i]);
+            System.out.print(matrix[start][i] + " ");
+        }
+        for (int i = start + 1; i <= endY; i++) {
+            list.add(matrix[i][endX]);
+            System.out.print(matrix[i][endX] + " ");
+        }
+        for (int i = endX - 1; i >= start; i--) {
+            list.add(matrix[endY][i]);
+            System.out.print(matrix[endY][i] + " ");
+        }
+        for (int i = endY - 1; i >= start + 1; i--) {
+            list.add(matrix[i][start]);
+            System.out.print(matrix[i][start] + " ");
+        }
+
+        //继续打印更内部的矩阵，令start+1
+        printMatrixInCircle(matrix, start + 1, list);
+    }
+
+
+    //题目：定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min
+    //函数。在该栈中，调用min、push及pop的时间复杂度都是O(1)。
+    private static Stack<Integer> stack_data = new Stack<Integer>();
+    private static Stack<Integer> stack_min = new Stack<Integer>();
+    public static void push(int node) {
+        stack_data.push(node);
+        if (stack_min.empty() || stack_min.peek() > node) {
+            stack_min.push(node);
+        } else {
+            stack_min.push(stack_min.peek());
+        }
+    }
+
+    public static void pop() {
+        if (!stack_data.empty()) {
+            stack_data.pop();
+            stack_min.pop();
+        }
+    }
+
+    public static int min() {
+        return stack_min.peek();
+    }
+
+    /**
+     * 是否为正确的弹出序列
+     * //题目：输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是
+     * //否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1、2、3、4、
+     * //5是某栈的压栈序列，序列4、5、3、2、1是该压栈序列对应的一个弹出序列，但
+     * //4、3、5、1、2就不可能是该压栈序列的弹出序列。
+     * @param pushArr
+     * @param popArr
+     * @return
+     */
+    public boolean isPopOrder(int[] pushArr, int[] popArr) {
+        if (pushArr == null || popArr == null) {
+            return false;
+        }
+        Stack<Integer> stack = new Stack<Integer>();
+        //必须提前判断长度是否相等
+        if (popArr.length != pushArr.length || pushArr.length == 0) {
+            return false;
+        }
+        int popIndex = 0;
+        for (int pushIndex = 0; pushIndex < pushArr.length; pushIndex++) {
+            stack.push(pushArr[pushIndex]);
+            while (!stack.empty() && stack.peek() == popArr[popIndex]) {
+                stack.pop();
+                popIndex++;
+            }
+        }
+        return stack.empty();
+    }
 }
