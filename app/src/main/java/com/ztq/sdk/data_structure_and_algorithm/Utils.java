@@ -1882,4 +1882,138 @@ public class Utils {
         }
         return stack.empty();
     }
+
+    /**
+     *  不分行从上往下打印二叉树
+     *  题目：从上往下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。
+     * @param root
+     */
+    public static void printBinaryTree1(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+        LinkedList<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        queue.offer(root);
+        BinaryTreeNode node = null;
+        while (queue.size() != 0) {
+            node = queue.poll();
+            System.out.print(node.getValue() + " ");
+            if (node.getLeftNode() != null) {
+                queue.offer(node.getLeftNode());
+            }
+            if (node.getRightNode() != null) {
+                queue.offer(node.getRightNode());
+            }
+        }
+        System.out.println();
+    }
+
+    /**
+     * 分行从上到下打印二叉树
+     * 题目：从上到下按层打印二叉树，同一层的结点按从左到右的顺序打印，每一层
+     * 打印到一行。
+     * @param root
+     */
+    public static void printBinaryTree2(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+        LinkedList<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        queue.offer(root);
+        BinaryTreeNode node = null;
+        int pCount = 0;      //当前层结点数目
+        int nextCount = 1;   //下一层结点数目
+        while (!queue.isEmpty()) {
+            pCount = nextCount;
+            nextCount = 0;
+            //打印当前层数字，并计算下一层结点数目
+            for (int i = 1; i <= pCount; i++) {
+                node = queue.poll();
+                System.out.print(node.getValue() + " ");
+                if (node.getLeftNode() != null) {
+                    queue.offer(node.getLeftNode());
+                    nextCount++;
+                }
+                if (node.getRightNode() != null) {
+                    queue.offer(node.getRightNode());
+                    nextCount++;
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 之字形打印二叉树
+     * 题目：请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺
+     * 序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，
+     * 其他行以此类推。
+     * @param root
+     */
+    public static void printBinaryTree3(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<BinaryTreeNode> stack1 = new Stack<BinaryTreeNode>();
+        Stack<BinaryTreeNode> stack2 = new Stack<BinaryTreeNode>();
+        BinaryTreeNode node = null;
+        stack1.push(root);
+        while (!stack1.empty() || !stack2.empty()) {
+            while (!stack1.empty()) {
+                node = stack1.pop();
+                System.out.print(node.getValue() + " ");
+                if (node.getLeftNode() != null) {
+                    stack2.push(node.getLeftNode());
+                }
+                if (node.getRightNode() != null) {
+                    stack2.push(node.getRightNode());
+                }
+            }
+            System.out.println();
+            while (!stack2.empty()) {
+                node = stack2.pop();
+                System.out.print(node.getValue() + " ");
+                if (node.getRightNode() != null) {
+                    stack1.push(node.getRightNode());
+                }
+                if (node.getLeftNode() != null) {
+                    stack1.push(node.getLeftNode());
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 题目：输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+     * 如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。
+     * 二叉树后序遍历数组的最后一个数为根结点，剩余数字中，小于根结点的数字（即左子树部分）都排在前面，
+     * 大于根结点的数字（即右子树部分）都排在后面
+     * @param sequence
+     * @return
+     */
+    public static boolean verifySquenceOfBST(int[] sequence) {
+        if (sequence == null || sequence.length <= 0) {
+            return false;
+        }
+        return verifyCore(sequence, 0, sequence.length - 1);
+    }
+
+    private static boolean verifyCore(int[] sequence, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        //判断左子树
+        int mid = start;
+        while (sequence[mid] < sequence[end]) {
+            mid++;
+        }
+        //判断右子树
+        for (int i = mid; i < end; i++) {
+            if (sequence[i] < sequence[end]) {
+                return false;
+            }
+        }
+        return verifyCore(sequence, start, mid - 1) && verifyCore(sequence, mid, end - 1);
+    }
 }
