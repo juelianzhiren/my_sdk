@@ -2048,4 +2048,47 @@ public class Utils {
         }
         list.remove(list.size() - 1);
     }
+
+    /**
+     * 序列化二叉树。
+     * @param node
+     * @return
+     */
+    public static String serialize(BinaryTreeNode node) {
+        StringBuilder sb = new StringBuilder();
+        if (node == null) {
+            sb.append("$,");
+        } else {
+            sb.append(node.getValue() + ",");
+            sb.append(serialize(node.getLeftNode()));
+            sb.append(serialize(node.getRightNode()));
+        }
+        return sb.toString();
+    }
+
+    private static int index = 0;
+    /**
+     * 反序列化二叉树
+     * @param str
+     * @return
+     */
+    public static BinaryTreeNode deserialize(String str) {
+        BinaryTreeNode node = null;
+        if (str == null || str.length() == 0) {
+            return node;
+        }
+        int start = index;
+        while (str.charAt(index) != ',') {
+            index++;
+        }
+        if (!str.substring(start, index).equals("$")) {
+            node = new BinaryTreeNode(Integer.parseInt(str.substring(start, index)));
+            index++;           // 这条语句位置别放错了
+            node.setLeftNode(deserialize(str));
+            node.setRightNode(deserialize(str));
+        } else {
+            index++;
+        }
+        return node;
+    }
 }
