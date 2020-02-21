@@ -2016,4 +2016,36 @@ public class Utils {
         }
         return verifyCore(sequence, start, mid - 1) && verifyCore(sequence, mid, end - 1);
     }
+
+    /**
+     * 输入一棵二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+     * 从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+     * @param root
+     * @param target
+     */
+    public static void findPath(BinaryTreeNode<Integer> root, int target) {
+        if (root == null) {
+            return;
+        }
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        printPath(root, target, list);
+    }
+
+    private static void printPath(BinaryTreeNode<Integer> node, int target, ArrayList<Integer> list) {
+        if (node == null) {
+            return;
+        }
+        list.add(node.getValue());
+        target -= node.getValue();       // 每个结点的target不会受到方法的影响而改变
+        if (target == 0 && node.getLeftNode() == null && node.getRightNode() == null) { // 叶子结点
+            for (Integer integer : list) {
+                System.out.print(integer + " ");
+            }
+            System.out.println();
+        } else {                         // 中间结点
+            printPath(node.getLeftNode(), target, list);
+            printPath(node.getRightNode(), target, list);
+        }
+        list.remove(list.size() - 1);
+    }
 }
