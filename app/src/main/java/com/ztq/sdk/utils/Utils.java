@@ -1081,11 +1081,11 @@ public class Utils {
         return result;
     }
 
-    public interface NetTimeListener {
-        void onReceiveTime(long time);
+    public interface NetTimeListener<T> {
+        void onReceiveTime(long time, T t);
     }
 
-    public static void getTimeFromNet(final NetTimeListener listener) {
+    public static void getTimeFromNet(final NetTimeListener listener, final Object obj) {
         MyHandlerThread.postToWorker1(new Runnable() {
             @Override
             public void run() {
@@ -1102,7 +1102,7 @@ public class Utils {
                         final String date = json.getString("sysTime2");
                         long time =  dateToTimestamp(date);
                         if (listener != null) {
-                            listener.onReceiveTime(time);
+                            listener.onReceiveTime(time, obj);
                         }
                     }
 
@@ -1110,7 +1110,7 @@ public class Utils {
                     e.printStackTrace();
                     long time = System.currentTimeMillis();
                     if (listener != null) {
-                        listener.onReceiveTime(time);
+                        listener.onReceiveTime(time, obj);
                     }
                 } finally {
                     if (urlConnection != null) {
