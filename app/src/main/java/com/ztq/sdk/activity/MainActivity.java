@@ -305,6 +305,13 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.timeline_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, TimelineActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
