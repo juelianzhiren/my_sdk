@@ -3,6 +3,7 @@ package com.ztq.sdk.data_structure_and_algorithm;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -2090,5 +2091,106 @@ public class Utils {
             index++;
         }
         return node;
+    }
+
+    /**
+     * 输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。
+     * （本文代码采用ArrayList<String>接收返回的字符串，并要求不出现重复字符串）
+     * @param str
+     * @return
+     */
+    public static ArrayList<String> permutation(String str) {
+        ArrayList<String> list = new ArrayList<String>();
+        if (str == null || str.length() == 0) {
+            return list;
+        }
+        permutationCore(str.toCharArray(), 0, list);
+        Collections.sort(list); // 将list中的字符串排序
+        return list;
+    }
+
+    private static void permutationCore(char[] strArray, int index, ArrayList<String> list) {
+        if (index == strArray.length - 1) {
+            if (!list.contains(String.valueOf(strArray))) { // 判断是否有重复字符串
+                list.add(String.valueOf(strArray));
+            }
+        } else {
+            for (int i = index; i < strArray.length; i++) {
+                char temp = strArray[index];
+                strArray[index] = strArray[i];
+                strArray[i] = temp;
+                System.out.println("strArray = " + String.valueOf(strArray) + "; i = " + i);
+                permutationCore(strArray, index + 1, list);
+                strArray[i] = strArray[index];
+                strArray[index] = temp;
+            }
+        }
+    }
+
+    private static boolean mIsInputInvalid = true;
+    /**
+     * 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。
+     * 例如输入一个长度为9的数组{1, 2, 3, 2, 2, 2, 5, 4, 2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。
+     * @param array
+     * @return
+     */
+    public static int moreThanHalfNum_Solution2(int[] array) {
+        if (array == null || array.length <= 0) {
+            return 0;
+        }
+        int num = array[0];
+        int count = 1;
+        for (int i = 1; i < array.length; i++) {
+            if (count == 0) {
+                num = array[i];
+                count++;
+            } else if (array[i] == num) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        if (count > 0) {
+            int times = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == num) {
+                    times++;
+                }
+            }
+            if (times * 2 > array.length) {
+                mIsInputInvalid = false;
+                return num;
+            }
+        }
+        return 0;
+    }
+
+    /**
+     *  输入n个整数，找出其中最小的k个数。
+     *  例如输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。
+     * @param input
+     * @param k
+     * @return
+     */
+    public static ArrayList<Integer> getLeastNumbers_Solution2(int[] input, int k) {
+        ArrayList<Integer> leastNumbers = new ArrayList<Integer>();
+        while (input == null || k <= 0 || k > input.length) {
+            return leastNumbers;
+        }
+        int[] numbers = new int[k];  //用于放最小的k个数
+        for (int i = 0; i < k; i++) {
+            numbers[i] = input[i];//先放入前k个数
+        }
+        creatMaxHeap(numbers, 0, k - 1);//将数组构造成最大堆形式
+        for (int i = k; i < input.length; i++) {
+            if (input[i] < numbers[0]) { //存在更小的数字时
+                numbers[0] = input[i];
+                creatMaxHeap(numbers, 0, k - 1);//重新调整最大堆
+            }
+        }
+        for (int n : numbers) {
+            leastNumbers.add(n);
+        }
+        return leastNumbers;
     }
 }
