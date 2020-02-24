@@ -2193,4 +2193,32 @@ public class Utils {
         }
         return leastNumbers;
     }
+
+    private static boolean mInvalidInput = false;
+    /**
+     * 题目：输入一个整型数组，数组里有正数也有负数。数组中一个或连续的多个整
+     * 数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为O(n)。
+     * @param array
+     * @return
+     */
+    public static int findGreatestSumOfSubArray(int[] array) {
+        if (array == null || array.length <= 0) {
+            mInvalidInput = true;
+            return 0;
+        }
+        mInvalidInput = false;
+        int sum = array[0];
+        int maxSum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (sum < 0) {
+                sum = array[i];
+            } else {
+                sum += array[i];
+            }
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+        }
+        return maxSum;
+    }
 }
