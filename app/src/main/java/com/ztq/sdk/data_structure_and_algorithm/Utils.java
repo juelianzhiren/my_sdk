@@ -2221,4 +2221,29 @@ public class Utils {
         }
         return maxSum;
     }
+
+    /**
+     * 题目：输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如
+     * 输入12，从1到12这些整数中包含1 的数字有1，10，11和12，1一共出现了5次。
+     * @param n
+     * @return
+     */
+    public static int numberOf1Between1AndN_Solution(int n) {
+        int count = 0;
+        for (int i = 1; i <= n; i *= 10) { // i代表位数
+            int high = n / (i * 10); // 更高位数字
+            int low = (n % i); // 更低位数字
+            int cur = (n / i) % 10; // 当前位数字
+            System.out.println("n = " + n + "; high = " + high + "; low = " + low + "; cur = " + cur + "; i = " + i);
+            if (cur == 0) {
+                count += high * i;
+            } else if (cur == 1) {
+                count += high * i + (low + 1);
+            } else {
+                count += (high + 1) * i;
+            }
+        }
+        System.out.println("count = " + count);
+        return count;
+    }
 }
