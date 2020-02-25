@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -2245,5 +2246,92 @@ public class Utils {
         }
         System.out.println("count = " + count);
         return count;
+    }
+
+    /**
+     * 数字序列中某一位的数字
+     * 数字以0123456789101112131415…的格式序列化到一个字符序列中。
+     * 在这个序列中，第5位（从0开始计数）是5，第13位是1，第19位是4，等等。
+     * 请写一个函数求任意位对应的数字。
+     * @param index
+     * @return
+     */
+    public static int digitAtIndex(int index) {
+        if (index < 0) {
+            return -1;
+        }
+        int m = 1;  //m位数
+        while (true) {
+            int numbers = numbersOfIntegers(m);  //m位数的个数
+            if (index < numbers * m) {
+                return getDigit(index, m);
+            }
+            index -= numbers * m;
+            m++;
+        }
+    }
+
+    /**
+     * 返回m位数的总个数
+     * 例如，两位数一共有90个：10~99；三位数有900个：100~999
+     */
+    private static int numbersOfIntegers(int m) {
+        if (m == 1) {
+            return 10;
+        }
+        return (int) (9 * Math.pow(10, m - 1));
+    }
+
+    /**
+     * 获取数字
+     */
+    private static int getDigit(int index, int m) {
+        int number = getFirstNumber(m) + index / m;  //对应的m位数
+        int indexFromRight = m - index % m;  //在数字中的位置
+        for (int i = 1; i < indexFromRight; i++) {
+            number /= 10;
+        }
+        return number % 10;
+    }
+
+    /**
+     * 第一个m位数
+     * 例如第一个两位数是10，第一个三位数是100
+     */
+    private static int getFirstNumber(int m) {
+        if (m == 1) {
+            return 0;
+        }
+        return (int) Math.pow(10, m - 1);
+    }
+
+    /**
+     * 把数组排成最小的数
+     * 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+     * 例如输入数组{3, 32, 321}，则打印出这3个数字能排成的最小数字321323。
+     * @param numbers
+     * @return
+     */
+    public static String printMinNumber(int[] numbers) {
+        if (numbers == null || numbers.length <= 0) {
+            return "";
+        }
+        ArrayList<String> list = new ArrayList<String>();
+        for (int number : numbers) {
+            list.add(String.valueOf(number));
+        }
+        Collections.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                String a = s1 + s2;
+                String b = s2 + s1;
+                return a.compareTo(b);
+            }
+        });
+        StringBuilder sb = new StringBuilder();
+        for (String str : list) {
+            sb.append(str);
+        }
+        return sb.toString();
     }
 }
