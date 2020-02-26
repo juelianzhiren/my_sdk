@@ -2334,4 +2334,47 @@ public class Utils {
         }
         return sb.toString();
     }
+
+    /**
+     * 把数字翻译成字符串
+     * 题目：给定一个数字，我们按照如下规则把它翻译为字符串：0翻译成"a"，1翻
+     * 译成"b"，……，11翻译成"l"，……，25翻译成"z"。一个数字可能有多个翻译。例
+     * 如12258有5种不同的翻译，它们分别是"bccfi"、"bwfi"、"bczi"、"mcfi"和
+     * "mzi"。请编程实现一个函数用来计算一个数字有多少种不同的翻译方法。
+     * @param number
+     * @return
+     */
+    public static int getTranslationCount(int number) {
+        if (number < 0) {
+            return 0;
+        }
+        String sNumber = String.valueOf(number);
+        int len = sNumber.length();
+        int[] counts = new int[len];
+        for (int i = len - 1; i >= 0; i--) {
+            if (i == len - 1) {
+                counts[i] = 1;
+            } else {
+                counts[i] = counts[i + 1];
+                if (canBeTrans(sNumber, i)) {
+                    if (i == len - 2) {
+                        counts[i] += 1;
+                    } else {
+                        counts[i] += counts[i + 2];
+                    }
+                }
+            }
+        }
+        return counts[0];
+    }
+
+    private static boolean canBeTrans(String sNumber, int i) {
+        int a = sNumber.charAt(i) - '0';
+        int b = sNumber.charAt(i + 1) - '0';
+        int convert = a * 10 + b;
+        if (convert >= 10 && convert <= 25) {
+            return true;
+        }
+        return false;
+    }
 }
