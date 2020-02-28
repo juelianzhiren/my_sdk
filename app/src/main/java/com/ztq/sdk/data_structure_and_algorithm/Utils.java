@@ -2409,4 +2409,33 @@ public class Utils {
         }
         return maxValue[cols - 1];
     }
+
+    /**
+     * 最长不含重复字符的子字符串
+     * 请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
+     * 假设字符串中只包含从'a'到'z'的字符
+     * @param str
+     * @return
+     */
+    public static int lengthOfLongestSubstring(String str) {
+        if (str.length() == 0) {
+            return 0;
+        }
+        int maxLength = 1;
+        List<Character> list = new ArrayList<Character>();
+        list.add(str.charAt(0));
+        for (int i = 1; i < str.length(); i++) {
+            if (list.contains(str.charAt(i))) {
+                // 返回与当前字符相同字符的索引
+                int index = list.indexOf(str.charAt(i));
+                list = list.subList(index + 1, list.size());
+                list.add(str.charAt(i));
+                maxLength = Math.max(maxLength, list.size());
+            } else {
+                list.add(str.charAt(i));
+                maxLength = Math.max(maxLength, list.size());
+            }
+        }
+        return maxLength;
+    }
 }
