@@ -2438,4 +2438,49 @@ public class Utils {
         }
         return maxLength;
     }
+
+    private static int[] positionRecords; //字符读出位置记录
+    private static int position;  //字符的读出位置
+    /**
+     * 字符流中第一个只出现一次的字符
+     * 请实现一个函数用来找出字符流中第一个只出现一次的字符。
+     * 例如，当从字符流中只读出前两个字符"go"时，第一个只出现一次的字符是'g'。
+     * 当从该字符流中读出前六个字符"google"时，第一个只出现一次的字符是'l'。
+     * @param str
+     */
+    private static void findFirstCharInCharacterStream(String str) {
+        positionRecords = new int[256];
+        for (int i = 0; i < positionRecords.length; i++) {
+            positionRecords[i] = -1;
+        }
+        position = 0;
+        for (int i = 0; i < str.length(); i++) {
+            insert(str.charAt(i));
+        }
+        System.out.println(firstAppearingOnceChar());
+    }
+
+    // 从字符流中读出字符
+    private static void insert(char ch) {
+        if (positionRecords[ch] == -1) {
+            positionRecords[ch] = position; // 记录读出位置
+        } else if (positionRecords[ch] >= 0) {
+            positionRecords[ch] = -2; // 该字符出现多次
+        }
+        position++;
+    }
+
+    // 字符流中第一个只出现一次的字符
+    private static char firstAppearingOnceChar() {
+        char result = '#';
+        int minIndex = Integer.MAX_VALUE; // 非重复字符最早出现的位置
+        for (int i = 0; i < positionRecords.length; i++) {
+            System.out.println("i = " + i + "; value = " + positionRecords[i]);
+            if (positionRecords[i] >= 0 && positionRecords[i] < minIndex) {
+                result = (char) i;
+                minIndex = positionRecords[i];
+            }
+        }
+        return result;
+    }
 }
