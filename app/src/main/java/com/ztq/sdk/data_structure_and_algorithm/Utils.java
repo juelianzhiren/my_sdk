@@ -121,7 +121,7 @@ public class Utils {
         if (begin == end) {
             return 0;
         }
-        int mid = (begin + end) / 2;
+        int mid = (begin + end) >> 1;
         // 递归调用
         int left = iPairs(copy, array, begin, mid);
         int right = iPairs(copy, array, mid + 1, end);
