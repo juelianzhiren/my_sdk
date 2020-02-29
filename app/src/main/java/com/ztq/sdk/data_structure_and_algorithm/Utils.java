@@ -2483,4 +2483,49 @@ public class Utils {
         }
         return result;
     }
+
+    /**
+     * 两个链表的第一个公共结点
+     * 输入两个链表，找出它们的第一个公共结点
+     * @param pHead1
+     * @param pHead2
+     * @return
+     */
+    public static ListNode findFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        if (pHead1 == null || pHead2 == null) {
+            return null;
+        }
+        int length1 = getLength(pHead1);
+        int length2 = getLength(pHead2);
+        int lengthDif = length1 - length2;
+        ListNode longList = pHead1;
+        ListNode shortList = pHead2;
+        if (lengthDif < 0) {
+            longList = pHead2;
+            shortList = pHead1;
+            lengthDif = -lengthDif;
+        }
+        for (int i = 0; i < lengthDif; i++) {
+            longList = longList.next;
+        }
+        while (longList != null && longList != shortList) {
+            longList = longList.next;
+            shortList = shortList.next;
+        }
+        return longList;  //没有公共结点刚好是null
+    }
+
+    /**
+     * 获取链表的长度
+     * @param head
+     * @return
+     */
+    public static int getLength(ListNode head) {
+        int len = 0;
+        while (head != null) {
+            len++;
+            head = head.next;
+        }
+        return len;
+    }
 }
