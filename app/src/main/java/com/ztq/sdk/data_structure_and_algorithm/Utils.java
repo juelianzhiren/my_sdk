@@ -671,7 +671,6 @@ public class Utils {
     }
 
     private static boolean mIsBalanceBinaryTree = true;
-
     /**
      * 重置mIsBalanceBinaryTree变量值
      */
@@ -719,7 +718,7 @@ public class Utils {
      * @param array
      * @param list  记录这两个只出现一次的数字
      */
-    public static void findNumsAppearOnce(int[] array, List<Integer> list) {
+    public static void findTwoNumsAppearOnce(int[] array, List<Integer> list) {
         if (array == null || array.length < 2) {
             return;
         }
@@ -784,6 +783,35 @@ public class Utils {
             // result=result<<1; //不能放在后面，否则最前面一位就没了
         }
         return result;
+    }
+
+    /**
+     * 和为s的两个数字
+     * 输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们的和正好是s。
+     * 如果有多对数字的和等于s，输出任意一对即可。
+     * @param array
+     * @param sum
+     * @return
+     */
+    public static ArrayList<Integer> findNumbersWithSum(int[] array, int sum) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        if (array == null || array.length <= 0) {
+            return list;
+        }
+        int low = 0;
+        int high = array.length - 1;
+        while (low < high) {
+            if (array[low] + array[high] == sum) {
+                list.add(array[low]);
+                list.add(array[high]);
+                break;
+            } else if (array[low] + array[high] < sum) {
+                low++;
+            } else {
+                high--;
+            }
+        }
+        return list;
     }
 
     /**
