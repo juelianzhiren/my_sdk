@@ -293,7 +293,7 @@ public class Utils {
         int j = 0;
         int k = 0;
         int temp = 0;
-        for (int i = high / 2; i >= low; i--) {
+        for (int i = high >> 1; i >= low; i--) {
             temp = a[i];
             k = i;
             j = 2 * k + 1;
@@ -531,7 +531,7 @@ public class Utils {
         if (startIndex > endIndex) {
             return -1;
         }
-        int middleIndex = (startIndex + endIndex) / 2;
+        int middleIndex = (startIndex + endIndex) >> 1;
         int middleData = a[middleIndex];
         if (middleData == k) {
             if ((middleIndex > 0 && a[middleIndex - 1] != k) || middleIndex == 0) {
@@ -551,7 +551,7 @@ public class Utils {
         if (startIndex > endIndex) {
             return -1;
         }
-        int middleIndex = (startIndex + endIndex) / 2;
+        int middleIndex = (startIndex + endIndex) >> 1;
         int middleData = a[middleIndex];
         if (middleData == k) {
             if ((middleIndex < a.length - 1 && a[middleIndex + 1] != k) || middleIndex == a.length - 1) {
@@ -591,9 +591,6 @@ public class Utils {
             } else {
                 leftIndex = middleIndex + 1;
             }
-        }
-        if (leftIndex == a.length) {
-            return a.length;
         }
         return -1;
     }
@@ -803,7 +800,7 @@ public class Utils {
         int small = 1;
         int big = 2;
         int curSum = small + big;
-        while (small <= sum / 2) {
+        while (small <= sum >> 1) {
             if (curSum == sum) {
                 ArrayList<Integer> sequence = new ArrayList<Integer>();
                 for (int i = small; i <= big; i++) {
@@ -1175,7 +1172,7 @@ public class Utils {
         }
         int low = 0;
         int high = array.length - 1;
-        int mid = (low + high) / 2;
+        int mid = (low + high) >> 1;
         //升序数组
         if (array[low] < array[high]) {
             return array[low];
@@ -1194,7 +1191,7 @@ public class Utils {
             if (high - low == 1) {
                 break;
             }
-            mid = (low + high) / 2;
+            mid = (low + high) >> 1;
             if (array[mid] <= array[high]) {
                 high = mid;
             }
@@ -1338,7 +1335,7 @@ public class Utils {
         for (int i = 4; i <= length; i++) {
             int max = 0;
             // 算不同子长度的乘积，找出最大的乘积
-            for (int j = 1; j <= i / 2; j++) {
+            for (int j = 1; j <= i >> 1; j++) {
                 if (max < product[j] * product[i - j]) {
                     max = product[j] * product[i - j];
                 }
@@ -1364,7 +1361,7 @@ public class Utils {
         if (length - timesOf3 * 3 == 1) {
             timesOf3--;
         }
-        timesOf2 = (length - timesOf3 * 3) / 2;
+        timesOf2 = (length - timesOf3 * 3) >> 1;
         return (int) (Math.pow(3, timesOf3) * Math.pow(2, timesOf2));
     }
 
@@ -2527,5 +2524,33 @@ public class Utils {
             head = head.next;
         }
         return len;
+    }
+
+    /**
+     * 二叉搜索树的第k个结点
+     * 给定一棵二叉搜索树，请找出其中的第k小的结点。
+     * @param pRoot
+     * @param k
+     * @return
+     */
+    public static BinaryTreeNode kthNode(BinaryTreeNode pRoot, int k) {
+        if (pRoot == null || k <= 0) {
+            return null;
+        }
+        List<BinaryTreeNode> cache = new ArrayList<>();
+        kthNodeHelper(pRoot, k, cache);
+        return k <= cache.size() ? cache.get(k - 1) : null;
+    }
+
+    private static void kthNodeHelper(BinaryTreeNode node, int k, List<BinaryTreeNode> cache) {
+        if (node == null) {
+            return;
+        }
+        kthNodeHelper(node.getLeftNode(), k, cache);
+        cache.add(node);
+        if (cache.size() == k) {
+            return;
+        }
+        kthNodeHelper(node.getRightNode(), k, cache);
     }
 }
