@@ -2650,8 +2650,8 @@ public class Utils {
      * @param size
      * @return
      */
-    public static ArrayList<Integer> maxInWindows(int[] num, int size) {
-        ArrayList<Integer> max = new ArrayList<Integer>();
+    public static List<Integer> maxInWindows(int[] num, int size) {
+        List<Integer> max = new ArrayList<Integer>();
         if (num == null || num.length <= 0 || size <= 0 || size > num.length) {
             return max;
         }
