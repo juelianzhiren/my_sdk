@@ -2677,4 +2677,91 @@ public class Utils {
         }
         return max;
     }
+
+    /**
+     * 股票的最大利润
+     * 假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖交易该股票可能获得的利润是多少？
+     * 例如一只股票在某些时间节点的价格为{9, 11, 8, 5,7, 12, 16, 14}。
+     * 如果我们能在价格为5的时候买入并在价格为16时卖出，则能收获最大的利润11。
+     * @param arr
+     * @return
+     */
+    public static int maxDiff(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return -1;      //error
+        }
+        int min = arr[0];
+
+        //最大利润可以是负数，只要亏损最小就行
+        int maxDiff = arr[1] - min;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i - 1] < min) {     //保存“之前”最小数字
+                min = arr[i - 1];
+            }
+            if (arr[i] - min > maxDiff) {
+                maxDiff = arr[i] - min;
+            }
+        }
+        return maxDiff;
+    }
+
+    /**
+     * 求1+2+…+n
+     * 求1+2+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
+     * @param n
+     * @return
+     */
+    public static int getSum(int n) {
+        int sum = n;
+        boolean flag = (n > 1) && ((sum += getSum(n - 1)) > 0);
+        //上面这句话相当于：
+        //if(n>1)
+        //   sum+=getSum(n-1);
+
+        //也可以使用||来实现
+        //boolean flag = (n==1) || ((sum+=getSum(n-1))>0);
+        return sum;
+    }
+
+    /**
+     * 不用加减乘除做加法
+     * 写一个函数，求两个整数之和，要求在函数体内不得使用＋、－、×、÷四则运算符号。
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public static int add(int num1, int num2) {
+        while (num2 != 0) {
+            int sum = num1 ^ num2;            // 没进位的和
+            int carry = (num1 & num2) << 1;   // 进位
+            // 如果可以用加法这样写 return (sum + carry);
+            num1 = sum;
+            num2 = carry;
+        }
+        return num1;
+    }
+
+    /**
+     * 构建乘积数组
+     * 给定一个数组A[0, 1, …, n-1]，请构建一个数组B[0, 1, …, n-1]，其中B中的元素B[i] =A[0]×A[1]×… ×A[i-1]×A[i+1]×…×A[n-1]。
+     * 不能使用除法。
+     * @param A
+     * @return
+     */
+    public static int[] multiply(int[] A) {
+        if (A == null || A.length < 2) {
+            return null;
+        }
+        int[] B = new int[A.length];
+        B[0] = 1;
+        for (int i = 1; i < A.length; i++) {
+            B[i] = B[i - 1] * A[i - 1];
+        }
+        int temp = 1;
+        for (int i = A.length - 2; i >= 0; i--) {
+            temp *= A[i + 1];
+            B[i] *= temp;
+        }
+        return B;
+    }
 }
