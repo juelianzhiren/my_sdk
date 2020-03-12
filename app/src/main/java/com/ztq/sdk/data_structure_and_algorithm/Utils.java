@@ -327,13 +327,13 @@ public class Utils {
      * @param a
      */
     public static void directInsertSort(int[] a) {
-        if (a == null || a.length == 0) {
+        if (a == null || a.length  <= 1) {
             return;
         }
         int temp = 0;
         for (int i = 1; i < a.length; i++) {
             for (int j = i; j > 0; j--) {
-                if (a[j] < a[j - 1]) {
+                if (a[j] < a[j - 1]) {   // 可以改进下：使用二分查找，这样效率更快
                     temp = a[j];
                     a[j] = a[j - 1];
                     a[j - 1] = temp;
@@ -347,6 +347,29 @@ public class Utils {
             }
             str = "直接插入排序第" + i + "次子步骤后的：" + str;
             Log.v(TAG, str);
+        }
+    }
+
+    /**
+     * 直接插入排序的另外一种方式（更优化）
+     * @param arr
+     */
+    public static void directInsertSort1(int[] arr) {
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
+        for (int i = 1; i < arr.length; i++) {
+            //挖出一个要用来插入的值,同时位置上留下一个可以存新的值的坑
+            int x = arr[i];
+            int j = i - 1;
+            //在前面有一个或连续多个值比x大的时候,一直循环往前面找,将x插入到这串值前面
+            while (j >= 0 && arr[j] > x) {
+                //当arr[j]比x大的时候,将j向后移一位,正好填到坑中
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            //将x插入到最前面
+            arr[j + 1] = x;
         }
     }
 
