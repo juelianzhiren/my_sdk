@@ -154,7 +154,7 @@ public class Utils {
      * @param a
      */
     public static void bubbleSort(int[] a) {
-        if (a == null || a.length == 0) {
+        if (a == null || a.length <= 1) {
             return;
         }
         int temp = 0;
@@ -186,7 +186,7 @@ public class Utils {
      * @param a
      */
     public static void quickSort(int[] a) {
-        if (a == null) {
+        if (a == null || a.length <= 1) {
             return;
         }
         quickSort(a, 0, a.length - 1);
@@ -200,7 +200,7 @@ public class Utils {
      * @param end
      */
     public static void quickSort(int[] a, int start, int end) {
-        if (a == null || a.length == 0 || start < 0 || end > a.length - 1) {
+        if (a == null || a.length <= 1 || start < 0 || end > a.length - 1) {
             return;
         }
         int pivot = a[start];
@@ -245,7 +245,7 @@ public class Utils {
      * @param a
      */
     public static void simpleChooseSort(int[] a) {
-        if (a == null || a.length == 0) {
+        if (a == null || a.length <= 1) {
             return;
         }
         int k = 0;
@@ -288,7 +288,7 @@ public class Utils {
      * @param high
      */
     public static void creatMaxHeap(int[] a, int low, int high) {
-        if (a == null || a.length == 0 || low < 0 || high > a.length - 1 || low >= high) {
+        if (a == null || a.length <= 1 || low < 0 || high > a.length - 1 || low >= high) {
             return;
         }
         int j = 0;
@@ -379,7 +379,7 @@ public class Utils {
      * @param a
      */
     public static void shellSort(int[] a) {
-        if (a == null || a.length == 0) {
+        if (a == null || a.length <= 1) {
             return;
         }
         int increment = a.length / 3;
