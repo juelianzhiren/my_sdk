@@ -1,0 +1,30 @@
+ 1、查询当前栈顶Activity
+ adb shell dumpsys activity | findstr "mFocusedActivity"
+ 2、查看activity泄漏情况
+ adb shell dumpsys meminfo android.rk.RockVideoPlayer
+ 3、查看移动端尺寸
+ adb shell wm size
+ 4、清除某个应用的缓存
+ adb shell pm clear 包名
+ 5、连接到某个设备的手机
+ adb devices
+ adb -s device_id shell
+ adb | grep "tag"
+ 6、卸载应用
+ adb install -r com.noahedu.learnstore
+ adb uninstall com.noahedu.learnstore
+ 7、查看手机上所有的安装包
+ adb shell pm list package
+ 8、查看第三方安装包
+ adb shell pm list package -3
+ 9、查看系统的包
+ adb shell pm list packages -s
+ 10、查看启动包中搜索的包(包名前缀为com.noahedu)
+ adb shell pm list packages -e "com.noahedu"
+ 11、 获取当前打开的APP包名（前面的为包名，斜杠后面的是当前启动的acivity）
+ adb shell dumpsys window | findstr mCurrentFocus
+ 
+ 12、monkey测试，指定用户事件的操作间隔时延1000毫秒，执行10000000次 默认级别，仅提供启动、测试完成和最终结果等少量信息  
+     -v -v表示提供较为详细的日志，包括每个发送到Activity的事件信息  老化的结果保存在D:\debug\logcat.txt
+ adb shell monkey -p com.noahedu.teachingvideo --throttle 1000 -v 10000000>D:\debug\logcat.txt
+ （按ctrl+c结束老化测试）
