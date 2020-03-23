@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -151,46 +152,56 @@ public class Utils {
         return result;
     }
 
-    public static void writeMsgToFile(String path, String str) {
-        if (isNullOrNil(path) || isNullOrNil(str)) {
-            return;
-        }
-        File file = new File(path);
-        if (file.isDirectory()) {
-            return;
-        }
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
+    public static void writeMsgToFile(final String path, final String str) {
+        MyHandlerThread.postToWorker1(new Runnable() {
+            @Override
+            public void run() {
+                if (isNullOrNil(path) || isNullOrNil(str)) {
+                    return;
+                }
+                File file = new File(path);
+                if (file.isDirectory()) {
+                    return;
+                }
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    FileWriter fw = new FileWriter(file, true);
+                    fw.write(str);
+                    fw.flush();
+                    fw.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            FileWriter fw = new FileWriter(file, true);
-            fw.write(str);
-            fw.flush();
-            fw.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        });
     }
 
-    public static void writeExceptionToFile(String path, Throwable throwable){
-        if (isNullOrNil(path) || throwable == null) {
-            return;
-        }
-        File file = new File(path);
-        if (file.isDirectory()) {
-            return;
-        }
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
+    public static void writeExceptionToFile(final String path, final Throwable throwable){
+        MyHandlerThread.postToWorker1(new Runnable() {
+            @Override
+            public void run() {
+                if (isNullOrNil(path) || throwable == null) {
+                    return;
+                }
+                File file = new File(path);
+                if (file.isDirectory()) {
+                    return;
+                }
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    PrintWriter pw = new PrintWriter(new FileWriter(file, true));
+                    throwable.printStackTrace(pw);
+                    pw.flush();
+                    pw.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            PrintWriter pw = new PrintWriter(new FileWriter(file, true));
-            throwable.printStackTrace(pw);
-            pw.flush();
-            pw.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        });
     }
 
     public static void showToast(Context context, final String msg) {
@@ -1150,5 +1161,21 @@ public class Utils {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     * 扫描sd卡，进行更新
+     * @param context
+     * @param file
+     */
+    public static void notifySystemToScan(Context context, File file) {
+        if (context == null || file == null || !file.exists()) {
+            return;
+        }
+//        Log.v(TAG, "filePth = " + file.getAbsolutePath());
+        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        Uri uri = Uri.fromFile(file);
+        intent.setData(uri);
+        context.sendBroadcast(intent);
     }
 }
