@@ -1,0 +1,16 @@
+1、配置用户名
+git config --global user.name "zhangtongquan1013@126.com"
+2、配置邮箱
+git config --global user.email 'zhangtongquan1013@126.com'
+3、获取最新代码
+git pull
+4、获取远程仓库地址
+git remote -v
+5、添加修改到本地仓库
+git add *
+6、提交修改到本地仓库
+git commit -m "注释内容"
+7、推送修改到远程仓库
+git push
+8、撤销这一次错误的commit
+git reset
