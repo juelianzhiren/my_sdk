@@ -66,6 +66,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
@@ -1177,5 +1178,37 @@ public class Utils {
         Uri uri = Uri.fromFile(file);
         intent.setData(uri);
         context.sendBroadcast(intent);
+    }
+
+    public static String getResuorceString(Context context, int stringId) {
+        if (context == null || stringId <= 0) {
+            return "";
+        }
+        return context.getResources().getString(stringId);
+    }
+
+    /**
+     * 连接Get请求url，空格用%20替换
+     */
+    public static String joinGetUrl(String url, Map<String, String> param) {
+        if (isNullOrNil(url)) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        boolean isFirst = true;
+        if(param != null && !param.isEmpty()) {
+            for(Map.Entry<String, String> entry:param.entrySet()) {
+                if(isFirst) {
+                    builder.append("?");
+                    isFirst = false;
+                } else {
+                    builder.append("&");
+                }
+                builder.append(entry.getKey() + "=" + entry.getValue());
+            }
+        }
+        String paramStr = builder.toString();
+        paramStr = paramStr.replaceAll(" ", "%20");//Volley框架Get请求，参数带空格会报错505
+        return url + paramStr;
     }
 }

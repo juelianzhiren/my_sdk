@@ -18,8 +18,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        new MyHandlerThread();
-
+        ApplicationHolder.getInstance().init(this);
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         float density = metrics.density;
         Log.v(TAG, "density = " + density);

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">sdk</string>
     <string name="download">下载</string>
+    
+    <string name="network_error">网络异常</string>
+    <string name="json_parse_error">json转换异常</string>
+    <string name="server_error">服务器异常</string>
+    <string name="io_error">IO异常</string>
+    <string name="runtime_error">运行异常</string>
+    <string name="unknown_error">未知异常</string>
 </resources>
