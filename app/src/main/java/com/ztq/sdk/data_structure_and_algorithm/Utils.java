@@ -2842,4 +2842,47 @@ public class Utils {
             return nums1[p1 - 1];
         }
     }
+
+    /**
+     * 最长回文子串
+     * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
+     * @param str
+     * @return
+     */
+    public static String getLongestPalindrome(String str) {
+        if (com.ztq.sdk.utils.Utils.isNullOrNil(str)) {
+            return "";
+        }
+        int len = str.length();
+        if (len < 2) {
+            return str;
+        }
+        boolean[][] dp = new boolean[len][len];
+        for(int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+        int maxLen = 1;
+        int start = 0;
+        for(int j = 1; j < len; j++) {
+            for(int i = 0; i < j; i++) {
+                if(str.charAt(i) == str.charAt(j)) {
+                    if (j - i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                } else {
+                    dp[i][j] = false;
+                }
+                if (dp[i][j]) {
+                    int curLen = j - i + 1;
+                    if (curLen > maxLen) {
+                        maxLen = curLen;
+                        start = i;
+                    }
+                }
+            }
+        }
+        return str.substring(start, start + maxLen);
+    }
 }
