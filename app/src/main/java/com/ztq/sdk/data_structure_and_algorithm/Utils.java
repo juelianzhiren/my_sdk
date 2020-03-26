@@ -2844,7 +2844,7 @@ public class Utils {
     }
 
     /**
-     * 最长回文子串
+     * 最长回文子串(动态规划法)
      * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
      * @param str
      * @return
@@ -2884,5 +2884,91 @@ public class Utils {
             }
         }
         return str.substring(start, start + maxLen);
+    }
+
+    /**
+     * Z字型变换
+     * 将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
+     * 比如输入字符串为 "LEETCODEISHIRING" 行数为 3 时，排列如下：
+     * L   C   I   R
+     * E T O E S I I G
+     * E   D   H   N
+     * 之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如："LCIRETOESIIGEDHN"。
+     * 请你实现这个将字符串进行指定行数变换的函数
+     * @param s
+     * @param numRows
+     * @return
+     */
+    public String convert(String s, int numRows) {
+        if (com.ztq.sdk.utils.Utils.isNullOrNil(s) || numRows <= 0) {
+            return "";
+        }
+        if (numRows == 1) {
+            return s;
+        }
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < Math.min(numRows, s.length()); i++) {
+            rows.add(new StringBuilder());
+        }
+        int curRow = 0;
+        boolean goingDown = false;
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);  // 按行存值
+            if (curRow == 0 || curRow == numRows - 1) {
+                goingDown = !goingDown;   // 转向,很独特的方法,学到了
+            }
+            curRow += goingDown ? 1 : -1;  // 递增或递减
+        }
+
+        StringBuilder ret = new StringBuilder();
+        for (StringBuilder row : rows) {
+            ret.append(row);      // 拼接字符串
+        }
+        return ret.toString();
+    }
+
+    /**
+     * 反转整数（reverse integer）
+     * 给定一个 32 位有符号整数，将整数中的数字进行反转。
+     * @param x
+     * @return
+     */
+    public static int reverse(int x) {
+        int res = 0;
+        while (x != 0) {
+            int temp = x % 10 + res * 10;
+            System.out.println("temp = " + temp + "; x = " + x + "; x%10 = " + (x %10) + "; res = " + res);
+            if ((temp - x % 10) / 10 != res) {
+                return 0;
+            }
+            res = temp;
+            x /= 10;
+        }
+        return res;
+    }
+
+    /**
+     * 反转整数（reverse integer）方法二
+     * @param x
+     * @return
+     */
+    public static int reverse1(int x) {
+        long res = 0;
+        int flag = -1;
+        if (x < 0) {
+            x = -x;
+        } else {
+            flag = 1;
+        }
+        while (x != 0) {
+            res = res * 10 + x % 10;
+            x /= 10;
+        }
+        res *= flag;
+        if (res > Integer.MAX_VALUE || res < Integer.MIN_VALUE) {
+            return 0;
+        } else {
+            return (int) res;
+        }
     }
 }
