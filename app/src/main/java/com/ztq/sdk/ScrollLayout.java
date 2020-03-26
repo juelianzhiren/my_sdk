@@ -3,9 +3,10 @@ package com.ztq.sdk;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
+
+import com.ztq.sdk.log.Log;
 
 /**
  * Created by ztq on 2019/9/17.

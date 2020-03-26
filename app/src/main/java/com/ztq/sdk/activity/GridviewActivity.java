@@ -1,13 +1,11 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.GridView;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.GridviewAdapter;
-import com.ztq.sdk.helper.MyHandlerThread;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,7 @@ import java.util.List;
 /**
  * Created by ztq on 2019/10/24.
  */
-public class GridviewActivity extends Activity {
+public class GridviewActivity extends BaseActivity {
     private final String TAG = "noahedu.GridviewActivity";
     private Context mContext;
     private GridView mGridView;

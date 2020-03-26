@@ -1,12 +1,11 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.entity.PetalsInfo;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.widget.PetalsInRoundView;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import me.jessyan.autosize.internal.CancelAdapt;
  * Date: 2019/12/20 12:45
  * Description: ${DESCRIPTION}
  */
-public class PetalsRoundActivity extends Activity implements CancelAdapt {
+public class PetalsRoundActivity extends BaseActivity implements CancelAdapt {
     private static final String TAG = "noahedu.PetalsRoundActivity";
     private Context mContext;
     private PetalsInRoundView mPetalsInRoundView;

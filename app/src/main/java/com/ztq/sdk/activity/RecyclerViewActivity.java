@@ -1,6 +1,5 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,7 +9,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.RecyclerViewAdapter;
-import com.ztq.sdk.item_decoration.StaggeredDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +20,7 @@ import me.jessyan.autosize.internal.CancelAdapt;
  *
  * @author ztq
  */
-public class RecyclerViewActivity extends Activity implements CancelAdapt{
+public class RecyclerViewActivity extends BaseActivity implements CancelAdapt{
     private static final String TAG = "noahedu.RecyclerViewActivity";
     private Context mContext;
     private RecyclerView mRecyclerView;

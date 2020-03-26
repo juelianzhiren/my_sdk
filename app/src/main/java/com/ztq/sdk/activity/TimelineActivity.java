@@ -1,6 +1,5 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -12,7 +11,7 @@ import com.ztq.sdk.entity.TimelineItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimelineActivity extends Activity {
+public class TimelineActivity extends BaseActivity {
     private static final String TAG = "noahedu.TimelineActivity";
     private ListView mListView;
     private TimelineAdapter mAdapter;

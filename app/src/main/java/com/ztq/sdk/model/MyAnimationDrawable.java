@@ -6,9 +6,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.ImageView;
 
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 import org.xmlpull.v1.XmlPullParser;

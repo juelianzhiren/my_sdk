@@ -7,19 +7,16 @@ import android.graphics.BitmapRegionDecoder;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
 import com.ztq.sdk.entity.BitmapUnit;
 import com.ztq.sdk.helper.MyHandlerThread;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MoveGestureDetector;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by ztq on 19/10/15.

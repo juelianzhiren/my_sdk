@@ -1,12 +1,11 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.format.DateUtils;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -14,6 +13,7 @@ import android.widget.SeekBar;
 import com.ztq.sdk.R;
 import com.ztq.sdk.entity.LyricsEntity;
 import com.ztq.sdk.helper.MyHandlerThread;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.LyricsView;
 
@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
  * Created by ztq on 2019/10/17.
  * 显示歌词的activity
  */
-public class LyricsActivity extends Activity {
+public class LyricsActivity extends BaseActivity {
     private final String TAG = "noahedu.LyricsActivity";
     private Context mContext;
     private LyricsView mLyricsView;

@@ -22,7 +22,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +34,7 @@ import android.widget.Toast;
 import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.OneDataSourceAdapter;
 import com.ztq.sdk.helper.MyHandlerThread;
+import com.ztq.sdk.log.Log;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;

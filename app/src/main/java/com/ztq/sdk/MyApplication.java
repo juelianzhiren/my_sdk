@@ -2,9 +2,9 @@ package com.ztq.sdk;
 
 import android.app.Application;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import com.ztq.sdk.helper.MyHandlerThread;
+import com.ztq.sdk.log.Log;
 
 import me.jessyan.autosize.AutoSizeConfig;
 

@@ -6,13 +6,14 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+
+import com.ztq.sdk.log.Log;
 
 /**
  * Created by ztq on 2019/10/25.

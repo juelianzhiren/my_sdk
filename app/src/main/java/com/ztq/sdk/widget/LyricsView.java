@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +17,7 @@ import android.view.animation.LinearInterpolator;
 import com.ztq.sdk.R;
 import com.ztq.sdk.entity.LyricsEntity;
 import com.ztq.sdk.helper.MyHandlerThread;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 import java.util.List;

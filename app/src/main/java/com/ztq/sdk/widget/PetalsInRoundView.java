@@ -11,7 +11,6 @@ import android.graphics.RectF;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
@@ -20,6 +19,7 @@ import android.view.ViewConfiguration;
 import com.ztq.sdk.R;
 import com.ztq.sdk.constant.Constants;
 import com.ztq.sdk.entity.PetalsInfo;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 import java.util.ArrayList;

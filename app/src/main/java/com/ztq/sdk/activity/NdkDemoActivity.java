@@ -1,6 +1,5 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -10,7 +9,7 @@ import com.ztq.sdk.jni.JniInterface;
 /**
  * ndk demo 的actiivty
  */
-public class NdkDemoActivity extends Activity {
+public class NdkDemoActivity extends BaseActivity {
     private static final String TAG = "noahedu.NdkDemoActivity";
     private TextView mTv;
     private JniInterface mJniInterface;

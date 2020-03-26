@@ -4,28 +4,27 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.log.Log;
+import com.ztq.sdk.widget.GifView;
 import com.ztq.sdk.widget.ProgressButton;
 import com.ztq.sdk.widget.ProgressView;
-import com.ztq.sdk.widget.GifView;
 import com.ztq.sdk.widget.SelectableTextView;
 
 /**
  * Created by ztq on 2019/7/29.
  */
-public class DemoActivity extends Activity {
+public class DemoActivity extends BaseActivity {
     private final String TAG = "noahedu.DemoActivity";
     private SelectableTextView mSelectableTv;
     private GifView mGifView;

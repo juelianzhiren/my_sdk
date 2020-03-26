@@ -21,8 +21,10 @@ public class AppException extends Exception {
     public static final int CODE_IO_ERROR = 4;
     /**运行错误*/
     public static final int CODE_RUNTIME_ERROR = 5;
+    /**接口不存在*/
+    public static final int CODE_API_NOT_FOUND = 6;
     /**未知异常*/
-    public static final int CODE_UNKNOWN_ERROR = 6;
+    public static final int CODE_UNKNOWN_ERROR = 7;
 
     public AppException(Exception e) {
         super(e);
@@ -86,6 +88,8 @@ public class AppException extends Exception {
             case CODE_RUNTIME_ERROR:
                 errorMessage = Utils.getResuorceString(ctx, R.string.runtime_error);
                 break;
+            case CODE_API_NOT_FOUND:
+                errorMessage = Utils.getResuorceString(ctx, R.string.api_not_found);
             case CODE_UNKNOWN_ERROR:
                 errorMessage = Utils.getResuorceString(ctx, R.string.unknown_error);
                 break;

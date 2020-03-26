@@ -1,6 +1,5 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,7 +19,7 @@ import java.util.List;
 /**
  * Created by ztq on 2019/11/23.
  */
-public class AnimationActivity extends Activity {
+public class AnimationActivity extends BaseActivity {
     private final String TAG = "noahedu.AnimationActivity";
     private Context mContext;
     private ImageView mIv;
@@ -28,7 +27,7 @@ public class AnimationActivity extends Activity {
     private MyAdapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
 

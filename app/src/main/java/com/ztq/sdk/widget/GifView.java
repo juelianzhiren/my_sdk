@@ -4,13 +4,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Movie;
-import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.log.Log;
 
 /**
  * Created by ztq on 2019/9/24.

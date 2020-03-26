@@ -9,6 +9,7 @@ import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -32,9 +33,9 @@ public abstract class BaseAPI<T> {
     static {
         initInterceptor();
         mOkHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
-                .writeTimeout(30,TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(10,TimeUnit.SECONDS)
+                .writeTimeout(10,TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
                 .addInterceptor(mInterceptor)
                 .build();
@@ -92,28 +93,42 @@ public abstract class BaseAPI<T> {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
+                e.printStackTrace();
                 MyHandlerThread.postToMainThread(new Runnable() {
                     @Override
                     public void run() {
                         if (callback != null) {
-                            callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            if (e instanceof SocketTimeoutException) {
+                                callback.onFailure(e, AppException.CODE_NETWORK_ERROR, e.getMessage());
+                            } else {
+                                callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            }
                         }
                     }
                 });
-                e.printStackTrace();
             }
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-                final String msg = response.body().string();
-                MyHandlerThread.postToMainThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (callback != null) {
-                            callback.onSuccess(msg);
+                if (response.body() != null) {
+                    final String msg = response.body().string();
+                    Log.v(TAG, "code = " + response.code() + "; message = " + response.message() + "; body = " + msg);
+                    MyHandlerThread.postToMainThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (callback != null) {
+                                int code = response.code();
+                                if (code == 200) {
+                                    callback.onSuccess(msg);
+                                } else if (code == 404){
+                                    callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
+                                } else if (code == 500) {
+                                    callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
+                                }
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
     }
@@ -155,29 +170,42 @@ public abstract class BaseAPI<T> {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
+                e.printStackTrace();
                 MyHandlerThread.postToMainThread(new Runnable() {
                     @Override
                     public void run() {
                         if (callback != null) {
-                            callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            if (e instanceof SocketTimeoutException) {
+                                callback.onFailure(e, AppException.CODE_NETWORK_ERROR, e.getMessage());
+                            } else {
+                                callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            }
                         }
                     }
                 });
-
-                e.printStackTrace();
             }
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-                final String msg = response.body().string();
-                MyHandlerThread.postToMainThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (callback != null) {
-                            callback.onSuccess(msg);
+                if (response.body() != null) {
+                    final String msg = response.body().string();
+                    Log.v(TAG, "code = " + response.code() + "; message = " + response.message() + "; body = " + msg);
+                    MyHandlerThread.postToMainThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (callback != null) {
+                                int code = response.code();
+                                if (code == 200) {
+                                    callback.onSuccess(msg);
+                                } else if (code == 404){
+                                    callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
+                                } else if (code == 500) {
+                                    callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
+                                }
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
     }
@@ -209,24 +237,37 @@ public abstract class BaseAPI<T> {
                     @Override
                     public void run() {
                         if (callback != null) {
-                            callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            if (e instanceof SocketTimeoutException) {
+                                callback.onFailure(e, AppException.CODE_NETWORK_ERROR, e.getMessage());
+                            } else {
+                                callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            }
                         }
                     }
                 });
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                final String msg = response.body().string();
-                Log.v(TAG, "message = " + response.message() + "; body = " + msg);
-                MyHandlerThread.postToMainThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (callback != null) {
-                            callback.onSuccess(msg);
+            public void onResponse(Call call, final Response response) throws IOException {
+                if (response.body() != null) {
+                    final String msg = response.body().string();
+                    Log.v(TAG, "code = " + response.code() + "; message = " + response.message() + "; body = " + msg);
+                    MyHandlerThread.postToMainThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (callback != null) {
+                                int code = response.code();
+                                if (code == 200) {
+                                    callback.onSuccess(msg);
+                                } else if (code == 404){
+                                    callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
+                                } else if (code == 500) {
+                                    callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
+                                }
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
     }
@@ -259,28 +300,42 @@ public abstract class BaseAPI<T> {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
+                e.printStackTrace();
                 MyHandlerThread.postToMainThread(new Runnable() {
                     @Override
                     public void run() {
                         if (callback != null) {
-                            callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            if (e instanceof SocketTimeoutException) {
+                                callback.onFailure(e, AppException.CODE_NETWORK_ERROR, e.getMessage());
+                            } else {
+                                callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            }
                         }
                     }
                 });
-                e.printStackTrace();
             }
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-                final String msg = response.body().string();
-                MyHandlerThread.postToMainThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (callback != null) {
-                            callback.onSuccess(msg);
+                if (response.body() != null) {
+                    final String msg = response.body().string();
+                    Log.v(TAG, "code = " + response.code() + "; message = " + response.message() + "; body = " + msg);
+                    MyHandlerThread.postToMainThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (callback != null) {
+                                int code = response.code();
+                                if (code == 200) {
+                                    callback.onSuccess(msg);
+                                } else if (code == 404){
+                                    callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
+                                } else if (code == 500) {
+                                    callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
+                                }
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
     }

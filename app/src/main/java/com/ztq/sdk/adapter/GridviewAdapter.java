@@ -1,13 +1,13 @@
 package com.ztq.sdk.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 /**

@@ -1,6 +1,5 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -12,13 +11,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.DisplayMetrics;
-import android.util.Log;
+
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * 这是测试的Activity
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
     private final String TAG = "noahedu.MainActivity";
     private Context mContext;
     private MyImageView mIv;
@@ -309,6 +309,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, TimelineActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.net_api_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, NetAPIActivity.class);
                 startActivity(intent);
             }
         });

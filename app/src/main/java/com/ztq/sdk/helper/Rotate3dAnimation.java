@@ -2,9 +2,10 @@ package com.ztq.sdk.helper;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+
+import com.ztq.sdk.log.Log;
 
 /**
  * Created by ztq on 2019/11/23.

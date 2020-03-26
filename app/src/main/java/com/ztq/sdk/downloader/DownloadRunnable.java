@@ -2,8 +2,8 @@ package com.ztq.sdk.downloader;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 import java.io.File;

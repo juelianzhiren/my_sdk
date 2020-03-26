@@ -45,7 +45,7 @@ public abstract  class CallBack<T> implements ICallBack<T> {
                         failure(new AppException(AppException.CODE_RUNTIME_ERROR));
                     }
                 } else {
-                    failure(new AppException(AppException.CODE_SERVER_ERROR, resultBase.getMessage()));
+                    failure(new AppException(AppException.CODE_RUNTIME_ERROR, resultBase.getMessage()));
                 }
             } else {
                 Log.e(TAG, " parseObject get null");

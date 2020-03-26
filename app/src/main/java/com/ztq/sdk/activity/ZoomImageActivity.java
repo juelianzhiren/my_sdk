@@ -1,18 +1,17 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.log.Log;
 
 /**
  * Created by ztq on 2019/10/25.
  */
-public class ZoomImageActivity extends Activity {
+public class ZoomImageActivity extends BaseActivity {
     private final String TAG = "noahedu." + getClass().getSimpleName();
     private Context mContext;
 

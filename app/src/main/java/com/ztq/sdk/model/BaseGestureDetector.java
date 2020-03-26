@@ -1,8 +1,9 @@
 package com.ztq.sdk.model;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.MotionEvent;
+
+import com.ztq.sdk.log.Log;
 
 public abstract class BaseGestureDetector {
     private final String TAG = "noahedu.BaseGestureDetector";

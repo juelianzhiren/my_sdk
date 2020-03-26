@@ -2,8 +2,9 @@ package com.ztq.sdk.model;
 
 import android.content.Context;
 import android.graphics.PointF;
-import android.util.Log;
 import android.view.MotionEvent;
+
+import com.ztq.sdk.log.Log;
 
 public class MoveGestureDetector extends BaseGestureDetector {
     private final String TAG = "noahedu.MoveGestureDetector";

@@ -1,15 +1,14 @@
 package com.ztq.sdk.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.MapView;
 
-public class MapViewActivity extends Activity {
+public class MapViewActivity extends BaseActivity {
     private static final String TAG = "noahedu.MapViewActivity";
     private MapView mMapView;
     private Context mContext;

@@ -9,11 +9,11 @@ import android.os.Build;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Layout;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.CharacterUtils;
 
 import java.util.ArrayList;

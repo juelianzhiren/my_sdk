@@ -8,11 +8,11 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 import java.util.ArrayList;

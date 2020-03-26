@@ -17,6 +17,12 @@ public class Log {
         }
     }
 
+    public static void d(String tag, String str) {
+        if (Constants.isShowLog()) {
+            android.util.Log.d(tag, str);
+        }
+    }
+
     public static void w(String tag, String str) {
         if (Constants.isShowLog()) {
             android.util.Log.w(tag, str);
@@ -44,6 +50,12 @@ public class Log {
     public static void w(String tag, String str, Object... obj) {
         if (Constants.isShowLog()) {
             android.util.Log.w(tag, String.format(str, obj));
+        }
+    }
+
+    public static void d(String tag, String str, Object... obj) {
+        if (Constants.isShowLog()) {
+            android.util.Log.d(tag, String.format(str, obj));
         }
     }
 
