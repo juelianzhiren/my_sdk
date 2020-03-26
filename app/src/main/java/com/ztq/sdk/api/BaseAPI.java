@@ -9,6 +9,7 @@ import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -34,8 +35,8 @@ public abstract class BaseAPI<T> {
         initInterceptor();
         mOkHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(10,TimeUnit.SECONDS)
-                .writeTimeout(10,TimeUnit.SECONDS)
+                .readTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
                 .addInterceptor(mInterceptor)
                 .build();
@@ -118,11 +119,11 @@ public abstract class BaseAPI<T> {
                         public void run() {
                             if (callback != null) {
                                 int code = response.code();
-                                if (code == 200) {
+                                if (code == HttpURLConnection.HTTP_OK) {
                                     callback.onSuccess(msg);
-                                } else if (code == 404){
+                                } else if (code == HttpURLConnection.HTTP_NOT_FOUND){
                                     callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
-                                } else if (code == 500) {
+                                } else if (code == HttpURLConnection.HTTP_INTERNAL_ERROR) {
                                     callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
                                 }
                             }
@@ -195,11 +196,11 @@ public abstract class BaseAPI<T> {
                         public void run() {
                             if (callback != null) {
                                 int code = response.code();
-                                if (code == 200) {
+                                if (code == HttpURLConnection.HTTP_OK) {
                                     callback.onSuccess(msg);
-                                } else if (code == 404){
+                                } else if (code == HttpURLConnection.HTTP_NOT_FOUND){
                                     callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
-                                } else if (code == 500) {
+                                } else if (code == HttpURLConnection.HTTP_INTERNAL_ERROR) {
                                     callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
                                 }
                             }
@@ -257,11 +258,11 @@ public abstract class BaseAPI<T> {
                         public void run() {
                             if (callback != null) {
                                 int code = response.code();
-                                if (code == 200) {
+                                if (code == HttpURLConnection.HTTP_OK) {
                                     callback.onSuccess(msg);
-                                } else if (code == 404){
+                                } else if (code == HttpURLConnection.HTTP_NOT_FOUND){
                                     callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
-                                } else if (code == 500) {
+                                } else if (code == HttpURLConnection.HTTP_INTERNAL_ERROR) {
                                     callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
                                 }
                             }
@@ -325,11 +326,11 @@ public abstract class BaseAPI<T> {
                         public void run() {
                             if (callback != null) {
                                 int code = response.code();
-                                if (code == 200) {
+                                if (code == HttpURLConnection.HTTP_OK) {
                                     callback.onSuccess(msg);
-                                } else if (code == 404){
+                                } else if (code == HttpURLConnection.HTTP_NOT_FOUND){
                                     callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
-                                } else if (code == 500) {
+                                } else if (code == HttpURLConnection.HTTP_INTERNAL_ERROR) {
                                     callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
                                 }
                             }
