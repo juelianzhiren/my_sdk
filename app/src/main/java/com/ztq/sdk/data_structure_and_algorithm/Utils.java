@@ -1,6 +1,5 @@
 package com.ztq.sdk.data_structure_and_algorithm;
 
-
 import com.ztq.sdk.log.Log;
 
 import java.util.ArrayDeque;

@@ -6,7 +6,7 @@ package com.ztq.sdk.constant;
 public class Constants {
     public static final String CHARACTER_COMMA = ",";
 
-    /**是否显示日志，即打印Log日志*/
+    /**是否显示日志，即打印Log日志，上线版本改为false*/
     private static boolean mIsShowLog = true;
 
     public static void updateShowLogValue(boolean isShowLog) {

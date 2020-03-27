@@ -10,17 +10,21 @@ import com.ztq.sdk.entity.ResultLaunchAds;
 import com.ztq.sdk.exception.AppException;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
+import com.ztq.sdk.widget.DYLoadingView;
 
 import me.jessyan.autosize.internal.CancelAdapt;
 
 public class NetAPIActivity extends BaseActivity implements CancelAdapt {
     private static final String TAG = "noahedu.NetAPIActivity";
     private Context mContext;
+    private DYLoadingView mLoadingView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_net_api);
+        mLoadingView = findViewById(R.id.loadview);
+        mLoadingView.start();
         Log.v(TAG, "onCreate");
 
         mContext = this;
@@ -68,5 +72,11 @@ public class NetAPIActivity extends BaseActivity implements CancelAdapt {
     protected void onResume() {
         super.onResume();
         Log.v(TAG, "onResume");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mLoadingView.stop();
     }
 }
