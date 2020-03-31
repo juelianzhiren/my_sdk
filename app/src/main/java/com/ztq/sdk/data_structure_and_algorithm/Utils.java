@@ -2899,7 +2899,7 @@ public class Utils {
      * @param numRows
      * @return
      */
-    public String convert(String s, int numRows) {
+    public static String convert(String s, int numRows) {
         if (com.ztq.sdk.utils.Utils.isNullOrNil(s) || numRows <= 0) {
             return "";
         }
@@ -3022,5 +3022,57 @@ public class Utils {
             }
         }
         return rev * flag;
+    }
+
+    /**
+     * 盛最多水的容器
+     * 给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。
+     * 在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。
+     * 找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+     * 你不能倾斜容器，且 n 的值至少为 2。
+     * @param height
+     * @return
+     */
+    public static int maxArea(int[] height) {
+        if (height == null) {
+            return 0;
+        }
+        int i = 0;
+        int j = height.length - 1;
+        int res = 0;
+        while (i < j) {
+            int area = (j - i) * Math.min(height[i], height[j]);  //面积为底乘以高
+            res = Math.max(res, area);  //选出大的面积
+            if (height[i] <= height[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 最长公共前缀
+     * 编写一个函数来查找字符串数组中的最长公共前缀
+     * @param strs
+     * @return
+     */
+    public static String longestCommonPrefix(String[] strs) {
+        if (strs == null) {
+            return "";
+        }
+        int count = strs.length;
+        String prefix = "";
+        if (count != 0) {
+            prefix = strs[0];
+        }
+        for (int i = 0; i < count; i++) {
+            //关键代码，不断的从后往前截取字符串，然后与之相比，直到startsWith()返回true
+            while (!strs[i].startsWith(prefix)) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+            }
+        }
+        return prefix;
     }
 }
