@@ -4,6 +4,7 @@ import com.ztq.sdk.log.Log;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -3074,5 +3075,47 @@ public class Utils {
             }
         }
         return prefix;
+    }
+
+    /**
+     * 三个数之和
+     * 给定一个包含n个整数的数组，在数组中是否存在a、b、c元素使得a + b + c = 0?找出数组中所有唯一的三个数组合，它们的和为零。
+     * @param nums
+     * @return
+     */
+    public static List<List<Integer>> threeSumEqualsZero(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> list = new ArrayList<>();
+        for (int i = 0; i < nums.length - 2; i++) {
+            // 当第i个数开始大于零时，跳出循环
+            if (nums[i] > 0) {
+                break;
+            }
+            // 当相邻数相等时，跳过该数，避免重复结果
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            // 使用两个指针，向中间夹
+            int left = i + 1, right = nums.length - 1, sum = -nums[i];
+            while (left < right) {
+                int count = nums[left] + nums[right];
+                if (count == sum) {
+                    list.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    while (left < right && nums[left] == nums[left + 1]) {
+                        left++;
+                    }
+                    while (left < right && nums[right] == nums[right - 1]) {
+                        right--;
+                    }
+                    left++;
+                    right--;
+                } else if (count < sum) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+        return list;
     }
 }
