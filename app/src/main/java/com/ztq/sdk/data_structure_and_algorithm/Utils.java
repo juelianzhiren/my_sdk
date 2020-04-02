@@ -1701,9 +1701,13 @@ public class Utils {
      * @return
      */
     public static ListNode reverseList(ListNode node) {
+        return reverseList(node, null);
+    }
+
+    public static ListNode reverseList(ListNode node, ListNode targetNode) {
         ListNode pre = null;
         ListNode next = null;
-        while (node != null) {
+        while (node != targetNode) {
             next = node.next;
             node.next = pre;
             pre = node;
@@ -3156,5 +3160,47 @@ public class Utils {
             }
         }
         return stack.isEmpty();
+    }
+
+    /**
+     * 两两交换链表中的节点
+     * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表
+     * @param head
+     * @return
+     */
+    public static ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode firstNode = head;
+        ListNode secondNode = head.next;
+        firstNode.next = swapPairs(secondNode.next);
+        secondNode.next = firstNode;
+        return secondNode;
+    }
+
+    /**
+     * K个一组翻转链表
+     * 给定一个链表，每k个节点一组进行翻转，请返回翻转后的链表
+     * @param head
+     * @param k
+     * @return
+     */
+    public static ListNode reverseKGroup(ListNode head, int k) {
+        if (head == null || head.next == null || k <= 1) {
+            return head;
+        }
+        ListNode tail = head;
+        for(int i = 0; i < k; i++) {
+            if (tail == null) {
+                return head;
+            }
+            tail = head.next;
+        }
+        // 反转前k个元素
+        ListNode newHead = reverseList(head, tail);
+        // 下一轮开始的地方就是tail
+        head.next = reverseKGroup(tail, k);
+        return newHead;
     }
 }
