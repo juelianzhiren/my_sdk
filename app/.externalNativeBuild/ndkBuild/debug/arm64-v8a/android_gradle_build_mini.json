@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "F:\\project\\my_sdk\\app\\src\\main\\jni\\Android.mk"
+  ],
+  "cleanCommands": [
+    "F:\\android_studio\\sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\project\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dF:/project/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dF:\\project\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+  ],
+  "libraries": {
+    "jni-test-debug-arm64-v8a": {
+      "artifactName": "jni-test",
+      "buildCommand": "F:\\android_studio\\sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\project\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dF:/project/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dF:\\project\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib F:/project/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libjni-test.so",
+      "abi": "arm64-v8a",
+      "output": "F:\\project\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\arm64-v8a\\libjni-test.so"
+    }
+  }
+}

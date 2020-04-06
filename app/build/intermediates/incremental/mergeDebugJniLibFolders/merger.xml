@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\project\my_sdk\app\libs"><file name="commons-io-1.3.2.jar" path="F:\project\my_sdk\app\libs\commons-io-1.3.2.jar"/><file name="pinyin4j-2.5.0.jar" path="F:\project\my_sdk\app\libs\pinyin4j-2.5.0.jar"/></source></dataSet><dataSet config="debug"><source path="F:\project\my_sdk\app\src\debug\jniLibs"/></dataSet></merger>
