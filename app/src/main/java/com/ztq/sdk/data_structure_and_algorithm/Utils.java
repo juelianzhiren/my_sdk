@@ -3245,4 +3245,35 @@ public class Utils {
         }
         return i;
     }
+
+    /**
+     * 两数相除
+     * 给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
+     * 返回被除数 dividend 除以除数 divisor 得到的商。
+     * @param dividend
+     * @param divisor
+     * @return
+     */
+    public static int divide(int dividend, int divisor) {
+        if (dividend == 0) {
+            return 0;
+        }
+        if (dividend == Integer.MIN_VALUE && divisor == -1) {
+            return Integer.MAX_VALUE;
+        }
+        boolean negative;
+        negative = (dividend ^ divisor) < 0;
+        Log.v(TAG, "negative = " + negative);
+        long t = Math.abs((long) dividend);
+        long d = Math.abs((long) divisor);
+        int result = 0;
+        for (int i = 31; i >= 0; i--) {
+            Log.v(TAG, "t = " + t + "; i = " + i + "; t>>i = " + (t>>i) + "; d = " + d);
+            if ((t >> i) >= d) {
+                result += 1 << i;
+                t -= d << i;
+            }
+        }
+        return negative ? -result : result;
+    }
 }
