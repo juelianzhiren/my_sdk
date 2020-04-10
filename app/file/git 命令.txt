@@ -12,5 +12,10 @@ git add *
 git commit -m "注释内容"
 7、推送修改到远程仓库
 git push
-8、撤销这一次错误的commit
+8、撤销这一次的commit
 git reset
+9、获取git的提交记录
+git log
+按Q退出git log命令
+10、获取git的前5条记录
+git log -5
