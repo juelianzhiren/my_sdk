@@ -19,3 +19,8 @@ git log
 按Q退出git log命令
 10、获取git的前5条记录
 git log -5
+11、按日期筛选日志
+git log --before=2014-7-1
+git log --after=2014-7-1
+12、按作者筛选日志
+git log --author="John"
