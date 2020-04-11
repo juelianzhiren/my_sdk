@@ -1,4 +1,4 @@
-package com.ztq.sdk.gc;
+package com.ztq.sdk.java.gc;
 
 /**
  * VM args: -Xms20m -Xmx20m -Xmn10m -XX:+PrintGCDetails -XX:SurvivorRatio=8

@@ -1,5 +1,6 @@
-package com.ztq.sdk.gc;
+package com.ztq.sdk.java.gc;
 
+import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
 import java.util.HashSet;
@@ -10,11 +11,12 @@ import java.util.Set;
  * @author pc
  *
  */
-public class SoftObjectTest {
+public class SOftReferenceTest {
 	public static class SoftObject{
 		byte[] data = new byte[1024];
 	}
 	
+	public static int removeSoftRefs = 0;
 	private static int CACHE_INITIAL_CAPACITY = 100 * 1024;
 	private static Set<SoftReference<SoftObject>> cache = new HashSet<SoftReference<SoftObject>>(CACHE_INITIAL_CAPACITY);
 	private static ReferenceQueue<SoftObject> referenceQueue = new ReferenceQueue<SoftObject>();
@@ -23,10 +25,21 @@ public class SoftObjectTest {
 		for(int i = 0; i < CACHE_INITIAL_CAPACITY; i++) {
 			SoftObject obj = new SoftObject();
 			cache.add(new SoftReference<SoftObject>(obj, referenceQueue));
+			clearUselessReference();
 			if (i % 10000 == 0) {
 				System.out.println("size of cache:" + cache.size());
 			}
 		}
-		System.out.println("End!");
+		System.out.println("End! remove soft references = " + removeSoftRefs);
+	}
+	
+	private static void clearUselessReference() {
+		Reference<? extends SoftObject> ref = referenceQueue.poll();
+		while(ref != null) {
+			if (cache.remove(ref)) {
+				removeSoftRefs++;
+			}
+			ref = referenceQueue.poll();
+		}
 	}
 }

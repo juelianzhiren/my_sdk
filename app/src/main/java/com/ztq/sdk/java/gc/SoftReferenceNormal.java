@@ -1,4 +1,4 @@
-package com.ztq.sdk.gc;
+package com.ztq.sdk.java.gc;
 
 import java.lang.ref.SoftReference;
 

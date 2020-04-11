@@ -1,4 +1,4 @@
-package com.ztq.sdk.gc;
+package com.ztq.sdk.java.gc;
 
 /**
  * VM args: -Xms200m -Xmx200m
