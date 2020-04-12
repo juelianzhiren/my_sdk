@@ -2,22 +2,30 @@ package com.ztq.sdk.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.api.API;
 import com.ztq.sdk.api.callback.CallBack;
 import com.ztq.sdk.entity.ResultLaunchAds;
 import com.ztq.sdk.exception.AppException;
+import com.ztq.sdk.hotfix.ISay;
+import com.ztq.sdk.hotfix.SayException;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.DYLoadingView;
 
+import java.io.File;
+
+import dalvik.system.DexClassLoader;
 import me.jessyan.autosize.internal.CancelAdapt;
 
 public class NetAPIActivity extends BaseActivity implements CancelAdapt {
     private static final String TAG = "noahedu.NetAPIActivity";
     private Context mContext;
     private DYLoadingView mLoadingView;
+    private ISay mISay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,30 @@ public class NetAPIActivity extends BaseActivity implements CancelAdapt {
         Log.v(TAG, "loader = " + loader);
         mContext = this;
         getData();
+
+
+        findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //say_something_hotfix.jar也放在file目录下
+                final File jarFile = new File(Environment.getExternalStorageDirectory(), "say_something_hotfix.jar");
+                if (!jarFile.exists()) {
+                    mISay = new SayException();
+                    Log.v(TAG, "say_hotfix.jar not exists " + Environment.getExternalStorageDirectory().getPath());
+                    Utils.showToast(mContext, mISay.saySomething());
+                } else {
+                    DexClassLoader classLoader = new DexClassLoader(jarFile.getAbsolutePath(), getCacheDir().getAbsolutePath(), null, getClassLoader());
+                    try {
+                        Log.v(TAG, "classLoader = " + classLoader);
+                        Class clazz = classLoader.loadClass("com.ztq.sdk.hotfix.SayHotFix");
+                        ISay iSay = (ISay) clazz.newInstance();
+                        Utils.showToast(mContext, iSay.saySomething());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     private void getData() {
