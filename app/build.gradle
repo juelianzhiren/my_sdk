@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'danny.asm.lifecycle'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.ztq.sdk"
         minSdkVersion 19
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -26,12 +27,15 @@ android {
         main {
             assets.srcDirs = ['assets', 'assets/']
             jniLibs.srcDirs = ['libs']
-    }
+        }
     }
     externalNativeBuild {
         ndkBuild {
             path 'src/main/jni/Android.mk'
         }
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
