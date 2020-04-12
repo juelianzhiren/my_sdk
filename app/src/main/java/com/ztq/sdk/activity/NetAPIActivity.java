@@ -27,6 +27,8 @@ public class NetAPIActivity extends BaseActivity implements CancelAdapt {
         mLoadingView.start();
         Log.v(TAG, "onCreate");
 
+        ClassLoader loader = getClassLoader();
+        Log.v(TAG, "loader = " + loader);
         mContext = this;
         getData();
     }
