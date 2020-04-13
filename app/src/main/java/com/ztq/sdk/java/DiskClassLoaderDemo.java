@@ -9,8 +9,8 @@ public class DiskClassLoaderDemo {
 			Class c = loader.findClass("Secret");
 			if (c != null) {
 				Object obj = c.newInstance();
-				Method method = c.getDeclaredMethod("printSecret", null);
-				method.invoke(obj, null);
+				Method method = c.getDeclaredMethod("printSecret", new  Class[0]);
+				method.invoke(obj, new  Object[]{});
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
