@@ -1,0 +1,5 @@
+1、输出在assembleDebug过程的异常堆栈信息
+gradlew  assembleDebug  --stacktrace (Windows开发环境)
+
+gradlew clean  clean项目
+gradlew build  构建项目
