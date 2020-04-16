@@ -28,3 +28,5 @@
      -v -v表示提供较为详细的日志，包括每个发送到Activity的事件信息  老化的结果保存在D:\debug\logcat.txt
  adb shell monkey -p com.noahedu.teachingvideo --throttle 1000 -v 10000000>D:\debug\logcat.txt
  （按ctrl+c结束老化测试）
+ 13、启动activity
+ adb shell am start -n com.noahedu.learnstore/com.noahedu.learnstore.framework.MainActivity(包名/activity的路径)
