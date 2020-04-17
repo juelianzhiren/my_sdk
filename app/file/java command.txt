@@ -1,0 +1,8 @@
+javac A.java
+编译A.java成A.class
+
+javap -c A
+查看A的字节码信息
+
+javap -verbose A
+查看A的字节码信息（更加详细的信息）
