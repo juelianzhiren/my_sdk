@@ -35,6 +35,7 @@ public class DemoActivity extends BaseActivity {
     private Context mContext;
     private Button mBtn;
     private ConstraintLayout mConstraintLayout;
+    private boolean mIsBold;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -114,6 +115,18 @@ public class DemoActivity extends BaseActivity {
                         Log.v(TAG, "onAnimationRepeat");
                     }
                 });
+            }
+        });
+        mBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIsBold = !mIsBold;
+                mBtn.getPaint().setFakeBoldText(mIsBold);
+                if (mIsBold) {
+                    mBtn.setTextColor(R.color.light_green);
+                } else {
+                    mBtn.setTextColor(R.color.black);
+                }
             }
         });
     }
