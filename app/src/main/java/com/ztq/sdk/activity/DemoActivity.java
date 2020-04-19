@@ -20,6 +20,7 @@ import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.GifView;
 import com.ztq.sdk.widget.ProgressButton;
 import com.ztq.sdk.widget.ProgressView;
+import com.ztq.sdk.widget.RoundImageView;
 import com.ztq.sdk.widget.SelectableTextView;
 
 /**
@@ -38,6 +39,7 @@ public class DemoActivity extends BaseActivity {
     private ConstraintLayout mConstraintLayout;
     private boolean mIsBold;
     private ImageView mImageView;
+    private RoundImageView mRoundImageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -133,6 +135,10 @@ public class DemoActivity extends BaseActivity {
         });
         mImageView = findViewById(R.id.demo_image_view);
         mImageView.setImageBitmap(Utils.createCircleImage(Utils.getBitmapFromDrawableRes(this, R.drawable.pic_6)));
+
+        mRoundImageView = findViewById(R.id.demo_round_image_view);
+        mRoundImageView.setImageResource(R.drawable.shape_gray_circle);
+        mRoundImageView.setBorderRadius(Utils.dp2px(mContext, 20));
     }
 
     @Override
