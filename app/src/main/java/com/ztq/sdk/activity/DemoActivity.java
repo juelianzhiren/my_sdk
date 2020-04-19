@@ -137,7 +137,7 @@ public class DemoActivity extends BaseActivity {
         mImageView.setImageBitmap(Utils.createCircleImage(Utils.getBitmapFromDrawableRes(this, R.drawable.pic_6)));
 
         mRoundImageView = findViewById(R.id.demo_round_image_view);
-        mRoundImageView.setImageResource(R.drawable.shape_gray_circle);
+        mRoundImageView.setImageResource(R.drawable.shape_gray);
         mRoundImageView.setBorderRadius(Utils.dp2px(mContext, 20));
     }
 
