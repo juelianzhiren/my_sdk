@@ -16,6 +16,7 @@ import android.widget.SeekBar;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.log.Log;
+import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.GifView;
 import com.ztq.sdk.widget.ProgressButton;
 import com.ztq.sdk.widget.ProgressView;
@@ -36,6 +37,7 @@ public class DemoActivity extends BaseActivity {
     private Button mBtn;
     private ConstraintLayout mConstraintLayout;
     private boolean mIsBold;
+    private ImageView mImageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -123,12 +125,14 @@ public class DemoActivity extends BaseActivity {
                 mIsBold = !mIsBold;
                 mBtn.getPaint().setFakeBoldText(mIsBold);
                 if (mIsBold) {
-                    mBtn.setTextColor(R.color.light_green);
+                    mBtn.setTextColor(mContext.getResources().getColor(R.color.light_green));
                 } else {
-                    mBtn.setTextColor(R.color.black);
+                    mBtn.setTextColor(mContext.getResources().getColor(R.color.black));
                 }
             }
         });
+        mImageView = findViewById(R.id.demo_image_view);
+        mImageView.setImageBitmap(Utils.createCircleImage(Utils.getBitmapFromDrawableRes(this, R.drawable.pic_6)));
     }
 
     @Override

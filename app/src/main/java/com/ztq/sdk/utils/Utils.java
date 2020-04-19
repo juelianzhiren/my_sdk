@@ -13,7 +13,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.media.ThumbnailUtils;
@@ -1210,5 +1214,26 @@ public class Utils {
         String paramStr = builder.toString();
         paramStr = paramStr.replaceAll(" ", "%20");//Volley框架Get请求，参数带空格会报错505
         return url + paramStr;
+    }
+
+    /**
+     * 设置为原型图片
+     * @param source
+     * @return
+     */
+    public static Bitmap createCircleImage(Bitmap source) {
+        if (source == null) {
+            return null;
+        }
+        int length = source.getWidth() < source.getHeight() ? source.getWidth() : source.getHeight();
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setDither(true);
+        Bitmap target = Bitmap.createBitmap(length, length, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(target);
+        canvas.drawCircle(length / 2, length / 2, length / 2, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(source, 0, 0, paint);
+        return target;
     }
 }
