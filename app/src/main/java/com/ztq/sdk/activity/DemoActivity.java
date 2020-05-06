@@ -144,7 +144,11 @@ public class DemoActivity extends BaseActivity {
         mRoundImageView.setImageResource(R.drawable.shape_gray);
         mRoundImageView.setBorderRadius(Utils.dp2px(mContext, 20));
         int statusHeight = Utils.getStatusHeight(mContext);
-        Log.v(TAG, "statusHeight = " + statusHeight);
+        Log.v(TAG, "statusBarHeight = " + statusHeight);
+        statusHeight = Utils.getStatusBarHeight(mContext);
+        Log.v(TAG, "statusBarHeight = " + statusHeight);
+        int navigationBarHeight = Utils.getNavigationBarHeight(mContext);
+        Log.v(TAG, "navigationBarHeight = " + navigationBarHeight);
 
         int sizeInDp = 1024;
         ExternalAdaptInfo externalAdaptInfo = new ExternalAdaptInfo(true, sizeInDp);

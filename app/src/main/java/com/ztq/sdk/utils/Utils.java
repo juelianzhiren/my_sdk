@@ -1255,4 +1255,42 @@ public class Utils {
         }
         return statusHeight;
     }
+
+    /**
+     * 获取状态栏高度
+     *
+     * @param context
+     * @return
+     */
+    public static int getStatusBarHeight(Context context) {
+        if (context == null) {
+            return -1;
+        }
+        int result = -1;
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+    /**
+     * 获取导航栏高度
+     *
+     * @param context
+     * @return
+     */
+    public static int getNavigationBarHeight(Context context) {
+        if (context == null) {
+            return -1;
+        }
+        int result = -1;
+        int resourceId = 0;
+        int rid = context.getResources().getIdentifier("config_showNavigationBar", "bool", "android");
+        if (rid != 0) {
+            resourceId = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
 }
