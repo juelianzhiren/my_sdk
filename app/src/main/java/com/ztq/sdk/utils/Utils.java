@@ -1246,7 +1246,7 @@ public class Utils {
     public static int getStatusHeight(Context context) {
         int statusHeight = -1;
         try {
-            Class<?> clazz = Class.forName("com.android.internal.R$dimen.xml");
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
             Object object = clazz.newInstance();
             int height = Integer.parseInt(clazz.getField("status_bar_height").get(object).toString());
             statusHeight = context.getApplicationContext().getResources().getDimensionPixelSize(height);
