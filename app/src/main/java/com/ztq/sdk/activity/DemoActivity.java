@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
+import com.bumptech.glide.manager.SupportRequestManagerFragment;
 import com.ztq.sdk.R;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.Utils;
@@ -22,6 +23,9 @@ import com.ztq.sdk.widget.ProgressButton;
 import com.ztq.sdk.widget.ProgressView;
 import com.ztq.sdk.widget.RoundImageView;
 import com.ztq.sdk.widget.SelectableTextView;
+
+import me.jessyan.autosize.AutoSizeConfig;
+import me.jessyan.autosize.external.ExternalAdaptInfo;
 
 /**
  * Created by ztq on 2019/7/29.
@@ -139,6 +143,12 @@ public class DemoActivity extends BaseActivity {
         mRoundImageView = findViewById(R.id.demo_round_image_view);
         mRoundImageView.setImageResource(R.drawable.shape_gray);
         mRoundImageView.setBorderRadius(Utils.dp2px(mContext, 20));
+        int statusHeight = Utils.getStatusHeight(mContext);
+        Log.v(TAG, "statusHeight = " + statusHeight);
+
+        int sizeInDp = 1024;
+        ExternalAdaptInfo externalAdaptInfo = new ExternalAdaptInfo(true, sizeInDp);
+        AutoSizeConfig.getInstance().getExternalAdaptManager().addExternalAdaptInfoOfActivity(SupportRequestManagerFragment.class, externalAdaptInfo);
     }
 
     @Override
