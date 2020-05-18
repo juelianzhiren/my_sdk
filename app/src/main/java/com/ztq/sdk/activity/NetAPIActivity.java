@@ -40,6 +40,8 @@ public class NetAPIActivity extends BaseActivity implements CancelAdapt {
         mContext = this;
         getData();
 
+        String timeZone = Utils.getTimeZone();
+        Log.v(TAG,"timeZone = " + timeZone);
 
         findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {
             @Override

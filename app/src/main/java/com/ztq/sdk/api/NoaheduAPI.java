@@ -27,7 +27,7 @@ public class NoaheduAPI<T> extends BaseAPI<T> {
             map.put(Constants.KEY_VERSION_CODE, versionCode + "");
             map.put(Constants.KEY_XUEDUANNAME, xueduanName);
             map.put(Constants.KEY_RD, (int) (Math.random() * 1000) + "");
-            String url = Constants.API_GET_LAUNCH_ADS;
+            String url = Constants.API_GET_LAUNCH_ADS_WITH_HTTPS;
             asynGet(url, map, callback);
         } catch (Exception e) {
             e.printStackTrace();

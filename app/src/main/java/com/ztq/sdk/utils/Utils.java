@@ -24,6 +24,8 @@ import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.text.BidiFormatter;
+import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -70,7 +72,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
@@ -1292,5 +1296,30 @@ public class Utils {
             result = context.getResources().getDimensionPixelSize(resourceId);
         }
         return result;
+    }
+
+    public static String getTimeZone() {
+        Calendar mDummyDate;
+        mDummyDate = Calendar.getInstance();
+        Calendar now = Calendar.getInstance();
+        mDummyDate.setTimeZone(now.getTimeZone());
+        mDummyDate.set(now.get(Calendar.YEAR), 11, 31, 13, 0, 0);
+        return getTimeZoneText(now.getTimeZone(), true);
+    }
+
+    public static String getTimeZoneText(TimeZone tz, boolean includeName) {
+        Date now = new Date();
+
+        SimpleDateFormat gmtFormatter = new SimpleDateFormat("ZZZZ");
+        gmtFormatter.setTimeZone(tz);
+        String gmtString = gmtFormatter.format(now);
+        BidiFormatter bidiFormatter = BidiFormatter.getInstance();
+        Locale l = Locale.getDefault();
+        boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
+        gmtString = bidiFormatter.unicodeWrap(gmtString, isRtl ? TextDirectionHeuristics.RTL : TextDirectionHeuristics.LTR);
+        if (!includeName) {
+            return gmtString;
+        }
+        return gmtString;
     }
 }
