@@ -1322,4 +1322,41 @@ public class Utils {
         }
         return gmtString;
     }
+
+    /**
+     * 将bitmap保存到本地localPath路径下
+     * @param bitmap
+     * @param localPath
+     */
+    public static void saveBitmapToLocalPath(Bitmap bitmap, String localPath) {
+        if (bitmap == null || isNullOrNil(localPath)) {
+            return;
+        }
+        File file = new File(localPath);
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+        }
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+            out.flush();
+            out.close();
+            Log.i(TAG, "已经保存");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Bitmap getBitmapFromLocalPath(String localPath) {
+        try {
+            FileInputStream fis = new FileInputStream(localPath);
+            Bitmap bitmap = BitmapFactory.decodeStream(fis);
+            return bitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
