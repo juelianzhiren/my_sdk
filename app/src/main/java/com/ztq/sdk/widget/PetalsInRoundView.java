@@ -136,6 +136,8 @@ public class PetalsInRoundView extends View {
 
     /**是否可以转动*/
     private boolean mCanTurned;
+    /**是否经历过action_move*/
+    private boolean mIsExperenceActionMove = false;
 
     public PetalsInRoundView(Context context) {
         this(context, null);
@@ -812,6 +814,7 @@ public class PetalsInRoundView extends View {
         if (action == MotionEvent.ACTION_DOWN) {
             mTouchDownX = touchX;
             mTouchDownY = touchY;
+            mIsExperenceActionMove = false;
             if (Math.sqrt(Math.pow(touchX - mCircleRadius, 2) + Math.pow(touchY - mCircleRadius, 2)) >= mCircleRadius) {
                 mTouchDownGroupIndex = -1;
                 mTouchDownChildIndex = -1;
@@ -855,6 +858,7 @@ public class PetalsInRoundView extends View {
         } else if (action == MotionEvent.ACTION_MOVE) {
             mTouchMoveX = touchX;
             mTouchMoveY = touchY;
+            mIsExperenceActionMove = true;
             double downAngle = getAngle(mTouchDownX, mTouchDownY);
             double moveAngle = getAngle(mTouchMoveX, mTouchMoveY);
             if (mCanTurned) {
@@ -914,7 +918,7 @@ public class PetalsInRoundView extends View {
                 invalidate();
                 return true;
             }
-            if(mIsClickSameArea) {
+            if((mIsClickSameArea && mIsExperenceActionMove) || !mIsExperenceActionMove) {
                 if(mTouchDownGroupIndex >= 0) {
                     if(mTouchDownChildIndex >= 0) {
                         playSoundEffect(SoundEffectConstants.CLICK);  // 加个音效
