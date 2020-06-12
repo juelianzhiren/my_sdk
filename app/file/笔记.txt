@@ -1,0 +1,4 @@
+1、利用以下几句可以打印出java语句的调用堆栈
+  RuntimeException exception = new RuntimeException("leo's debug");
+  exception.fillInStackTrace();
+  Log.i(TAG, "zzzzzzzzzzzzzzzzzzzzzz Stack Trace:", exception);
