@@ -30,3 +30,7 @@
  （按ctrl+c结束老化测试）
  13、启动activity（打开属性为android:exported="true的activity）
  adb shell am start -n com.noahedu.learnstore/com.noahedu.learnstore.framework.MainActivity(包名/activity名，)
+ 14、设置手机density为320
+ adb shell wm density 320
+ 15、查看手机density
+ adb shell wm density
