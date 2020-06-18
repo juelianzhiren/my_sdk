@@ -171,6 +171,24 @@
         android:layout_marginTop="320dp"/>
 
     <Button
+        android:id="@+id/touch_demo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="事件分发demo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="380dp"/>
+
+    <Button
+        android:id="@+id/cancel_event_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消事件demo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="380dp"/>
+
+    <Button
         android:id="@+id/net_api_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,6 +197,25 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="380dp"/>
+
+    <Button
+        android:id="@+id/self_widget_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义控件demo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="430dp"/>
+
+    <Button
+        android:id="@+id/flow_layout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="流式布局demo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="430dp"/>
 
     <Button
         android:id="@+id/btn"

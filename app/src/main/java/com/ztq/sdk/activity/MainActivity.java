@@ -23,6 +23,7 @@ import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.CircleProgressBar;
+import com.ztq.sdk.widget.FlowLayout;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
@@ -316,6 +317,34 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, NetAPIActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.touch_demo_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, InterceptActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.cancel_event_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CancelEventActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.self_widget_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, PieImageActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.flow_layout_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, FlowLayoutActivity.class);
                 startActivity(intent);
             }
         });
