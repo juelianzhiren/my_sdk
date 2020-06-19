@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.acopy.test.AcopyTestActivity;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
@@ -33,7 +34,7 @@ import java.util.List;
  * 这是测试的Activity
  */
 public class MainActivity extends BaseActivity {
-    private final String TAG = "noahedu.MainActivity";
+    private final String TAG = "noahedu.AcopyTestActivity";
     private Context mContext;
     private MyImageView mIv;
     private Button mBtn;
@@ -228,7 +229,7 @@ public class MainActivity extends BaseActivity {
         if (Build.MANUFACTURER.equalsIgnoreCase("huawei")) {
             Bundle extra = new Bundle();
             extra.putString("package", "com.ztq.sdk");
-            extra.putString("class", "com.ztq.sdk.activity.MainActivity");
+            extra.putString("class", "com.ztq.sdk.activity.AcopyTestActivity");
             extra.putInt("badgenumber", 3);
 //            mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
         }
@@ -345,6 +346,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, FlowLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.acopy_test_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, AcopyTestActivity.class);
                 startActivity(intent);
             }
         });
