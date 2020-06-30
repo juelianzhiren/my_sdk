@@ -3081,6 +3081,40 @@ public class Utils {
         return prefix;
     }
 
+    // 求解两个字符号的最长公共子串
+    public static String maxSubstring(String strOne, String strTwo){
+        // 参数检查
+        if(strOne==null || strTwo == null){
+            return null;
+        }
+        if(strOne.equals("") || strTwo.equals("")){
+            return null;
+        }
+        // 二者中较长的字符串
+        String max = "";
+        // 二者中较短的字符串
+        String min = "";
+        if(strOne.length() < strTwo.length()){
+            max = strTwo;
+            min = strOne;
+        } else{
+            max = strTwo;
+            min = strOne;
+        }
+        String current = "";
+        // 遍历较短的字符串，并依次减少短字符串的字符数量，判断长字符是否包含该子串
+        for(int i=0; i<min.length(); i++){
+            for(int begin=0, end=min.length()-i; end<=min.length(); begin++, end++){
+                current = min.substring(begin, end);
+                System.out.println("current = " + current + "; max = " + max + "; min = " + min + "; i = " + i);
+                if(max.contains(current)){
+                    return current;
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * 三个数之和等于0
      * 给定一个包含n个整数的数组，在数组中是否存在a、b、c元素使得a + b + c = 0?找出数组中所有唯一的三个数组合，它们的和为零。
