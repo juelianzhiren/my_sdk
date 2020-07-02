@@ -1359,4 +1359,68 @@ public class Utils {
         }
         return null;
     }
+
+    /**
+     * 获取私有成员变量的值
+     * @param obj
+     * @param filedName
+     * @return
+     */
+    public static Object getPrivateFieldObject(Object obj, String filedName) {
+        try {
+            Field field = getFieldName(obj.getClass(), filedName);
+            field.setAccessible(true);
+            Object result = field.get(obj);
+            field.setAccessible(false);
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void invokeMethod(Object obj, String className, String methodName, Class[] parameterClsTypes, Object[] parmeterValues) {
+        try {
+            Class cls = Class.forName(className);
+            Method method = cls.getMethod(methodName, parameterClsTypes);
+            method.setAccessible(true);
+            method.invoke(obj, parmeterValues);
+            method.setAccessible(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Field getFieldName(Class<?> cls, String filedName) {
+        List<Field> allFieldsList = getAllFieldsList(cls);
+        if (allFieldsList != null) {
+            for(int i = 0; i < allFieldsList.size(); i++) {
+                Field field = allFieldsList.get(i);
+                if (field != null) {
+                    if (field.getName().equals(filedName)) {
+                        return field;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 获取当前类和父类的所有属性
+     * @param cls
+     * @return
+     */
+    public static List<Field> getAllFieldsList(final Class<?> cls) {
+        final List<Field> allFields = new ArrayList<Field>();
+        Class<?> currentClass = cls;
+        while (currentClass != null) {
+            final Field[] declaredFields = currentClass.getDeclaredFields();
+            for (final Field field : declaredFields) {
+                allFields.add(field);
+            }
+            currentClass = currentClass.getSuperclass();
+        }
+        return allFields;
+    }
 }
