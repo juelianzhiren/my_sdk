@@ -3310,4 +3310,47 @@ public class Utils {
         }
         return negative ? -result : result;
     }
+
+    public static void main(String[] args) {
+        //TODO 动态规划求解最短路径问题
+        int[][] m = {{ 0, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                     { 0, 0, 0, 1, 3, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                     { 0, 0, 0, 0, 8, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 3, 5, 0, 0, 0, 0, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 8, 4, 0, 0, 0, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 5, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4 },
+                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3 }};
+        Log.v(TAG, "minumim distance is " + minPath(m));
+    }
+
+    public static int minPath(int[][] matrix) {
+        return process(matrix, matrix[0].length - 1);
+    }
+
+    public static int process(int[][] matrix, int i) {
+        //到达A退出递归
+        if (i == 0) {
+            return 0;
+        }
+        // 状态转移
+        int distance = 999;
+        for(int j = 0; j < i; j++) {
+            System.out.println("j = " + j + "; i = " + i + "; value = " + matrix[j][i]);
+            if (matrix[j][i] != 0) {
+                int d_tmp = matrix[j][i] + process(matrix, j);
+                if (d_tmp < distance) {
+                    distance = d_tmp;
+                }
+            }
+        }
+        return distance;
+    }
 }
