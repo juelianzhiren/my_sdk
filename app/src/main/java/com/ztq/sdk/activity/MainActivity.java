@@ -356,6 +356,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.contraint_layout_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ConstraintLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
