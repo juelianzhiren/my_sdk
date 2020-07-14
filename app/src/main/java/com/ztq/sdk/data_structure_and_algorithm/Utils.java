@@ -2638,6 +2638,34 @@ public class Utils {
         return String.valueOf(chars);
     }
 
+    /**
+     * 另外一种逻辑
+     * @param s
+     * @return
+     */
+    public static String revertWords(String s) {
+        Stack stack = new Stack();
+        String temp = "";
+        for(int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ' ') {
+                temp += s.charAt(i);
+            } else if (!temp.equals("")) {
+                stack.push(temp);
+                temp = "";
+            } else {
+                continue;
+            }
+        }
+        if (!temp.equals("")) {
+            stack.push(temp);
+        }
+        String result = "";
+        while(!stack.empty()) {
+            result += stack.pop() + " ";
+        }
+        return result.substring(0, result.length() - 1);
+    }
+
     private static void reverseSb(char[] chars, int start, int end) {
         while (start < end) {
             char temp = chars[start];
