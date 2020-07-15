@@ -10,15 +10,23 @@ import com.ztq.sdk.utils.Utils;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.net.SocketTimeoutException;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Connection;
+import okhttp3.EventListener;
 import okhttp3.FormBody;
+import okhttp3.Handshake;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
@@ -29,11 +37,133 @@ public abstract class BaseAPI<T> {
     protected  static OkHttpClient mOkHttpClient;
     private static Interceptor mInterceptor;
     private static ArrayMap<String, Call> mCallMap;
+    private static EventListener mEventListener = new EventListener() {
+        @Override
+        public void callStart(Call call) {
+            super.callStart(call);
+            Log.v(TAG, "callStart");
+        }
+
+        @Override
+        public void dnsStart(Call call, String domainName) {
+            super.dnsStart(call, domainName);
+            Log.v(TAG, "dnsStart");
+        }
+
+        @Override
+        public void dnsEnd(Call call, String domainName, List<InetAddress> inetAddressList) {
+            super.dnsEnd(call, domainName, inetAddressList);
+            Log.v(TAG, "dnsEnd");
+        }
+
+        @Override
+        public void connectStart(Call call, InetSocketAddress inetSocketAddress, Proxy proxy) {
+            super.connectStart(call, inetSocketAddress, proxy);
+            Log.v(TAG, "connectStart");
+        }
+
+        @Override
+        public void secureConnectStart(Call call) {
+            super.secureConnectStart(call);
+            Log.v(TAG, "secureConnectStart");
+        }
+
+        @Override
+        public void secureConnectEnd(Call call, Handshake handshake) {
+            super.secureConnectEnd(call, handshake);
+            Log.v(TAG, "secureConnectEnd");
+        }
+
+        @Override
+        public void connectEnd(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol) {
+            super.connectEnd(call, inetSocketAddress, proxy, protocol);
+            Log.v(TAG, "connectEnd");
+        }
+
+        @Override
+        public void connectFailed(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol, IOException ioe) {
+            super.connectFailed(call, inetSocketAddress, proxy, protocol, ioe);
+            Log.v(TAG, "connectFailed");
+        }
+
+        @Override
+        public void connectionAcquired(Call call, Connection connection) {
+            super.connectionAcquired(call, connection);
+            Log.v(TAG, "connectionAcquired");
+        }
+
+        @Override
+        public void connectionReleased(Call call, Connection connection) {
+            super.connectionReleased(call, connection);
+            Log.v(TAG, "connectionReleased");
+        }
+
+        @Override
+        public void requestHeadersStart(Call call) {
+            super.requestHeadersStart(call);
+            Log.v(TAG, "requestHeadersStart");
+        }
+
+        @Override
+        public void requestHeadersEnd(Call call, Request request) {
+            super.requestHeadersEnd(call, request);
+            Log.v(TAG, "requestHeadersEnd");
+        }
+
+        @Override
+        public void requestBodyStart(Call call) {
+            super.requestBodyStart(call);
+            Log.v(TAG, "requestBodyStart");
+        }
+
+        @Override
+        public void requestBodyEnd(Call call, long byteCount) {
+            super.requestBodyEnd(call, byteCount);
+            Log.v(TAG, "requestBodyEnd");
+        }
+
+        @Override
+        public void responseHeadersStart(Call call) {
+            super.responseHeadersStart(call);
+            Log.v(TAG, "responseHeadersStart");
+        }
+
+        @Override
+        public void responseHeadersEnd(Call call, Response response) {
+            super.responseHeadersEnd(call, response);
+            Log.v(TAG, "responseHeadersEnd");
+        }
+
+        @Override
+        public void responseBodyStart(Call call) {
+            super.responseBodyStart(call);
+            Log.v(TAG, "responseBodyStart");
+        }
+
+        @Override
+        public void responseBodyEnd(Call call, long byteCount) {
+            super.responseBodyEnd(call, byteCount);
+            Log.v(TAG, "responseBodyEnd");
+        }
+
+        @Override
+        public void callEnd(Call call) {
+            super.callEnd(call);
+            Log.v(TAG, "callEnd");
+        }
+
+        @Override
+        public void callFailed(Call call, IOException ioe) {
+            super.callFailed(call, ioe);
+            Log.v(TAG, "callFailed");
+        }
+    };
 
     //设置默认超时时间为30秒
     static {
         initInterceptor();
         mOkHttpClient = new OkHttpClient.Builder()
+                .eventListener(mEventListener)
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
