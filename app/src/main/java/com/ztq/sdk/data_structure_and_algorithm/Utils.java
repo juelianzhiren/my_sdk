@@ -10,8 +10,13 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Author: ztq
@@ -3380,5 +3385,32 @@ public class Utils {
             }
         }
         return distance;
+    }
+
+    /**
+     * 在一个流式数据中，查找中位数，如果是偶数个，则返回偏左边的那个元素
+     */
+    private static int count = 0;
+    private static PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    private static PriorityQueue<Integer> maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
+        @Override
+        public int compare(Integer arg0, Integer arg1) {
+            return arg1.compareTo(arg0);
+        }
+    });
+    public static void insert(Integer num) {
+        if (count % 2 == 0) {
+            minHeap.offer(num);
+            maxHeap.offer(minHeap.poll());
+        } else {
+            maxHeap.offer(num);
+            minHeap.offer(maxHeap.poll());
+        }
+        count++;
+        System.out.println("median num is " + getMedian());
+    }
+
+    public static int getMedian() {
+        return maxHeap.peek();
     }
 }
