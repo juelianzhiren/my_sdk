@@ -43,7 +43,7 @@ public class ACopy {
     public @interface Instance {
     }
 
-    private static final String TAG = ACopy.class.getSimpleName();
+    private static final String TAG = "noahedu." + ACopy.class.getSimpleName();
     private static Map<String, Class> PRIMATIVE_MATCH_MAP = new HashMap<>();
 
     static {
@@ -108,6 +108,7 @@ public class ACopy {
             Constructor<?>[] constructors = getClass().getConstructors();
             for (Constructor constructor : constructors) {
                 Class[] paramTypes = constructor.getParameterTypes();
+                Log.v(TAG, "args = " + args[0] + "; paramTypes = " + paramTypes[0] + "; isSame = " + isParamsSame(args, paramTypes));
                 if (!isParamsSame(args, paramTypes)) {
                     continue;
                 }

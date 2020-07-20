@@ -3413,4 +3413,31 @@ public class Utils {
     public static int getMedian() {
         return maxHeap.peek();
     }
+
+
+    /**
+     * 给定一个放歌棋盘，从左上角出发到右下角有多少种方。
+     * 每次只能向右或向下，移动相邻的格子，同时，棋盘中有若干格子是陷阱，
+     * 不可经过，必须绕开走
+     */
+    private static int[][] matrix ={{1, 1, 1, 1, 1, 1},
+                                    {1, 1, -1, -1, 1, 1},
+                                    {1, 1, -1, 1, -1, 1}};
+    public static int getPath(int[][] m, int i, int j) {
+        if (m == null) {
+            return 0;
+        }
+        if(m[i][j] == -1) {
+            return 0;
+        }
+        if (i > 0 && j > 0) {
+            return getPath(m, i - 1, j) + getPath(m, i, j - 1);
+        } else if (i == 0 && j > 0) {
+            return getPath(m, i, j - 1);
+        } else if (i > 0 && j == 0) {
+            return getPath(m, i - 1, j);
+        } else {
+            return 1;
+        }
+    }
 }
