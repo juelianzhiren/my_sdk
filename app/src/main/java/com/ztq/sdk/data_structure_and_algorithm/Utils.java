@@ -500,7 +500,7 @@ public class Utils {
         }
     }
 
-    public static boolean isPowerOfTwo(int n) {
+    public static boolean isPowerOfTwo(int n) {    // 2的次幂在二进制中，肯定只有一位为1，其余为0
         if (n <= 0) {
             return false;
         }
@@ -515,6 +515,7 @@ public class Utils {
             n = n >> 1;
         }
         return true;
+        // 或者 return (n & -n) == n;
     }
 
     /**
