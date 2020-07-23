@@ -64,7 +64,7 @@ public class VerticalViewPager extends ViewGroup {
 
     private static final int MIN_FLING_VELOCITY = 400; // dips
 
-    private static final int[] LAYOUT_ATTRS = new int[] { android.R.attr.layout_gravity };
+    private static final int[] LAYOUT_ATTRS = new int[]{android.R.attr.layout_gravity};
 
     /**
      * Used to track what the expected number of items in the adapter should be.
@@ -293,8 +293,7 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Set a PagerAdapter that will supply views for this pager as needed.
      *
-     * @param adapter
-     *            Adapter to use
+     * @param adapter Adapter to use
      */
     public void setAdapter(PagerAdapter adapter) {
         if (mAdapter != null) {
@@ -379,8 +378,7 @@ public class VerticalViewPager extends ViewGroup {
      * through its first layout with its current adapter there will be a smooth
      * animated transition between the current item and the specified item.
      *
-     * @param item
-     *            Item index to select
+     * @param item Item index to select
      */
     public void setCurrentItem(int item) {
         mPopulatePending = false;
@@ -390,11 +388,9 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Set the currently selected page.
      *
-     * @param item
-     *            Item index to select
-     * @param smoothScroll
-     *            True to smoothly scroll to the new item, false to transition
-     *            immediately
+     * @param item         Item index to select
+     * @param smoothScroll True to smoothly scroll to the new item, false to transition
+     *                     immediately
      */
     public void setCurrentItem(int item, boolean smoothScroll) {
         mPopulatePending = false;
@@ -486,8 +482,7 @@ public class VerticalViewPager extends ViewGroup {
      * incrementally scrolled. See
      * {@link android.support.v4.view.ViewPager.OnPageChangeListener}.
      *
-     * @param listener
-     *            Listener to set
+     * @param listener Listener to set
      */
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
         mOnPageChangeListener = listener;
@@ -505,12 +500,10 @@ public class VerticalViewPager extends ViewGroup {
      * 11) will have no effect.
      * </p>
      *
-     * @param reverseDrawingOrder
-     *            true if the supplied PageTransformer requires page views to be
-     *            drawn from last to first instead of first to last.
-     * @param transformer
-     *            PageTransformer that will modify each page's animation
-     *            properties
+     * @param reverseDrawingOrder true if the supplied PageTransformer requires page views to be
+     *                            drawn from last to first instead of first to last.
+     * @param transformer         PageTransformer that will modify each page's animation
+     *                            properties
      */
     public void setPageTransformer(boolean reverseDrawingOrder, ViewPager.PageTransformer transformer) {
         if (Build.VERSION.SDK_INT >= 11) {
@@ -532,7 +525,7 @@ public class VerticalViewPager extends ViewGroup {
         if (Build.VERSION.SDK_INT >= 7) {
             if (mSetChildrenDrawingOrderEnabled == null) {
                 try {
-                    mSetChildrenDrawingOrderEnabled = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", new Class[] { Boolean.TYPE });
+                    mSetChildrenDrawingOrderEnabled = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", new Class[]{Boolean.TYPE});
                 } catch (NoSuchMethodException e) {
                     Log.e(TAG, "Can't find setChildrenDrawingOrderEnabled", e);
                 }
@@ -556,8 +549,7 @@ public class VerticalViewPager extends ViewGroup {
      * Set a separate OnPageChangeListener for internal use by the support
      * library.
      *
-     * @param listener
-     *            Listener to set
+     * @param listener Listener to set
      * @return The old listener that was set, if any.
      */
     ViewPager.OnPageChangeListener setInternalPageChangeListener(ViewPager.OnPageChangeListener listener) {
@@ -597,8 +589,7 @@ public class VerticalViewPager extends ViewGroup {
      * layouts. This setting defaults to 1.
      * </p>
      *
-     * @param limit
-     *            How many pages will be kept offscreen in an idle state.
+     * @param limit How many pages will be kept offscreen in an idle state.
      */
     public void setOffscreenPageLimit(int limit) {
         if (limit < DEFAULT_OFFSCREEN_PAGES) {
@@ -614,8 +605,7 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Set the margin between pages.
      *
-     * @param marginPixels
-     *            Distance between adjacent pages in pixels
+     * @param marginPixels Distance between adjacent pages in pixels
      * @see #getPageMargin()
      * @see #setPageMarginDrawable(Drawable)
      * @see #setPageMarginDrawable(int)
@@ -642,8 +632,7 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Set a drawable that will be used to fill the margin between pages.
      *
-     * @param d
-     *            Drawable to display between pages
+     * @param d Drawable to display between pages
      */
     public void setPageMarginDrawable(Drawable d) {
         mMarginDrawable = d;
@@ -656,8 +645,7 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Set a drawable that will be used to fill the margin between pages.
      *
-     * @param resId
-     *            Resource ID of a drawable to display between pages
+     * @param resId Resource ID of a drawable to display between pages
      */
     public void setPageMarginDrawable(int resId) {
         setPageMarginDrawable(getContext().getResources().getDrawable(resId));
@@ -693,10 +681,8 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Like {@link View#scrollBy}, but scroll smoothly instead of immediately.
      *
-     * @param x
-     *            the number of pixels to scroll by on the X axis
-     * @param y
-     *            the number of pixels to scroll by on the Y axis
+     * @param x the number of pixels to scroll by on the X axis
+     * @param y the number of pixels to scroll by on the Y axis
      */
     void smoothScrollTo(int x, int y) {
         smoothScrollTo(x, y, 0);
@@ -705,13 +691,10 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Like {@link View#scrollBy}, but scroll smoothly instead of immediately.
      *
-     * @param x
-     *            the number of pixels to scroll by on the X axis
-     * @param y
-     *            the number of pixels to scroll by on the Y axis
-     * @param velocity
-     *            the velocity associated with a fling, if applicable. (0
-     *            otherwise)
+     * @param x        the number of pixels to scroll by on the X axis
+     * @param y        the number of pixels to scroll by on the Y axis
+     * @param velocity the velocity associated with a fling, if applicable. (0
+     *                 otherwise)
      */
     void smoothScrollTo(int x, int y, int velocity) {
         if (getChildCount() == 0) {
@@ -1562,14 +1545,11 @@ public class VerticalViewPager extends ViewGroup {
      * superclass implementation (e.g. super.onPageScrolled(position, offset,
      * offsetPixels)) before onPageScrolled returns.
      *
-     * @param position
-     *            Position index of the first page currently being displayed.
-     *            Page position+1 will be visible if positionOffset is nonzero.
-     * @param offset
-     *            Value from [0, 1) indicating the offset from the page at
-     *            position.
-     * @param offsetPixels
-     *            Value in pixels indicating the offset from position.
+     * @param position     Position index of the first page currently being displayed.
+     *                     Page position+1 will be visible if positionOffset is nonzero.
+     * @param offset       Value from [0, 1) indicating the offset from the page at
+     *                     position.
+     * @param offsetPixels Value in pixels indicating the offset from position.
      */
     protected void onPageScrolled(int position, float offset, int offsetPixels) {
         // Offset any decor views if needed - keep them on-screen at all times.
@@ -2008,8 +1988,8 @@ public class VerticalViewPager extends ViewGroup {
 
     /**
      * @return Info about the page at the current scroll position. This can be
-     *         synthetic for a missing middle page; the 'object' field can be
-     *         null.
+     * synthetic for a missing middle page; the 'object' field can be
+     * null.
      */
     private ItemInfo infoForCurrentScrollPosition() {
         final int height = getClientHeight();
@@ -2171,7 +2151,7 @@ public class VerticalViewPager extends ViewGroup {
      * drag is already in progress, this method will return false.
      *
      * @return true if the fake drag began successfully, false if it could not
-     *         be started.
+     * be started.
      * @see #fakeDragBy(float)
      * @see #endFakeDrag()
      */
@@ -2227,8 +2207,7 @@ public class VerticalViewPager extends ViewGroup {
      * Fake drag by an offset in pixels. You must have called
      * {@link #beginFakeDrag()} first.
      *
-     * @param yOffset
-     *            Offset in pixels to drag by.
+     * @param yOffset Offset in pixels to drag by.
      * @see #beginFakeDrag()
      * @see #endFakeDrag()
      */
@@ -2343,17 +2322,12 @@ public class VerticalViewPager extends ViewGroup {
     /**
      * Tests scrollability within child views of v given a delta of dx.
      *
-     * @param v
-     *            View to test for horizontal scrollability
-     * @param checkV
-     *            Whether the view v passed should itself be checked for
-     *            scrollability (true), or just its children (false).
-     * @param dy
-     *            Delta scrolled in pixels
-     * @param x
-     *            X coordinate of the active touch point
-     * @param y
-     *            Y coordinate of the active touch point
+     * @param v      View to test for horizontal scrollability
+     * @param checkV Whether the view v passed should itself be checked for
+     *               scrollability (true), or just its children (false).
+     * @param dy     Delta scrolled in pixels
+     * @param x      X coordinate of the active touch point
+     * @param y      Y coordinate of the active touch point
      * @return true if child views of v can be scrolled by delta of dx.
      */
     protected boolean canScroll(View v, boolean checkV, int dy, int x, int y) {
@@ -2388,8 +2362,7 @@ public class VerticalViewPager extends ViewGroup {
      * scrolling from a key event, just as if the event had been dispatched to
      * it by the view hierarchy.
      *
-     * @param event
-     *            The key event to execute.
+     * @param event The key event to execute.
      * @return Return true if the event was handled, else false.
      */
     public boolean executeKeyEvent(KeyEvent event) {
