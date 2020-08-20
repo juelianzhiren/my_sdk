@@ -85,4 +85,10 @@
         <attr name="scaleStartFraction" format="float"/>
         <attr name="scaleEndFraction" format="float"/>
     </declare-styleable>
+
+    <declare-styleable name="CropImageView">
+        <attr name="isDefaultCenter" format="boolean"/>
+        <attr name="defaultCropWidth" format="dimension|reference"/>
+        <attr name="defaultCropHeight" format="dimension|reference"/>
+    </declare-styleable>
 </resources>

@@ -21,4 +21,7 @@
     <dimen name="petals_round_view_outer_sector_text_size">16dp</dimen>
     <dimen name="petals_round_view_petal_text_size">16dp</dimen>
     <dimen name="petals_round_view_petal_bottom_text_size">16dp</dimen>
+
+    <dimen name="default_crop_width">400dp</dimen>
+    <dimen name="default_crop_height">400dp</dimen>
 </resources>
