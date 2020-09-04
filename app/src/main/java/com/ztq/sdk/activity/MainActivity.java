@@ -363,6 +363,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.crop_image_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CropImageViewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

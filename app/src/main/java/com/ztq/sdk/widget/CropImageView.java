@@ -42,7 +42,9 @@ public class CropImageView extends ImageView {
     private static final int CORNER_INDEX_RIGHT_TOP = 1;
     private static final int CORNER_INDEX_LEFT_BOTTOM = 2;
     private static final int CORNER_INDEX_RIGHT_BOTTOM = 3;
-    private static final int NEAR_BY_CORNER_MAXIMUM_DISTANCE = 10;
+    private static final int NEAR_BY_CORNER_MAXIMUM_DISTANCE = 50;
+    private float mLastTouchX;
+    private float mLastTouchY;
 
     public CropImageView(Context context) {
         this(context, null);
@@ -122,6 +124,9 @@ public class CropImageView extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        if (mRect.left >= mRect.right || mRect.top >= mRect.bottom) {
+            return;
+        }
         drawTranslucentBackground(canvas);
         drawRect(canvas);
         drawFourCorner(canvas);
@@ -155,6 +160,7 @@ public class CropImageView extends ImageView {
         bottom = top + mCornerWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
+        Log.v(TAG, "draw rect1, " + rect);
 
         right = mRect.right + mCornerStrokeWidth / 2;
         left = right - mCornerWidth;
@@ -166,6 +172,7 @@ public class CropImageView extends ImageView {
         bottom = top + mCornerWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
+        Log.v(TAG, "draw rect2, " + rect);
 
         left = mRect.left - mCornerStrokeWidth / 2;
         right = left + mCornerWidth;
@@ -177,6 +184,7 @@ public class CropImageView extends ImageView {
         top = bottom - mCornerWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
+        Log.v(TAG, "draw rect3, " + rect);
 
         right = mRect.right + mCornerStrokeWidth / 2;
         left = right - mCornerWidth;
@@ -188,6 +196,7 @@ public class CropImageView extends ImageView {
         top = bottom - mCornerWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
+        Log.v(TAG, "draw rect4, " + rect);
     }
 
     @Override
@@ -195,6 +204,8 @@ public class CropImageView extends ImageView {
         int action = event.getAction();
         float x = event.getX();
         float y = event.getY();
+
+        Log.v(TAG, "onTouchEvent, x = " + x + "; y = " + y + "; " + super.onTouchEvent(event));
         if (action == MotionEvent.ACTION_DOWN) {
             judgeLocation(x, y);
         } else if (action == MotionEvent.ACTION_MOVE) {
@@ -217,10 +228,45 @@ public class CropImageView extends ImageView {
                     invalidate();
                 }
             }
+            Log.v(TAG, "mIsInsideRect = " + mIsInsideRect);
+            if (mIsInsideRect) {
+                float distanceX = x - mLastTouchX;
+                float distanceY = y - mLastTouchY;
+                if (mRect.left + distanceX <= 0) {
+                    mRect.left = 0;
+                    mRect.right += distanceX;
+                    mRect.top += distanceY;
+                    mRect.bottom += distanceY;
+                    Log.v(TAG, "mRect = " + mRect);
+                } else if (mRect.right + distanceX >= getWidth()){
+                    mRect.right = getWidth();
+                    mRect.left += distanceX;
+                    mRect.top += distanceY;
+                    mRect.bottom += distanceY;
+                } else if (mRect.top + distanceY <= 0) {
+                    mRect.top = 0;
+                    mRect.left += distanceX;
+                    mRect.right += distanceX;
+                    mRect.bottom += distanceY;
+                } else if (mRect.bottom + distanceY >= getHeight()) {
+                    mRect.bottom = getHeight();
+                    mRect.left += distanceX;
+                    mRect.right += distanceX;
+                    mRect.top += distanceY;
+                } else {
+                    mRect.left += distanceX;
+                    mRect.right += distanceX;
+                    mRect.top += distanceY;
+                    mRect.bottom += distanceY;
+                }
+                invalidate();
+            }
         } else if (action == MotionEvent.ACTION_UP) {
 
         }
-        return super.onTouchEvent(event);
+        mLastTouchX = x;
+        mLastTouchY = y;
+        return true;
     }
 
     private void judgeLocation(float x, float y) {
@@ -233,15 +279,22 @@ public class CropImageView extends ImageView {
         if (Math.sqrt(Math.pow(mRect.left - x, 2) + Math.pow(mRect.top - y, 2)) <= NEAR_BY_CORNER_MAXIMUM_DISTANCE) {
             mIsNearbyCorner = true;
             mNearByCornerIndex = CORNER_INDEX_LEFT_TOP;
+            return;
         } else if (Math.sqrt(Math.pow(mRect.right - x, 2) + Math.pow(mRect.top - y, 2)) <= NEAR_BY_CORNER_MAXIMUM_DISTANCE) {
             mIsNearbyCorner = true;
             mNearByCornerIndex = CORNER_INDEX_RIGHT_TOP;
+            return;
         } else if (Math.sqrt(Math.pow(mRect.left - x, 2) + Math.pow(mRect.bottom - y, 2)) <= NEAR_BY_CORNER_MAXIMUM_DISTANCE) {
             mIsNearbyCorner = true;
             mNearByCornerIndex = CORNER_INDEX_LEFT_BOTTOM;
+            return;
         } else if (Math.sqrt(Math.pow(mRect.right - x, 2) + Math.pow(mRect.bottom - y, 2)) <= NEAR_BY_CORNER_MAXIMUM_DISTANCE) {
             mIsNearbyCorner = true;
             mNearByCornerIndex = CORNER_INDEX_RIGHT_BOTTOM;
+            return;
+        } else if (x > mRect.left && x < mRect.right && y > mRect.top && y < mRect.bottom) {
+            mIsInsideRect = true;
+            return;
         }
     }
 }

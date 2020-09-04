@@ -25,6 +25,7 @@ import okhttp3.EventListener;
 import okhttp3.FormBody;
 import okhttp3.Handshake;
 import okhttp3.Interceptor;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import okhttp3.Request;
@@ -254,6 +255,77 @@ public abstract class BaseAPI<T> {
                                 } else if (code == HttpURLConnection.HTTP_NOT_FOUND){
                                     callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
                                 } else if (code == HttpURLConnection.HTTP_INTERNAL_ERROR) {
+                                    callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    /**
+     * @param url
+     * @param params
+     * @param callback
+     * @return void
+     * @description: 网络异步请求方法（post方式，参数有数据量大的参数）
+     */
+    protected void asynPostWithLargeData(String url, Map<String, String> params, final CallBack<T> callback) {
+        if (mOkHttpClient == null) {
+            return;
+        }
+        MultipartBody.Builder builder = new MultipartBody.Builder();
+        if (params != null) {
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                builder = builder.addFormDataPart(entry.getKey(), entry.getValue());
+            }
+        }
+        RequestBody body = builder.build();
+        Request request = new Request.Builder().url(url).post(body).build();
+        Call call = mOkHttpClient.newCall(request);
+        mCallMap.put(url, call);
+        if (callback != null) {
+            callback.prepare();
+        }
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+                e.printStackTrace();
+                MyHandlerThread.postToMainThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (callback != null) {
+                            if (e instanceof SocketTimeoutException) {
+                                callback.onFailure(e, AppException.CODE_NETWORK_ERROR, e.getMessage());
+                            } else {
+                                callback.onFailure(e, AppException.CODE_IO_ERROR, e.getMessage());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                if (response.body() != null) {
+                    final String msg = response.body().string();
+                    android.util.Log.v(TAG, "code = " + response.code() + "; message = " + response.message() + "; body = " + msg);
+                    MyHandlerThread.postToMainThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (callback != null) {
+                                int code = response.code();
+                                if (code == HttpURLConnection.HTTP_OK) {
+                                    callback.onSuccess(msg);
+                                } else if (code == HttpURLConnection.HTTP_NOT_FOUND){
+                                    callback.onFailure(new AppException(AppException.CODE_API_NOT_FOUND), AppException.CODE_API_NOT_FOUND, response.message());
+                                } else if (code == HttpURLConnection.HTTP_INTERNAL_ERROR) {
+                                    callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
+                                } else if (code == HttpURLConnection.HTTP_BAD_GATEWAY) {
+                                    callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
+                                } else {
                                     callback.onFailure(new AppException(AppException.CODE_SERVER_ERROR), AppException.CODE_SERVER_ERROR, response.message());
                                 }
                             }
