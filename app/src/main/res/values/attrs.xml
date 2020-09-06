@@ -90,5 +90,8 @@
         <attr name="isDefaultCenter" format="boolean"/>
         <attr name="defaultCropWidth" format="dimension|reference"/>
         <attr name="defaultCropHeight" format="dimension|reference"/>
+        <attr name="defaultCropCornerWidth" format="dimension|reference"/>
+        <attr name="defaultCropCornerStrokeWidth" format="dimension|reference"/>
+        <attr name="defaultShowGridLine" format="boolean" />
     </declare-styleable>
 </resources>

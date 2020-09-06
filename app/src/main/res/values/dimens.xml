@@ -24,4 +24,6 @@
 
     <dimen name="default_crop_width">400dp</dimen>
     <dimen name="default_crop_height">400dp</dimen>
+    <dimen name="default_crop_corner_width">15dp</dimen>
+    <dimen name="default_crop_corner_stroke_width">3dp</dimen>
 </resources>

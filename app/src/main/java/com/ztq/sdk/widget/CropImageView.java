@@ -30,7 +30,7 @@ public class CropImageView extends ImageView {
     private Paint mRectPaint;
     private Paint mCornerPaint;
     private int mCornerWidth;
-    private int mCornerStrokeWidth = 6;
+    private int mCornerStrokeWidth;
     private Paint mBackgroundPaint;
     /**是否在矩形的四个角附近*/
     private boolean mIsNearbyCorner = false;
@@ -45,6 +45,9 @@ public class CropImageView extends ImageView {
     private static final int NEAR_BY_CORNER_MAXIMUM_DISTANCE = 50;
     private float mLastTouchX;
     private float mLastTouchY;
+    private float mRectStrokeWidth = 2;
+    private boolean mIsShowGridLine;
+    private Paint mLinePaint;
 
     public CropImageView(Context context) {
         this(context, null);
@@ -67,6 +70,9 @@ public class CropImageView extends ImageView {
         mIsDefaultCenter = ta.getBoolean(R.styleable.CropImageView_isDefaultCenter, true);
         mDefaultCropWidth = (int)ta.getDimension(R.styleable.CropImageView_defaultCropWidth, getResources().getDimension(R.dimen.default_crop_width));
         mDefaultCropHeight = (int)ta.getDimension(R.styleable.CropImageView_defaultCropHeight, getResources().getDimension(R.dimen.default_crop_height));
+        mCornerWidth = (int)ta.getDimension(R.styleable.CropImageView_defaultCropCornerWidth, getResources().getDimension(R.dimen.default_crop_corner_width));
+        mCornerStrokeWidth = (int) ta.getDimension(R.styleable.CropImageView_defaultCropCornerStrokeWidth, getResources().getDimension(R.dimen.default_crop_corner_stroke_width));
+        mIsShowGridLine = ta.getBoolean(R.styleable.CropImageView_defaultShowGridLine, true);
         ta.recycle();
 
         if (mDefaultCropWidth <= 0) {
@@ -77,8 +83,6 @@ public class CropImageView extends ImageView {
         }
 
         mRect = new Rect();
-        mCornerWidth = Utils.dp2px(mContext, 15);
-
         initPaint();
     }
 
@@ -106,8 +110,13 @@ public class CropImageView extends ImageView {
     }
 
     private void initPaint() {
+        mLinePaint = new Paint();
+        mLinePaint.setStrokeWidth(mRectStrokeWidth);
+        mLinePaint.setStyle(Paint.Style.STROKE);
+        mLinePaint.setColor(mContext.getResources().getColor(R.color.gray));
+
         mRectPaint = new Paint();
-        mRectPaint.setStrokeWidth(2);
+        mRectPaint.setStrokeWidth(mRectStrokeWidth);
         mRectPaint.setStyle(Paint.Style.STROKE);
         mRectPaint.setColor(mContext.getResources().getColor(R.color.ivory));
 
@@ -127,9 +136,24 @@ public class CropImageView extends ImageView {
         if (mRect.left >= mRect.right || mRect.top >= mRect.bottom) {
             return;
         }
+        drawGridLine(canvas);
         drawTranslucentBackground(canvas);
         drawRect(canvas);
         drawFourCorner(canvas);
+    }
+
+    private void drawGridLine(Canvas canvas) {
+        int size = 3;
+        int width = getWidth();
+        int height = getHeight();
+        int distanceH = width / size;
+        int distanceV = height / size;
+        for(int i = 1; i < size; i++) {
+            canvas.drawLine(i * distanceH, 0, i * distanceH, height, mLinePaint);
+        }
+        for(int i = 1; i < size; i++) {
+            canvas.drawLine(0, i * distanceV, width, i * distanceV, mLinePaint);
+        }
     }
 
     private void drawTranslucentBackground(Canvas canvas) {
@@ -152,51 +176,79 @@ public class CropImageView extends ImageView {
         int bottom = 0;
         left = mRect.left - mCornerStrokeWidth / 2;
         right = left + mCornerWidth;
+        if (right >= mRect.right + mCornerStrokeWidth / 2) {
+            right = mRect.right + mCornerStrokeWidth / 2;
+        }
         top = mRect.top - mCornerStrokeWidth / 2;
         bottom = top + mCornerStrokeWidth;
         Rect rect = new Rect(left, top, right, bottom);
+        Log.v(TAG, "draw rect11, " + rect);
         canvas.drawRect(rect, mCornerPaint);
         right = left + mCornerStrokeWidth;
         bottom = top + mCornerWidth;
+        if (bottom >= mRect.bottom + mCornerStrokeWidth / 2) {
+            bottom = mRect.bottom + mCornerStrokeWidth / 2;
+        }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect1, " + rect);
+        Log.v(TAG, "draw rect12, " + rect);
 
         right = mRect.right + mCornerStrokeWidth / 2;
         left = right - mCornerWidth;
+        if (left <= mRect.left - mCornerStrokeWidth / 2) {
+            left = mRect.left - mCornerStrokeWidth / 2;
+        }
         top = mRect.top - mCornerStrokeWidth / 2;
         bottom = top + mCornerStrokeWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
+        Log.v(TAG, "draw rect21, " + rect);
         left = mRect.right - mCornerStrokeWidth / 2;
         bottom = top + mCornerWidth;
+        if (bottom >= mRect.bottom + mCornerStrokeWidth / 2) {
+            bottom = mRect.bottom + mCornerStrokeWidth / 2;
+        }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect2, " + rect);
+        Log.v(TAG, "draw rect22, " + rect);
 
         left = mRect.left - mCornerStrokeWidth / 2;
         right = left + mCornerWidth;
+        if (right >= mRect.right + mCornerStrokeWidth  / 2) {
+            right = mRect.right + mCornerStrokeWidth  / 2;
+        }
         top = mRect.bottom - mCornerStrokeWidth / 2;
         bottom = top + mCornerStrokeWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        right = left + mCornerStrokeWidth / 2;
+        Log.v(TAG, "draw rect31, " + rect);
+        right = left + mCornerStrokeWidth;
         top = bottom - mCornerWidth;
+        if (top <= mRect.top - mCornerStrokeWidth / 2) {
+            top = mRect.top - mCornerStrokeWidth / 2;
+        }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect3, " + rect);
+        Log.v(TAG, "draw rect32, " + rect);
 
         right = mRect.right + mCornerStrokeWidth / 2;
         left = right - mCornerWidth;
+        if (left <= mRect.left - mCornerStrokeWidth / 2) {
+            left = mRect.left - mCornerStrokeWidth / 2;
+        }
         top = mRect.bottom - mCornerStrokeWidth / 2;
         bottom = top + mCornerStrokeWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
+        Log.v(TAG, "draw rect41, " + rect);
         left = mRect.right - mCornerStrokeWidth / 2;
         top = bottom - mCornerWidth;
+        if (top <= mRect.top - mCornerStrokeWidth / 2) {
+            top = mRect.top - mCornerStrokeWidth / 2;
+        }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect4, " + rect);
+        Log.v(TAG, "draw rect42, " + rect);
     }
 
     @Override
@@ -211,18 +263,30 @@ public class CropImageView extends ImageView {
         } else if (action == MotionEvent.ACTION_MOVE) {
             if (mIsNearbyCorner) {
                 if (mNearByCornerIndex == CORNER_INDEX_LEFT_TOP) {
+                    if (mRect.right - x <= mRectStrokeWidth || mRect.bottom - y <= mRectStrokeWidth) {
+                        return true;
+                    }
                     mRect.left = (int) x;
                     mRect.top = (int) y;
                     invalidate();
                 } else if (mNearByCornerIndex == CORNER_INDEX_RIGHT_TOP) {
+                    if (x - mRect.right <= mRectStrokeWidth || mRect.bottom - y <= mRectStrokeWidth) {
+                        return true;
+                    }
                     mRect.right = (int) x;
                     mRect.top = (int) y;
                     invalidate();
                 } else if (mNearByCornerIndex == CORNER_INDEX_LEFT_BOTTOM) {
+                    if (mRect.right - x <= mRectStrokeWidth || y -  mRect.top <= mRectStrokeWidth) {
+                        return true;
+                    }
                     mRect.left = (int) x;
                     mRect.bottom = (int) y;
                     invalidate();
                 } else if (mNearByCornerIndex == CORNER_INDEX_RIGHT_BOTTOM) {
+                    if (x - mRect.left  <= mRectStrokeWidth || y -  mRect.top <= mRectStrokeWidth) {
+                        return true;
+                    }
                     mRect.right = (int) x;
                     mRect.bottom = (int) y;
                     invalidate();
