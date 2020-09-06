@@ -48,6 +48,7 @@ public class CropImageView extends ImageView {
     private float mRectStrokeWidth = 2;
     private boolean mIsShowGridLine;
     private Paint mLinePaint;
+    private boolean mContainTranslucentBackground = true;
 
     public CropImageView(Context context) {
         this(context, null);
@@ -129,6 +130,11 @@ public class CropImageView extends ImageView {
         mBackgroundPaint.setColor(mContext.getResources().getColor(R.color.translucent_black_95));
     }
 
+    public void setContainTranslucentBackground(boolean mContainTranslucentBackground) {
+        this.mContainTranslucentBackground = mContainTranslucentBackground;
+        invalidate();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -137,12 +143,17 @@ public class CropImageView extends ImageView {
             return;
         }
         drawGridLine(canvas);
-        drawTranslucentBackground(canvas);
+        if (mContainTranslucentBackground) {
+            drawTranslucentBackground(canvas);
+        }
         drawRect(canvas);
         drawFourCorner(canvas);
     }
 
     private void drawGridLine(Canvas canvas) {
+        if (!mIsShowGridLine) {
+            return;
+        }
         int size = 3;
         int width = getWidth();
         int height = getHeight();
@@ -157,12 +168,38 @@ public class CropImageView extends ImageView {
     }
 
     private void drawTranslucentBackground(Canvas canvas) {
-        Rect rect = new Rect();
-        rect.top = 0;
-        rect.left = 0;
-        rect.bottom = getHeight();
-        rect.right = getWidth();
-        canvas.drawRect(rect, mBackgroundPaint);
+        Rect leftRect = new Rect();
+        Rect rightRect = new Rect();
+        Rect topRect = new Rect();
+        Rect bottomRect = new Rect();
+        if (mRect.left > 0) {
+            leftRect.left = 0;
+            leftRect.right = mRect.left;
+            leftRect.top = 0;
+            leftRect.bottom = getHeight();
+            canvas.drawRect(leftRect, mBackgroundPaint);
+        }
+        if (mRect.right < getWidth()) {
+            rightRect.left = mRect.right;
+            rightRect.right = getWidth();
+            rightRect.top = 0;
+            rightRect.bottom = getHeight();
+            canvas.drawRect(rightRect, mBackgroundPaint);
+        }
+        if (mRect.top > 0) {
+            topRect.left = mRect.left;
+            topRect.right = mRect.right;
+            topRect.top = 0;
+            topRect.bottom = mRect.top;
+            canvas.drawRect(topRect, mBackgroundPaint);
+        }
+        if (mRect.bottom < getHeight()) {
+            bottomRect.left = mRect.left;
+            bottomRect.right = mRect.right;
+            bottomRect.top = mRect.bottom;
+            bottomRect.bottom = getHeight();
+            canvas.drawRect(bottomRect, mBackgroundPaint);
+        }
     }
 
     private void drawRect(Canvas canvas) {
