@@ -344,6 +344,7 @@ public class CropImageView extends ImageView {
 
         Log.v(TAG, "CropX = " + cropX + "; cropY = " + cropY + "; cropWidth = " + cropWidth + "; cropHeight = " + cropHeight + "; mRect.left = " + mRect.left + "; mRet.top = " + mRect.top + "; originalBitmap.getWidth() = " +originalBitmap.getWidth() + "; originalBitmap.getHeight() = " + originalBitmap.getHeight());
         // Crop the subset from the original Bitmap.
+//        return Bitmap.createBitmap(originalBitmap, mRect.left, mRect.top, (mRect.right - mRect.left) / scaleX, (mRect.bottom - mRect.top) / scaleY);
         return Bitmap.createBitmap(originalBitmap, (int) cropX, (int) cropY, (int) cropWidth, (int) cropHeight);
     }
 
