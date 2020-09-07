@@ -2,9 +2,13 @@ package com.ztq.sdk.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,7 +16,6 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
 import com.ztq.sdk.R;
-import com.ztq.sdk.utils.Utils;
 
 /**
  * 简易的裁剪ImageView（还未完成）
@@ -21,22 +24,34 @@ public class CropImageView extends ImageView {
     private static final String TAG = "noahedu.CropImageView";
     private Context mContext;
     private Rect mRect;
-    /**是否默认居中*/
+    /**
+     * 是否默认居中
+     */
     private boolean mIsDefaultCenter;
-    /**默认裁剪宽度*/
+    /**
+     * 默认裁剪宽度
+     */
     private int mDefaultCropWidth;
-    /**默认裁剪高度*/
+    /**
+     * 默认裁剪高度
+     */
     private int mDefaultCropHeight;
     private Paint mRectPaint;
     private Paint mCornerPaint;
     private int mCornerWidth;
     private int mCornerStrokeWidth;
     private Paint mBackgroundPaint;
-    /**是否在矩形的四个角附近*/
+    /**
+     * 是否在矩形的四个角附近
+     */
     private boolean mIsNearbyCorner = false;
-    /**在矩形的哪个角附近， 0代表左上角，1代表右上角， 2代表左下角，3代表右下角*/
+    /**
+     * 在矩形的哪个角附近， 0代表左上角，1代表右上角， 2代表左下角，3代表右下角
+     */
     private int mNearByCornerIndex = -1;
-    /**是否在矩形内*/
+    /**
+     * 是否在矩形内
+     */
     private boolean mIsInsideRect = false;
     private static final int CORNER_INDEX_LEFT_TOP = 0;
     private static final int CORNER_INDEX_RIGHT_TOP = 1;
@@ -69,9 +84,9 @@ public class CropImageView extends ImageView {
         mContext = context;
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CropImageView);
         mIsDefaultCenter = ta.getBoolean(R.styleable.CropImageView_isDefaultCenter, true);
-        mDefaultCropWidth = (int)ta.getDimension(R.styleable.CropImageView_defaultCropWidth, getResources().getDimension(R.dimen.default_crop_width));
-        mDefaultCropHeight = (int)ta.getDimension(R.styleable.CropImageView_defaultCropHeight, getResources().getDimension(R.dimen.default_crop_height));
-        mCornerWidth = (int)ta.getDimension(R.styleable.CropImageView_defaultCropCornerWidth, getResources().getDimension(R.dimen.default_crop_corner_width));
+        mDefaultCropWidth = (int) ta.getDimension(R.styleable.CropImageView_defaultCropWidth, getResources().getDimension(R.dimen.default_crop_width));
+        mDefaultCropHeight = (int) ta.getDimension(R.styleable.CropImageView_defaultCropHeight, getResources().getDimension(R.dimen.default_crop_height));
+        mCornerWidth = (int) ta.getDimension(R.styleable.CropImageView_defaultCropCornerWidth, getResources().getDimension(R.dimen.default_crop_corner_width));
         mCornerStrokeWidth = (int) ta.getDimension(R.styleable.CropImageView_defaultCropCornerStrokeWidth, getResources().getDimension(R.dimen.default_crop_corner_stroke_width));
         mIsShowGridLine = ta.getBoolean(R.styleable.CropImageView_defaultShowGridLine, true);
         ta.recycle();
@@ -159,10 +174,10 @@ public class CropImageView extends ImageView {
         int height = getHeight();
         int distanceH = width / size;
         int distanceV = height / size;
-        for(int i = 1; i < size; i++) {
+        for (int i = 1; i < size; i++) {
             canvas.drawLine(i * distanceH, 0, i * distanceH, height, mLinePaint);
         }
-        for(int i = 1; i < size; i++) {
+        for (int i = 1; i < size; i++) {
             canvas.drawLine(0, i * distanceV, width, i * distanceV, mLinePaint);
         }
     }
@@ -251,8 +266,8 @@ public class CropImageView extends ImageView {
 
         left = mRect.left - mCornerStrokeWidth / 2;
         right = left + mCornerWidth;
-        if (right >= mRect.right + mCornerStrokeWidth  / 2) {
-            right = mRect.right + mCornerStrokeWidth  / 2;
+        if (right >= mRect.right + mCornerStrokeWidth / 2) {
+            right = mRect.right + mCornerStrokeWidth / 2;
         }
         top = mRect.bottom - mCornerStrokeWidth / 2;
         bottom = top + mCornerStrokeWidth;
@@ -288,6 +303,50 @@ public class CropImageView extends ImageView {
         Log.v(TAG, "draw rect42, " + rect);
     }
 
+    private int getCropWidth() {
+        return mRect.right - mRect.left;
+    }
+
+    private int getCropHeight() {
+        return mRect.bottom - mRect.top;
+    }
+
+    public Bitmap getCropImage() {
+        final Drawable drawable = getDrawable();
+        if (drawable == null || !(drawable instanceof BitmapDrawable)) {
+            return null;
+        }
+        // Get image matrix values and place them in an array.
+        float[] matrixValues = new float[9];
+        getImageMatrix().getValues(matrixValues);
+        for (int i = 0; i < matrixValues.length; i++) {
+            Log.v(TAG, "matrixValues " + i + ": " + matrixValues[i]);
+        }
+        // Extract the scale and translation values. Note, we currently do not handle any other transformations (e.g. skew).
+        float scaleX = matrixValues[Matrix.MSCALE_X];
+        float scaleY = matrixValues[Matrix.MSCALE_Y];
+        float transX = matrixValues[Matrix.MTRANS_X];
+        float transY = matrixValues[Matrix.MTRANS_Y];
+
+        // Ensure that the left and top edges are not outside of the ImageView bounds.
+        final float bitmapLeft = (transX < 0) ? Math.abs(transX) : 0;
+        final float bitmapTop = (transY < 0) ? Math.abs(transY) : 0;
+        // Get the original bitmap object.
+        final Bitmap originalBitmap = ((BitmapDrawable) drawable).getBitmap();
+        // Calculate the top-left corner of the crop window relative to the ~original~ bitmap size.
+        final float cropX = (bitmapLeft + mRect.left) / scaleX;
+        final float cropY = (bitmapTop + mRect.top) / scaleY;
+
+        // Calculate the crop window size relative to the ~original~ bitmap size.
+        // Make sure the right and bottom edges are not outside the ImageView bounds (this is just to address rounding discrepancies).
+        final float cropWidth = Math.min(getCropWidth() / scaleX, originalBitmap.getWidth() - cropX);
+        final float cropHeight = Math.min(getCropHeight() / scaleY, originalBitmap.getHeight() - cropY);
+
+        Log.v(TAG, "CropX = " + cropX + "; cropY = " + cropY + "; cropWidth = " + cropWidth + "; cropHeight = " + cropHeight + "; mRect.left = " + mRect.left + "; mRet.top = " + mRect.top + "; originalBitmap.getWidth() = " +originalBitmap.getWidth() + "; originalBitmap.getHeight() = " + originalBitmap.getHeight());
+        // Crop the subset from the original Bitmap.
+        return Bitmap.createBitmap(originalBitmap, (int) cropX, (int) cropY, (int) cropWidth, (int) cropHeight);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
@@ -314,14 +373,14 @@ public class CropImageView extends ImageView {
                     mRect.top = (int) y;
                     invalidate();
                 } else if (mNearByCornerIndex == CORNER_INDEX_LEFT_BOTTOM) {
-                    if (mRect.right - x <= mRectStrokeWidth || y -  mRect.top <= mRectStrokeWidth) {
+                    if (mRect.right - x <= mRectStrokeWidth || y - mRect.top <= mRectStrokeWidth) {
                         return true;
                     }
                     mRect.left = (int) x;
                     mRect.bottom = (int) y;
                     invalidate();
                 } else if (mNearByCornerIndex == CORNER_INDEX_RIGHT_BOTTOM) {
-                    if (x - mRect.left  <= mRectStrokeWidth || y -  mRect.top <= mRectStrokeWidth) {
+                    if (x - mRect.left <= mRectStrokeWidth || y - mRect.top <= mRectStrokeWidth) {
                         return true;
                     }
                     mRect.right = (int) x;
@@ -339,7 +398,7 @@ public class CropImageView extends ImageView {
                     mRect.top += distanceY;
                     mRect.bottom += distanceY;
                     Log.v(TAG, "mRect = " + mRect);
-                } else if (mRect.right + distanceX >= getWidth()){
+                } else if (mRect.right + distanceX >= getWidth()) {
                     mRect.right = getWidth();
                     mRect.left += distanceX;
                     mRect.top += distanceY;
