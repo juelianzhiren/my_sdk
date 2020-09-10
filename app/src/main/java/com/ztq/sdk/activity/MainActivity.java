@@ -370,6 +370,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.jump_to_content_observer_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ContentObserverActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

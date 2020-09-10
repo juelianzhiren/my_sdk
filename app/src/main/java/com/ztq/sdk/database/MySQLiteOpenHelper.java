@@ -11,8 +11,8 @@ import android.provider.BaseColumns;
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     private final String TAG = "noahedu.MySQLiteOpenHelper";
     private Context mContext;
-    public static final String COLUMN_ID = BaseColumns._ID;
     public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_ID = "id";
     private static String DATABASE_NAME = "my.db";
     public static final String TABLE_MY_SDK = "my_sdk";
     public final static int DATABASE_VERSION = 8;          // 版本号
@@ -24,7 +24,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_MY_SDK + " ("
-                    + COLUMN_ID + " INTEGER PRIMARY KEY, "
+                    + COLUMN_ID + " INTEGER, "
                     + COLUMN_NAME + " TEXT);");
     }
 
