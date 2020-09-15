@@ -2854,7 +2854,7 @@ public class Utils {
      * @param nums2
      * @param start2
      * @param len2
-     * @param k k在方法中的真正含义为“还需要找到多少个数才能达到k个
+     * @param k k在方法中的真正含义为“在这两个数组中找第k小的数”
      * @return
      */
     private static double findKth(int[] nums1, int start1, int len1, int[] nums2, int start2, int len2, int k) {
@@ -3440,5 +3440,35 @@ public class Utils {
         } else {
             return 1;
         }
+    }
+
+    /**
+     * 根据每日气温列表，请重新生成一个列表，对应位置的输出是需要再等待多久温度才会升高超过该日的天数。
+     * 如果之后都不会升高，请在该位置用 0 来代替。
+     * @param T
+     * @return
+     */
+    public static int[] dailyTemperatures(int[] T) {
+        int n = T.length;
+        if (n == 0) {
+            return new int[n];
+        }
+        if (n == 1) {
+            return new int[0];
+        }
+        Stack<Integer> stack = new Stack<>();
+        stack.add(0);
+        int[] ans = new int[n];
+        for (int i = 1; i < T.length; i++) {
+            while (stack.size() > 0 && T[i] > T[stack.peek()]) {
+                ans[stack.peek()] = i - stack.peek();
+                stack.pop();
+            }
+            stack.push(i);
+        }
+        while (stack.size() > 0) {
+            ans[stack.pop()] = 0;
+        }
+        return ans;
     }
 }
