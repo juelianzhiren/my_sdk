@@ -319,8 +319,13 @@ public class CropImageView extends ImageView {
         // Get image matrix values and place them in an array.
         float[] matrixValues = new float[9];
         getImageMatrix().getValues(matrixValues);
+        String matrixStr = "";
         for (int i = 0; i < matrixValues.length; i++) {
-            Log.v(TAG, "matrixValues " + i + ": " + matrixValues[i]);
+            matrixStr += matrixValues[i] + "  ";
+            if (i % 3 == 2) {
+                Log.v(TAG, matrixStr);
+                matrixStr = "";
+            }
         }
         // Extract the scale and translation values. Note, we currently do not handle any other transformations (e.g. skew).
         float scaleX = matrixValues[Matrix.MSCALE_X];
@@ -332,12 +337,14 @@ public class CropImageView extends ImageView {
         int bitmapWidth = originalBitmap.getWidth();
         int bitmapHeight = originalBitmap.getHeight();
         Log.v(TAG, "bitmapWidth = " + bitmapWidth + "; bitmapHeight = " + bitmapHeight);
+        Log.v(TAG, "; mRect.left = " + mRect.left + "; mRect.top = " + mRect.top + "; mRect.right = " + mRect.right + "; mRect.bottom = " + mRect.bottom + "; mRect.width = " + getCropWidth() + "; mRect.height = " + getCropHeight());
+        Log.v(TAG, "width = " + getWidth() + "; height = " + getHeight());
 
         // Ensure that the left and top edges are not outside of the ImageView bounds.
         float bitmapLeft = (transX < 0) ? Math.abs(transX) : 0;
         float bitmapTop = (transY < 0) ? Math.abs(transY) : 0;
-        bitmapTop = Math.abs(transY);
-        bitmapLeft = Math.abs(transX);
+//        bitmapTop = Math.abs(transY);
+//        bitmapLeft = Math.abs(transX);
         ScaleType scaleType = getScaleType();
         if (scaleType == ScaleType.CENTER) {
 
@@ -366,16 +373,12 @@ public class CropImageView extends ImageView {
         final float cropWidth = Math.min(getCropWidth() / scaleX, originalBitmap.getWidth() - cropX);
         final float cropHeight = Math.min(getCropHeight() / scaleY, originalBitmap.getHeight() - cropY);
 
-        Log.v(TAG, "CropX = " + cropX + "; cropY = " + cropY + "; cropWidth = " + cropWidth + "; cropHeight = " + cropHeight + "; mRect.left = " + mRect.left + "; mRet.top = " + mRect.top + "; originalBitmap.getWidth() = " +originalBitmap.getWidth() + "; originalBitmap.getHeight() = " + originalBitmap.getHeight());
-
-
         float left = mRect.left > bitmapLeft ? (mRect.left - bitmapLeft) / scaleX : 0;
         float top = mRect.top > bitmapTop ? (mRect.top - bitmapTop) / scaleY : 0;
         float right = mRect.right <= bitmapLeft ? 0 : ((mRect.right - bitmapLeft) / scaleX < bitmapWidth ? (mRect.right - bitmapLeft) / scaleX : bitmapWidth);
         float bottom = mRect.bottom <= bitmapTop ? 0 : ((mRect.bottom - bitmapTop) / scaleY < bitmapHeight ? (mRect.bottom - bitmapTop) / scaleY : bitmapHeight);
         float width= right - left;
         float height = bottom - top;
-        Log.v(TAG, "left = " + left + "; top = " + top + "; width = " + width + "; height = " + height + "; mRect.left = " + mRect.left + "; bitmapLeft = " + bitmapLeft + "; mRect.top = " + mRect.top + "; bitmapTop = " + bitmapTop);
         // Crop the subset from the original Bitmap.
         return Bitmap.createBitmap(originalBitmap, (int)left, (int)top, (int) width, (int)height);
 

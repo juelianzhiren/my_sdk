@@ -43,6 +43,7 @@ public class CropImageViewActivity extends BaseActivity {
                 bitmap = mCropImageView.getCropImage();
                 if (bitmap != null) {
                     mCropResultIv.setImageBitmap(bitmap);
+                    Log.v(TAG, "default scaleType = " + mCropResultIv.getScaleType());
                 }
             }
         });

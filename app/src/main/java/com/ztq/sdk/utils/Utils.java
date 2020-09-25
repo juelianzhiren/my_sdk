@@ -80,6 +80,12 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 /**
  * 工具类
  */
@@ -1422,5 +1428,104 @@ public class Utils {
             currentClass = currentClass.getSuperclass();
         }
         return allFields;
+    }
+
+    public interface DownloadListener {
+        void onStart(String url);
+        void onSuccess(String url);
+        void onFailure(String url);
+        void onUpdate(String url, float progress);
+    }
+    private static int mProgress = 0;
+    private static OkHttpClient mOkHttpClient;
+    public static void downloadFile(final String remoteUrl, final String localPath, final DownloadListener listener) {
+        if (isNullOrNil(remoteUrl) || isNullOrNil(localPath)) {
+            return;
+        }
+        if (listener != null) {
+            listener.onStart(remoteUrl);
+        }
+        final long startTime = System.currentTimeMillis();
+        Log.v(TAG, "startTime = " + startTime);
+        if (mOkHttpClient == null) {
+            mOkHttpClient = new OkHttpClient();
+        }
+        Request request = new Request.Builder()
+                .url(remoteUrl)
+                .addHeader("Connection", "close")
+                .build();
+        mProgress = 0;
+        mOkHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                Log.e(TAG, "download failed, msg = " + e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                InputStream is = null;
+                byte[] buf = new byte[2048];
+                int len = 0;
+                FileOutputStream fos = null;
+                File file = new File(localPath);
+                if (file.isDirectory()) {
+                    Log.e(TAG, "wanted file, but directory");
+                    if (listener != null) {
+                        listener.onFailure(remoteUrl);
+                    }
+                    return;
+                }
+                if (!file.getParentFile().exists()) {
+                    boolean flag = file.getParentFile().mkdirs();
+                    if (!flag) {
+                        Log.e(TAG, "create parent directory fail");
+                        if (listener != null) {
+                            listener.onFailure(remoteUrl);
+                        }
+                        return;
+                    }
+                }
+                try {
+                    is = response.body().byteStream();
+                    long total = response.body().contentLength();
+                    fos = new FileOutputStream(file);
+                    long sum = 0;
+                    while ((len = is.read(buf)) != -1) {
+                        fos.write(buf, 0, len);
+                        sum += len;
+                        int progress = (int) (sum * 1.0f / total * 100);
+                        Log.v(TAG, "download progress: " + progress);
+                        if (progress != mProgress) {
+                            if (listener != null) {
+                                listener.onUpdate(remoteUrl, progress);
+                            }
+                            mProgress = progress;
+                        }
+                    }
+                    fos.flush();
+                    if (listener != null) {
+                        listener.onSuccess(remoteUrl);
+                    }
+                    Log.v(TAG, "download success, " + "totalTime = " + (System.currentTimeMillis() - startTime) + "ms.");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e(TAG, "download failed : " + e.getMessage());
+                } finally {
+                    try {
+                        if (is != null)
+                            is.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        if (fos != null)
+                            fos.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 }
