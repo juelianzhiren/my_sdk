@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import com.ztq.sdk.R;
 
 /**
- * 简易的裁剪ImageView（还未完成）
+ * 简易的裁剪ImageView
  */
 public class CropImageView extends ImageView {
     private static final String TAG = "noahedu.CropImageView";
@@ -64,6 +64,8 @@ public class CropImageView extends ImageView {
     private boolean mIsShowGridLine;
     private Paint mLinePaint;
     private boolean mContainTranslucentBackground = true;
+    /**旋转的角度*/
+    private float mRotateDegree;
 
     public CropImageView(Context context) {
         this(context, null);
@@ -100,6 +102,10 @@ public class CropImageView extends ImageView {
 
         mRect = new Rect();
         initPaint();
+    }
+
+    public void continueRotateDegree(float rotateDegree) {
+        mRotateDegree += rotateDegree;
     }
 
     private void addListener() {
@@ -343,8 +349,6 @@ public class CropImageView extends ImageView {
         // Ensure that the left and top edges are not outside of the ImageView bounds.
         float bitmapLeft = (transX < 0) ? Math.abs(transX) : 0;
         float bitmapTop = (transY < 0) ? Math.abs(transY) : 0;
-//        bitmapTop = Math.abs(transY);
-//        bitmapLeft = Math.abs(transX);
         ScaleType scaleType = getScaleType();
         if (scaleType == ScaleType.CENTER) {
 
@@ -359,69 +363,30 @@ public class CropImageView extends ImageView {
         } else if (scaleType == ScaleType.FIT_END) {
 
         } else if (scaleType == ScaleType.FIT_XY) {
-
+            scaleX = getWidth() / (float)bitmapWidth;
+            scaleY = getHeight() / (float)bitmapHeight;
         }
-//        scaleX = getWidth() / (float)bitmapWidth;
-//        scaleY = getHeight() / (float)bitmapHeight;
-        // Get the original bitmap object.
-        // Calculate the top-left corner of the crop window relative to the ~original~ bitmap size.
-        final float cropX = (bitmapLeft + mRect.left) / scaleX;
-        final float cropY = (bitmapTop + mRect.top) / scaleY;
+        float cropX = (bitmapLeft + mRect.left) / scaleX;
+        float cropY = (bitmapTop + mRect.top) / scaleY;
 
-        // Calculate the crop window size relative to the ~original~ bitmap size.
-        // Make sure the right and bottom edges are not outside the ImageView bounds (this is just to address rounding discrepancies).
-        final float cropWidth = Math.min(getCropWidth() / scaleX, originalBitmap.getWidth() - cropX);
-        final float cropHeight = Math.min(getCropHeight() / scaleY, originalBitmap.getHeight() - cropY);
-
-        float left = mRect.left > bitmapLeft ? (mRect.left - bitmapLeft) / scaleX : 0;
-        float top = mRect.top > bitmapTop ? (mRect.top - bitmapTop) / scaleY : 0;
-        float right = mRect.right <= bitmapLeft ? 0 : ((mRect.right - bitmapLeft) / scaleX < bitmapWidth ? (mRect.right - bitmapLeft) / scaleX : bitmapWidth);
-        float bottom = mRect.bottom <= bitmapTop ? 0 : ((mRect.bottom - bitmapTop) / scaleY < bitmapHeight ? (mRect.bottom - bitmapTop) / scaleY : bitmapHeight);
-        float width= right - left;
-        float height = bottom - top;
-        // Crop the subset from the original Bitmap.
-        return Bitmap.createBitmap(originalBitmap, (int)left, (int)top, (int) width, (int)height);
-
-
-
-
-//        final Drawable drawable = getDrawable();
-//        if (drawable == null || !(drawable instanceof BitmapDrawable)) {
-//            return null;
-//        }
-//
-//        // Get image matrix values and place them in an array.
-//        final float[] matrixValues = new float[9];
-//        getImageMatrix().getValues(matrixValues);
-//
-//        // Extract the scale and translation values. Note, we currently do not handle any other transformations (e.g. skew).
-//        final float scaleX = matrixValues[Matrix.MSCALE_X];
-//        final float scaleY = matrixValues[Matrix.MSCALE_Y];
-//        final float transX = matrixValues[Matrix.MTRANS_X];
-//        final float transY = matrixValues[Matrix.MTRANS_Y];
-//
-//        // Ensure that the left and top edges are not outside of the ImageView bounds.
-//        final float bitmapLeft = (transX < 0) ? Math.abs(transX) : 0;
-//        final float bitmapTop = (transY < 0) ? Math.abs(transY) : 0;
-//
-//        // Get the original bitmap object.
-//        final Bitmap originalBitmap = ((BitmapDrawable) drawable).getBitmap();
-//
-//        // Calculate the top-left corner of the crop window relative to the ~original~ bitmap size.
-//        final float cropX = (bitmapLeft + mRect.left) / scaleX;
-//        final float cropY = (bitmapTop + mRect.top) / scaleY;
-//
-//        // Calculate the crop window size relative to the ~original~ bitmap size.
-//        // Make sure the right and bottom edges are not outside the ImageView bounds (this is just to address rounding discrepancies).
-//        final float cropWidth = Math.min(getCropWidth() / scaleX, originalBitmap.getWidth() - cropX);
-//        final float cropHeight = Math.min(getCropHeight() / scaleY, originalBitmap.getHeight() - cropY);
-//
-//        for (int i = 0; i < matrixValues.length; i++) {
-//            Log.v(TAG, "matrixValues " + i + ": " + matrixValues[i]);
-//        }
-//        // Crop the subset from the original Bitmap.
-//        Log.v(TAG, "cropX = " + cropX + "; cropY = " + cropY + "; cropWidth = " + cropWidth + "; cropHeight = " + cropHeight + "; bitmapWidth = " + originalBitmap.getWidth() + "; bitmapHeight = " + originalBitmap.getHeight());
-//        return Bitmap.createBitmap(originalBitmap, (int) cropX, (int) cropY, (int) cropWidth, (int) cropHeight);
+        float width = getCropWidth() / scaleX;
+        float height = getCropHeight() / scaleY;
+        if (cropX < 0) {
+            cropX = 0;
+        }
+        if (cropY < 0) {
+            cropY = 0;
+        }
+        if (width + cropX >= bitmapWidth) {
+            width = bitmapWidth - cropX;
+        }
+        if (height + cropY >= bitmapHeight) {
+            height = bitmapHeight - cropY;
+        }
+        Log.v(TAG, "createBitmap, cropX = " + cropX + "; cropY = " + cropY + "; width = " + width + "; height = " + height);
+        Matrix matrix = new Matrix();
+        matrix.setRotate(mRotateDegree);
+        return Bitmap.createBitmap(originalBitmap, (int)cropX, (int)cropY, (int) width, (int)height, matrix, false);
     }
 
     @Override
@@ -434,6 +399,9 @@ public class CropImageView extends ImageView {
         if (action == MotionEvent.ACTION_DOWN) {
             judgeLocation(x, y);
         } else if (action == MotionEvent.ACTION_MOVE) {
+            if (x < 0 || y < 0 || x > getWidth() || y > getHeight()) {
+                return true;
+            }
             if (mIsNearbyCorner) {
                 if (mNearByCornerIndex == CORNER_INDEX_LEFT_TOP) {
                     if (mRect.right - x <= mRectStrokeWidth || mRect.bottom - y <= mRectStrokeWidth) {

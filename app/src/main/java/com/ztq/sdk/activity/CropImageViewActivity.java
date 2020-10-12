@@ -8,7 +8,6 @@ import android.widget.ImageView;
 
 import com.ztq.sdk.R;
 import com.ztq.sdk.log.Log;
-import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.CropImageView;
 
 public class CropImageViewActivity extends BaseActivity {
@@ -40,6 +39,20 @@ public class CropImageViewActivity extends BaseActivity {
                 if (bitmap != null && !bitmap.isRecycled()) {
                     bitmap.recycle();
                 }
+                bitmap = mCropImageView.getCropImage();
+                if (bitmap != null) {
+                    mCropResultIv.setImageBitmap(bitmap);
+                    Log.v(TAG, "default scaleType = " + mCropResultIv.getScaleType());
+                }
+            }
+        });
+        findViewById(R.id.crop_image_get_rotate_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    bitmap.recycle();
+                }
+                mCropImageView.continueRotateDegree(90);
                 bitmap = mCropImageView.getCropImage();
                 if (bitmap != null) {
                     mCropResultIv.setImageBitmap(bitmap);

@@ -8,8 +8,8 @@
 
     <com.ztq.sdk.widget.CropImageView
         android:id="@+id/crop_image_view"
-        android:layout_width="512dp"
-        android:layout_height="360dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleType="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +38,18 @@
         android:textSize="24dp"
         android:textColor="@color/black"
         android:text="Crop"/>
+
+    <Button
+        android:id="@+id/crop_image_get_rotate_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/crop_image_get_crop_btn"
+        app:layout_constraintTop_toBottomOf="@id/crop_image_switch_btn"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="24dp"
+        android:textColor="@color/black"
+        android:text="rotate 90degree"/>
 
     <ImageView
         android:id="@+id/crop_image_result_iv"
