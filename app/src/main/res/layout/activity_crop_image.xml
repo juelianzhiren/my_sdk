@@ -1,62 +1,67 @@
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    android:layout_height="match_parent">
 
-    <com.ztq.sdk.widget.CropImageView
-        android:id="@+id/crop_image_view"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:scaleType="fitXY"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/advertisebg"/>
+    <android.support.constraint.ConstraintLayout
 
-    <Button
-        android:id="@+id/crop_image_switch_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/crop_image_view"
-        android:layout_marginTop="20dp"
-        android:textSize="24dp"
-        android:textColor="@color/black"
-        android:text="switch"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
 
-    <Button
-        android:id="@+id/crop_image_get_crop_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/crop_image_switch_btn"
-        android:layout_marginTop="20dp"
-        android:textSize="24dp"
-        android:textColor="@color/black"
-        android:text="Crop"/>
+        <com.ztq.sdk.widget.CropImageView
+            android:id="@+id/crop_image_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/advertisebg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/crop_image_get_rotate_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/crop_image_get_crop_btn"
-        app:layout_constraintTop_toBottomOf="@id/crop_image_switch_btn"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="24dp"
-        android:textColor="@color/black"
-        android:text="rotate 90degree"/>
+        <Button
+            android:id="@+id/crop_image_switch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="switch"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crop_image_view" />
 
-    <ImageView
-        android:id="@+id/crop_image_result_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/crop_image_get_crop_btn"
-        android:layout_marginTop="10dp"/>
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/crop_image_get_crop_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Crop"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crop_image_switch_btn" />
+
+        <Button
+            android:id="@+id/crop_image_get_rotate_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="rotate 90degree"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintLeft_toRightOf="@id/crop_image_get_crop_btn"
+            app:layout_constraintTop_toBottomOf="@id/crop_image_switch_btn" />
+
+        <ImageView
+            android:id="@+id/crop_image_result_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crop_image_get_crop_btn" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

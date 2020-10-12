@@ -39,9 +39,6 @@ public class CropImageViewActivity extends BaseActivity implements CancelAdapt {
         findViewById(R.id.crop_image_get_crop_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (bitmap != null && !bitmap.isRecycled()) {
-                    bitmap.recycle();
-                }
                 bitmap = mCropImageView.getCropImage();
                 if (bitmap != null) {
                     mCropResultIv.setImageBitmap(bitmap);
