@@ -10,7 +10,10 @@ import com.ztq.sdk.R;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.widget.CropImageView;
 
-public class CropImageViewActivity extends BaseActivity {
+import me.jessyan.autosize.internal.CancelAdapt;
+
+//使用autosize会影响到CropImageView的显示，所以尽量别用
+public class CropImageViewActivity extends BaseActivity implements CancelAdapt {
     private static final String TAG = "noahedu.CropImageViewActivity";
     private Context mContext;
     private CropImageView mCropImageView;

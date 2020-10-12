@@ -30,6 +30,8 @@ import com.ztq.sdk.widget.PinyinTextView;
 
 import java.util.List;
 
+import me.jessyan.autosize.internal.CancelAdapt;
+
 /**
  * 这是测试的Activity
  */

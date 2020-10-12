@@ -114,7 +114,9 @@ public class CropImageView extends ImageView {
             public void onGlobalLayout() {
                 int width = getWidth();
                 int height = getHeight();
-                Log.v(TAG, "width = " + width + "; height = " + height);
+                int measureWidth = getMeasuredWidth();
+                int measureHeight = getMeasuredHeight();
+                Log.v(TAG, "width = " + width + "; height = " + height + "; measureWidth = " + measureWidth + "; measureHeight = " + measureHeight);
                 if (mDefaultCropWidth > width) {
                     mDefaultCropWidth = width;
                 }
