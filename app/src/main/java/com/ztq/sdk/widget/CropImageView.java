@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import com.ztq.sdk.R;
 
 /**
- * 简易的裁剪ImageView
+ * 简易的裁剪ImageView  使用autosize会影响到CropImageView的显示，所以尽量别用
  */
 public class CropImageView extends ImageView {
     private static final String TAG = "noahedu.CropImageView";

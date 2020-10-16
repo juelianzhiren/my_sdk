@@ -49,6 +49,7 @@
         <activity android:name=".activity.ConstraintLayoutActivity" />
         <activity android:name=".activity.CropImageViewActivity" />
         <activity android:name=".activity.ContentObserverActivity" />
+        <activity android:name=".activity.ArouterDemoActivity" />
 
         <provider
             android:authorities="com.noahedu.sdk"

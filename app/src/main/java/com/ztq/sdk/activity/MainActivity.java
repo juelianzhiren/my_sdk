@@ -379,6 +379,14 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.arouter_demo_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ArouterDemoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
