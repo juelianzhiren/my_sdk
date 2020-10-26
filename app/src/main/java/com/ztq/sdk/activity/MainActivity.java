@@ -23,6 +23,7 @@ import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
+import com.ztq.sdk.widget.CardView;
 import com.ztq.sdk.widget.CircleProgressBar;
 import com.ztq.sdk.widget.FlowLayout;
 import com.ztq.sdk.widget.MyImageView;
@@ -384,6 +385,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ArouterDemoActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.cardview_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CardViewActivity.class);
                 startActivity(intent);
             }
         });
