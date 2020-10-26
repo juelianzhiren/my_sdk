@@ -597,7 +597,6 @@ public class SimpleCalendar {
 	}
 
 	public class Easter {
-
 		public int m;
 		public int d;
 

@@ -58,6 +58,7 @@ dependencies {
 
     compile config.dependencies["support-v7"]
     testCompile config.dependencies["junit"]
+    implementation 'com.android.support:cardview-v7:28.0.0'
     //在壳中，导入各业务组件即可。
     if (isNeedHomeModule.toBoolean()) {
         compile project(":module-home")
