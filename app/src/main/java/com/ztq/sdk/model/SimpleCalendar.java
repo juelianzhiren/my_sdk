@@ -35,6 +35,7 @@ public class SimpleCalendar {
 	List<Element> elements = new ArrayList<Element>();
 	public static Map<String, SimpleCalendar> cache = new HashMap<String, SimpleCalendar>();
 	long[] solarMonth = new long[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	static final int INT_1900 = 1900;
 	String[] Gan = new String[] { "甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸" };
 	String[] Zhi = new String[] { "子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥" };
 	String[] Animals = new String[] { "鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪" };
@@ -268,16 +269,16 @@ public class SimpleCalendar {
 
 		// 年柱 1900年立春后为庚子年(60进制36)
 		if (m < 2)
-			cY = cyclical(y - 1900 + 36 - 1);
+			cY = cyclical(y - INT_1900 + 36 - 1);
 		else
-			cY = cyclical(y - 1900 + 36);
+			cY = cyclical(y - INT_1900 + 36);
 		int term2 = sTerm(y, 2); // 立春日期
 
 		// 月柱 1900年1月小寒以前为 丙子月(60进制12)
 		int firstNode = sTerm(y, m * 2);// 返回当月「节」为几日开始
-		cM = cyclical((y - 1900) * 12 + m + 12);
+		cM = cyclical((y - INT_1900) * 12 + m + 12);
 
-		lM2 = (y - 1900) * 12 + m + 12;
+		lM2 = (y - INT_1900) * 12 + m + 12;
 		// 当月一日与 1900/1/1 相差天数
 		// 1900/1/1与 1970/1/1 相差25567日, 1900/1/1 日柱为甲戌日(60进制10)
 		SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -306,13 +307,13 @@ public class SimpleCalendar {
 
 			// 依节气调整二月分的年柱, 以立春为界
 			if (m == 1 && (i + 1) == term2) {
-				cY = cyclical(y - 1900 + 36);
-				lY2 = (y - 1900 + 36);
+				cY = cyclical(y - INT_1900 + 36);
+				lY2 = (y - INT_1900 + 36);
 			}
 			// 依节气月柱, 以「节」为界
 			if ((i + 1) == firstNode) {
-				cM = cyclical((y - 1900) * 12 + m + 13);
-				lM2 = (y - 1900) * 12 + m + 13;
+				cM = cyclical((y - INT_1900) * 12 + m + 13);
+				lM2 = (y - INT_1900) * 12 + m + 13;
 			}
 			// 日柱
 			cD = cyclical(dayCyclical + i);
@@ -489,7 +490,7 @@ public class SimpleCalendar {
 		df2.setTimeZone(TimeZone.getTimeZone("UTC"));
 		Date date = df2.parse("1900-01-06 02:05:00");
 		Long utcTime2 = date.getTime();
-		BigDecimal time2 = new BigDecimal(31556925974.7).multiply(new BigDecimal(y - 1900))
+		BigDecimal time2 = new BigDecimal(31556925974.7).multiply(new BigDecimal(y - INT_1900))
 				.add(new BigDecimal(sTermInfo[n]).multiply(BigDecimal.valueOf(60000L)));
 		BigDecimal time = time2.add(BigDecimal.valueOf(utcTime2));
 		Date offDate = new Date(time.longValue());
@@ -503,7 +504,7 @@ public class SimpleCalendar {
 
 	// ====================================== 返回农历 y年闰哪个月 1-12 , 没闰返回 0
 	public Long leapMonth(int y) {
-		long lm = lunarInfo[y - 1900] & 0xf;
+		long lm = lunarInfo[y - INT_1900] & 0xf;
 		return (lm == 0xf ? 0 : lm);
 	}
 
@@ -511,21 +512,21 @@ public class SimpleCalendar {
 	public Long lYearDays(int y) {
 		long i, sum = 348;
 		for (i = 0x8000; i > 0x8; i >>= 1)
-			sum += (lunarInfo[y - 1900] & i) != 0 ? 1 : 0;
+			sum += (lunarInfo[y - INT_1900] & i) != 0 ? 1 : 0;
 		return (sum + leapDays(y));
 	}
 
 	// ====================================== 返回农历 y年闰月的天数
 	public int leapDays(int y) {
 		if (leapMonth(y) != 0)
-			return ((lunarInfo[y - 1899] & 0xf) == 0xf ? 30 : 29);
+			return ((lunarInfo[y - (INT_1900 - 1)] & 0xf) == 0xf ? 30 : 29);
 		else
 			return 0;
 	}
 
 	// ====================================== 返回农历 y年m月的总天数
 	private int monthDays(int y, int m) {
-		return ((lunarInfo[y - 1900] & (0x10000 >> m)) != 0 ? 30 : 29);
+		return ((lunarInfo[y - INT_1900] & (0x10000 >> m)) != 0 ? 30 : 29);
 	}
 
 	public class Lunar {
@@ -542,11 +543,11 @@ public class SimpleCalendar {
 			Date date = df2.parse(dtFmt.format(objDate));
 			SimpleDateFormat df3 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 			df3.setTimeZone(TimeZone.getTimeZone("UTC"));
-			Date date3 = df3.parse("" + 1900 + "-" + 1 + "-" + 31 + " 00:00:00");
+			Date date3 = df3.parse("" + INT_1900 + "-" + 1 + "-" + 31 + " 00:00:00");
 			long time1 = date.getTime();
 			long time2 = date3.getTime();
 			int offset = (int) ((time1 - time2) / 86400000);
-			for (i = 1900; i < 2100 && offset > 0; i++) {
+			for (i = INT_1900; i < 2100 && offset > 0; i++) {
 				temp = lYearDays(i).intValue();
 				offset -= temp;
 			}
