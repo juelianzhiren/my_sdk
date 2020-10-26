@@ -1,6 +1,7 @@
 package com.ztq.sdk.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -148,6 +149,14 @@ public class RecyclerViewActivity extends BaseActivity implements CancelAdapt{
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView,dx, dy);
                 mLastCompletelyVisibleItem = manager2.findLastCompletelyVisibleItemPosition();
+            }
+        });
+
+        findViewById(R.id.xrecycler_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, XRecyclerViewActivity.class);
+                startActivity(intent);
             }
         });
     }

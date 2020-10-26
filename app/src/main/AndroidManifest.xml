@@ -39,6 +39,7 @@
         <activity android:name=".activity.PetalsRoundActivity" />
         <activity android:name=".activity.MapViewActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
+        <activity android:name=".activity.XRecyclerViewActivity" />
         <activity android:name=".activity.TimelineActivity" />
         <activity android:name=".activity.NetAPIActivity" />
         <activity android:name=".activity.InterceptActivity" />

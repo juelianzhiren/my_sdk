@@ -2,7 +2,6 @@ package com.ztq.sdk.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
