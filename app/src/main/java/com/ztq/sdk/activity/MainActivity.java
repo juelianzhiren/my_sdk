@@ -21,17 +21,14 @@ import com.ztq.sdk.R;
 import com.ztq.sdk.acopy.test.AcopyTestActivity;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MyAnimationDrawable;
+import com.ztq.sdk.mvp.view.LoginMVPActivity;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
-import com.ztq.sdk.widget.CardView;
 import com.ztq.sdk.widget.CircleProgressBar;
-import com.ztq.sdk.widget.FlowLayout;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
 import java.util.List;
-
-import me.jessyan.autosize.internal.CancelAdapt;
 
 /**
  * 这是测试的Activity
@@ -392,6 +389,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, CardViewActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.mvp_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, LoginMVPActivity.class);
                 startActivity(intent);
             }
         });

@@ -53,6 +53,7 @@
         <activity android:name=".activity.ArouterDemoActivity" />
         <activity android:name=".activity.CardViewActivity" />
         <activity android:name=".activity.BaseRecyclerViewAdapterHelperActivity" />
+        <activity android:name=".mvp.view.LoginMVPActivity" />
 
         <provider
             android:authorities="com.noahedu.sdk"
