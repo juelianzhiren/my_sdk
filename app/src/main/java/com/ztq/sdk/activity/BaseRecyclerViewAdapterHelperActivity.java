@@ -82,6 +82,19 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseActivity {
                 Toast.makeText(BaseRecyclerViewAdapterHelperActivity.this, "OnItemChildClickListener, " + position, Toast.LENGTH_SHORT).show();
             }
         });
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Log.d(TAG1, "setOnItemClickListener, position = " + position);
+            }
+        });
+        mAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                Log.d(TAG1, "onItemLongClick, position = " + position);
+                return false;
+            }
+        });
         //长按item子控件
         mAdapter.setOnItemChildLongClickListener(new BaseQuickAdapter.OnItemChildLongClickListener() {
             @Override
