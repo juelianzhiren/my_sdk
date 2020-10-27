@@ -7,6 +7,7 @@
     <TextView
         android:id="@+id/id_num"
         android:layout_width="0dp"
+        android:layout_marginLeft="20dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="#44ff0000"
@@ -18,6 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:layout_marginRight="20dp"
         android:background="#44ff4081"
         android:gravity="center"
         android:text="第一个" />
