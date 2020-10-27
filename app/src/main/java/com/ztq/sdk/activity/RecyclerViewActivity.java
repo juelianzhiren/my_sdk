@@ -159,5 +159,12 @@ public class RecyclerViewActivity extends BaseActivity implements CancelAdapt{
                 startActivity(intent);
             }
         });
+        findViewById(R.id.brvah_demo_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, BaseRecyclerViewAdapterHelperActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

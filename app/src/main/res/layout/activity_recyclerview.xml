@@ -11,6 +11,13 @@
         android:text="xrecycler demo"
         android:layout_gravity="center_horizontal"/>
 
+    <Button
+        android:id="@+id/brvah_demo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BRVAH_demo"
+        android:layout_gravity="center_horizontal"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view1"
         android:layout_width="match_parent"

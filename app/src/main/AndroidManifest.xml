@@ -52,6 +52,7 @@
         <activity android:name=".activity.ContentObserverActivity" />
         <activity android:name=".activity.ArouterDemoActivity" />
         <activity android:name=".activity.CardViewActivity" />
+        <activity android:name=".activity.BaseRecyclerViewAdapterHelperActivity" />
 
         <provider
             android:authorities="com.noahedu.sdk"

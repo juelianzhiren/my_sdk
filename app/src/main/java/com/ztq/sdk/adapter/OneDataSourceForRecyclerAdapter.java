@@ -1,18 +1,21 @@
 package com.ztq.sdk.adapter;
 
-import android.widget.BaseAdapter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @description: 只有一个数据源的adapter
+ * 和OneDataSourceAdapter对应的Adapter，前者是listview的基类adapter，后者是recyclerview的基类适配器类
+ * @param <T>
+ * @param <Y>
  */
-public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
-    private static final String TAG = "childedu.OneDataSourceAdapter";
-
-    //数据源
-    private List<T> dataSource = new ArrayList<T>();
+public class OneDataSourceForRecyclerAdapter<T, Y extends BaseViewHolder> extends BaseQuickAdapter<T, BaseViewHolder> {
+    public OneDataSourceForRecyclerAdapter(int layoutResId) {
+        super(layoutResId);
+        mData = new ArrayList<>();
+    }
 
     /**
      * @description: 添加数据
@@ -20,7 +23,7 @@ public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
      * @return void
      */
     public void addData(T data) {
-        dataSource.add(data);
+        mData.add(data);
         notifyDataSetChanged();
     }
 
@@ -30,7 +33,7 @@ public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
      * @return void
      */
     public void addData(List<T> data){
-        dataSource.addAll(data);
+        mData.addAll(data);
         notifyDataSetChanged();
     }
 
@@ -40,7 +43,7 @@ public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
      * @return void
      */
     public void addData(int index, T data){
-        dataSource.add(index, data);
+        mData.add(index, data);
         notifyDataSetChanged();
     }
 
@@ -50,9 +53,9 @@ public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
      * @return void
      */
     public void addData(int index, List<T> data){
-        dataSource.addAll(index, data);
+        mData.addAll(index, data);
         notifyDataSetChanged();
-    };
+    }
 
     /**
      * @description: 删除索引位置index的数据
@@ -60,7 +63,7 @@ public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
      * @return void
      */
     public void remove(int index){
-        dataSource.remove(index);
+        mData.remove(index);
         notifyDataSetChanged();
     }
 
@@ -69,7 +72,7 @@ public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
      * @return void
      */
     public void clear() {
-        dataSource.clear();
+        mData.clear();
         notifyDataSetChanged();
     }
 
@@ -79,6 +82,11 @@ public abstract class OneDataSourceAdapter<T> extends BaseAdapter {
      * @return List<T>
      */
     public List<T> getDataSource() {
-        return dataSource;
+        return mData;
+    }
+
+    @Override
+    protected void convert(BaseViewHolder helper, T item) {
+
     }
 }
