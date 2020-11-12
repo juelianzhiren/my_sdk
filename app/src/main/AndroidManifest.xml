@@ -54,6 +54,7 @@
         <activity android:name=".activity.CardViewActivity" />
         <activity android:name=".activity.BaseRecyclerViewAdapterHelperActivity" />
         <activity android:name=".mvp.view.LoginMVPActivity" />
+        <activity android:name=".activity.WebViewActivity" />
 
         <provider
             android:authorities="com.noahedu.sdk"

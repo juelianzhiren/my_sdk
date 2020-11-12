@@ -91,6 +91,13 @@ attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
 attr canTurnInCircle
+attr cardBackgroundColor
+attr cardCornerRadius
+attr cardElevation
+attr cardMaxElevation
+attr cardPreventCornerOverlap
+attr cardUseCompatPadding
+attr cardViewStyle
 attr chainUseRtl
 attr checkboxStyle
 attr checkedTextViewStyle
@@ -125,6 +132,11 @@ attr contentInsetLeft
 attr contentInsetRight
 attr contentInsetStart
 attr contentInsetStartWithNavigation
+attr contentPadding
+attr contentPaddingBottom
+attr contentPaddingLeft
+attr contentPaddingRight
+attr contentPaddingTop
 attr contentScrim
 attr controlBackground
 attr customNavigationLayout
@@ -517,6 +529,10 @@ color bright_foreground_material_dark
 color bright_foreground_material_light
 color button_material_dark
 color button_material_light
+color cardview_dark_background
+color cardview_light_background
+color cardview_shadow_end_color
+color cardview_shadow_start_color
 color circle_bg
 color colorAccent
 color colorPrimary
@@ -572,6 +588,7 @@ color new_blue_bg
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
+color possible_result_points
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -580,6 +597,7 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color result_view
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -598,6 +616,7 @@ color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
 color translucent_black_95
+color viewfinder_mask
 color white
 color yellow
 dimen abc_action_bar_content_inset_material
@@ -674,11 +693,15 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen cardview_compat_inset_shadow
+dimen cardview_default_elevation
+dimen cardview_default_radius
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
 dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
+dimen def_height
 dimen default_crop_corner_stroke_width
 dimen default_crop_corner_width
 dimen default_crop_height
@@ -711,6 +734,10 @@ dimen design_tab_max_width
 dimen design_tab_min_width
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen dp_10
+dimen dp_4
+dimen dp_40
+dimen dp_72
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
@@ -757,6 +784,9 @@ dimen petals_round_view_thin_radius_line_width
 dimen progress_button_round_radius
 dimen progress_button_stroke_width
 dimen progress_button_text_size
+dimen sp_12
+dimen sp_14
+dimen sp_16
 dimen textandiconmargin
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
@@ -854,6 +884,9 @@ drawable candy_flash_anim
 drawable clip_drawable
 drawable design_fab_background
 drawable design_snackbar_background
+drawable ic_action_accept
+drawable ic_action_accounts
+drawable ic_action_person
 drawable ic_candy_flash_01
 drawable ic_candy_flash_02
 drawable ic_candy_flash_03
@@ -917,6 +950,7 @@ drawable loading_09
 drawable loading_10
 drawable loading_11
 drawable loading_12
+drawable nav_back
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -939,6 +973,9 @@ drawable pic_7
 drawable pikacu
 drawable progressbar
 drawable progressloading
+drawable qrcode_scan_line
+drawable sample_footer_loading
+drawable sample_footer_loading_progress
 drawable shape_gray
 drawable shape_gray_circle
 drawable shape_toast_bg_round
@@ -963,6 +1000,10 @@ id BallSpinFadeLoader
 id BallTrianglePath
 id BallZigZag
 id BallZigZagDeflect
+id BaseQuickAdapter_databinding_support
+id BaseQuickAdapter_dragging_support
+id BaseQuickAdapter_swiping_support
+id BaseQuickAdapter_viewholder_support
 id CTRL
 id CubeTransition
 id FUNCTION
@@ -1011,11 +1052,14 @@ id animation_iv
 id animation_lv
 id arouter_demo_btn
 id async
+id auto_focus
 id barrier
+id base_recyclerview_adapter_helper_srl
 id beginning
 id big_picture_iv
 id blocking
 id bottom
+id brvah_demo_btn
 id bt_event_bus
 id bt_for_result
 id bt_inject
@@ -1030,6 +1074,11 @@ id button3
 id buttonPanel
 id cancel_action
 id cancel_event_btn
+id card_view_four
+id card_view_one
+id card_view_three
+id card_view_two
+id cardview_btn
 id cbr
 id center
 id center_horizontal
@@ -1052,6 +1101,9 @@ id crop_image_switch_btn
 id crop_image_view
 id custom
 id customPanel
+id decode
+id decode_failed
+id decode_succeeded
 id decor_content_parent
 id default_activity_button
 id demo_btn
@@ -1065,6 +1117,8 @@ id dimensions
 id direct
 id disableHome
 id edit_query
+id encode_failed
+id encode_succeeded
 id end
 id end_padder
 id enterAlways
@@ -1079,6 +1133,7 @@ id fixed
 id fl_container
 id flow_layout_btn
 id foot_view_item_tv
+id footerview_tv
 id forever
 id gifview
 id gone
@@ -1090,13 +1145,21 @@ id head_lastUpdatedTextView
 id head_progressBar
 id head_tipsTextView
 id header_refresh_time_container
+id headerview_tv
 id home
 id homeAsUp
 id icon
 id icon_group
+id id_num
+id id_recyclerview
+id id_text
 id ifRoom
 id image
 id info
+id info_text_four
+id info_text_one
+id info_text_three
+id info_text_two
 id invisible
 id italic
 id item_recyclerview_footer_ll
@@ -1111,6 +1174,7 @@ id item_timeline_top_line_tv
 id item_timeline_total_view
 id item_touch_helper_previous_elevation
 id item_tv
+id item_wrong_topic_delete_tv
 id iv
 id jni_demo_tv
 id jump_big_picuture_btn
@@ -1121,6 +1185,7 @@ id jump_to_gridview_btn
 id jump_to_lyrics_btn
 id jump_to_zoom_image_btn
 id last_refresh_time
+id launch_product_query
 id left
 id line1
 id line3
@@ -1133,6 +1198,11 @@ id listview_header_arrow
 id listview_header_content
 id listview_header_progressbar
 id listview_header_text
+id load_more_load_end_view
+id load_more_load_fail_view
+id load_more_loading_view
+id loading_progress
+id loading_text
 id loadview
 id lyrics_view
 id mapview
@@ -1142,6 +1212,7 @@ id message
 id middle
 id mini
 id multiply
+id mvp_btn
 id myview
 id ndk_demo_btn
 id net_api_btn
@@ -1156,6 +1227,7 @@ id packed
 id parallax
 id parent
 id parentPanel
+id password
 id percent
 id petals_round_view
 id petals_round_view_btn
@@ -1164,14 +1236,19 @@ id pieImageView
 id pin
 id pinyin_tv
 id play_or_pause_btn
+id preview_view
+id progress
 id progress_circular
 id progress_horizontal
+id quit
 id radio
 id recycler_view1
 id recycler_view2
 id recyclerview_btn
 id refresh_status_textview
 id reload_tv
+id restart_preview
+id return_scan_result
 id right
 id right_icon
 id right_side
@@ -1183,6 +1260,8 @@ id scrollView
 id scrollable
 id search_badge
 id search_bar
+id search_book_contents_failed
+id search_book_contents_succeeded
 id search_button
 id search_close_btn
 id search_edit_frame
@@ -1235,10 +1314,16 @@ id tv1
 id tv2
 id tv3
 id tv_login_status
+id tv_prompt
 id uniform
 id up
 id useLogo
+id username
 id view_offset_helper
+id viewfinder_view
+id webview
+id webview_btn
+id webview_btn1
 id withText
 id wrap
 id wrap_content
@@ -1282,8 +1367,10 @@ layout abc_select_dialog_material
 layout activity_acopy_test
 layout activity_animation
 layout activity_arouter_demo
+layout activity_base_recyclerview_adapter_helper
 layout activity_big_picture
 layout activity_cancel
+layout activity_cardview
 layout activity_content_observer
 layout activity_contraint_layout
 layout activity_crop_image
@@ -1295,6 +1382,7 @@ layout activity_home
 layout activity_inter_middle
 layout activity_intercept
 layout activity_jni_demo
+layout activity_login_mvp
 layout activity_lyrics
 layout activity_main
 layout activity_mapview
@@ -1302,12 +1390,17 @@ layout activity_net_api
 layout activity_overdraw
 layout activity_petals_round
 layout activity_pie_image
+layout activity_qrscanner
 layout activity_recyclerview
 layout activity_result_client
 layout activity_result_server
+layout activity_scanner
 layout activity_timeline
+layout activity_webview
 layout activity_xrecyclerview
 layout activity_zoom_image
+layout base_recyclerview_adapter_helper_footerview
+layout base_recyclerview_adapter_helper_headerview
 layout design_layout_snackbar
 layout design_layout_snackbar_include
 layout design_layout_tab_icon
@@ -1318,6 +1411,7 @@ layout design_navigation_item_separator
 layout design_navigation_item_subheader
 layout design_navigation_menu
 layout fragment_home
+layout item_base_recyclerview_adapter_helper
 layout item_gridview
 layout item_recyclerview
 layout item_timeline
@@ -1339,6 +1433,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout pull_to_refresh_head
+layout quick_view_load_more
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1347,6 +1442,7 @@ layout toast
 layout tooltip
 mipmap ic_launcher
 mipmap ic_launcher_round
+raw beep
 raw chinahigh
 string abc_action_bar_home_description
 string abc_action_bar_home_description_format
@@ -1391,17 +1487,26 @@ string listview_header_hint_normal
 string listview_header_hint_release
 string listview_header_last_time
 string listview_loading
+string load_end
+string load_failed
+string loading
 string loading_done
+string log_in
 string network_error
 string nomore_loading
+string password
+string password_error
 string refresh_done
 string refreshing
 string runtime_error
+string scan_text
 string search_menu_title
 string server_error
 string status_bar_notification_info_overflow
 string unknown_error
 string update_data
+string user_name
+string username_error
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -1413,6 +1518,7 @@ style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
 style Base_Animation_AppCompat_DropDownUp
 style Base_Animation_AppCompat_Tooltip
+style Base_CardView
 style Base_DialogWindowTitle_AppCompat
 style Base_DialogWindowTitleBackground_AppCompat
 style Base_TextAppearance_AppCompat
@@ -1567,6 +1673,9 @@ style Base_Widget_AppCompat_TextView_SpinnerItem
 style Base_Widget_AppCompat_Toolbar
 style Base_Widget_AppCompat_Toolbar_Button_Navigation
 style Base_Widget_Design_TabLayout
+style CardView
+style CardView_Dark
+style CardView_Light
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat
@@ -1798,6 +1907,7 @@ styleable AppCompatTextHelper android_textAppearance android_drawableTop android
 styleable AppCompatTextView android_textAppearance autoSizeMaxTextSize autoSizeMinTextSize autoSizePresetSizes autoSizeStepGranularity autoSizeTextType fontFamily textAllCaps
 styleable AppCompatTheme android_windowIsFloating android_windowAnimationStyle actionBarDivider actionBarItemBackground actionBarPopupTheme actionBarSize actionBarSplitStyle actionBarStyle actionBarTabBarStyle actionBarTabStyle actionBarTabTextStyle actionBarTheme actionBarWidgetTheme actionButtonStyle actionDropDownStyle actionMenuTextAppearance actionMenuTextColor actionModeBackground actionModeCloseButtonStyle actionModeCloseDrawable actionModeCopyDrawable actionModeCutDrawable actionModeFindDrawable actionModePasteDrawable actionModePopupWindowStyle actionModeSelectAllDrawable actionModeShareDrawable actionModeSplitBackground actionModeStyle actionModeWebSearchDrawable actionOverflowButtonStyle actionOverflowMenuStyle activityChooserViewStyle alertDialogButtonGroupStyle alertDialogCenterButtons alertDialogStyle alertDialogTheme autoCompleteTextViewStyle borderlessButtonStyle buttonBarButtonStyle buttonBarNegativeButtonStyle buttonBarNeutralButtonStyle buttonBarPositiveButtonStyle buttonBarStyle buttonStyle buttonStyleSmall checkboxStyle checkedTextViewStyle colorAccent colorBackgroundFloating colorButtonNormal colorControlActivated colorControlHighlight colorControlNormal colorError colorPrimary colorPrimaryDark colorSwitchThumbNormal controlBackground dialogPreferredPadding dialogTheme dividerHorizontal dividerVertical dropDownListViewStyle dropdownListPreferredItemHeight editTextBackground editTextColor editTextStyle homeAsUpIndicator imageButtonStyle listChoiceBackgroundIndicator listDividerAlertDialog listMenuViewStyle listPopupWindowStyle listPreferredItemHeight listPreferredItemHeightLarge listPreferredItemHeightSmall listPreferredItemPaddingLeft listPreferredItemPaddingRight panelBackground panelMenuListTheme panelMenuListWidth popupMenuStyle popupWindowStyle radioButtonStyle ratingBarStyle ratingBarStyleIndicator ratingBarStyleSmall searchViewStyle seekBarStyle selectableItemBackground selectableItemBackgroundBorderless spinnerDropDownItemStyle spinnerStyle switchStyle textAppearanceLargePopupMenu textAppearanceListItem textAppearanceListItemSecondary textAppearanceListItemSmall textAppearancePopupMenuHeader textAppearanceSearchResultSubtitle textAppearanceSearchResultTitle textAppearanceSmallPopupMenu textColorAlertDialogListItem textColorSearchUrl toolbarNavigationButtonStyle toolbarStyle tooltipForegroundColor tooltipFrameBackground windowActionBar windowActionBarOverlay windowActionModeOverlay windowFixedHeightMajor windowFixedHeightMinor windowFixedWidthMajor windowFixedWidthMinor windowMinWidthMajor windowMinWidthMinor windowNoTitle
 styleable ButtonBarLayout allowStacking
+styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable CollapsingAppBarLayout_LayoutParams layout_collapseMode layout_collapseParallaxMultiplier
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance statusBarScrim title titleEnabled toolbarId
 styleable ColorStateListItem android_color android_alpha alpha

@@ -32,6 +32,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -1527,5 +1528,80 @@ public class Utils {
                 }
             }
         });
+    }
+
+    /**
+     * 将webview的内容保存图片
+     * @param context
+     * @param webView
+     * @param path
+     */
+    public static boolean saveWebviewContentToImage(Context context, WebView webView, String path) {
+        if (context == null || webView == null || isNullOrNil(path)) {
+            return false;
+        }
+        Log.v(TAG, "width = " + webView.getWidth() + "; contentHeight = " + webView.getContentHeight() + "; scale = " + webView.getScale() + "; measureHeight = " + webView.getHeight());
+        int a = webView.getContentHeight();
+        float scale = webView.getScale();
+//        Bitmap b = Bitmap.createBitmap(webView.getMeasuredWidth(), (int)(a * scale), Bitmap.Config.RGB_565);
+        Bitmap b = Bitmap.createBitmap(webView.getWidth(), webView.getHeight(), Bitmap.Config.RGB_565);
+        Canvas c = new Canvas(b);
+        webView.draw(c);
+        File file = new File(path);
+        if(file.exists()){
+            file.delete();
+        }
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file.getAbsoluteFile());
+            if (fos != null) {
+                b.compress(Bitmap.CompressFormat.JPEG, 90, fos);
+                fos.close();
+                Toast.makeText(context, "保存成功", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, "保存失败", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    /**
+     * 将webview的内容保存图片
+     * @param context
+     * @param webView
+     * @param path
+     */
+    public static boolean saveWebviewContentToImage1(Context context, WebView webView, String path) {
+        if (context == null || webView == null || isNullOrNil(path)) {
+            return false;
+        }
+        webView.measure(0, 0);
+        int measuredHeight = webView.getMeasuredHeight();
+        int measureWidth = webView.getMeasuredWidth();
+        Log.i(TAG, "measuredHeight=" + measuredHeight + "; measureWidth = " + measureWidth + "; width = " + webView.getWidth() + "; height = " + webView.getHeight());
+        Bitmap b = Bitmap.createBitmap(measureWidth, measuredHeight, Bitmap.Config.RGB_565);
+        Canvas c = new Canvas(b);
+        webView.draw(c);
+        File file = new File(path);
+        if(file.exists()){
+            file.delete();
+        }
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file.getAbsoluteFile());
+            Log.v(TAG, "byteCount = " + b.getAllocationByteCount() + "; " + webView.getHeight());
+            if (fos != null) {
+                b.compress(Bitmap.CompressFormat.JPEG, 90, fos);
+                fos.close();
+                Toast.makeText(context, "保存成功", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, "保存失败", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }

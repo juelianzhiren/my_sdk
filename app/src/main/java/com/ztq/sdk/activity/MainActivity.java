@@ -11,12 +11,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.DisplayMetrics;
-
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.sll.qrdemo.QRScannerActivity;
 import com.ztq.sdk.R;
 import com.ztq.sdk.acopy.test.AcopyTestActivity;
 import com.ztq.sdk.log.Log;
@@ -396,6 +396,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, LoginMVPActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.webview_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, WebViewActivity.class);
                 startActivity(intent);
             }
         });

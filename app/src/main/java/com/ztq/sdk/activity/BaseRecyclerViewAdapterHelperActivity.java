@@ -48,7 +48,7 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseActivity {
 
     private void findViews() {
         mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.base_recyclerview_adapter_helper_srl);
+//        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.base_recyclerview_adapter_helper_srl);
     }
 
     private void init() {
@@ -122,18 +122,18 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseActivity {
                 }, 2000);
             }
         });
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                MyHandlerThread.postToMainThreadDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter.clear();
-                        mAdapter.addData(mDatas);
-                        mSwipeRefreshLayout.setRefreshing(false);                    }
-                }, 2000);
-            }
-        });
+//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                MyHandlerThread.postToMainThreadDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        mAdapter.clear();
+//                        mAdapter.addData(mDatas);
+//                        mSwipeRefreshLayout.setRefreshing(false);                    }
+//                }, 2000);
+//            }
+//        });
     }
 
     //不用框架的适配器

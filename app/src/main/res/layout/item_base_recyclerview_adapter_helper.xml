@@ -4,23 +4,39 @@
     android:layout_height="50dp"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/id_num"
-        android:layout_width="0dp"
-        android:layout_marginLeft="20dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#44ff0000"
-        android:gravity="center"
-        android:text="1" />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/id_num"
+            android:layout_width="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#44ff0000"
+            android:gravity="center"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/id_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:background="#44ff4081"
+            android:gravity="center"
+            android:text="第一个" />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/id_text"
-        android:layout_width="0dp"
+        android:id="@+id/item_wrong_topic_delete_tv"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_marginRight="20dp"
-        android:background="#44ff4081"
+        android:layout_marginLeft="5dp"
+        android:background="#f00"
         android:gravity="center"
-        android:text="第一个" />
+        android:text="delete"
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
 </LinearLayout>
