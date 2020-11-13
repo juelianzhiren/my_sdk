@@ -55,6 +55,7 @@
         <activity android:name=".activity.BaseRecyclerViewAdapterHelperActivity" />
         <activity android:name=".mvp.view.LoginMVPActivity" />
         <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.HorizontalWebViewActivity" />
 
         <provider
             android:authorities="com.noahedu.sdk"

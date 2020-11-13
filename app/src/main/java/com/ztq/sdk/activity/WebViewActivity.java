@@ -1,6 +1,7 @@
 package com.ztq.sdk.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -127,6 +128,14 @@ public class WebViewActivity extends BaseActivity implements CancelAdapt {
                         mWebView.setLayoutParams(params);
                     }
                 }, 500);
+            }
+        });
+
+        findViewById(R.id.webview_jump_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, HorizontalWebViewActivity.class);
+                startActivity(intent);
             }
         });
     }

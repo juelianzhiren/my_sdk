@@ -1252,6 +1252,7 @@ id return_scan_result
 id right
 id right_icon
 id right_side
+id save_btn
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1324,6 +1325,7 @@ id viewfinder_view
 id webview
 id webview_btn
 id webview_btn1
+id webview_jump_btn
 id withText
 id wrap
 id wrap_content
@@ -1379,6 +1381,7 @@ layout activity_event_bus
 layout activity_flow_layout
 layout activity_gridview
 layout activity_home
+layout activity_horizontal_webview
 layout activity_inter_middle
 layout activity_intercept
 layout activity_jni_demo
@@ -1499,6 +1502,7 @@ string password_error
 string refresh_done
 string refreshing
 string runtime_error
+string save
 string scan_text
 string search_menu_title
 string server_error
