@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -24,6 +26,8 @@ public class HorizontalWebViewActivity extends BaseActivity {
     private Context mContext;
     private WebView mWebView;
     private ScrollView mLL;
+    private int mLLHeight;
+    private int mLLWidth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +91,10 @@ public class HorizontalWebViewActivity extends BaseActivity {
 
                 mLL.setTranslationY(Utils.dp2px(mContext, 500));
 
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mLL.getLayoutParams();
+                params.height = mLLWidth;
+                mLL.setLayoutParams(params);
+
 //                mWebView.setPivotX(0);
 //                mWebView.setPivotY(0);
 //                mWebView.setRotation(-90);
@@ -105,6 +113,14 @@ public class HorizontalWebViewActivity extends BaseActivity {
             @Override
             public void onGlobalLayout() {
                 Log.v(TAG, "mWebView, width = " + mWebView.getWidth() + "; height = " + mWebView.getHeight());
+            }
+        });
+        mLL.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Log.v(TAG, "mLL, width = " + mLL.getWidth() + "; height = " + mLL.getHeight());
+                mLLHeight = mLL.getHeight();
+                mLLWidth = mLL.getWidth();
             }
         });
     }
