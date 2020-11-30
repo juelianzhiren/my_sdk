@@ -1,9 +1,11 @@
 package com.ztq.sdk.mvp.view;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ztq.sdk.R;
@@ -31,6 +33,7 @@ public class LoginMVPActivity extends BaseActivity implements LoginView, View.On
     private EditText username;
     private EditText password;
     private LoginPresenter presenter;
+    private TextView mTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +43,12 @@ public class LoginMVPActivity extends BaseActivity implements LoginView, View.On
         progressBar = (ProgressBar) findViewById(R.id.progress);
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+        mTv = findViewById(R.id.login_mvp_tv);
         findViewById(R.id.button).setOnClickListener(this);
 
         presenter = new LoginPresenterImpl(this);
+
+        mTv.setText(Html.fromHtml("3．用<img src=\"http://192.168.1.56/2/100/102/7/150810/大同步独立试卷-北师大-小学-数学-五年级-上学期----四川省/试题文件/图片/尖子生题库BS版-五上-数学-050-02.jpg\"/>和<img src=\"http://192.168.1.56/2/100/102/7/150810/大同步独立试卷-北师大-小学-数学-五年级-上学期----四川省/试题文件/图片/尖子生题库BS版-五上-数学-050-03.jpg\"/>拼成的对称图形是(\u000E\u0001\u000E\u0001)。"));
     }
 
     @Override

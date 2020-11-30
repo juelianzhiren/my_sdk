@@ -12,9 +12,17 @@
         android:layout_marginTop="10dp"
         android:text="@string/save"/>
 
-    <com.ztq.sdk.widget.HorizontalWebView
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+    <ScrollView
+        android:id="@+id/horizontal_webview_ll"
+        android:layout_width="500dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            />
+    </ScrollView>
 </LinearLayout>

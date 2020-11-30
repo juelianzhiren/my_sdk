@@ -39,4 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/login_mvp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"/>
 </LinearLayout>
