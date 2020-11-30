@@ -2,6 +2,7 @@ package com.ztq.sdk.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -16,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.utils.Utils;
 
 /**
@@ -82,9 +84,10 @@ public class HorizontalWebViewActivity extends BaseActivity {
                 Log.v(TAG, "onReceivedError2");
             }
         });
-        findViewById(R.id.save_btn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.rotate_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v(TAG, "mLL.getRotation = " + mLL.getRotation());
                 mLL.setPivotX(0);
                 mLL.setPivotY(0);
                 mLL.setRotation(-90);
@@ -103,12 +106,21 @@ public class HorizontalWebViewActivity extends BaseActivity {
             }
         });
 
-//        mLL.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-//            @Override
-//            public void onGlobalLayout() {
-//                Log.v(TAG, "mLL, width = " + mLL.getWidth() + "; height = " + mLL.getHeight());
-//            }
-//        });
+        findViewById(R.id.save_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyHandlerThread.postToMainThreadDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/webview1.png";
+                        boolean flag = Utils.saveWebviewContentToImage(mContext, mWebView, path);
+                        com.ztq.sdk.log.Log.v(TAG, "flag = " + flag);
+//                        params.height = LinearLayout.LayoutParams.MATCH_PARENT;
+//                        mWebView.setLayoutParams(params);
+                    }
+                }, 500);
+            }
+        });
         mWebView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
