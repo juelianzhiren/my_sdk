@@ -89,7 +89,7 @@ public class HorizontalWebViewActivity extends BaseActivity {
                 mLL.setPivotY(0);
                 mLL.setRotation(-90);
 
-                mLL.setTranslationY(Utils.dp2px(mContext, 500));
+                mLL.setTranslationY(mLLWidth);
 
                 LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mLL.getLayoutParams();
                 params.height = mLLWidth;
