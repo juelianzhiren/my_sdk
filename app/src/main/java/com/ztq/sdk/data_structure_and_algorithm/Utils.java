@@ -1,5 +1,7 @@
 package com.ztq.sdk.data_structure_and_algorithm;
 
+import android.util.Log;
+
 import com.ztq.sdk.log.Log;
 
 import java.util.ArrayDeque;
@@ -3132,8 +3134,8 @@ public class Utils {
             max = strTwo;
             min = strOne;
         } else {
-            max = strTwo;
-            min = strOne;
+            max = strOne;
+            min = strTwo;
         }
         String current = "";
         // 遍历较短的字符串，并依次减少短字符串的字符数量，判断长字符是否包含该子串

@@ -1148,6 +1148,7 @@ id header_refresh_time_container
 id headerview_tv
 id home
 id homeAsUp
+id horizontal_webview_ll
 id icon
 id icon_group
 id id_num
@@ -1204,6 +1205,7 @@ id load_more_loading_view
 id loading_progress
 id loading_text
 id loadview
+id login_mvp_tv
 id lyrics_view
 id mapview
 id mapview_btn
@@ -1252,6 +1254,7 @@ id return_scan_result
 id right
 id right_icon
 id right_side
+id rotate_btn
 id save_btn
 id screen
 id scroll
@@ -1501,6 +1504,7 @@ string password
 string password_error
 string refresh_done
 string refreshing
+string rotate
 string runtime_error
 string save
 string scan_text
