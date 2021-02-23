@@ -5,12 +5,8 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.lizejun.demo.lib.base.BaseApplication;
 import com.lizejun.demo.lib.base.util.Utils;
-import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.log.Log;
-
-import me.jessyan.autosize.AutoSizeConfig;
 
 /**
  * Created by ztq on 2019/9/25.

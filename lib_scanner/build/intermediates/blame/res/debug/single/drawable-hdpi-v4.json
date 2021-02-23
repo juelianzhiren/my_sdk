@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_reginfo_male.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_reginfo_male.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_gender_female_n.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_gender_female_n.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_gender_male_n.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_gender_male_n.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\img_loading.jpg",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\img_loading.jpg"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\iv_loading.9.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\iv_loading.9.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gesture_pattern_item_bg.9.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\gesture_pattern_item_bg.9.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_gender_male_p.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_gender_male_p.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_reginfo_female.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_reginfo_female.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\leak_canary_notification.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\drawable-hdpi-v4\\leak_canary_notification.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_childedu_default.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_childedu_default.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\leak_canary_icon.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\drawable-hdpi-v4\\leak_canary_icon.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_gender_female_p.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_gender_female_p.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_reginfo_box.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\ic_reginfo_box.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\img_bg_login.jpg",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\lib_sdk\\unspecified\\res\\drawable-hdpi-v4\\img_bg_login.jpg"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\huilu_source_code_kindergarten\\androidUniversalImageLoader\\unspecified\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    }
+]

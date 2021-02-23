@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4\\leak_canary_icon.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\drawable-xxxhdpi-v4\\leak_canary_icon.png"
+    },
+    {
+        "merged": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4\\leak_canary_notification.png",
+        "source": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\drawable-xxxhdpi-v4\\leak_canary_notification.png"
+    }
+]

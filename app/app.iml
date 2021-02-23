@@ -133,7 +133,6 @@
     <orderEntry type="library" name="Gradle: org.simple:androideventbus:1.0.5.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:26.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:arouter-annotation:1.0.4@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\workspace_android\my_project\my_sdk\lib_scanner\libs\zxing.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-compat:26.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:26.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22@aar" level="project" />

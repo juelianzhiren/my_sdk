@@ -1,0 +1,463 @@
+[
+    {
+        "outputFile": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-de\\values-de.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 83,
+                    "endOffset": 134
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 83,
+                        "endOffset": 134
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 139,
+                    "endColumn": 79,
+                    "endOffset": 214
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 139,
+                        "endColumn": 79,
+                        "endOffset": 214
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 219,
+                    "endColumn": 119,
+                    "endOffset": 334
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 219,
+                        "endColumn": 119,
+                        "endOffset": 334
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 339,
+                    "endColumn": 93,
+                    "endOffset": 428
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 339,
+                        "endColumn": 93,
+                        "endOffset": 428
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 433,
+                    "endColumn": 54,
+                    "endOffset": 483
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 433,
+                        "endColumn": 54,
+                        "endOffset": 483
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 488,
+                    "endColumn": 63,
+                    "endOffset": 547
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 488,
+                        "endColumn": 63,
+                        "endOffset": 547
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 552,
+                    "endColumn": 105,
+                    "endOffset": 653
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 552,
+                        "endColumn": 105,
+                        "endOffset": 653
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 658,
+                    "endColumn": 68,
+                    "endOffset": 722
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 658,
+                        "endColumn": 68,
+                        "endOffset": 722
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 727,
+                    "endColumn": 72,
+                    "endOffset": 795
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 727,
+                        "endColumn": 72,
+                        "endOffset": 795
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 800,
+                    "endColumn": 123,
+                    "endOffset": 919
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 800,
+                        "endColumn": 123,
+                        "endOffset": 919
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 924,
+                    "endColumn": 93,
+                    "endOffset": 1013
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 924,
+                        "endColumn": 93,
+                        "endOffset": 1013
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1018,
+                    "endColumn": 67,
+                    "endOffset": 1081
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1018,
+                        "endColumn": 67,
+                        "endOffset": 1081
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1086,
+                    "endColumn": 72,
+                    "endOffset": 1154
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1086,
+                        "endColumn": 72,
+                        "endOffset": 1154
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1159,
+                    "endColumn": 72,
+                    "endOffset": 1227
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1159,
+                        "endColumn": 72,
+                        "endOffset": 1227
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1232,
+                    "endColumn": 71,
+                    "endOffset": 1299
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1232,
+                        "endColumn": 71,
+                        "endOffset": 1299
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1304,
+                    "endColumn": 90,
+                    "endOffset": 1390
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1304,
+                        "endColumn": 90,
+                        "endOffset": 1390
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1395,
+                    "endColumn": 149,
+                    "endOffset": 1540
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1395,
+                        "endColumn": 149,
+                        "endOffset": 1540
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1545,
+                    "endColumn": 128,
+                    "endOffset": 1669
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1545,
+                        "endColumn": 128,
+                        "endOffset": 1669
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1674,
+                    "endColumn": 105,
+                    "endOffset": 1775
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1674,
+                        "endColumn": 105,
+                        "endOffset": 1775
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1780,
+                    "endColumn": 72,
+                    "endOffset": 1848
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1780,
+                        "endColumn": 72,
+                        "endOffset": 1848
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1853,
+                    "endColumn": 62,
+                    "endOffset": 1911
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1853,
+                        "endColumn": 62,
+                        "endOffset": 1911
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1916,
+                    "endColumn": 62,
+                    "endOffset": 1974
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1916,
+                        "endColumn": 62,
+                        "endOffset": 1974
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1979,
+                    "endColumn": 94,
+                    "endOffset": 2069
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1979,
+                        "endColumn": 94,
+                        "endOffset": 2069
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2074,
+                    "endColumn": 108,
+                    "endOffset": 2178
+                },
+                "from": {
+                    "file": "F:\\huilu_source_code_kindergarten\\lib_scanner\\build\\intermediates\\exploded-aar\\com.squareup.leakcanary\\leakcanary-android\\1.5.4\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 2074,
+                        "endColumn": 108,
+                        "endOffset": 2178
+                    }
+                }
+            }
+        ]
+    }
+]

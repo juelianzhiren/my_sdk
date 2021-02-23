@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\huilu_source_code_kindergarten\lib_scanner\src\main\assets"/><source path="F:\huilu_source_code_kindergarten\lib_scanner\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="F:\huilu_source_code_kindergarten\lib_scanner\src\release\assets"/></dataSet></merger>

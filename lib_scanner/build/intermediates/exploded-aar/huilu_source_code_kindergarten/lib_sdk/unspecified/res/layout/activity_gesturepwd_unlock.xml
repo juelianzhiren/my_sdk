@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/gesturepwd_root"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@drawable/img_bg_login"
+              android:gravity="center"
+              android:orientation="vertical">
+
+
+    <TextView
+            android:id="@+id/gesturepwd_unlock_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_horizontal"
+            android:text="请输入手势密码"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+
+
+    <TextView
+            android:id="@+id/gesturepwd_unlock_failtip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40.0dip"
+            android:layout_marginRight="40.0dip"
+            android:layout_marginTop="0.0dip"
+            android:gravity="center_horizontal"
+            android:shadowColor="#b3ffffff"
+            android:shadowRadius="1.0"
+            android:text="5次失败后，需要重新登录。"
+            android:textColor="@android:color/white"
+            android:textSize="12.0sp"
+            android:visibility="invisible"/>
+
+
+    <com.gzdtq.child.plugin.lockpattern.LockPatternView
+            android:id="@+id/gesturepwd_unlock_lockview"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_margin="10dp"
+
+            />
+
+
+    <!--
+
+        <TextView
+            android:id="@+id/gesturepwd_unlock_forget"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.0dip"
+            android:gravity="center_horizontal"
+            android:text="忘记密码"
+            android:textColor="@android:color/white"
+            android:shadowColor="#e0ffffff"
+            android:shadowDy="1.0"
+            android:shadowRadius="1.0"
+            android:textSize="14.0sp" />
+    -->
+
+   <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+
+        <Button
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="#e70012"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#fff"
+                android:textSize="16sp"/>
+        <Button
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="#6cf"
+                android:gravity="center"
+                android:text="确定"
+                android:layout_marginLeft="50dp"
+                android:textColor="#fff"
+                android:textSize="16sp"/>
+    </LinearLayout>-->
+</LinearLayout>

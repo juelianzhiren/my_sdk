@@ -1,7 +1,5 @@
 package com.ztq.sdk.data_structure_and_algorithm;
 
-import android.util.Log;
-
 import com.ztq.sdk.log.Log;
 
 import java.util.ArrayDeque;
@@ -15,10 +13,6 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Author: ztq
