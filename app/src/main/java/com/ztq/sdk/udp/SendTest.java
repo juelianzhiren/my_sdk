@@ -21,7 +21,7 @@ public class SendTest {
 			DatagramPacket dp2 = new DatagramPacket(arr2, arr2.length);
 			ds.receive(dp2);
 			System.out.println("接收到的回发信息是：" + new String(arr2, 0, dp2.getLength()));
-			System.out.println("【发送方】发送的数据报内置端口为：" + ReceiveTest.PORT + "; 接收数据报的端口为：" + ds.getLocalPort());  // 不要用ds.getPort()
+			System.out.println("【发送方】发送的数据报内置端口为：" + dp2.getPort() + "; 接收数据报的端口为：" + ds.getLocalPort());  // 不要用ds.getPort()
 		} catch (SocketException e) {
 			e.printStackTrace();
 		} catch (UnknownHostException e) {
