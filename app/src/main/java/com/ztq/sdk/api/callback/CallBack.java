@@ -20,6 +20,7 @@ public abstract  class CallBack<T> implements ICallBack<T> {
     public CallBack() {
         try {
             mEntityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+            Log.v(TAG, "getGenericSuperclass = " + getClass().getGenericSuperclass() + "; " + ((ParameterizedType) getClass().getGenericSuperclass()));
         } catch (Exception e) {
             e.printStackTrace();
             AppException.unkonw(e);
