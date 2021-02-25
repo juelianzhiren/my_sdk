@@ -1652,4 +1652,34 @@ public class Utils {
             }
         }
     }
+
+    /**
+     * 删除目录文件(适用于JAVASE)
+     * @param dirFile
+     */
+    public static void deleteDir(File dirFile) {
+        if (dirFile == null || !dirFile.exists() || !dirFile.isDirectory()) {
+            return;
+        }
+        File[] files = dirFile.listFiles();
+        if (files == null) {
+            return;
+        }
+        for(int i = 0; i < files.length; i++) {
+            File subFile = files[i];
+            if (subFile == null) {
+                continue;
+            }
+            if (subFile.isDirectory()) {
+                deleteDir(subFile);
+            } else {
+                System.out.println("正在删除文件" + subFile.getName() + "...");
+                boolean flag = subFile.delete();
+                System.out.println("删除文件" + subFile.getName() + (flag ? "成功" : "失败"));
+            }
+        }
+        System.out.println("正在删除目录" + dirFile.getName() + "...");
+        boolean flag = dirFile.delete();
+        System.out.println("删除目录"+ dirFile.getName() + (flag ? "成功" : "失败"));
+    }
 }
