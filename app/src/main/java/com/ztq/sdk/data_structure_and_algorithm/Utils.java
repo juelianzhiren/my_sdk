@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
@@ -3466,5 +3467,22 @@ public class Utils {
             ans[stack.pop()] = 0;
         }
         return ans;
+    }
+
+    /**
+     * 给定一个整型数组，假如数组有两个数的和等于target，返回数组的下标组成的数组
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int[] findTwoNumIsTargetValueIndex(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; ++i) {
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[0];
     }
 }
