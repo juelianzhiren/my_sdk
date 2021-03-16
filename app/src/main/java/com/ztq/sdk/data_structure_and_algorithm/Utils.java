@@ -3485,4 +3485,43 @@ public class Utils {
         }
         return new int[0];
     }
+
+    /**
+     * 给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
+     * num1 和num2 的长度都小于 5100
+     * num1 和num2 都只包含数字 0-9
+     * num1 和num2 都不包含任何前导零
+     * 你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public static String addStrings(String num1, String num2) {
+        if (num1 == null) {
+            return num2;
+        }
+        if (num2 == null) {
+            return num1;
+        }
+        int len1 = num1.length() - 1, len2 = num2.length() - 1;   //用于记录需要取出数字的下标
+        int temp1 = 0, temp2 = 0;  //用于临时接收取得的数字
+        int sum = 0;    //用于计算是否需要进位
+        int carry = 0;  //用于保存需要进位的数字
+        StringBuilder str = new StringBuilder();    //用来拼接字符串
+
+        int count = 0;
+        while (len1 >= 0 || len2 >= 0) {  //只要没有加完就进入循环
+            temp1 = len1 < 0 ? 0 : num1.charAt(len1--) - '0';   //-字符'0'是为了取出整数
+            temp2 = len2 < 0 ? 0 : num2.charAt(len2--) - '0';
+            sum = carry + temp1 + temp2;    //取出来的两个整数和进位后的数相加
+            str.append(sum % 10);     //取出各位数字
+            carry = sum / 10;         //取出进位的数字
+            System.out.println("第" + count + "位数为：" + sum + "; carry = " + carry);
+            count++;
+        }
+        if (carry == 1) {
+            str.append("1");
+        }
+        return str.reverse().toString();
+    }
 }

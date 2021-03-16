@@ -7,9 +7,13 @@ package com.ztq.sdk.data_structure_and_algorithm;
  */
 public class ListNode<T> {
     T value;
-    ListNode next;
+    ListNode<T> next;
 
-    public ListNode(T value, ListNode nextNode) {
+    public ListNode() {
+
+    }
+
+    public ListNode(T value, ListNode<T> nextNode) {
         this.value = value;
         next = nextNode;
     }
