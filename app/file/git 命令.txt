@@ -24,3 +24,8 @@ git log --before=2014-7-1
 git log --after=2014-7-1
 12、按作者筛选日志
 git log --author="John"
+
+13、执行git pull当出现error: Your local changes to the following files would be overwritten by merge时可以执行以下命令：
+git reset --hard
+git pull
+用代码库中的文件完全覆盖本地工作版本
