@@ -3524,4 +3524,28 @@ public class Utils {
         }
         return str.reverse().toString();
     }
+
+    public static void rotate(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k <= 0) {
+            return;
+        }
+        k = k % nums.length;
+        if (k == 0) {
+            return;
+        }
+        int n = nums.length - k;   // 相当于左移（nums.length - k）位
+        reverseSb(nums, 0, n - 1);
+        reverseSb(nums, n, nums.length - 1);
+        reverseSb(nums, 0, nums.length - 1);
+    }
+
+    private static void reverseSb(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
 }
