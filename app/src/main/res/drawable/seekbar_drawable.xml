@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@android:id/background">
+        <nine-patch android:src="@drawable/seekbarbg" />
+    </item>
+    <!--最下层图片 实例中蓝色部分-->
+    <!--     <item
+            android:id="@android:id/secondaryProgress"
+            android:drawable="@drawable/seek_pro" />显示第二进度的那个 实例中绿色部分   -->
+    <item
+        android:id="@android:id/progress">
+        <clip>
+            <nine-patch android:src="@drawable/seekbarcurrentprogress" />
+        </clip>
+    </item>
+    <!--显示当前进度的图片就是该实例中上面白色部分-->
+</layer-list>

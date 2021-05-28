@@ -7,15 +7,21 @@ import android.widget.ListView;
 import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.TimelineAdapter;
 import com.ztq.sdk.entity.TimelineItem;
+import com.ztq.sdk.log.Log;
+import com.ztq.sdk.utils.Utils;
+import com.ztq.sdk.widget.MySeekbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimelineActivity extends BaseActivity {
+import me.jessyan.autosize.internal.CancelAdapt;
+
+public class TimelineActivity extends BaseActivity implements CancelAdapt {
     private static final String TAG = "noahedu.TimelineActivity";
     private ListView mListView;
     private TimelineAdapter mAdapter;
     private Context mContext;
+    private MySeekbar mySeekbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,5 +51,21 @@ public class TimelineActivity extends BaseActivity {
         item.setDateInfo("2016-02-01 13:30:20");
         list.add(item);
         mAdapter.addData(list);
+
+        mySeekbar = findViewById(R.id.my_seekbar);
+        mySeekbar.setTextSize(Utils.dp2px(mContext, 10));
+        List<String> wordList = new ArrayList<>();
+        wordList.add("0.75X");
+        wordList.add("1.0X");
+        wordList.add("1.25X");
+//        wordList.add("1.5X");
+        mySeekbar.setCircleRadius(Utils.dp2px(mContext, 10));
+        mySeekbar.setWordList(wordList);
+        mySeekbar.setSelectListener(new MySeekbar.SelectListener() {
+            @Override
+            public void select(int index) {
+                Log.v(TAG, "index = " + index);
+            }
+        });
     }
 }
