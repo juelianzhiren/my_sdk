@@ -933,6 +933,7 @@ drawable ic_normal_petal_left_odd
 drawable ic_normal_petal_right
 drawable ic_normal_petal_right_even
 drawable ic_normal_petal_right_odd
+drawable ic_panda_rider
 drawable ic_pause
 drawable ic_play
 drawable ic_pulltorefresh_arrow
@@ -976,9 +977,15 @@ drawable progressloading
 drawable qrcode_scan_line
 drawable sample_footer_loading
 drawable sample_footer_loading_progress
+drawable seekbar_drawable
+drawable seekbar_drawable_transparent
+drawable seekbarbg
+drawable seekbarcurrentprogress
+drawable shape_blue_circle
 drawable shape_gray
 drawable shape_gray_circle
 drawable shape_toast_bg_round
+drawable shape_transparent
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1215,6 +1222,9 @@ id middle
 id mini
 id multiply
 id mvp_btn
+id my_seekbar
+id my_seekbar_circle_rl
+id my_seekbar_word_rl
 id myview
 id ndk_demo_btn
 id net_api_btn
@@ -1276,6 +1286,8 @@ id search_src_text
 id search_voice_btn
 id seek_bar
 id seekbar
+id seekbar_line_tv
+id seekbar_rl
 id select_dialog_listview
 id selectable_tv
 id self_widget_btn
@@ -1423,6 +1435,7 @@ layout item_recyclerview
 layout item_timeline
 layout listview_footer
 layout listview_header
+layout my_seekbar
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action

@@ -4,7 +4,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-my_values-my.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-my\\values-my.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-my\\values-my.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -19,7 +19,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sv_values-sv.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-sv\\values-sv.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-sv\\values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +34,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-de_values-de.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-de\\values-de.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -49,7 +49,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rGB_values-en-rGB.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-en-rGB\\values-en-rGB.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -64,7 +64,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-kk_values-kk.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-kk\\values-kk.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-kk\\values-kk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -79,7 +79,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v26_values-v26.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v26\\values-v26.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",
@@ -95,7 +95,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-b+sr+Latn_values-b+sr+Latn.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-b+sr+Latn\\values-b+sr+Latn.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-b+sr+Latn\\values-b+sr+Latn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -110,7 +110,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-fr-rCA_values-fr-rCA.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-fr-rCA\\values-fr-rCA.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-fr-rCA\\values-fr-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -125,7 +125,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-am_values-am.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-am\\values-am.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-am\\values-am.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -140,7 +140,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-tr_values-tr.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-tr\\values-tr.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-tr\\values-tr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -155,7 +155,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ar_values-ar.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ar\\values-ar.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -170,7 +170,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-es_values-es.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-es\\values-es.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -185,7 +185,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-pt-rBR_values-pt-rBR.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-pt-rBR\\values-pt-rBR.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-pt-rBR\\values-pt-rBR.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -200,7 +200,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-be_values-be.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-be\\values-be.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-be\\values-be.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -215,7 +215,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-nl_values-nl.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-nl\\values-nl.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-nl\\values-nl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -227,25 +227,10 @@
             ]
         },
         {
-            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v13_values-v13.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v13\\values-v13.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "58",
-                        "endOffsets": "109"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-port_values-port.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-port\\values-port.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -257,10 +242,25 @@
             ]
         },
         {
+            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v13_values-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v13\\values-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ldltr-v21_values-ldltr-v21.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -275,7 +275,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-pt-rPT_values-pt-rPT.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -290,7 +290,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ur_values-ur.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ur\\values-ur.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ur\\values-ur.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -305,7 +305,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-en_values-en.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\becdf82aa2e384004b5e1b193862068f\\res\\values-en\\values-en.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\3f2327c9fc75d51a3e0fa97d46e14f45\\res\\values-en\\values-en.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -320,7 +320,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-fa_values-fa.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-fa\\values-fa.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-fa\\values-fa.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -335,7 +335,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-lt_values-lt.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-lt\\values-lt.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-lt\\values-lt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -350,7 +350,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sr_values-sr.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-sr\\values-sr.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-sr\\values-sr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -365,7 +365,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-is_values-is.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-is\\values-is.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-is\\values-is.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -380,7 +380,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-zh-rHK_values-zh-rHK.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-zh-rHK\\values-zh-rHK.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -395,7 +395,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-da_values-da.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-da\\values-da.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-da\\values-da.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -410,7 +410,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-si_values-si.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-si\\values-si.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-si\\values-si.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -425,7 +425,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ml_values-ml.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ml\\values-ml.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ml\\values-ml.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -440,7 +440,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-uz_values-uz.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-uz\\values-uz.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-uz\\values-uz.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -455,7 +455,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-vi_values-vi.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-vi\\values-vi.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -467,10 +467,40 @@
             ]
         },
         {
+            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sw_values-sw.arsc.flat",
+            "map": [
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-sw\\values-sw.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,158,266,389,487,595,685,790,907,989,1072,1154,1255,1364,1463,1570,1679,1784,1903,2000,2082",
+                        "endColumns": "102,107,122,97,107,89,104,116,81,82,81,100,108,98,106,108,104,118,96,81,100",
+                        "endOffsets": "153,261,384,482,590,680,785,902,984,1067,1149,1250,1359,1458,1565,1674,1779,1898,1995,2077,2178"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ca_values-ca.arsc.flat",
+            "map": [
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ca\\values-ca.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,173,281,404,510,617,700,808,934,1018,1099,1182,1293,1402,1500,1610,1714,1822,1945,2044,2125",
+                        "endColumns": "117,107,122,105,106,82,107,125,83,80,82,110,108,97,109,103,107,122,98,80,100",
+                        "endOffsets": "168,276,399,505,612,695,803,929,1013,1094,1177,1288,1397,1495,1605,1709,1817,1940,2039,2120,2221"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v22_values-v22.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v22\\values-v22.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
@@ -483,40 +513,10 @@
             ]
         },
         {
-            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ca_values-ca.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ca\\values-ca.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,173,281,404,510,617,700,808,934,1018,1099,1182,1293,1402,1500,1610,1714,1822,1945,2044,2125",
-                        "endColumns": "117,107,122,105,106,82,107,125,83,80,82,110,108,97,109,103,107,122,98,80,100",
-                        "endOffsets": "168,276,399,505,612,695,803,929,1013,1094,1177,1288,1397,1495,1605,1709,1817,1940,2039,2120,2221"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sw_values-sw.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-sw\\values-sw.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,158,266,389,487,595,685,790,907,989,1072,1154,1255,1364,1463,1570,1679,1784,1903,2000,2082",
-                        "endColumns": "102,107,122,97,107,89,104,116,81,82,81,100,108,98,106,108,104,118,96,81,100",
-                        "endOffsets": "153,261,384,482,590,680,785,902,984,1067,1149,1250,1359,1458,1565,1674,1779,1898,1995,2077,2178"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v23_values-v23.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v23\\values-v23.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -527,7 +527,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\99160b4ccae103f12b5e71dc0a2eb792\\res\\values-v23\\values-v23.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\ac806ecab545023be8cf14736975c075\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -551,7 +551,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-iw_values-iw.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-iw\\values-iw.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-iw\\values-iw.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -566,7 +566,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-in_values-in.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-in\\values-in.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-in\\values-in.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -581,7 +581,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v25_values-v25.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v25\\values-v25.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v25\\values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",
@@ -597,7 +597,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-bs_values-bs.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-bs\\values-bs.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-bs\\values-bs.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -612,7 +612,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-fi_values-fi.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-fi\\values-fi.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-fi\\values-fi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -627,7 +627,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-tl_values-tl.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-tl\\values-tl.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-tl\\values-tl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -642,7 +642,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-nb_values-nb.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-nb\\values-nb.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-nb\\values-nb.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -657,7 +657,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-hy_values-hy.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-hy\\values-hy.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-hy\\values-hy.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -672,7 +672,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-lo_values-lo.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-lo\\values-lo.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-lo\\values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -687,7 +687,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-th_values-th.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-th\\values-th.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-th\\values-th.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -699,25 +699,10 @@
             ]
         },
         {
-            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ru_values-ru.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ru\\values-ru.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,170,278,401,503,615,701,806,926,1005,1083,1163,1269,1377,1475,1584,1690,1798,1934,2034,2115",
-                        "endColumns": "114,107,122,101,111,85,104,119,78,77,79,105,107,97,108,105,107,135,99,80,100",
-                        "endOffsets": "165,273,396,498,610,696,801,921,1000,1078,1158,1264,1372,1470,1579,1685,1793,1929,2029,2110,2211"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ms_values-ms.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ms\\values-ms.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ms\\values-ms.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -729,10 +714,25 @@
             ]
         },
         {
+            "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ru_values-ru.arsc.flat",
+            "map": [
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ru\\values-ru.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,170,278,401,503,615,701,806,926,1005,1083,1163,1269,1377,1475,1584,1690,1798,1934,2034,2115",
+                        "endColumns": "114,107,122,101,111,85,104,119,78,77,79,105,107,97,108,105,107,135,99,80,100",
+                        "endOffsets": "165,273,396,498,610,696,801,921,1000,1078,1158,1264,1372,1470,1579,1685,1793,1929,2029,2110,2211"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-es-rUS_values-es-rUS.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-es-rUS\\values-es-rUS.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -747,7 +747,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-az_values-az.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-az\\values-az.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-az\\values-az.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -762,7 +762,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v17_values-v17.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v17\\values-v17.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,26,29,32,35,39,42,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -778,7 +778,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-km_values-km.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-km\\values-km.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-km\\values-km.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -793,7 +793,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-pl_values-pl.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-pl\\values-pl.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-pl\\values-pl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -808,7 +808,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -823,7 +823,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ja_values-ja.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ja\\values-ja.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ja\\values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -838,7 +838,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-bn_values-bn.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-bn\\values-bn.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-bn\\values-bn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -853,7 +853,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rIN_values-en-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -868,7 +868,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ro_values-ro.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ro\\values-ro.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ro\\values-ro.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -898,7 +898,17 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v24_values-v24.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\540b2b33fe2e4bed632b8a9c4cad8ea3\\res\\values-v24\\values-v24.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,212,347,416,480,549",
+                        "endColumns": "156,134,68,63,68,69",
+                        "endOffsets": "207,342,411,475,544,614"
+                    }
+                },
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\6b5ec3203137ac7d898b5baccd552adf\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -913,16 +923,6 @@
                         "endColumns": "65,60,65,66",
                         "endOffsets": "680,741,807,874"
                     }
-                },
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,212,347,416,480,549",
-                        "endColumns": "156,134,68,63,68,69",
-                        "endOffsets": "207,342,411,475,544,614"
-                    }
                 }
             ]
         },
@@ -930,7 +930,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-el_values-el.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-el\\values-el.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-el\\values-el.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -945,7 +945,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-eu_values-eu.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-eu\\values-eu.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-eu\\values-eu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -960,7 +960,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-xlarge-v4_values-xlarge-v4.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -975,7 +975,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ne_values-ne.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ne\\values-ne.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ne\\values-ne.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -990,7 +990,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-mn_values-mn.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-mn\\values-mn.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-mn\\values-mn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1005,7 +1005,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rAU_values-en-rAU.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1020,7 +1020,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-uk_values-uk.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-uk\\values-uk.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-uk\\values-uk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1035,7 +1035,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-mr_values-mr.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-mr\\values-mr.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-mr\\values-mr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1050,7 +1050,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v11_values-v11.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v11\\values-v11.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v11\\values-v11.xml",
                     "from": {
                         "startLines": "2,8,14,20,26,32,38,39,43,47,48,52,56,57,61,66,71,76,78,80,81,82,136,191",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1066,7 +1066,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-gl_values-gl.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-gl\\values-gl.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-gl\\values-gl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1081,7 +1081,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-hu_values-hu.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-hu\\values-hu.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-hu\\values-hu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1096,7 +1096,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-lv_values-lv.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-lv\\values-lv.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1111,7 +1111,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-af_values-af.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-af\\values-af.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-af\\values-af.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1126,7 +1126,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-kn_values-kn.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-kn\\values-kn.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-kn\\values-kn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1141,7 +1141,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-zh-rTW_values-zh-rTW.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1156,7 +1156,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-hi_values-hi.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-hi\\values-hi.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-hi\\values-hi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1171,7 +1171,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-pt_values-pt.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-pt\\values-pt.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1186,7 +1186,43 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v21_values-v21.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\bda581b75a3c0b79f18ee59ec6d94996\\res\\values-v21\\values-v21.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\dd7fac7b5fca8d6fed68154bf000773d\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "274",
+                        "endColumns": "68",
+                        "endOffsets": "338"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "159",
+                        "endColumns": "68",
+                        "endOffsets": "223"
+                    }
+                },
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,19,20,21,22,24,26,27,28,29,30,32,34,36,38,40,42,43,48,50,52,53,54,56,58,59,60,61,62,63,107,110,154,157,160,162,164,166,169,171,174,175,176,179,180,181,182,183,184,187,188,190,192,194,196,200,202,203,204,205,207,211,213,215,216,217,218,219,221,222,223,233,234,235,247,259,260,261,264,267,268,271,272",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,146,249,352,457,564,673,782,891,1000,1109,1216,1319,1438,1593,1748,1853,1974,2075,2222,2363,2466,2585,2692,2795,2950,3121,3270,3435,3592,3743,3862,4234,4383,4532,4644,4791,4944,5091,5166,5255,5342,5443,5546,8614,8800,11880,12078,12278,12401,12524,12637,12820,12951,13152,13241,13352,13585,13686,13781,13904,14033,14150,14327,14426,14561,14704,14839,14958,15159,15278,15371,15482,15538,15645,15840,15951,16084,16179,16270,16361,16478,16617,16688,16771,17451,17508,17566,18260,18966,19085,19214,19385,19551,19680,19851,19982",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,16,18,19,20,21,23,25,26,27,28,29,31,33,35,37,39,41,42,47,49,51,52,53,55,57,58,59,60,61,62,106,109,153,156,159,161,163,165,168,170,173,174,175,178,179,180,181,182,183,186,187,189,191,193,195,199,201,202,203,204,206,210,212,214,215,216,217,218,220,221,222,232,233,234,246,258,259,260,263,266,267,270,271,274",
+                        "endColumns": "90,102,102,104,106,108,108,108,108,108,106,102,118,12,12,104,120,100,12,12,102,118,106,102,12,12,12,12,12,12,118,12,12,12,111,146,12,12,74,88,86,100,102,12,12,12,12,12,12,12,12,12,12,12,88,110,12,100,94,122,128,116,12,98,12,12,12,12,12,12,92,110,55,12,12,12,12,94,90,90,116,12,70,82,12,56,57,12,12,118,128,12,12,128,12,130,12",
+                        "endOffsets": "141,244,347,452,559,668,777,886,995,1104,1211,1314,1433,1588,1743,1848,1969,2070,2217,2358,2461,2580,2687,2790,2945,3116,3265,3430,3587,3738,3857,4229,4378,4527,4639,4786,4939,5086,5161,5250,5337,5438,5541,8609,8795,11875,12073,12273,12396,12519,12632,12815,12946,13147,13236,13347,13580,13681,13776,13899,14028,14145,14322,14421,14556,14699,14834,14953,15154,15273,15366,15477,15533,15640,15835,15946,16079,16174,16265,16356,16473,16612,16683,16766,17446,17503,17561,18255,18961,19080,19209,19380,19546,19675,19846,19977,20147"
+                    },
+                    "to": {
+                        "startLines": "7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,24,25,26,27,29,31,32,33,34,35,37,39,41,43,45,47,48,53,55,57,58,59,61,63,64,65,66,67,68,112,115,159,162,165,167,169,171,174,176,179,180,181,184,185,186,187,188,189,192,193,195,197,199,201,205,207,208,209,210,212,216,218,220,221,222,223,224,226,227,228,238,239,240,252,264,265,266,269,272,273,276,277",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "423,514,617,720,825,932,1041,1150,1259,1368,1477,1584,1687,1806,1961,2116,2221,2342,2443,2590,2731,2834,2953,3060,3163,3318,3489,3638,3803,3960,4111,4230,4602,4751,4900,5012,5159,5312,5459,5534,5623,5710,5811,5914,8982,9168,12248,12446,12646,12769,12892,13005,13188,13319,13520,13609,13720,13953,14054,14149,14272,14401,14518,14695,14794,14929,15072,15207,15326,15527,15646,15739,15850,15906,16013,16208,16319,16452,16547,16638,16729,16846,16985,17056,17139,17819,17876,17934,18628,19334,19453,19582,19753,19919,20048,20219,20350",
+                        "endLines": "7,8,9,10,11,12,13,14,15,16,17,18,19,21,23,24,25,26,28,30,31,32,33,34,36,38,40,42,44,46,47,52,54,56,57,58,60,62,63,64,65,66,67,111,114,158,161,164,166,168,170,173,175,178,179,180,183,184,185,186,187,188,191,192,194,196,198,200,204,206,207,208,209,211,215,217,219,220,221,222,223,225,226,227,237,238,239,251,263,264,265,268,271,272,275,276,279",
+                        "endColumns": "90,102,102,104,106,108,108,108,108,108,106,102,118,12,12,104,120,100,12,12,102,118,106,102,12,12,12,12,12,12,118,12,12,12,111,146,12,12,74,88,86,100,102,12,12,12,12,12,12,12,12,12,12,12,88,110,12,100,94,122,128,116,12,98,12,12,12,12,12,12,92,110,55,12,12,12,12,94,90,90,116,12,70,82,12,56,57,12,12,118,128,12,12,128,12,130,12",
+                        "endOffsets": "509,612,715,820,927,1036,1145,1254,1363,1472,1579,1682,1801,1956,2111,2216,2337,2438,2585,2726,2829,2948,3055,3158,3313,3484,3633,3798,3955,4106,4225,4597,4746,4895,5007,5154,5307,5454,5529,5618,5705,5806,5909,8977,9163,12243,12441,12641,12764,12887,13000,13183,13314,13515,13604,13715,13948,14049,14144,14267,14396,14513,14690,14789,14924,15067,15202,15321,15522,15641,15734,15845,15901,16008,16203,16314,16447,16542,16633,16724,16841,16980,17051,17134,17814,17871,17929,18623,19329,19448,19577,19748,19914,20043,20214,20345,20515"
+                    }
+                },
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\d2bad86bd0a214e1cafa5a77467f00fc\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -1205,24 +1241,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\dd49bfb5e18dad35ddc09289dfa1956b\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "4",
-                        "startOffsets": "274",
-                        "endColumns": "68",
-                        "endOffsets": "338"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "159",
-                        "endColumns": "68",
-                        "endOffsets": "223"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\540b2b33fe2e4bed632b8a9c4cad8ea3\\res\\values-v21\\values-v21.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\6b5ec3203137ac7d898b5baccd552adf\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,5,8,11",
                         "startColumns": "4,4,4,4",
@@ -1239,25 +1258,6 @@
                         "endColumns": "12,12,12,12",
                         "endOffsets": "20925,21088,21382,21677"
                     }
-                },
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,19,20,21,22,24,26,27,28,29,30,32,34,36,38,40,42,43,48,50,52,53,54,56,58,59,60,61,62,63,107,110,154,157,160,162,164,166,169,171,174,175,176,179,180,181,182,183,184,187,188,190,192,194,196,200,202,203,204,205,207,211,213,215,216,217,218,219,221,222,223,233,234,235,247,259,260,261,264,267,268,271,272",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,146,249,352,457,564,673,782,891,1000,1109,1216,1319,1438,1593,1748,1853,1974,2075,2222,2363,2466,2585,2692,2795,2950,3121,3270,3435,3592,3743,3862,4234,4383,4532,4644,4791,4944,5091,5166,5255,5342,5443,5546,8614,8800,11880,12078,12278,12401,12524,12637,12820,12951,13152,13241,13352,13585,13686,13781,13904,14033,14150,14327,14426,14561,14704,14839,14958,15159,15278,15371,15482,15538,15645,15840,15951,16084,16179,16270,16361,16478,16617,16688,16771,17451,17508,17566,18260,18966,19085,19214,19385,19551,19680,19851,19982",
-                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,16,18,19,20,21,23,25,26,27,28,29,31,33,35,37,39,41,42,47,49,51,52,53,55,57,58,59,60,61,62,106,109,153,156,159,161,163,165,168,170,173,174,175,178,179,180,181,182,183,186,187,189,191,193,195,199,201,202,203,204,206,210,212,214,215,216,217,218,220,221,222,232,233,234,246,258,259,260,263,266,267,270,271,274",
-                        "endColumns": "90,102,102,104,106,108,108,108,108,108,106,102,118,12,12,104,120,100,12,12,102,118,106,102,12,12,12,12,12,12,118,12,12,12,111,146,12,12,74,88,86,100,102,12,12,12,12,12,12,12,12,12,12,12,88,110,12,100,94,122,128,116,12,98,12,12,12,12,12,12,92,110,55,12,12,12,12,94,90,90,116,12,70,82,12,56,57,12,12,118,128,12,12,128,12,130,12",
-                        "endOffsets": "141,244,347,452,559,668,777,886,995,1104,1211,1314,1433,1588,1743,1848,1969,2070,2217,2358,2461,2580,2687,2790,2945,3116,3265,3430,3587,3738,3857,4229,4378,4527,4639,4786,4939,5086,5161,5250,5337,5438,5541,8609,8795,11875,12073,12273,12396,12519,12632,12815,12946,13147,13236,13347,13580,13681,13776,13899,14028,14145,14322,14421,14556,14699,14834,14953,15154,15273,15366,15477,15533,15640,15835,15946,16079,16174,16265,16356,16473,16612,16683,16766,17446,17503,17561,18255,18961,19080,19209,19380,19546,19675,19846,19977,20147"
-                    },
-                    "to": {
-                        "startLines": "7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,24,25,26,27,29,31,32,33,34,35,37,39,41,43,45,47,48,53,55,57,58,59,61,63,64,65,66,67,68,112,115,159,162,165,167,169,171,174,176,179,180,181,184,185,186,187,188,189,192,193,195,197,199,201,205,207,208,209,210,212,216,218,220,221,222,223,224,226,227,228,238,239,240,252,264,265,266,269,272,273,276,277",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "423,514,617,720,825,932,1041,1150,1259,1368,1477,1584,1687,1806,1961,2116,2221,2342,2443,2590,2731,2834,2953,3060,3163,3318,3489,3638,3803,3960,4111,4230,4602,4751,4900,5012,5159,5312,5459,5534,5623,5710,5811,5914,8982,9168,12248,12446,12646,12769,12892,13005,13188,13319,13520,13609,13720,13953,14054,14149,14272,14401,14518,14695,14794,14929,15072,15207,15326,15527,15646,15739,15850,15906,16013,16208,16319,16452,16547,16638,16729,16846,16985,17056,17139,17819,17876,17934,18628,19334,19453,19582,19753,19919,20048,20219,20350",
-                        "endLines": "7,8,9,10,11,12,13,14,15,16,17,18,19,21,23,24,25,26,28,30,31,32,33,34,36,38,40,42,44,46,47,52,54,56,57,58,60,62,63,64,65,66,67,111,114,158,161,164,166,168,170,173,175,178,179,180,183,184,185,186,187,188,191,192,194,196,198,200,204,206,207,208,209,211,215,217,219,220,221,222,223,225,226,227,237,238,239,251,263,264,265,268,271,272,275,276,279",
-                        "endColumns": "90,102,102,104,106,108,108,108,108,108,106,102,118,12,12,104,120,100,12,12,102,118,106,102,12,12,12,12,12,12,118,12,12,12,111,146,12,12,74,88,86,100,102,12,12,12,12,12,12,12,12,12,12,12,88,110,12,100,94,122,128,116,12,98,12,12,12,12,12,12,92,110,55,12,12,12,12,94,90,90,116,12,70,82,12,56,57,12,12,118,128,12,12,128,12,130,12",
-                        "endOffsets": "509,612,715,820,927,1036,1145,1254,1363,1472,1579,1682,1801,1956,2111,2216,2337,2438,2585,2726,2829,2948,3055,3158,3313,3484,3633,3798,3955,4106,4225,4597,4746,4895,5007,5154,5307,5454,5529,5618,5705,5806,5909,8977,9163,12243,12441,12641,12764,12887,13000,13183,13314,13515,13604,13715,13948,14049,14144,14267,14396,14513,14690,14789,14924,15067,15202,15321,15522,15641,15734,15845,15901,16008,16203,16314,16447,16542,16633,16724,16841,16980,17051,17134,17814,17871,17929,18623,19329,19448,19577,19748,19914,20043,20214,20345,20515"
-                    }
                 }
             ]
         },
@@ -1265,7 +1265,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-gu_values-gu.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-gu\\values-gu.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-gu\\values-gu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1280,7 +1280,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-pa_values-pa.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-pa\\values-pa.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-pa\\values-pa.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1295,7 +1295,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sk_values-sk.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-sk\\values-sk.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-sk\\values-sk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1310,7 +1310,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sw600dp-v13_values-sw600dp-v13.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -1320,7 +1320,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\dd49bfb5e18dad35ddc09289dfa1956b\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\dd7fac7b5fca8d6fed68154bf000773d\\res\\values-sw600dp\\values-sw600dp.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,13,16",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -1344,7 +1344,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ka_values-ka.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ka\\values-ka.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ka\\values-ka.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1359,7 +1359,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sl_values-sl.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-sl\\values-sl.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-sl\\values-sl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1374,7 +1374,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-fr_values-fr.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-fr\\values-fr.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-fr\\values-fr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1389,221 +1389,291 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\fee9b50b62a2053b31b563b975939c59\\res\\values\\values.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\6b5ec3203137ac7d898b5baccd552adf\\res\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,348,414,536,597,663",
+                        "endColumns": "88,65,121,60,65,66",
+                        "endOffsets": "139,409,531,592,658,725"
                     },
                     "to": {
-                        "startLines": "364,365,366,374,375,376,440",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "20869,20928,20976,21643,21718,21794,25493",
-                        "endColumns": "58,47,55,74,75,71,65",
-                        "endOffsets": "20923,20971,21027,21713,21789,21861,25554"
+                        "startLines": "215,1824,1826,1827,1832,1834",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "11231,116276,116452,116574,116836,117031",
+                        "endColumns": "88,65,121,60,65,66",
+                        "endOffsets": "11315,116337,116569,116630,116897,117093"
                     }
                 },
                 {
                     "source": "D:\\workspace_android\\my_project\\my_sdk\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "27,26,25,24,5,7,3,4,8,6,14,17,19,18,20,22,21,16,15,11,10,12,2",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1404,1346,1293,1241,213,315,116,162,366,264,596,817,954,887,1027,1166,1100,744,672,475,415,536,57",
+                        "endColumns": "62,56,51,50,49,49,44,49,45,49,74,68,71,65,71,71,64,71,70,59,58,56,57",
+                        "endOffsets": "1462,1398,1340,1287,258,360,156,207,407,309,666,881,1021,948,1094,1233,1160,811,738,530,469,588,110"
                     },
                     "to": {
                         "startLines": "328,329,330,331,377,378,379,380,381,382,398,399,400,401,402,403,404,405,406,407,408,409,463",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "18749,18812,18869,18921,21866,21916,21966,22011,22061,22107,23135,23210,23279,23351,23417,23489,23561,23626,23698,23769,23829,23888,26592",
+                        "startOffsets": "18782,18845,18902,18954,21899,21949,21999,22044,22094,22140,23168,23243,23312,23384,23450,23522,23594,23659,23731,23802,23862,23921,26625",
                         "endColumns": "62,56,51,50,49,49,44,49,45,49,74,68,71,65,71,71,64,71,70,59,58,56,57",
-                        "endOffsets": "18807,18864,18916,18967,21911,21961,22006,22056,22102,22152,23205,23274,23346,23412,23484,23556,23621,23693,23764,23824,23883,23940,26645"
+                        "endOffsets": "18840,18897,18949,19000,21944,21994,22039,22089,22135,22185,23238,23307,23379,23445,23517,23589,23654,23726,23797,23857,23916,23973,26678"
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\ef78b928aebbfcbfeeb7b5c954687ce4\\res\\values\\values.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\e9fe3ccbe59f5fac330ee037c07c578a\\res\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "3,4,5,6,7,8,9,2",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "685,744,792,848,923,999,1071,55",
+                        "endColumns": "58,47,55,74,75,71,65,629",
+                        "endOffsets": "739,787,843,918,994,1066,1132,680"
                     },
                     "to": {
-                        "startLines": "2,3,12,13,14,15,17,23,24,25,26,29,30,33,36,37,38,39,40,43,46,47,48,49,54,57,60,61,62,67,68,69,72,75,76,79,82,85,88,89,92,95,96,101,102,107,110,113,114,115,116,117,118,119,120,121,122",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,116,459,507,559,620,721,942,1003,1063,1133,1266,1334,1463,1589,1651,1716,1784,1851,1974,2099,2166,2231,2296,2477,2598,2719,2785,2852,3062,3131,3197,3322,3448,3515,3641,3768,3893,4020,4085,4211,4334,4399,4607,4674,4854,4974,5094,5159,5221,5283,5345,5404,5464,5525,5586,5645",
-                        "endLines": "2,10,12,13,14,15,20,23,24,25,28,29,32,35,36,37,38,39,42,45,46,47,48,53,56,59,60,61,66,67,68,71,74,75,78,81,84,87,88,91,94,95,100,101,106,109,112,113,114,115,116,117,118,119,120,121,130",
-                        "endColumns": "60,11,47,51,60,45,11,60,59,69,11,67,11,11,61,64,67,66,11,11,66,64,64,11,11,11,65,66,11,68,65,11,11,66,11,11,11,11,64,11,11,64,11,66,11,11,11,64,61,61,61,58,59,60,60,58,11",
-                        "endOffsets": "111,402,502,554,615,661,843,998,1058,1128,1261,1329,1458,1584,1646,1711,1779,1846,1969,2094,2161,2226,2291,2472,2593,2714,2780,2847,3057,3126,3192,3317,3443,3510,3636,3763,3888,4015,4080,4206,4329,4394,4602,4669,4849,4969,5089,5154,5216,5278,5340,5399,5459,5520,5581,5640,5982"
+                        "startLines": "364,365,366,374,375,376,440,2337",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "20902,20961,21009,21676,21751,21827,25526,169628",
+                        "endColumns": "58,47,55,74,75,71,65,629",
+                        "endOffsets": "20956,21004,21060,21746,21822,21894,25587,170253"
+                    }
+                },
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,393,394,398,402,406,411,417,424,428,432,437,441,445,449,453,457,461,465,469,473,477,481,485,490,494,497,501,505,509,513,517,521,524,528,532,536,540,544,545,546,547,550,553,556,559,563,564,565,566,567,570,572,574,576,581,582,586,592,596,597,599,610,611,615,621,625,626,627,631,658,662,663,667,695,861,883,1049,1071,1098,1105,1110,1124,1146,1151,1156,1166,1175,1184,1188,1195,1203,1210,1211,1220,1223,1226,1230,1234,1238,1241,1242,1246,1250,1260,1265,1272,1278,1279,1282,1286,1291,1293,1295,1298,1301,1303,1307,1310,1317,1320,1323,1327,1329,1333,1335,1341,1343,1347,1355,1363,1375,1381,1390,1393,1404,1407,1412,1413,1418,1460,1503,1504,1514,1523,1524,1526,1530,1533,1536,1539,1542,1546,1549,1552,1555,1559,1562,1566,1570,1571,1572,1573,1574,1575,1576,1577,1578,1579,1580,1581,1582,1583,1584,1585,1586,1587,1588,1589,1590,1591,1595,1596,1597,1598,1599,1603,1604,1605,1606,1608,1610,1611,1612,1613,1614,1615,1616,1617,1619,1620,1622,1623,1625,1627,1628,1630,1631,1632,1633,1634,1635,1637,1638,1639,1640,1641,1642,1644,1646,1648,1649,1650,1651,1652,1653,1654,1655,1656,1657,1658,1659,1660,1662,1663,1664,1665,1666,1667,1669,1673,1677,1678,1679,1680,1681,1682,1683,1684,1686,1688,1690,1692,1694,1695,1696,1697,1699,1701,1703,1704,1705,1706,1707,1708,1709,1710,1711,1712,1713,1714,1717,1718,1719,1720,1722,1724,1725,1727,1728,1730,1732,1734,1735,1736,1737,1738,1739,1740,1741,1742,1743,1744,1745,1747,1748,1749,1750,1752,1753,1754,1755,1756,1758,1760,1762,1764,1765,1766,1767,1768,1769,1770,1771,1772,1773,1774,1775,1776,1777,70,86,87,88,89,90,91,92,104,118,119,125,128,129,130,142,143,149,150,151,152,191,192,193,194,195,196,197,224,225,231,232,244",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,110,155,204,245,300,358,420,488,566,647,708,783,859,936,1014,1099,1181,1257,1333,1410,1488,1594,1700,1779,1859,1916,1974,2048,2123,2188,2254,2309,2381,2454,2521,2589,2648,2707,2766,2825,2884,2938,2992,3045,3099,3153,3207,3261,3335,3414,3487,3561,3632,3704,3776,3849,3906,3964,4037,4111,4185,4260,4332,4405,4475,4546,4606,26813,26882,26951,27021,27095,27171,27235,27312,27388,27465,27529,27594,27663,27740,27815,27884,27952,28029,28095,28192,28257,28326,28425,28496,28555,28613,28670,28729,28800,28872,28944,29016,29088,29155,29223,29291,29350,29413,29477,29567,29658,29718,29784,29851,29917,29987,30051,30104,30217,30275,30338,30403,30468,30543,30616,30688,30737,30798,30859,30920,30982,31046,31110,31174,31239,31302,31362,31423,31489,31548,31608,31670,31741,31801,31869,31955,32042,32132,32219,32307,32389,32472,32562,32653,32705,32763,32808,32874,32938,32995,33052,33106,33163,33211,33260,33311,33345,33392,33441,33487,33519,33583,33645,33705,33762,33836,33914,34007,34077,34155,34209,34279,34364,34412,34458,34529,34607,34685,34757,34831,34905,34979,35059,35132,35201,35273,35350,35402,35475,35549,35618,35693,35767,35841,35930,36000,36053,36131,36221,36309,36405,36495,36996,37085,37332,37613,37857,38142,38535,39012,39234,39456,39724,39951,40181,40411,40641,40871,41098,41337,41563,41808,42038,42286,42505,42788,42996,43127,43354,43600,43825,44072,44293,44538,44658,44934,45235,45559,45850,46164,46301,46432,46537,46779,46946,47150,47358,47629,47741,47853,47958,48075,48289,48435,48575,48661,49009,49097,49327,49745,49978,50060,50158,50775,50875,51111,51535,51774,51868,51957,52194,54246,54488,54590,54827,57011,67548,68799,79433,80696,82188,82724,83054,84115,85380,85636,85872,86419,86913,87518,87716,88296,88860,89235,89353,89891,90048,90244,90517,90773,90943,91084,91148,91430,91716,92392,92656,92994,93347,93441,93627,93933,94195,94320,94447,94686,94897,95016,95209,95386,95841,96022,96144,96403,96516,96703,96805,97249,97373,97648,98156,98652,99529,99823,100393,100542,101274,101446,101782,101874,102152,105338,108667,108729,109359,109973,110059,110172,110401,110561,110713,110884,111051,111294,111464,111637,111808,112082,112281,112486,112816,112900,112996,113092,113190,113290,113392,113494,113596,113698,113800,113900,113996,114108,114237,114360,114491,114622,114720,114834,114928,115048,115252,115321,115437,115565,115629,115833,115902,116034,116104,116244,116378,116474,116586,116686,116802,116898,117010,117110,117250,117386,117550,117680,117838,117988,118129,118273,118408,118520,118670,118798,118926,119062,119194,119324,119454,119566,119706,119852,119996,120134,120200,120290,120366,120470,120560,120662,120770,120878,120978,121058,121150,121248,121358,121436,121542,121634,121738,121848,121970,122133,122290,122370,122470,122560,122670,122764,122870,122962,123062,123174,123288,123404,123520,123614,123728,123840,123942,124062,124184,124266,124370,124490,124616,124714,124808,124896,125008,125124,125246,125358,125533,125649,125735,125827,125939,126063,126130,126256,126324,126452,126596,126724,126793,126888,127003,127116,127215,127324,127435,127546,127647,127752,127852,127982,128073,128196,128290,128402,128488,128592,128688,128776,128894,128998,129102,129228,129316,129424,129524,129614,129724,129808,129910,129994,130048,130112,130218,130328,130412,4667,6582,6686,6787,6834,7082,7274,7665,8169,8743,9063,9652,16288,16400,16561,17033,17456,18049,18270,18429,18688,20815,21254,21442,21570,21744,22525,22742,24073,24552,25925,26170,26660",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,392,393,397,401,405,410,416,423,427,431,436,440,444,448,452,456,460,464,468,472,476,480,484,489,493,496,500,504,508,512,516,520,523,527,531,535,539,543,544,545,546,549,552,555,558,562,563,564,565,566,569,571,573,575,580,581,585,591,595,596,598,609,610,614,620,624,625,626,630,657,661,662,666,694,860,882,1048,1070,1097,1104,1109,1123,1145,1150,1155,1165,1174,1183,1187,1194,1202,1209,1210,1219,1222,1225,1229,1233,1237,1240,1241,1245,1249,1259,1264,1271,1277,1278,1281,1285,1290,1292,1294,1297,1300,1302,1306,1309,1316,1319,1322,1326,1328,1332,1334,1340,1342,1346,1354,1362,1374,1380,1389,1392,1403,1406,1411,1412,1417,1459,1502,1503,1513,1522,1523,1525,1529,1532,1535,1538,1541,1545,1548,1551,1554,1558,1561,1565,1569,1570,1571,1572,1573,1574,1575,1576,1577,1578,1579,1580,1581,1582,1583,1584,1585,1586,1587,1588,1589,1590,1594,1595,1596,1597,1598,1602,1603,1604,1605,1607,1609,1610,1611,1612,1613,1614,1615,1616,1618,1619,1621,1622,1624,1626,1627,1629,1630,1631,1632,1633,1634,1636,1637,1638,1639,1640,1641,1643,1645,1647,1648,1649,1650,1651,1652,1653,1654,1655,1656,1657,1658,1659,1661,1662,1663,1664,1665,1666,1668,1672,1676,1677,1678,1679,1680,1681,1682,1683,1685,1687,1689,1691,1693,1694,1695,1696,1698,1700,1702,1703,1704,1705,1706,1707,1708,1709,1710,1711,1712,1713,1716,1717,1718,1719,1721,1723,1724,1726,1727,1729,1731,1733,1734,1735,1736,1737,1738,1739,1740,1741,1742,1743,1744,1746,1747,1748,1749,1751,1752,1753,1754,1755,1757,1759,1761,1763,1764,1765,1766,1767,1768,1769,1770,1771,1772,1773,1774,1775,1776,1777,85,86,87,88,89,90,91,103,117,118,124,127,128,129,141,142,148,149,150,151,190,191,192,193,194,195,196,223,224,230,231,243,244",
+                        "endColumns": "54,44,48,40,54,57,61,67,77,80,60,74,75,76,77,84,81,75,75,76,77,105,105,78,79,56,57,73,74,64,65,54,71,72,66,67,58,58,58,58,58,53,53,52,53,53,53,53,73,78,72,73,70,71,71,72,56,57,72,73,73,74,71,72,69,70,59,60,68,68,69,73,75,63,76,75,76,63,64,68,76,74,68,67,76,65,96,64,68,98,70,58,57,56,58,70,71,71,71,71,66,67,67,58,62,63,89,90,59,65,66,65,69,63,52,112,57,62,64,64,74,72,71,48,60,60,60,61,63,63,63,64,62,59,60,65,58,59,61,70,59,67,85,86,89,86,87,81,82,89,90,51,57,44,65,63,56,56,53,56,47,48,50,33,46,48,45,31,63,61,59,56,73,77,92,69,77,53,69,84,47,45,70,77,77,71,73,73,73,79,72,68,71,76,51,72,73,68,74,73,73,88,69,52,77,89,87,95,89,12,88,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,136,130,104,12,12,12,12,12,111,111,104,116,12,12,12,12,12,87,12,12,12,81,12,12,99,12,12,12,93,88,12,12,12,101,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,117,12,12,12,12,12,12,12,63,12,12,12,12,12,12,93,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,91,12,12,12,61,12,12,85,12,12,12,12,12,12,12,12,12,12,12,12,12,12,83,95,95,97,99,101,101,101,101,101,99,95,111,128,122,130,130,97,113,93,119,12,68,115,127,63,12,68,131,69,12,12,95,111,99,115,95,111,99,12,135,12,129,12,12,140,12,134,111,149,127,127,12,131,129,129,111,139,12,12,12,65,89,75,103,89,101,107,107,99,79,91,97,12,77,105,91,103,109,12,12,12,79,99,89,109,93,105,91,12,12,12,12,12,93,113,111,12,12,12,81,103,119,125,97,93,87,111,115,121,111,12,115,85,91,12,12,66,12,67,12,12,12,68,94,114,112,98,108,110,110,100,104,99,12,90,122,93,12,85,103,95,87,12,12,12,12,87,107,99,89,109,83,101,83,53,63,105,109,83,119,1290,103,100,46,247,191,390,35,35,319,292,5296,111,160,35,422,83,220,158,258,35,438,187,127,173,780,216,375,478,458,244,35,152",
+                        "endOffsets": "105,150,199,240,295,353,415,483,561,642,703,778,854,931,1009,1094,1176,1252,1328,1405,1483,1589,1695,1774,1854,1911,1969,2043,2118,2183,2249,2304,2376,2449,2516,2584,2643,2702,2761,2820,2879,2933,2987,3040,3094,3148,3202,3256,3330,3409,3482,3556,3627,3699,3771,3844,3901,3959,4032,4106,4180,4255,4327,4400,4470,4541,4601,4662,26877,26946,27016,27090,27166,27230,27307,27383,27460,27524,27589,27658,27735,27810,27879,27947,28024,28090,28187,28252,28321,28420,28491,28550,28608,28665,28724,28795,28867,28939,29011,29083,29150,29218,29286,29345,29408,29472,29562,29653,29713,29779,29846,29912,29982,30046,30099,30212,30270,30333,30398,30463,30538,30611,30683,30732,30793,30854,30915,30977,31041,31105,31169,31234,31297,31357,31418,31484,31543,31603,31665,31736,31796,31864,31950,32037,32127,32214,32302,32384,32467,32557,32648,32700,32758,32803,32869,32933,32990,33047,33101,33158,33206,33255,33306,33340,33387,33436,33482,33514,33578,33640,33700,33757,33831,33909,34002,34072,34150,34204,34274,34359,34407,34453,34524,34602,34680,34752,34826,34900,34974,35054,35127,35196,35268,35345,35397,35470,35544,35613,35688,35762,35836,35925,35995,36048,36126,36216,36304,36400,36490,36991,37080,37327,37608,37852,38137,38530,39007,39229,39451,39719,39946,40176,40406,40636,40866,41093,41332,41558,41803,42033,42281,42500,42783,42991,43122,43349,43595,43820,44067,44288,44533,44653,44929,45230,45554,45845,46159,46296,46427,46532,46774,46941,47145,47353,47624,47736,47848,47953,48070,48284,48430,48570,48656,49004,49092,49322,49740,49973,50055,50153,50770,50870,51106,51530,51769,51863,51952,52189,54241,54483,54585,54822,57006,67543,68794,79428,80691,82183,82719,83049,84110,85375,85631,85867,86414,86908,87513,87711,88291,88855,89230,89348,89886,90043,90239,90512,90768,90938,91079,91143,91425,91711,92387,92651,92989,93342,93436,93622,93928,94190,94315,94442,94681,94892,95011,95204,95381,95836,96017,96139,96398,96511,96698,96800,97244,97368,97643,98151,98647,99524,99818,100388,100537,101269,101441,101777,101869,102147,105333,108662,108724,109354,109968,110054,110167,110396,110556,110708,110879,111046,111289,111459,111632,111803,112077,112276,112481,112811,112895,112991,113087,113185,113285,113387,113489,113591,113693,113795,113895,113991,114103,114232,114355,114486,114617,114715,114829,114923,115043,115247,115316,115432,115560,115624,115828,115897,116029,116099,116239,116373,116469,116581,116681,116797,116893,117005,117105,117245,117381,117545,117675,117833,117983,118124,118268,118403,118515,118665,118793,118921,119057,119189,119319,119449,119561,119701,119847,119991,120129,120195,120285,120361,120465,120555,120657,120765,120873,120973,121053,121145,121243,121353,121431,121537,121629,121733,121843,121965,122128,122285,122365,122465,122555,122665,122759,122865,122957,123057,123169,123283,123399,123515,123609,123723,123835,123937,124057,124179,124261,124365,124485,124611,124709,124803,124891,125003,125119,125241,125353,125528,125644,125730,125822,125934,126058,126125,126251,126319,126447,126591,126719,126788,126883,126998,127111,127210,127319,127430,127541,127642,127747,127847,127977,128068,128191,128285,128397,128483,128587,128683,128771,128889,128993,129097,129223,129311,129419,129519,129609,129719,129803,129905,129989,130043,130107,130213,130323,130407,130527,6577,6681,6782,6829,7077,7269,7660,8164,8738,9058,9647,16283,16395,16556,17028,17451,18044,18265,18424,18683,20810,21249,21437,21565,21739,22520,22737,24068,24547,25920,26165,26655,26808"
+                    },
+                    "to": {
+                        "startLines": "16,21,22,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,149,150,151,152,153,154,155,156,174,175,176,177,178,179,180,184,185,198,199,200,201,202,203,204,205,206,207,208,209,217,218,219,220,221,222,223,224,226,227,228,229,230,231,235,236,237,238,239,240,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,358,359,367,368,369,370,371,372,373,414,415,416,417,418,419,420,421,428,429,430,431,439,444,445,451,455,458,459,460,461,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,523,530,531,532,533,534,538,545,546,550,554,565,570,576,583,587,591,596,600,604,608,612,616,620,624,628,632,636,640,644,649,653,656,660,664,668,672,676,680,683,687,691,695,699,703,704,705,706,709,712,715,718,722,723,724,725,726,729,731,733,735,740,741,745,751,755,756,758,769,770,774,780,784,785,786,790,817,821,822,826,854,1020,1042,1208,1230,1257,1264,1269,1283,1305,1310,1315,1325,1334,1343,1347,1354,1362,1369,1370,1379,1382,1385,1389,1393,1397,1400,1401,1405,1409,1419,1424,1431,1437,1438,1441,1445,1450,1452,1454,1457,1460,1462,1466,1469,1476,1479,1482,1486,1488,1492,1494,1500,1502,1506,1514,1522,1534,1540,1549,1552,1563,1566,1571,1572,1595,1637,1680,1681,1691,1700,1701,1703,1707,1710,1713,1716,1719,1723,1726,1729,1732,1736,1739,1743,1747,1748,1749,1750,1751,1752,1753,1754,1755,1756,1757,1758,1759,1760,1761,1762,1763,1764,1765,1766,1767,1768,1772,1773,1774,1775,1776,1780,1781,1782,1783,1785,1787,1788,1789,1790,1791,1792,1793,1794,1796,1797,1799,1800,1802,1804,1805,1807,1808,1809,1810,1811,1812,1814,1815,1816,1817,1818,1853,1855,1857,1859,1860,1861,1862,1863,1864,1865,1866,1867,1868,1869,1870,1871,1873,1874,1875,1876,1877,1878,1880,1884,1888,1889,1890,1891,1892,1893,1894,1895,1897,1899,1901,1903,1905,1906,1907,1908,1910,1912,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1928,1929,1930,1931,1933,1935,1936,1938,1939,1941,1943,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1958,1959,1960,1961,1963,1964,1965,1966,1967,1969,1971,1973,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,2071,2087,2088,2089,2090,2091,2092,2095,2107,2121,2122,2128,2131,2162,2163,2202,2220,2226,2227,2252,2253,2292,2325,2326,2336,2340,2342,2343,2371,2373,2379,2380,2392",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "666,848,893,6020,6061,6116,6174,6236,6304,6382,6463,6524,6599,6675,6752,6830,6915,6997,7073,7228,7305,7383,7489,7595,7674,7754,7811,8931,9005,9080,9145,9211,9266,9338,9534,9601,10288,10347,10406,10465,10524,10583,10637,10691,10744,10798,10852,10906,11379,11453,11532,11605,11679,11750,11822,11894,12015,12072,12130,12203,12277,12351,12576,12648,12721,12791,12862,12922,13173,13242,13311,13381,13455,13531,13595,13672,13748,13825,13889,13954,14023,14100,14175,14244,14312,14389,14455,14552,14617,14686,14785,14856,14915,14973,15030,15089,15160,15232,15304,15376,15448,15515,15583,15651,15710,15773,15837,15927,16018,16078,16144,16211,16277,16347,16411,16464,16577,16635,16698,16763,16828,16903,16976,17048,17097,17158,17219,17280,17342,17406,17470,17534,17599,17662,17722,17783,17849,17908,17968,18030,18101,18161,20583,20669,21065,21155,21242,21330,21412,21495,21585,24138,24190,24248,24293,24359,24423,24480,24537,24995,25052,25100,25149,25492,25712,25759,26052,26202,26319,26383,26445,26505,26753,26827,26905,26998,27068,27146,27200,27270,27355,27403,27449,27520,27598,27676,27748,27822,27896,27970,28050,28123,28192,28264,28341,28393,28466,28540,28609,28684,28758,28832,28921,30467,30849,30927,31017,31105,31201,31424,31925,32014,32261,32542,33200,33485,33878,34355,34577,34799,35067,35294,35524,35754,35984,36214,36441,36680,36906,37151,37381,37629,37848,38131,38339,38470,38697,38943,39168,39415,39636,39881,40001,40277,40578,40902,41193,41507,41644,41775,41880,42122,42289,42493,42701,42972,43084,43196,43301,43418,43632,43778,43918,44004,44352,44440,44670,45088,45321,45403,45501,46118,46218,46454,46878,47117,47211,47300,47537,49589,49831,49933,50170,52354,62891,64142,74776,76039,77531,78067,78397,79458,80723,80979,81215,81762,82256,82861,83059,83639,84203,84578,84696,85234,85391,85587,85860,86116,86286,86427,86491,86773,87059,87735,87999,88337,88690,88784,88970,89276,89538,89663,89790,90029,90240,90359,90552,90729,91184,91365,91487,91746,91859,92046,92148,92592,92716,92991,93499,93995,94872,95166,95736,95885,96617,96789,97125,97217,98404,101590,104919,104981,105611,106225,106311,106424,106653,106813,106965,107136,107303,107546,107716,107889,108060,108334,108533,108738,109068,109152,109248,109344,109442,109542,109644,109746,109848,109950,110052,110152,110248,110360,110489,110612,110743,110874,110972,111086,111180,111300,111504,111573,111689,111817,111881,112085,112154,112286,112356,112496,112630,112726,112838,112938,113054,113150,113262,113362,113502,113638,113802,113932,114090,114240,114381,114525,114660,114772,114922,115050,115178,115314,115446,115576,115706,115818,118179,118325,118469,118607,118673,118763,118839,118943,119033,119135,119243,119351,119451,119531,119623,119721,119831,119909,120015,120107,120211,120321,120443,120606,120763,120843,120943,121033,121143,121237,121343,121435,121535,121647,121761,121877,121993,122087,122201,122313,122415,122535,122657,122739,122843,122963,123089,123187,123281,123369,123481,123597,123719,123831,124006,124122,124208,124300,124412,124536,124603,124729,124797,124925,125069,125197,125266,125361,125476,125589,125688,125797,125908,126019,126120,126225,126325,126455,126546,126669,126763,126875,126961,127065,127161,127249,127367,127471,127575,127701,127789,127897,127997,128087,128197,128281,128383,128467,128521,128585,128691,128801,128885,133620,135535,135639,135740,135787,136035,136227,137117,137621,138195,138515,139104,145740,149449,149610,158188,160234,160827,161048,162411,162670,164797,168496,168684,169454,170520,171476,171693,173934,174744,176117,176362,176852",
+                        "endLines": "16,21,22,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,149,150,151,152,153,154,155,156,174,175,176,177,178,179,180,184,185,198,199,200,201,202,203,204,205,206,207,208,209,217,218,219,220,221,222,223,224,226,227,228,229,230,231,235,236,237,238,239,240,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,358,359,367,368,369,370,371,372,373,414,415,416,417,418,419,420,421,428,429,430,431,439,444,445,451,455,458,459,460,461,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,523,530,531,532,533,534,544,545,549,553,557,569,575,582,586,590,595,599,603,607,611,615,619,623,627,631,635,639,643,648,652,655,659,663,667,671,675,679,682,686,690,694,698,702,703,704,705,708,711,714,717,721,722,723,724,725,728,730,732,734,739,740,744,750,754,755,757,768,769,773,779,783,784,785,789,816,820,821,825,853,1019,1041,1207,1229,1256,1263,1268,1282,1304,1309,1314,1324,1333,1342,1346,1353,1361,1368,1369,1378,1381,1384,1388,1392,1396,1399,1400,1404,1408,1418,1423,1430,1436,1437,1440,1444,1449,1451,1453,1456,1459,1461,1465,1468,1475,1478,1481,1485,1487,1491,1493,1499,1501,1505,1513,1521,1533,1539,1548,1551,1562,1565,1570,1571,1576,1636,1679,1680,1690,1699,1700,1702,1706,1709,1712,1715,1718,1722,1725,1728,1731,1735,1738,1742,1746,1747,1748,1749,1750,1751,1752,1753,1754,1755,1756,1757,1758,1759,1760,1761,1762,1763,1764,1765,1766,1767,1771,1772,1773,1774,1775,1779,1780,1781,1782,1784,1786,1787,1788,1789,1790,1791,1792,1793,1795,1796,1798,1799,1801,1803,1804,1806,1807,1808,1809,1810,1811,1813,1814,1815,1816,1817,1818,1854,1856,1858,1859,1860,1861,1862,1863,1864,1865,1866,1867,1868,1869,1870,1872,1873,1874,1875,1876,1877,1879,1883,1887,1888,1889,1890,1891,1892,1893,1894,1896,1898,1900,1902,1904,1905,1906,1907,1909,1911,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1927,1928,1929,1930,1932,1934,1935,1937,1938,1940,1942,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1957,1958,1959,1960,1962,1963,1964,1965,1966,1968,1970,1972,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,2086,2087,2088,2089,2090,2091,2092,2106,2120,2121,2127,2130,2131,2162,2174,2202,2225,2226,2227,2252,2291,2292,2325,2326,2336,2340,2342,2369,2371,2378,2379,2391,2392",
+                        "endColumns": "54,44,48,40,54,57,61,67,77,80,60,74,75,76,77,84,81,75,75,76,77,105,105,78,79,56,57,73,74,64,65,54,71,72,66,67,58,58,58,58,58,53,53,52,53,53,53,53,73,78,72,73,70,71,71,72,56,57,72,73,73,74,71,72,69,70,59,60,68,68,69,73,75,63,76,75,76,63,64,68,76,74,68,67,76,65,96,64,68,98,70,58,57,56,58,70,71,71,71,71,66,67,67,58,62,63,89,90,59,65,66,65,69,63,52,112,57,62,64,64,74,72,71,48,60,60,60,61,63,63,63,64,62,59,60,65,58,59,61,70,59,67,85,86,89,86,87,81,82,89,90,51,57,44,65,63,56,56,53,56,47,48,50,33,46,48,45,31,63,61,59,56,73,77,92,69,77,53,69,84,47,45,70,77,77,71,73,73,73,79,72,68,71,76,51,72,73,68,74,73,73,88,69,52,77,89,87,95,89,12,88,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,136,130,104,12,12,12,12,12,111,111,104,116,12,12,12,12,12,87,12,12,12,81,12,12,99,12,12,12,93,88,12,12,12,101,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,117,12,12,12,12,12,12,12,63,12,12,12,12,12,12,93,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,91,12,12,12,61,12,12,85,12,12,12,12,12,12,12,12,12,12,12,12,12,12,83,95,95,97,99,101,101,101,101,101,99,95,111,128,122,130,130,97,113,93,119,12,68,115,127,63,12,68,131,69,12,12,95,111,99,115,95,111,99,12,135,12,129,12,12,140,12,134,111,149,127,127,12,131,129,129,111,139,12,12,12,65,89,75,103,89,101,107,107,99,79,91,97,12,77,105,91,103,109,12,12,12,79,99,89,109,93,105,91,12,12,12,12,12,93,113,111,12,12,12,81,103,119,125,97,93,87,111,115,121,111,12,115,85,91,12,12,66,12,67,12,12,12,68,94,114,112,98,108,110,110,100,104,99,12,90,122,93,12,85,103,95,87,12,12,12,12,87,107,99,89,109,83,101,83,53,63,105,109,83,119,1290,103,100,46,247,191,390,35,35,319,292,5296,111,160,35,422,83,220,158,258,35,438,187,127,173,780,216,375,478,458,244,35,152",
+                        "endOffsets": "716,888,937,6056,6111,6169,6231,6299,6377,6458,6519,6594,6670,6747,6825,6910,6992,7068,7144,7300,7378,7484,7590,7669,7749,7806,7864,9000,9075,9140,9206,9261,9333,9406,9596,9664,10342,10401,10460,10519,10578,10632,10686,10739,10793,10847,10901,10955,11448,11527,11600,11674,11745,11817,11889,11962,12067,12125,12198,12272,12346,12421,12643,12716,12786,12857,12917,12978,13237,13306,13376,13450,13526,13590,13667,13743,13820,13884,13949,14018,14095,14170,14239,14307,14384,14450,14547,14612,14681,14780,14851,14910,14968,15025,15084,15155,15227,15299,15371,15443,15510,15578,15646,15705,15768,15832,15922,16013,16073,16139,16206,16272,16342,16406,16459,16572,16630,16693,16758,16823,16898,16971,17043,17092,17153,17214,17275,17337,17401,17465,17529,17594,17657,17717,17778,17844,17903,17963,18025,18096,18156,18224,20664,20751,21150,21237,21325,21407,21490,21580,21671,24185,24243,24288,24354,24418,24475,24532,24586,25047,25095,25144,25195,25521,25754,25803,26093,26229,26378,26440,26500,26557,26822,26900,26993,27063,27141,27195,27265,27350,27398,27444,27515,27593,27671,27743,27817,27891,27965,28045,28118,28187,28259,28336,28388,28461,28535,28604,28679,28753,28827,28916,28986,30515,30922,31012,31100,31196,31286,31920,32009,32256,32537,32781,33480,33873,34350,34572,34794,35062,35289,35519,35749,35979,36209,36436,36675,36901,37146,37376,37624,37843,38126,38334,38465,38692,38938,39163,39410,39631,39876,39996,40272,40573,40897,41188,41502,41639,41770,41875,42117,42284,42488,42696,42967,43079,43191,43296,43413,43627,43773,43913,43999,44347,44435,44665,45083,45316,45398,45496,46113,46213,46449,46873,47112,47206,47295,47532,49584,49826,49928,50165,52349,62886,64137,74771,76034,77526,78062,78392,79453,80718,80974,81210,81757,82251,82856,83054,83634,84198,84573,84691,85229,85386,85582,85855,86111,86281,86422,86486,86768,87054,87730,87994,88332,88685,88779,88965,89271,89533,89658,89785,90024,90235,90354,90547,90724,91179,91360,91482,91741,91854,92041,92143,92587,92711,92986,93494,93990,94867,95161,95731,95880,96612,96784,97120,97212,97490,101585,104914,104976,105606,106220,106306,106419,106648,106808,106960,107131,107298,107541,107711,107884,108055,108329,108528,108733,109063,109147,109243,109339,109437,109537,109639,109741,109843,109945,110047,110147,110243,110355,110484,110607,110738,110869,110967,111081,111175,111295,111499,111568,111684,111812,111876,112080,112149,112281,112351,112491,112625,112721,112833,112933,113049,113145,113257,113357,113497,113633,113797,113927,114085,114235,114376,114520,114655,114767,114917,115045,115173,115309,115441,115571,115701,115813,115953,118320,118464,118602,118668,118758,118834,118938,119028,119130,119238,119346,119446,119526,119618,119716,119826,119904,120010,120102,120206,120316,120438,120601,120758,120838,120938,121028,121138,121232,121338,121430,121530,121642,121756,121872,121988,122082,122196,122308,122410,122530,122652,122734,122838,122958,123084,123182,123276,123364,123476,123592,123714,123826,124001,124117,124203,124295,124407,124531,124598,124724,124792,124920,125064,125192,125261,125356,125471,125584,125683,125792,125903,126014,126115,126220,126320,126450,126541,126664,126758,126870,126956,127060,127156,127244,127362,127466,127570,127696,127784,127892,127992,128082,128192,128276,128378,128462,128516,128580,128686,128796,128880,129000,135530,135634,135735,135782,136030,136222,136613,137616,138190,138510,139099,145735,145847,149605,150077,158606,160822,161043,161202,162665,164792,165231,168679,168807,169623,171296,171688,173019,174408,176112,176357,176847,177000"
+                    }
+                },
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\7a28bab03b57cd008c2a5e39cd082d71\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,11,12,13,14,15,19,20,21,22,25,26,29,32,33,34,35,36,39,42,43,44,45,50,53,56,57,58,63,64,65,68,71,72,75,78,81,84,85,88,91,92,97,98,103,106,109,110,111,112,113,114,115,116,117,118,127,128,129,130",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,116,407,455,507,568,614,741,802,862,932,1065,1133,1262,1388,1450,1515,1583,1650,1773,1898,1965,2030,2095,2276,2397,2518,2584,2651,2861,2930,2996,3121,3247,3314,3440,3567,3692,3819,3884,4010,4133,4198,4406,4473,4653,4773,4893,4958,5020,5082,5144,5203,5263,5324,5385,5444,5819,8395,8527,11791",
+                        "endLines": "2,10,11,12,13,14,18,19,20,21,24,25,28,31,32,33,34,35,38,41,42,43,44,49,52,55,56,57,62,63,64,67,70,71,74,77,80,83,84,87,90,91,96,97,102,105,108,109,110,111,112,113,114,115,116,117,126,127,128,129,130",
+                        "endColumns": "60,11,47,51,60,45,11,60,59,69,11,67,11,11,61,64,67,66,11,11,66,64,64,11,11,11,65,66,11,68,65,11,11,66,11,11,11,11,64,11,11,64,11,66,11,11,11,64,61,61,61,58,59,60,60,58,11,2575,131,3263,107",
+                        "endOffsets": "111,402,450,502,563,609,736,797,857,927,1060,1128,1257,1383,1445,1510,1578,1645,1768,1893,1960,2025,2090,2271,2392,2513,2579,2646,2856,2925,2991,3116,3242,3309,3435,3562,3687,3814,3879,4005,4128,4193,4401,4468,4648,4768,4888,4953,5015,5077,5139,5198,5258,5319,5380,5439,5814,8390,8522,11786,11894"
+                    },
+                    "to": {
+                        "startLines": "2,3,12,13,14,15,17,23,24,25,26,29,30,33,36,37,38,39,40,43,46,47,48,49,54,57,60,61,62,67,68,69,72,75,76,79,82,85,88,89,92,95,96,101,102,107,110,113,114,115,116,117,118,119,120,121,122,2175,2176,2177,2219",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,116,459,507,559,620,721,942,1003,1063,1133,1266,1334,1463,1589,1651,1716,1784,1851,1974,2099,2166,2231,2296,2477,2598,2719,2785,2852,3062,3131,3197,3322,3448,3515,3641,3768,3893,4020,4085,4211,4334,4399,4607,4674,4854,4974,5094,5159,5221,5283,5345,5404,5464,5525,5586,5645,150082,152658,152790,160126",
+                        "endLines": "2,10,12,13,14,15,20,23,24,25,28,29,32,35,36,37,38,39,42,45,46,47,48,53,56,59,60,61,66,67,68,71,74,75,78,81,84,87,88,91,94,95,100,101,106,109,112,113,114,115,116,117,118,119,120,121,130,2175,2176,2177,2219",
+                        "endColumns": "60,11,47,51,60,45,11,60,59,69,11,67,11,11,61,64,67,66,11,11,66,64,64,11,11,11,65,66,11,68,65,11,11,66,11,11,11,11,64,11,11,64,11,66,11,11,11,64,61,61,61,58,59,60,60,58,11,2575,131,3263,107",
+                        "endOffsets": "111,402,502,554,615,661,843,998,1058,1128,1261,1329,1458,1584,1646,1711,1779,1846,1969,2094,2161,2226,2291,2472,2593,2714,2780,2847,3057,3126,3192,3317,3443,3510,3636,3763,3888,4015,4080,4206,4329,4394,4602,4669,4849,4969,5089,5154,5216,5278,5340,5399,5459,5520,5581,5640,6015,152653,152785,156049,160229"
                     }
                 },
                 {
                     "source": "D:\\workspace_android\\my_project\\my_sdk\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,22,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,912,-1,-1,-1,-1,-1,-1,-1",
-                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,37,-1,-1,-1,-1,-1,-1,-1",
-                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,945,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "9,1,14,2,12,7,5,18,4,17,20,22,8,21,6,10,13,16,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "348,17,547,59,447,257,154,694,106,647,806,912,300,875,209,397,497,599,737",
+                        "endColumns": "47,40,48,39,48,41,53,41,46,45,67,37,46,35,46,46,48,46,67",
+                        "endOffsets": "391,53,591,94,491,294,203,731,148,688,869,945,342,906,251,439,541,641,800"
                     },
                     "to": {
                         "startLines": "496,497,499,500,501,502,503,512,513,515,516,519,520,521,524,526,527,528,529",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "28958,29006,29192,29241,29281,29330,29372,29897,29939,30050,30096,30271,30309,30356,30487,30605,30652,30701,30748",
+                        "startOffsets": "28991,29039,29225,29274,29314,29363,29405,29930,29972,30083,30129,30304,30342,30389,30520,30638,30685,30734,30781",
                         "endColumns": "47,40,48,39,48,41,53,41,46,45,67,37,46,35,46,46,48,46,67",
-                        "endOffsets": "29001,29042,29236,29276,29325,29367,29421,29934,29981,30091,30159,30304,30351,30387,30529,30647,30696,30743,30811"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\99160b4ccae103f12b5e71dc0a2eb792\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
-                    },
-                    "to": {
-                        "startLines": "11,157,158,159,160,319,320,321,558,1585,1587,1590",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "407,7836,7897,7959,8021,18196,18255,18312,32718,96753,96817,96943",
-                        "endLines": "11,157,158,159,160,319,320,321,564,1586,1589,1592",
-                        "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12",
-                        "endOffsets": "454,7892,7954,8016,8080,18250,18307,18361,33127,96812,96938,97066"
+                        "endOffsets": "29034,29075,29269,29309,29358,29400,29454,29967,30014,30124,30192,30337,30384,30420,30562,30680,30729,30776,30844"
                     }
                 },
                 {
                     "source": "D:\\workspace_android\\my_project\\my_sdk\\xrecyclerview\\build\\intermediates\\packaged_res\\debug\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,155,227,309,376,432,486,550,604,657",
+                        "endLines": "2,4,5,6,7,8,9,10,11,44",
+                        "endColumns": "48,71,81,66,55,53,63,53,52,24",
+                        "endOffsets": "99,222,304,371,427,481,545,599,652,2313"
                     },
                     "to": {
-                        "startLines": "413,504,505,506,507,511,514,517,518",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "24056,29426,29498,29580,29647,29843,29986,30164,30218",
-                        "endColumns": "48,71,81,66,55,53,63,53,52",
-                        "endOffsets": "24100,29493,29575,29642,29698,29892,30045,30213,30266"
+                        "startLines": "413,504,505,506,507,511,514,517,518,2038",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "24089,29459,29531,29613,29680,29876,30019,30197,30251,131959",
+                        "endLines": "413,504,505,506,507,511,514,517,518,2070",
+                        "endColumns": "48,71,81,66,55,53,63,53,52,24",
+                        "endOffsets": "24133,29526,29608,29675,29731,29925,30078,30246,30299,133615"
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values\\values.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\d2bad86bd0a214e1cafa5a77467f00fc\\res\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,3,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,53,54,58,59,60,6,15",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,1153,1223,1291,1363,1433,1494,1555,1616,1678,1742,1804,1865,1933,2033,2093,2159,2232,2301,2358,2410,2472,2544,2620,2655,2690,2724,2759,2794,2864,2935,3052,3253,3363,3564,3693,3765,319,880",
+                        "endLines": "2,3,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,52,53,57,58,59,60,14,18",
+                        "endColumns": "68,62,69,67,71,69,60,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,34,34,33,34,34,69,70,116,12,109,12,128,71,66,35,115",
+                        "endOffsets": "119,182,1218,1286,1358,1428,1489,1550,1611,1673,1737,1799,1860,1928,2028,2088,2154,2227,2296,2353,2405,2467,2539,2615,2650,2685,2719,2754,2789,2859,2930,3047,3248,3358,3559,3688,3760,3827,875,1148"
                     },
                     "to": {
-                        "startLines": "16,21,22,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,149,150,151,152,153,154,155,156,174,175,176,177,178,179,180,184,185,198,199,200,201,202,203,204,205,206,207,208,209,217,218,219,220,221,222,223,224,226,227,228,229,230,231,235,236,237,238,239,240,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,358,359,367,368,369,370,371,372,373,414,415,416,417,418,419,420,421,428,429,430,431,439,444,445,451,455,458,459,460,461,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,523,530,531,532,533,534,538,545,546,550,554,565,570,576,583,587,591,596,600,604,608,612,616,620,624,628,632,636,640,644,649,653,656,660,664,668,672,676,680,683,687,691,695,699,703,704,705,706,709,712,715,718,722,723,724,725,726,729,731,733,735,740,741,745,751,755,756,758,769,770,774,780,784,785,786,790,817,821,822,826,854,1019,1041,1206,1228,1255,1262,1267,1281,1303,1308,1313,1323,1332,1341,1345,1352,1360,1367,1368,1377,1380,1383,1387,1391,1395,1398,1399,1403,1407,1417,1422,1429,1435,1436,1439,1443,1448,1450,1452,1455,1458,1460,1464,1467,1474,1477,1480,1484,1486,1490,1492,1498,1500,1504,1512,1520,1532,1538,1547,1550,1561,1564,1569,1570,1593,1635,1678,1679,1689,1698,1699,1701,1705,1708,1711,1714,1717,1721,1724,1727,1730,1734,1737,1741,1745,1746,1747,1748,1749,1750,1751,1752,1753,1754,1755,1756,1757,1758,1759,1760,1761,1762,1763,1764,1765,1766,1770,1771,1772,1773,1774,1778,1779,1780,1781,1783,1785,1786,1787,1788,1789,1790,1791,1792,1794,1795,1797,1798,1800,1802,1803,1805,1806,1807,1808,1809,1810,1812,1813,1814,1815,1816,1851,1853,1855,1857,1858,1859,1860,1861,1862,1863,1864,1865,1866,1867,1868,1869,1871,1872,1873,1874,1875,1876,1878,1882,1886,1887,1888,1889,1890,1891,1892,1893,1895,1897,1899,1901,1903,1904,1905,1906,1908,1910,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1926,1927,1928,1929,1931,1933,1934,1936,1937,1939,1941,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1956,1957,1958,1959,1961,1962,1963,1964,1965,1967,1969,1971,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "666,848,893,5987,6028,6083,6141,6203,6271,6349,6430,6491,6566,6642,6719,6797,6882,6964,7040,7195,7272,7350,7456,7562,7641,7721,7778,8898,8972,9047,9112,9178,9233,9305,9501,9568,10255,10314,10373,10432,10491,10550,10604,10658,10711,10765,10819,10873,11346,11420,11499,11572,11646,11717,11789,11861,11982,12039,12097,12170,12244,12318,12543,12615,12688,12758,12829,12889,13140,13209,13278,13348,13422,13498,13562,13639,13715,13792,13856,13921,13990,14067,14142,14211,14279,14356,14422,14519,14584,14653,14752,14823,14882,14940,14997,15056,15127,15199,15271,15343,15415,15482,15550,15618,15677,15740,15804,15894,15985,16045,16111,16178,16244,16314,16378,16431,16544,16602,16665,16730,16795,16870,16943,17015,17064,17125,17186,17247,17309,17373,17437,17501,17566,17629,17689,17750,17816,17875,17935,17997,18068,18128,20550,20636,21032,21122,21209,21297,21379,21462,21552,24105,24157,24215,24260,24326,24390,24447,24504,24962,25019,25067,25116,25459,25679,25726,26019,26169,26286,26350,26412,26472,26720,26794,26872,26965,27035,27113,27167,27237,27322,27370,27416,27487,27565,27643,27715,27789,27863,27937,28017,28090,28159,28231,28308,28360,28433,28507,28576,28651,28725,28799,28888,30434,30816,30894,30984,31072,31168,31356,31857,31946,32193,32474,33132,33417,33810,34287,34509,34731,34999,35226,35456,35686,35916,36146,36373,36612,36838,37083,37313,37561,37780,38063,38271,38402,38629,38875,39100,39347,39568,39813,39933,40209,40510,40834,41125,41439,41576,41707,41812,42054,42221,42425,42633,42904,43016,43128,43233,43350,43564,43710,43850,43936,44284,44372,44602,45020,45253,45335,45433,46025,46125,46361,46785,47024,47118,47207,47444,49468,49710,49812,50049,52205,62150,63401,73443,74706,76198,76734,77064,78125,79390,79646,79882,80429,80923,81528,81726,82306,82870,83245,83363,83901,84058,84254,84527,84783,84953,85094,85158,85440,85726,86402,86666,87004,87357,87451,87637,87943,88205,88330,88457,88696,88907,89026,89219,89396,89851,90032,90154,90413,90526,90713,90815,91259,91383,91658,92166,92662,93539,93833,94403,94552,95284,95456,95792,95884,97071,100195,103462,103524,104102,104686,104772,104885,105114,105274,105426,105597,105764,106007,106177,106350,106521,106795,106994,107199,107529,107613,107709,107805,107903,108003,108105,108207,108309,108411,108513,108613,108709,108821,108950,109073,109204,109335,109433,109547,109641,109761,109965,110034,110150,110278,110342,110546,110615,110747,110817,110957,111091,111187,111299,111399,111515,111611,111723,111823,111963,112099,112263,112393,112551,112701,112842,112986,113121,113233,113383,113511,113639,113775,113907,114037,114167,114279,116640,116786,116930,117068,117134,117224,117300,117404,117494,117596,117704,117812,117912,117992,118084,118182,118292,118370,118476,118568,118672,118782,118904,119067,119224,119304,119404,119494,119604,119698,119804,119896,119996,120108,120222,120338,120454,120548,120662,120774,120876,120996,121118,121200,121304,121424,121550,121648,121742,121830,121942,122058,122180,122292,122467,122583,122669,122761,122873,122997,123064,123190,123258,123386,123530,123658,123727,123822,123937,124050,124149,124258,124369,124480,124581,124686,124786,124916,125007,125130,125224,125336,125422,125526,125622,125710,125828,125932,126036,126162,126250,126358,126458,126548,126658,126742,126844,126928,126982,127046,127152,127262,127346",
-                        "endLines": "16,21,22,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,149,150,151,152,153,154,155,156,174,175,176,177,178,179,180,184,185,198,199,200,201,202,203,204,205,206,207,208,209,217,218,219,220,221,222,223,224,226,227,228,229,230,231,235,236,237,238,239,240,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,358,359,367,368,369,370,371,372,373,414,415,416,417,418,419,420,421,428,429,430,431,439,444,445,451,455,458,459,460,461,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,523,530,531,532,533,534,544,545,549,553,557,569,575,582,586,590,595,599,603,607,611,615,619,623,627,631,635,639,643,648,652,655,659,663,667,671,675,679,682,686,690,694,698,702,703,704,705,708,711,714,717,721,722,723,724,725,728,730,732,734,739,740,744,750,754,755,757,768,769,773,779,783,784,785,789,816,820,821,825,853,1018,1040,1205,1227,1254,1261,1266,1280,1302,1307,1312,1322,1331,1340,1344,1351,1359,1366,1367,1376,1379,1382,1386,1390,1394,1397,1398,1402,1406,1416,1421,1428,1434,1435,1438,1442,1447,1449,1451,1454,1457,1459,1463,1466,1473,1476,1479,1483,1485,1489,1491,1497,1499,1503,1511,1519,1531,1537,1546,1549,1560,1563,1568,1569,1574,1634,1677,1678,1688,1697,1698,1700,1704,1707,1710,1713,1716,1720,1723,1726,1729,1733,1736,1740,1744,1745,1746,1747,1748,1749,1750,1751,1752,1753,1754,1755,1756,1757,1758,1759,1760,1761,1762,1763,1764,1765,1769,1770,1771,1772,1773,1777,1778,1779,1780,1782,1784,1785,1786,1787,1788,1789,1790,1791,1793,1794,1796,1797,1799,1801,1802,1804,1805,1806,1807,1808,1809,1811,1812,1813,1814,1815,1816,1852,1854,1856,1857,1858,1859,1860,1861,1862,1863,1864,1865,1866,1867,1868,1870,1871,1872,1873,1874,1875,1877,1881,1885,1886,1887,1888,1889,1890,1891,1892,1894,1896,1898,1900,1902,1903,1904,1905,1907,1909,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1925,1926,1927,1928,1930,1932,1933,1935,1936,1938,1940,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1955,1956,1957,1958,1960,1961,1962,1963,1964,1966,1968,1970,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986",
-                        "endColumns": "54,44,48,40,54,57,61,67,77,80,60,74,75,76,77,84,81,75,75,76,77,105,105,78,79,56,57,73,74,64,65,54,71,72,66,67,58,58,58,58,58,53,53,52,53,53,53,53,73,78,72,73,70,71,71,72,56,57,72,73,73,74,71,72,69,70,59,60,68,68,69,73,75,63,76,75,76,63,64,68,76,74,68,67,76,65,96,64,68,98,70,58,57,56,58,70,71,71,71,71,66,67,67,58,62,63,89,90,59,65,66,65,69,63,52,112,57,62,64,64,74,72,71,48,60,60,60,61,63,63,63,64,62,59,60,65,58,59,61,70,59,67,85,86,89,86,87,81,82,89,90,51,57,44,65,63,56,56,53,56,47,48,50,33,46,48,45,31,63,61,59,56,73,77,92,69,77,53,69,84,47,45,70,77,77,71,73,73,73,79,72,68,71,76,51,72,73,68,74,73,73,88,69,52,77,89,87,95,89,12,88,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,136,130,104,12,12,12,12,12,111,111,104,116,12,12,12,12,12,87,12,12,12,81,12,12,99,12,12,12,93,88,12,12,12,101,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,117,12,12,12,12,12,12,12,63,12,12,12,12,12,12,93,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,91,12,12,12,61,12,12,85,12,12,12,12,12,12,12,12,12,12,12,12,12,12,83,95,95,97,99,101,101,101,101,101,99,95,111,128,122,130,130,97,113,93,119,12,68,115,127,63,12,68,131,69,12,12,95,111,99,115,95,111,99,12,135,12,129,12,12,140,12,134,111,149,127,127,12,131,129,129,111,139,12,12,12,65,89,75,103,89,101,107,107,99,79,91,97,12,77,105,91,103,109,12,12,12,79,99,89,109,93,105,91,12,12,12,12,12,93,113,111,12,12,12,81,103,119,125,97,93,87,111,115,121,111,12,115,85,91,12,12,66,12,67,12,12,12,68,94,114,112,98,108,110,110,100,104,99,12,90,122,93,12,85,103,95,87,12,12,12,12,87,107,99,89,109,83,101,83,53,63,105,109,83,119",
-                        "endOffsets": "716,888,937,6023,6078,6136,6198,6266,6344,6425,6486,6561,6637,6714,6792,6877,6959,7035,7111,7267,7345,7451,7557,7636,7716,7773,7831,8967,9042,9107,9173,9228,9300,9373,9563,9631,10309,10368,10427,10486,10545,10599,10653,10706,10760,10814,10868,10922,11415,11494,11567,11641,11712,11784,11856,11929,12034,12092,12165,12239,12313,12388,12610,12683,12753,12824,12884,12945,13204,13273,13343,13417,13493,13557,13634,13710,13787,13851,13916,13985,14062,14137,14206,14274,14351,14417,14514,14579,14648,14747,14818,14877,14935,14992,15051,15122,15194,15266,15338,15410,15477,15545,15613,15672,15735,15799,15889,15980,16040,16106,16173,16239,16309,16373,16426,16539,16597,16660,16725,16790,16865,16938,17010,17059,17120,17181,17242,17304,17368,17432,17496,17561,17624,17684,17745,17811,17870,17930,17992,18063,18123,18191,20631,20718,21117,21204,21292,21374,21457,21547,21638,24152,24210,24255,24321,24385,24442,24499,24553,25014,25062,25111,25162,25488,25721,25770,26060,26196,26345,26407,26467,26524,26789,26867,26960,27030,27108,27162,27232,27317,27365,27411,27482,27560,27638,27710,27784,27858,27932,28012,28085,28154,28226,28303,28355,28428,28502,28571,28646,28720,28794,28883,28953,30482,30889,30979,31067,31163,31253,31852,31941,32188,32469,32713,33412,33805,34282,34504,34726,34994,35221,35451,35681,35911,36141,36368,36607,36833,37078,37308,37556,37775,38058,38266,38397,38624,38870,39095,39342,39563,39808,39928,40204,40505,40829,41120,41434,41571,41702,41807,42049,42216,42420,42628,42899,43011,43123,43228,43345,43559,43705,43845,43931,44279,44367,44597,45015,45248,45330,45428,46020,46120,46356,46780,47019,47113,47202,47439,49463,49705,49807,50044,52200,62145,63396,73438,74701,76193,76729,77059,78120,79385,79641,79877,80424,80918,81523,81721,82301,82865,83240,83358,83896,84053,84249,84522,84778,84948,85089,85153,85435,85721,86397,86661,86999,87352,87446,87632,87938,88200,88325,88452,88691,88902,89021,89214,89391,89846,90027,90149,90408,90521,90708,90810,91254,91378,91653,92161,92657,93534,93828,94398,94547,95279,95451,95787,95879,96157,100190,103457,103519,104097,104681,104767,104880,105109,105269,105421,105592,105759,106002,106172,106345,106516,106790,106989,107194,107524,107608,107704,107800,107898,107998,108100,108202,108304,108406,108508,108608,108704,108816,108945,109068,109199,109330,109428,109542,109636,109756,109960,110029,110145,110273,110337,110541,110610,110742,110812,110952,111086,111182,111294,111394,111510,111606,111718,111818,111958,112094,112258,112388,112546,112696,112837,112981,113116,113228,113378,113506,113634,113770,113902,114032,114162,114274,114414,116781,116925,117063,117129,117219,117295,117399,117489,117591,117699,117807,117907,117987,118079,118177,118287,118365,118471,118563,118667,118777,118899,119062,119219,119299,119399,119489,119599,119693,119799,119891,119991,120103,120217,120333,120449,120543,120657,120769,120871,120991,121113,121195,121299,121419,121545,121643,121737,121825,121937,122053,122175,122287,122462,122578,122664,122756,122868,122992,123059,123185,123253,123381,123525,123653,123722,123817,123932,124045,124144,124253,124364,124475,124576,124681,124781,124911,125002,125125,125219,125331,125417,125521,125617,125705,125823,125927,126031,126157,126245,126353,126453,126543,126653,126737,126839,126923,126977,127041,127147,127257,127341,127461"
+                        "startLines": "213,214,322,323,324,325,326,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,422,423,442,443,452,453,454,464,525,1819,1820,1825,1828,1833,1989,1990,2204,2213",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "11099,11168,18399,18469,18537,18609,18679,22190,22251,22312,22374,22438,22500,22561,22629,22729,22789,22855,22928,22997,23054,23106,24591,24663,25642,25677,26098,26132,26167,26683,30567,115958,116075,116342,116635,116902,129005,129077,159029,159590",
+                        "endLines": "213,214,322,323,324,325,326,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,422,423,442,443,452,453,454,464,525,1819,1823,1825,1831,1833,1989,1990,2212,2216",
+                        "endColumns": "68,62,69,67,71,69,60,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,34,34,33,34,34,69,70,116,12,109,12,128,71,66,35,115",
+                        "endOffsets": "11163,11226,18464,18532,18604,18674,18735,22246,22307,22369,22433,22495,22556,22624,22724,22784,22850,22923,22992,23049,23101,23163,24658,24734,25672,25707,26127,26162,26197,26748,30633,116070,116271,116447,116831,117026,129072,129139,159585,159858"
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\bda581b75a3c0b79f18ee59ec6d94996\\res\\values\\values.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\1f553272d7cbec72984c127ec0b19513\\res\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,211",
+                        "endColumns": "155,106",
+                        "endOffsets": "206,313"
                     },
                     "to": {
-                        "startLines": "213,214,322,323,324,325,326,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,422,423,442,443,452,453,454,464,525,1817,1818,1823,1826,1831,1987,1988",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "11066,11135,18366,18436,18504,18576,18646,22157,22218,22279,22341,22405,22467,22528,22596,22696,22756,22822,22895,22964,23021,23073,24558,24630,25609,25644,26065,26099,26134,26650,30534,114419,114536,114803,115096,115363,127466,127538",
-                        "endLines": "213,214,322,323,324,325,326,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,422,423,442,443,452,453,454,464,525,1817,1821,1823,1829,1831,1987,1988",
-                        "endColumns": "68,62,69,67,71,69,60,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,34,34,33,34,34,69,70,116,12,109,12,128,71,66",
-                        "endOffsets": "11130,11193,18431,18499,18571,18641,18702,22213,22274,22336,22400,22462,22523,22591,22691,22751,22817,22890,22959,23016,23068,23130,24625,24701,25639,25674,26094,26129,26164,26715,30600,114531,114732,114908,115292,115487,127533,127600"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\540b2b33fe2e4bed632b8a9c4cad8ea3\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1"
-                    },
-                    "to": {
-                        "startLines": "215,1822,1824,1825,1830,1832",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "11198,114737,114913,115035,115297,115492",
-                        "endColumns": "88,65,121,60,65,66",
-                        "endOffsets": "11282,114798,115030,115091,115358,115554"
+                        "startLines": "2217,2218",
+                        "startColumns": "4,4",
+                        "startOffsets": "159863,160019",
+                        "endColumns": "155,106",
+                        "endOffsets": "160014,160121"
                     }
                 },
                 {
                     "source": "D:\\workspace_android\\my_project\\my_sdk\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "187"
                     },
                     "to": {
                         "startLines": "535",
                         "startColumns": "4",
-                        "startOffsets": "31258",
+                        "startOffsets": "31291",
                         "endLines": "537",
                         "endColumns": "12",
-                        "endOffsets": "31351"
+                        "endOffsets": "31419"
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\dd49bfb5e18dad35ddc09289dfa1956b\\res\\values\\values.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\3f2327c9fc75d51a3e0fa97d46e14f45\\res\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,97,134,169,206,243,280,317,354,420,483,545,655,699,750",
+                        "endColumns": "41,36,34,36,36,36,36,36,65,62,61,64,43,50,44",
+                        "endOffsets": "92,129,164,201,238,275,312,349,415,478,540,605,694,745,790"
                     },
                     "to": {
-                        "startLines": "165,166,167,168,169,170,171,172,173,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,456,462,498,1575,1833,1836,1839,1842,1846,1989,1993,1997,2000,2009,2015,2018,2028,2032",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "8275,8356,8420,8486,8556,8626,8696,8766,8833,18972,19026,19082,19137,19188,19240,19294,19357,19416,19478,19537,19597,19660,19728,19803,19875,19946,20002,20073,20130,20187,20253,20317,20388,20445,20498,26201,26529,29047,96162,115559,115760,115944,116119,116372,127605,127823,128030,128189,128756,129117,129246,129990,130170",
-                        "endLines": "165,166,167,168,169,170,171,172,173,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,456,462,498,1584,1835,1838,1841,1845,1850,1992,1996,1999,2008,2014,2017,2027,2031,2035",
-                        "endColumns": "80,63,65,69,69,69,69,66,64,53,55,54,50,51,53,62,58,61,58,59,62,67,74,71,70,55,70,56,56,65,63,70,56,52,51,47,62,144,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12",
-                        "endOffsets": "8351,8415,8481,8551,8621,8691,8761,8828,8893,19021,19077,19132,19183,19235,19289,19352,19411,19473,19532,19592,19655,19723,19798,19870,19941,19997,20068,20125,20182,20248,20312,20383,20440,20493,20545,26244,26587,29187,96748,115755,115939,116114,116367,116635,127818,128025,128184,128751,129112,129241,129985,130165,130415"
+                        "startLines": "327,360,361,362,363,410,411,412,424,425,426,427,508,509,510",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "18740,20756,20793,20828,20865,23978,24015,24052,24739,24805,24868,24930,29736,29780,29831",
+                        "endColumns": "41,36,34,36,36,36,36,36,65,62,61,64,43,50,44",
+                        "endOffsets": "18777,20788,20823,20860,20897,24010,24047,24084,24800,24863,24925,24990,29775,29826,29871"
+                    }
+                },
+                {
+                    "source": "D:\\workspace_android\\my_project\\my_sdk\\app\\src\\main\\res\\values\\attrs.xml",
+                    "from": {
+                        "startLines": "88,73,5,69,37,27,1",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "5580,4902,137,4787,1931,1271,17",
+                        "endLines": "95,86,25,71,67,35,3",
+                        "endColumns": "24,24,24,24,24,24,24",
+                        "endOffsets": "6064,5572,1263,4894,4779,1923,129"
+                    },
+                    "to": {
+                        "startLines": "2180,2188,2228,2249,2294,2327,2393",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "157045,157526,161207,162301,165699,168812,177005",
+                        "endLines": "2187,2201,2248,2251,2324,2335,2395",
+                        "endColumns": "24,24,24,24,24,24,24",
+                        "endOffsets": "157521,158183,162296,162406,168491,169449,177115"
+                    }
+                },
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\ac806ecab545023be8cf14736975c075\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,35,36,37,38,45,47,50,7",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,107,168,230,292,2179,2238,2295,2349,2763,2827,2953,356",
+                        "endLines": "2,3,4,5,6,35,36,37,44,46,49,52,34",
+                        "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12,24",
+                        "endOffsets": "102,163,225,287,351,2233,2290,2344,2758,2822,2948,3076,2174"
+                    },
+                    "to": {
+                        "startLines": "11,157,158,159,160,319,320,321,558,1587,1589,1592,2132",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "407,7869,7930,7992,8054,18229,18288,18345,32786,98086,98150,98276,145852",
+                        "endLines": "11,157,158,159,160,319,320,321,564,1588,1591,1594,2159",
+                        "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12,24",
+                        "endOffsets": "454,7925,7987,8049,8113,18283,18340,18394,33195,98145,98271,98399,147670"
+                    }
+                },
+                {
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\dd7fac7b5fca8d6fed68154bf000773d\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,56,59,62,65,75,78,81,84,88,93,97,101,104,113,119,122,132,136,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "270,351,415,481,551,621,691,761,828,6931,6985,7041,7096,7147,7199,7253,7316,7375,7437,7496,7556,7619,7687,7762,7834,7905,7961,8032,8089,8146,8212,8276,8347,8404,8457,8721,8984,9263,9623,10214,10415,10599,10774,11027,11295,11513,11720,11879,12446,12807,12936,13680,13860,893,1054,1392,1672,3166,3330,4157,4575,5038,5167,5300,5475,6385",
+                        "endLines": "4,5,6,7,8,9,10,11,12,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,56,59,62,74,77,80,83,87,92,96,100,103,112,118,121,131,135,139,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                        "endColumns": "80,63,65,69,69,69,69,66,64,53,55,54,50,51,53,62,58,61,58,59,62,67,74,71,70,55,70,56,56,65,63,70,56,52,51,47,62,144,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,160,337,279,1493,163,826,417,462,128,132,174,909,330",
+                        "endOffsets": "346,410,476,546,616,686,756,823,888,6980,7036,7091,7142,7194,7248,7311,7370,7432,7491,7551,7614,7682,7757,7829,7900,7956,8027,8084,8141,8207,8271,8342,8399,8452,8504,8764,9042,9403,10209,10410,10594,10769,11022,11290,11508,11715,11874,12441,12802,12931,13675,13855,14105,1049,1387,1667,3161,3325,4152,4570,5033,5162,5295,5470,6380,6711"
+                    },
+                    "to": {
+                        "startLines": "165,166,167,168,169,170,171,172,173,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,456,462,498,1577,1835,1838,1841,1844,1848,1991,1995,1999,2002,2011,2017,2020,2030,2034,2093,2094,2160,2161,2178,2179,2203,2293,2338,2339,2341,2370,2372",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "8308,8389,8453,8519,8589,8659,8729,8799,8866,19005,19059,19115,19170,19221,19273,19327,19390,19449,19511,19570,19630,19693,19761,19836,19908,19979,20035,20106,20163,20220,20286,20350,20421,20478,20531,26234,26562,29080,97495,117098,117299,117483,117658,117911,129144,129362,129569,129728,130295,130656,130785,131529,131709,136618,136779,147675,147955,156054,156218,158611,165236,170258,170387,171301,173024,174413",
+                        "endLines": "165,166,167,168,169,170,171,172,173,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,456,462,498,1586,1837,1840,1843,1847,1852,1994,1998,2001,2010,2016,2019,2029,2033,2037,2093,2094,2160,2161,2178,2179,2203,2293,2338,2339,2341,2370,2372",
+                        "endColumns": "80,63,65,69,69,69,69,66,64,53,55,54,50,51,53,62,58,61,58,59,62,67,74,71,70,55,70,56,56,65,63,70,56,52,51,47,62,144,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,160,337,279,1493,163,826,417,462,128,132,174,909,330",
+                        "endOffsets": "8384,8448,8514,8584,8654,8724,8794,8861,8926,19054,19110,19165,19216,19268,19322,19385,19444,19506,19565,19625,19688,19756,19831,19903,19974,20030,20101,20158,20215,20281,20345,20416,20473,20526,20578,26277,26620,29220,98081,117294,117478,117653,117906,118174,129357,129564,129723,130290,130651,130780,131524,131704,131954,136774,137112,147950,149444,156213,157040,159024,165694,170382,170515,171471,173929,174739"
                     }
                 },
                 {
                     "source": "D:\\workspace_android\\my_project\\my_sdk\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "20,10,8,4,2,3,22,29,19,38,23,24,32,33,30,31,14,13,17,16,15,25,34,7,35,26,28,39,6,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "756,343,294,157,57,105,799,1086,716,1457,839,885,1236,1283,1132,1180,484,427,657,601,542,936,1338,247,1385,984,1033,1498,206,383",
+                        "endColumns": "39,38,45,45,46,50,38,44,38,39,44,49,45,53,46,54,56,55,55,54,57,46,45,45,51,45,51,56,39,40",
+                        "endOffsets": "791,377,335,198,99,151,833,1126,750,1492,879,930,1277,1332,1174,1230,536,478,708,651,595,978,1379,288,1432,1025,1080,1550,241,419"
                     },
                     "to": {
                         "startLines": "147,148,161,162,163,164,181,182,183,186,187,188,189,190,191,192,193,194,195,196,197,210,211,212,232,233,234,241,243,244",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "7116,7156,8085,8131,8177,8224,9378,9417,9462,9636,9676,9721,9771,9817,9871,9918,9973,10030,10086,10142,10197,10927,10974,11020,12393,12445,12491,12950,13059,13099",
+                        "startOffsets": "7149,7189,8118,8164,8210,8257,9411,9450,9495,9669,9709,9754,9804,9850,9904,9951,10006,10063,10119,10175,10230,10960,11007,11053,12426,12478,12524,12983,13092,13132",
                         "endColumns": "39,38,45,45,46,50,38,44,38,39,44,49,45,53,46,54,56,55,55,54,57,46,45,45,51,45,51,56,39,40",
-                        "endOffsets": "7151,7190,8126,8172,8219,8270,9412,9457,9496,9671,9716,9766,9812,9866,9913,9968,10025,10081,10137,10192,10250,10969,11015,11061,12440,12486,12538,13002,13094,13135"
+                        "endOffsets": "7184,7223,8159,8205,8252,8303,9445,9490,9529,9704,9749,9799,9845,9899,9946,10001,10058,10114,10170,10225,10283,11002,11048,11094,12473,12519,12571,13035,13127,13168"
                     }
                 },
                 {
                     "source": "D:\\workspace_android\\my_project\\my_sdk\\lib_scanner\\build\\intermediates\\packaged_res\\debug\\values\\values.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,162,214,254,290,333,379,422,468,506,556,590,635,683,740,800,884",
+                        "endColumns": "58,47,51,39,35,42,45,42,45,37,49,33,44,47,56,59,36,41",
+                        "endOffsets": "109,157,209,249,285,328,374,417,463,501,551,585,630,678,735,795,832,921"
                     },
                     "to": {
                         "startLines": "216,225,242,432,433,434,435,436,437,438,441,446,447,448,449,450,457,522",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "11287,11934,13007,25167,25207,25243,25286,25332,25375,25421,25559,25775,25809,25854,25902,25959,26249,30392",
+                        "startOffsets": "11320,11967,13040,25200,25240,25276,25319,25365,25408,25454,25592,25808,25842,25887,25935,25992,26282,30425",
                         "endColumns": "58,47,51,39,35,42,45,42,45,37,49,33,44,47,56,59,36,41",
-                        "endOffsets": "11341,11977,13054,25202,25238,25281,25327,25370,25416,25454,25604,25804,25849,25897,25954,26014,26281,30429"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\becdf82aa2e384004b5e1b193862068f\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
-                    },
-                    "to": {
-                        "startLines": "327,360,361,362,363,410,411,412,424,425,426,427,508,509,510",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "18707,20723,20760,20795,20832,23945,23982,24019,24706,24772,24835,24897,29703,29747,29798",
-                        "endColumns": "41,36,34,36,36,36,36,36,65,62,61,64,43,50,44",
-                        "endOffsets": "18744,20755,20790,20827,20864,23977,24014,24051,24767,24830,24892,24957,29742,29793,29838"
+                        "endOffsets": "11374,12010,13087,25235,25271,25314,25360,25403,25449,25487,25637,25837,25882,25930,25987,26047,26314,30462"
                     }
                 }
             ]
@@ -1612,7 +1682,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-hr_values-hr.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-hr\\values-hr.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-hr\\values-hr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1627,7 +1697,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-h720dp-v13_values-h720dp-v13.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -1642,7 +1712,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-land_values-land.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-land\\values-land.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -1652,7 +1722,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\dd49bfb5e18dad35ddc09289dfa1956b\\res\\values-land\\values-land.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\dd7fac7b5fca8d6fed68154bf000773d\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",
@@ -1676,7 +1746,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v12_values-v12.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v12\\values-v12.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v12\\values-v12.xml",
                     "from": {
                         "startLines": "2,5,8,9",
                         "startColumns": "4,4,4,4",
@@ -1692,7 +1762,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ko_values-ko.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ko\\values-ko.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ko\\values-ko.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1707,7 +1777,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-et_values-et.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-et\\values-et.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-et\\values-et.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1722,7 +1792,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v14_values-v14.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v14\\values-v14.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v14\\values-v14.xml",
                     "from": {
                         "startLines": "2,7,8,9,15",
                         "startColumns": "4,4,4,4,4",
@@ -1738,7 +1808,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ta_values-ta.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ta\\values-ta.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ta\\values-ta.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1753,7 +1823,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v16_values-v16.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\bda581b75a3c0b79f18ee59ec6d94996\\res\\values-v16\\values-v16.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\d2bad86bd0a214e1cafa5a77467f00fc\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -1763,7 +1833,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v16\\values-v16.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -1787,7 +1857,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-mk_values-mk.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-mk\\values-mk.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-mk\\values-mk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1802,7 +1872,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-v18_values-v18.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-v18\\values-v18.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-v18\\values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -1817,7 +1887,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-ky_values-ky.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-ky\\values-ky.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-ky\\values-ky.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1832,7 +1902,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-te_values-te.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-te\\values-te.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-te\\values-te.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1847,7 +1917,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-zu_values-zu.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-zu\\values-zu.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-zu\\values-zu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1862,7 +1932,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-large-v4_values-large-v4.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -1877,7 +1947,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-bg_values-bg.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-bg\\values-bg.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-bg\\values-bg.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1892,7 +1962,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-it_values-it.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-it\\values-it.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-it\\values-it.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1907,7 +1977,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-zh-rCN_values-zh-rCN.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-zh-rCN\\values-zh-rCN.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-zh-rCN\\values-zh-rCN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1922,7 +1992,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-sq_values-sq.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-sq\\values-sq.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-sq\\values-sq.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1937,7 +2007,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-cs_values-cs.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-cs\\values-cs.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-cs\\values-cs.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1952,7 +2022,7 @@
             "outputFile": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\values-hdpi-v4_values-hdpi-v4.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ztq\\.gradle\\caches\\transforms-2\\files-2.1\\66f6933c463181830e8e57c21d969e0b\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\4a3c5cd99a29e3ce6b0a56b547f9fc6b\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

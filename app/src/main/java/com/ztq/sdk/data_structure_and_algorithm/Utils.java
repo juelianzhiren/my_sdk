@@ -3366,17 +3366,17 @@ public class Utils {
         return process(matrix, matrix[0].length - 1);
     }
 
-    public static int process(int[][] matrix, int i) {
+    public static int process(int[][] matrix, int j) {
         //到达A退出递归
-        if (i == 0) {
+        if (j == 0) {
             return 0;
         }
         // 状态转移
         int distance = 999;
-        for(int j = 0; j < i; j++) {
-            System.out.println("j = " + j + "; i = " + i + "; value = " + matrix[j][i]);
-            if (matrix[j][i] != 0) {
-                int d_tmp = matrix[j][i] + process(matrix, j);
+        for(int i = 0; i < j; i++) {
+            System.out.println("i = " + i + "; j = " + j + "; value = " + matrix[i][j]);
+            if (matrix[i][j] != 0) {
+                int d_tmp = matrix[i][j] + process(matrix, i);
                 if (d_tmp < distance) {
                     distance = d_tmp;
                 }
