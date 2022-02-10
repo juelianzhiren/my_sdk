@@ -7,7 +7,9 @@ import android.widget.ListView;
 import com.ztq.sdk.R;
 import com.ztq.sdk.adapter.TimelineAdapter;
 import com.ztq.sdk.entity.TimelineItem;
+import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.log.Log;
+import com.ztq.sdk.utils.NetworkUtils;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.MySeekbar;
 
@@ -65,6 +67,15 @@ public class TimelineActivity extends BaseActivity implements CancelAdapt {
             @Override
             public void select(int index) {
                 Log.v(TAG, "index = " + index);
+            }
+        });
+
+        MyHandlerThread.postToWorker1(new Runnable() {
+            @Override
+            public void run() {
+                boolean isNetAvailable = NetworkUtils.isNetAvailable(mContext);
+                boolean isWeakNetwork = NetworkUtils.isWeakNetwork(mContext);
+                Log.v(TAG, "isNetAvailable = " + isNetAvailable + "; isWeakNetwork = " + isWeakNetwork);
             }
         });
     }

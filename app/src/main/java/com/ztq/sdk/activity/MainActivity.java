@@ -16,12 +16,13 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.sll.qrdemo.QRScannerActivity;
 import com.ztq.sdk.R;
 import com.ztq.sdk.acopy.test.AcopyTestActivity;
+import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.mvp.view.LoginMVPActivity;
+import com.ztq.sdk.utils.NetworkUtils;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.CircleProgressBar;
