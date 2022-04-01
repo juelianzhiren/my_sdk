@@ -2860,7 +2860,7 @@ public class Utils {
         }
         System.out.println("len1 = " + len1 + "; start1 = " + start1 + "; len2 = " + len2 + "; start2 = " + start2 + "; k = " + k);
         if (len1 - start1 == 0) {           // 表示nums1已经全部加入前K个了，第k个为nums2[k - 1];
-            return nums2[k - 1];
+            return nums2[start2 + k - 1];
         }
         if (k == 1) {
             return Math.min(nums1[start1], nums2[start2]);

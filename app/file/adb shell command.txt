@@ -34,3 +34,7 @@
  adb shell wm density 320
  15、查看手机density
  adb shell wm density
+ 
+ 15、查看机器属性值
+ adb shell getprop
+ adb shell getprop ro.product.noahmodel(查看平板机器名)
