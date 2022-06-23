@@ -1,0 +1,71 @@
+package com.ztq.sdk.utils;
+
+import android.text.TextUtils;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+/**
+ * 反射工具类
+ */
+public class ReflectUtils {
+    public static Object invoke(Object obj, String methodName, Object[] args) {
+        if (obj == null || TextUtils.isEmpty(methodName)) {
+            return null;
+        }
+        args = args == null ? new Object[0] : args;
+        Class[] paramTypes = new Class[args.length];
+        for (int i = 0; i < args.length; i++) {
+            paramTypes[i] = args[i].getClass();
+        }
+        try {
+            Method method = obj.getClass().getMethod(methodName, paramTypes);
+            boolean isAccessible = method.isAccessible();
+            if (!isAccessible) {
+                method.setAccessible(true);
+            }
+            Object result = method.invoke(obj, args);
+            if (!isAccessible) {
+                method.setAccessible(false);
+            }
+            return result;
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Object invokeStatic(Class cls, String methodName, Object[] args) {
+        if (cls == null || TextUtils.isEmpty(methodName)) {
+            return null;
+        }
+        args = args == null ? new Object[0] : args;
+        Class[] paramTypes = new Class[args.length];
+        for (int i = 0; i < args.length; i++) {
+            paramTypes[i] = args[i].getClass();
+        }
+        try {
+            Method method = cls.getMethod(methodName, paramTypes);
+            boolean isAccessible = method.isAccessible();
+            if (!isAccessible) {
+                method.setAccessible(true);
+            }
+            Object result = method.invoke(null, args);
+            if (!isAccessible) {
+                method.setAccessible(false);
+            }
+            return result;
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}
