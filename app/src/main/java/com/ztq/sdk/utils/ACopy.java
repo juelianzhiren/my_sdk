@@ -170,7 +170,9 @@ public class ACopy {
 
             method.setAccessible(true);
             try {
-                return method.invoke(replaceClassInstance, args);
+                Object obj = method.invoke(replaceClassInstance, args);
+                method.setAccessible(false);
+                return obj;
             } catch (IllegalAccessException e) {
                 throw new IllegalStateException(e);
             } catch (InvocationTargetException e) {
