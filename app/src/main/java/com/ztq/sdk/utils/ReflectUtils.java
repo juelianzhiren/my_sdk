@@ -4,6 +4,9 @@ import android.text.TextUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 反射工具类
@@ -67,5 +70,24 @@ public class ReflectUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 获取cls类中所有的方法（包括自身声明方法，也包括从子类继承的方法）
+     * @param cls
+     * @return
+     */
+    public static List<Method> getAllMethods(Class cls) {
+        if (cls == null) {
+            return null;
+        }
+        Class currentCls = cls;
+        List<Method> list = new ArrayList<>();
+        while(currentCls != null) {
+            Method[] declaredMethods = currentCls.getDeclaredMethods();
+            list.addAll(Arrays.asList(declaredMethods));
+            currentCls = currentCls.getSuperclass();
+        }
+        return list;
     }
 }
