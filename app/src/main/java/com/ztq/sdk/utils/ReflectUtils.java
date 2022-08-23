@@ -2,6 +2,7 @@ package com.ztq.sdk.utils;
 
 import android.text.TextUtils;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -67,6 +68,29 @@ public class ReflectUtils {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Object getStaticField(Class cls, String fieldName) {
+        if (cls == null || TextUtils.isEmpty(fieldName)) {
+            return null;
+        }
+        try {
+            Field field = cls.getField(fieldName);
+            boolean isAccessible = field.isAccessible();
+            if (!isAccessible) {
+                field.setAccessible(true);
+            }
+            Object result = field.get(null);
+            if (!isAccessible) {
+                field.setAccessible(false);
+            }
+            return result;
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         return null;

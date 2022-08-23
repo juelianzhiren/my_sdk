@@ -67,7 +67,9 @@ import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -1681,5 +1683,36 @@ public class Utils {
         System.out.println("正在删除目录" + dirFile.getName() + "...");
         boolean flag = dirFile.delete();
         System.out.println("删除目录"+ dirFile.getName() + (flag ? "成功" : "失败"));
+    }
+
+    public static final String SLASH = "/";
+    public static String encodeUrlToUtf8(String remoteUrl) {
+        if (Utils.isNullOrNil(remoteUrl)) {
+            return "";
+        }
+        try {
+            URL url = new URL(remoteUrl);
+            String protocol = url.getProtocol();
+            String host = url.getHost();
+            String path = url.getPath();
+            android.util.Log.v(TAG, "protocol = " + protocol + "; host = " + host + "; path = " + path);
+            String result = protocol + "://" + host;
+            if (!Utils.isNullOrNil(path)) {
+                String[] split = path.split(SLASH);
+                for(int i = 0; i < split.length; i++) {
+                    String s = split[i];
+                    if (!Utils.isNullOrNil(s)) {
+                        android.util.Log.v(TAG, "s = " + s);
+                        result += SLASH + URLEncoder.encode(s, "utf-8");
+                    }
+                }
+                return result;
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return remoteUrl;
     }
 }
