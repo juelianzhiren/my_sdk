@@ -1,6 +1,7 @@
 package com.ztq.sdk.widget;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -163,5 +164,11 @@ public class FlowLayout extends ViewGroup {
             mLeft = 0;
             mTop += lineMaxHeight;
         }
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        Log.v(TAG, "onDraw");
     }
 }

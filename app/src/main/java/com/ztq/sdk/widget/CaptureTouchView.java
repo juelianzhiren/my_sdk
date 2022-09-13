@@ -34,6 +34,7 @@ public class CaptureTouchView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         PrintUtils.printEvent(TAG, "onTouchEvent", event);
+        int action = event.getAction();
         return true;
     }
 

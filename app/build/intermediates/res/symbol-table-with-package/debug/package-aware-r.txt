@@ -935,6 +935,7 @@ drawable ic_normal_petal_right_even
 drawable ic_normal_petal_right_odd
 drawable ic_panda_rider
 drawable ic_pause
+drawable ic_pic_1
 drawable ic_play
 drawable ic_pulltorefresh_arrow
 drawable ic_smear_part
@@ -1139,6 +1140,7 @@ id fill_vertical
 id fixed
 id fl_container
 id flow_layout_btn
+id flow_layout_iv
 id foot_view_item_tv
 id footerview_tv
 id forever

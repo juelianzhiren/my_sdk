@@ -112,4 +112,9 @@
         android:layout_margin="8dp"
         android:background="#ff0501"
         android:text="001221221" />
+
+    <ImageView
+        android:id="@+id/flow_layout_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </com.ztq.sdk.widget.FlowLayout>

@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
+import com.ztq.sdk.log.Log;
 import com.ztq.sdk.utils.PrintUtils;
 
 /**
@@ -30,6 +31,12 @@ public class DownInterceptGroup extends FrameLayout {
         PrintUtils.printEvent(TAG, "onInterceptTouchEvent", ev);
         boolean result =  super.onInterceptTouchEvent(ev);
         PrintUtils.printParam(TAG, "onInterceptTouchEvent result is " + result);
-        return result;
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        PrintUtils.printEvent(TAG, "onTouchEvent", event);
+        return super.onTouchEvent(event);
     }
 }

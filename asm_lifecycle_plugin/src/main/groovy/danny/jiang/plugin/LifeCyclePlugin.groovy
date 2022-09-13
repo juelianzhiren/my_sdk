@@ -10,7 +10,7 @@ public class LifeCyclePlugin<T> implements Plugin<Project> {
     public void apply(Project project) {
         System.out.println("==LifeCyclePlugin gradle plugin==");
 
-        def android = project.extensions.getByType(AppExtension);
+        def android = project.extenclssions.getByType(AppExtension);
         println "--------registering AutoTrackTransform-------";
         LifeCycleTransform transform = new LifeCycleTransform();
         android.registerTransform(transform);

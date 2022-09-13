@@ -17,7 +17,7 @@ MERGED from [me.jessyan:autosize:1.1.2] D:\.gradle\caches\transforms-2\files-2.1
 MERGED from [com.android.support:recyclerview-v7:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\e9fe3ccbe59f5fac330ee037c07c578a\AndroidManifest.xml:17:1-28:12
 MERGED from [:lib_scanner] D:\workspace_android\my_project\my_sdk\lib_scanner\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-31:12
 MERGED from [com.android.support:cardview-v7:28.0.0] D:\.gradle\caches\transforms-2\files-2.1\ac806ecab545023be8cf14736975c075\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22] D:\.gradle\caches\transforms-2\files-2.1\3f2327c9fc75d51a3e0fa97d46e14f45\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34] D:\.gradle\caches\transforms-2\files-2.1\9b907258b4daebae55eb6e94059ef194\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:animated-vector-drawable:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\49ab0d29e4d62ad37b3524842116f65b\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-vector-drawable:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\b9c2079fad6d6bd886e68bf4a0f1c1af\AndroidManifest.xml:17:1-28:12
 MERGED from [com.alibaba:arouter-api:1.2.4] D:\.gradle\caches\transforms-2\files-2.1\12c01dff71168e1cd8c25b3713bf945c\AndroidManifest.xml:2:1-10:12
@@ -299,8 +299,8 @@ MERGED from [:lib_scanner] D:\workspace_android\my_project\my_sdk\lib_scanner\bu
 MERGED from [:lib_scanner] D:\workspace_android\my_project\my_sdk\lib_scanner\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:cardview-v7:28.0.0] D:\.gradle\caches\transforms-2\files-2.1\ac806ecab545023be8cf14736975c075\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] D:\.gradle\caches\transforms-2\files-2.1\ac806ecab545023be8cf14736975c075\AndroidManifest.xml:20:5-44
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22] D:\.gradle\caches\transforms-2\files-2.1\3f2327c9fc75d51a3e0fa97d46e14f45\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22] D:\.gradle\caches\transforms-2\files-2.1\3f2327c9fc75d51a3e0fa97d46e14f45\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34] D:\.gradle\caches\transforms-2\files-2.1\9b907258b4daebae55eb6e94059ef194\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34] D:\.gradle\caches\transforms-2\files-2.1\9b907258b4daebae55eb6e94059ef194\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:animated-vector-drawable:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\49ab0d29e4d62ad37b3524842116f65b\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\49ab0d29e4d62ad37b3524842116f65b\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\b9c2079fad6d6bd886e68bf4a0f1c1af\AndroidManifest.xml:20:5-44

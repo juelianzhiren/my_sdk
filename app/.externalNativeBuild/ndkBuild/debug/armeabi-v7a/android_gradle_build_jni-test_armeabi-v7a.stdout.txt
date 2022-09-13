@@ -1,1 +1,2 @@
-make: 'D:/workspace_android/my_project/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libjni-test.so' is up to date.
+[armeabi-v7a] Compile++ thumb: jni-test <= com_ztq_sdk_jni_JniInterface.cpp
+[armeabi-v7a] SharedLibrary  : libjni-test.so
