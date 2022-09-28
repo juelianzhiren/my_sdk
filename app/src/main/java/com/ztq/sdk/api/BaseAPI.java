@@ -15,13 +15,18 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Connection;
+import okhttp3.Dns;
 import okhttp3.EventListener;
 import okhttp3.FormBody;
 import okhttp3.Handshake;
@@ -44,121 +49,121 @@ public abstract class BaseAPI<T> {
         @Override
         public void callStart(Call call) {
             super.callStart(call);
-            Log.v(TAG, "callStart");
+            Log.v(TAG, "EventListener callStart");
         }
 
         @Override
         public void dnsStart(Call call, String domainName) {
             super.dnsStart(call, domainName);
-            Log.v(TAG, "dnsStart");
+            Log.v(TAG, "EventListener dnsStart, domainName = " + domainName);
         }
 
         @Override
         public void dnsEnd(Call call, String domainName, List<InetAddress> inetAddressList) {
             super.dnsEnd(call, domainName, inetAddressList);
-            Log.v(TAG, "dnsEnd");
+            Log.v(TAG, "EventListener dnsEnd, domainName = " + domainName + "; inetAddressList = " + inetAddressList);
         }
 
         @Override
         public void connectStart(Call call, InetSocketAddress inetSocketAddress, Proxy proxy) {
             super.connectStart(call, inetSocketAddress, proxy);
-            Log.v(TAG, "connectStart");
+            Log.v(TAG, "EventListener connectStart, inetSocketAddress = " + inetSocketAddress + "; proxy = " + proxy);
         }
 
         @Override
         public void secureConnectStart(Call call) {
             super.secureConnectStart(call);
-            Log.v(TAG, "secureConnectStart");
+            Log.v(TAG, "EventListener secureConnectStart");
         }
 
         @Override
         public void secureConnectEnd(Call call, Handshake handshake) {
             super.secureConnectEnd(call, handshake);
-            Log.v(TAG, "secureConnectEnd");
+            Log.v(TAG, "EventListener secureConnectEnd, handshake = " + handshake);
         }
 
         @Override
         public void connectEnd(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol) {
             super.connectEnd(call, inetSocketAddress, proxy, protocol);
-            Log.v(TAG, "connectEnd");
+            Log.v(TAG, "EventListener connectEnd, inetSocketAddress = " + inetSocketAddress + "; proxy = " + proxy + "; protocol = " + protocol);
         }
 
         @Override
         public void connectFailed(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol, IOException ioe) {
             super.connectFailed(call, inetSocketAddress, proxy, protocol, ioe);
-            Log.v(TAG, "connectFailed");
+            Log.v(TAG, "EventListener connectFailed, inetSocketAddress = " + inetSocketAddress + "; proxy = " + proxy + "; protocol = " + protocol + "; ioe = " + ioe);
         }
 
         @Override
         public void connectionAcquired(Call call, Connection connection) {
             super.connectionAcquired(call, connection);
-            Log.v(TAG, "connectionAcquired");
-        }
-
-        @Override
-        public void connectionReleased(Call call, Connection connection) {
-            super.connectionReleased(call, connection);
-            Log.v(TAG, "connectionReleased");
+            Log.v(TAG, "EventListener connectionAcquired, connection = " + connection);
         }
 
         @Override
         public void requestHeadersStart(Call call) {
             super.requestHeadersStart(call);
-            Log.v(TAG, "requestHeadersStart");
+            Log.v(TAG, "EventListener requestHeadersStart");
         }
 
         @Override
         public void requestHeadersEnd(Call call, Request request) {
             super.requestHeadersEnd(call, request);
-            Log.v(TAG, "requestHeadersEnd");
+            Log.v(TAG, "EventListener requestHeadersEnd");
         }
 
         @Override
         public void requestBodyStart(Call call) {
             super.requestBodyStart(call);
-            Log.v(TAG, "requestBodyStart");
+            Log.v(TAG, "EventListener requestBodyStart");
         }
 
         @Override
         public void requestBodyEnd(Call call, long byteCount) {
             super.requestBodyEnd(call, byteCount);
-            Log.v(TAG, "requestBodyEnd");
+            Log.v(TAG, "EventListener requestBodyEnd, byteCount = " + byteCount);
         }
 
         @Override
         public void responseHeadersStart(Call call) {
             super.responseHeadersStart(call);
-            Log.v(TAG, "responseHeadersStart");
+            Log.v(TAG, "EventListener responseHeadersStart");
         }
 
         @Override
         public void responseHeadersEnd(Call call, Response response) {
             super.responseHeadersEnd(call, response);
-            Log.v(TAG, "responseHeadersEnd");
+            Log.v(TAG, "EventListener responseHeadersEnd, responese = " + response);
         }
 
         @Override
         public void responseBodyStart(Call call) {
             super.responseBodyStart(call);
-            Log.v(TAG, "responseBodyStart");
+            Log.v(TAG, "EventListener responseBodyStart");
         }
 
         @Override
         public void responseBodyEnd(Call call, long byteCount) {
             super.responseBodyEnd(call, byteCount);
-            Log.v(TAG, "responseBodyEnd");
+            Log.v(TAG, "EventListener responseBodyEnd, byteCount = " + byteCount);
+        }
+
+        @Override
+        public void connectionReleased(Call call, Connection connection) {
+            super.connectionReleased(call, connection);
+            Log.v(TAG, "EventListener connectionReleased, connection = " + connection);
         }
 
         @Override
         public void callEnd(Call call) {
             super.callEnd(call);
-            Log.v(TAG, "callEnd");
+            Log.v(TAG, "EventListener callEnd");
         }
 
         @Override
         public void callFailed(Call call, IOException ioe) {
             super.callFailed(call, ioe);
-            Log.v(TAG, "callFailed");
+            Log.v(TAG, "EventListener callFailed");
         }
     };
 
@@ -167,6 +172,7 @@ public abstract class BaseAPI<T> {
         initInterceptor();
         mOkHttpClient = new OkHttpClient.Builder()
                 .eventListener(mEventListener)
+                .dns(new XDns(4000))
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
@@ -638,6 +644,37 @@ public abstract class BaseAPI<T> {
     protected void cancelAllRequests() {
         if (mOkHttpClient != null) {
             mOkHttpClient.dispatcher().cancelAll();
+        }
+    }
+
+    static class XDns implements Dns {
+        private long timeout;
+
+        public XDns(long timeout) {
+            this.timeout = timeout;
+        }
+
+        @Override
+        public List<InetAddress> lookup(final String hostname) throws UnknownHostException {
+            if (Utils.isNullOrNil(hostname)) {
+                throw new UnknownHostException("hostname is empty");
+            } else {
+                try {
+                    FutureTask<List<InetAddress>> task = new FutureTask<>(
+                            new Callable<List<InetAddress>>() {
+                                @Override
+                                public List<InetAddress> call() throws Exception {
+                                    return Arrays.asList(InetAddress.getAllByName(hostname));
+                                }
+                            });
+                    new Thread(task).start();
+                    return task.get(timeout, TimeUnit.MILLISECONDS);
+                } catch (Exception var4) {
+                    UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + hostname);
+                    unknownHostException.initCause(var4);
+                    throw unknownHostException;
+                }
+            }
         }
     }
 }
