@@ -294,6 +294,7 @@ attr layout_keyline
 attr layout_optimizationLevel
 attr layout_scrollFlags
 attr layout_scrollInterpolator
+attr leak_canary_plus_color
 attr listChoiceBackgroundIndicator
 attr listDividerAlertDialog
 attr listItemLayout
@@ -559,6 +560,13 @@ color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ivory
+color leak_canary_background_color
+color leak_canary_class_name
+color leak_canary_extra
+color leak_canary_help
+color leak_canary_icon_background
+color leak_canary_leak
+color leak_canary_reference
 color light_gray
 color light_gray_ring
 color light_green
@@ -751,6 +759,20 @@ dimen hint_pressed_alpha_material_light
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
+dimen leak_canary_connector_center_y
+dimen leak_canary_connector_leak_dash_gap
+dimen leak_canary_connector_leak_dash_line
+dimen leak_canary_connector_stroke_size
+dimen leak_canary_connector_width
+dimen leak_canary_more_margin_top
+dimen leak_canary_more_size
+dimen leak_canary_more_stroke_width
+dimen leak_canary_row_margins
+dimen leak_canary_row_min
+dimen leak_canary_row_title_margin_top
+dimen leak_canary_squiggly_span_amplitude
+dimen leak_canary_squiggly_span_period_degrees
+dimen leak_canary_squiggly_span_stroke_width
 dimen lrc_divider_height
 dimen lrc_drawable_width
 dimen lrc_text_size
@@ -940,6 +962,9 @@ drawable ic_play
 drawable ic_pulltorefresh_arrow
 drawable ic_smear_part
 drawable layer_drawable
+drawable leak_canary_icon_foreground
+drawable leak_canary_notification
+drawable leak_canary_toast_background
 drawable loading_01
 drawable loading_02
 drawable loading_03
@@ -1196,6 +1221,16 @@ id jump_to_lyrics_btn
 id jump_to_zoom_image_btn
 id last_refresh_time
 id launch_product_query
+id leak_canary_action
+id leak_canary_display_leak_failure
+id leak_canary_display_leak_list
+id leak_canary_row_connector
+id leak_canary_row_details
+id leak_canary_row_layout
+id leak_canary_row_more
+id leak_canary_row_text
+id leak_canary_row_time
+id leak_canary_row_title
 id left
 id line1
 id line3
@@ -1435,6 +1470,11 @@ layout item_base_recyclerview_adapter_helper
 layout item_gridview
 layout item_recyclerview
 layout item_timeline
+layout leak_canary_display_leak
+layout leak_canary_heap_dump_toast
+layout leak_canary_leak_row
+layout leak_canary_ref_row
+layout leak_canary_ref_top_row
 layout listview_footer
 layout listview_header
 layout my_seekbar
@@ -1463,6 +1503,7 @@ layout toast
 layout tooltip
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap leak_canary_icon
 raw beep
 raw chinahigh
 string abc_action_bar_home_description
@@ -1504,6 +1545,38 @@ string download
 string insert_data
 string io_error
 string json_parse_error
+string leak_canary_analysis_failed
+string leak_canary_class_has_leaked
+string leak_canary_class_has_leaked_retaining
+string leak_canary_could_not_save_text
+string leak_canary_could_not_save_title
+string leak_canary_delete
+string leak_canary_delete_all
+string leak_canary_delete_all_leaks_title
+string leak_canary_display_activity_label
+string leak_canary_excluded_row
+string leak_canary_failure_report
+string leak_canary_help_detail
+string leak_canary_help_title
+string leak_canary_leak_excluded
+string leak_canary_leak_excluded_retaining
+string leak_canary_leak_list_title
+string leak_canary_no_leak_text
+string leak_canary_no_leak_title
+string leak_canary_notification_analysing
+string leak_canary_notification_channel
+string leak_canary_notification_dumping
+string leak_canary_notification_foreground_text
+string leak_canary_notification_message
+string leak_canary_notification_reporting
+string leak_canary_permission_not_granted
+string leak_canary_permission_notification_text
+string leak_canary_permission_notification_title
+string leak_canary_share_heap_dump
+string leak_canary_share_leak
+string leak_canary_share_with
+string leak_canary_storage_permission_activity_label
+string leak_canary_toast_heap_dump
 string listview_header_hint_normal
 string listview_header_hint_release
 string listview_header_last_time
@@ -1914,6 +1987,8 @@ style Widget_Design_ScrimInsetsFrameLayout
 style Widget_Design_Snackbar
 style Widget_Design_TabLayout
 style Widget_Design_TextInputLayout
+style leak_canary_LeakCanary_Base
+style leak_canary_Theme_Transparent
 styleable AVLoadingIndicatorView indicator indicator_color
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
@@ -1978,3 +2053,5 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable gifview isgifimage
+styleable leak_canary_MoreDetailsView leak_canary_plus_color
+xml leak_canary_file_paths

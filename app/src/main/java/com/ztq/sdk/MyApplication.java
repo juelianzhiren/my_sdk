@@ -8,6 +8,8 @@ import android.util.DisplayMetrics;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lizejun.demo.lib.base.util.Utils;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.ztq.sdk.log.Log;
 
 /**
@@ -65,6 +67,19 @@ public class MyApplication extends Application {
 
             }
         });
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        sRefWatcher = LeakCanary.install(this);
+    }
+
+    private static RefWatcher sRefWatcher;
+
+    public static RefWatcher getRefWatcher() {
+        return sRefWatcher;
     }
 
     public static Context getInstance() {

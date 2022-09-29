@@ -84,4 +84,11 @@ dependencies {
         compile project(":module-store")
     }
     implementation files('libs/html2image-0.9.jar')
+
+    debugImplementation ('com.squareup.leakcanary:leakcanary-android:1.6.1'){
+        exclude group:'com.android.support', module:'support-compat'
+        exclude group:'com.android.support', module:'support-annotations'
+        exclude group:'com.android.support', module:'support-core-utils'
+    }
+    releaseImplementation ('com.squareup.leakcanary:leakcanary-android-no-op:1.6.1')
 }

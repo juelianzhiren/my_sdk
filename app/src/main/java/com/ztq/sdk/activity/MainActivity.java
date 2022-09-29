@@ -16,6 +16,7 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.ztq.sdk.MyApplication;
 import com.ztq.sdk.R;
 import com.ztq.sdk.acopy.test.AcopyTestActivity;
 import com.ztq.sdk.helper.MyHandlerThread;
@@ -407,6 +408,17 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+//        sLeak = new Leak();
+//        sLeak.test();
+    }
+
+    private static Leak sLeak;
+
+    private class Leak {
+        private void test(){
+            android.util.Log.i(TAG, "test method execute");
+        }
     }
 
     @Override
@@ -418,6 +430,7 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         Log.v(TAG, "onDestroy");
         myAnimationDrawable.stopAnim();
+        MyApplication.getRefWatcher().watch(this);
         super.onDestroy();
     }
 
