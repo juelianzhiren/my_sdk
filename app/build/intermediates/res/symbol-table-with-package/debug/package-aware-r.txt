@@ -818,6 +818,7 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
+drawable abc
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -948,6 +949,8 @@ drawable ic_highlight_petal_right
 drawable ic_highlight_petal_right_pressed
 drawable ic_inner_circle
 drawable ic_launcher
+drawable ic_load_fail
+drawable ic_loading
 drawable ic_loading_rotate
 drawable ic_normal_petal_left
 drawable ic_normal_petal_left_even
@@ -1170,6 +1173,7 @@ id foot_view_item_tv
 id footerview_tv
 id forever
 id gifview
+id glide_btn
 id gone
 id gridview
 id groups
@@ -1190,6 +1194,7 @@ id id_recyclerview
 id id_text
 id ifRoom
 id image
+id image_view
 id info
 id info_text_four
 id info_text_one
@@ -1262,6 +1267,7 @@ id mvp_btn
 id my_seekbar
 id my_seekbar_circle_rl
 id my_seekbar_word_rl
+id mylayout
 id myview
 id ndk_demo_btn
 id net_api_btn
@@ -1431,6 +1437,7 @@ layout activity_crop_image
 layout activity_demo
 layout activity_event_bus
 layout activity_flow_layout
+layout activity_glide
 layout activity_gridview
 layout activity_home
 layout activity_horizontal_webview

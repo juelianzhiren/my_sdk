@@ -152,6 +152,78 @@ public class MainActivity extends BaseActivity {
         mPinyinTv.setPinyinSize(40);
         mPinyinTv.setPinyinColor(Color.RED);
 //        mPinyinTv.setIsShowPinyin(false);
+
+
+        mCircleProgressBar = findViewById(R.id.cbr);
+        mCircleProgressBar.setIsShowTextProgress(true);
+
+        Log.v(TAG, "AppStore.apk md5 value is " + SignMd5.getMd5(this));
+
+        long maxMemory = Runtime.getRuntime().maxMemory();
+        Log.v(TAG, "maxMemory = " + maxMemory / 1024.0 / 1024.0 + "m");
+
+        Log.v(TAG, "manufacture = " + Build.MANUFACTURER);
+        //华为角标的实现
+        if (Build.MANUFACTURER.equalsIgnoreCase("huawei")) {
+            Bundle extra = new Bundle();
+            extra.putString("package", "com.ztq.sdk");
+            extra.putString("class", "com.ztq.sdk.activity.AcopyTestActivity");
+            extra.putInt("badgenumber", 3);
+//            mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
+        }
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        Log.v(TAG, "screen width = " + dm.widthPixels + "; height = " + dm.heightPixels + "; densityDpi = " + dm.densityDpi + "; xdpi = " + dm.xdpi + "; ydpi = " + dm.ydpi + "; scaledDensity = " +dm.scaledDensity);
+        Drawable drawable = getResources().getDrawableForDensity(R.drawable.ic_pause, 160);
+        Log.v(TAG, "drawable = " + drawable);
+
+        Matrix matrix = new Matrix();
+        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        matrix.setValues(new float[]{1, 2, 3, 1, 2, 3, 1, 2, 3});
+//        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        matrix.postTranslate(-1, -2);
+        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        matrix.postScale(-1, -2);
+        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
+        RectF r = new RectF(-45, 6, 150, 50);
+        matrix.mapRect(r);
+        Log.d(TAG, "matrix -r.left = " + r.left + ", right = " + r.right + ", top = " + r.top + ", bottom = " + r.bottom);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                // 子线程中弹出toast
+                Toast.makeText(mContext, "提示一下！", Toast.LENGTH_LONG).show();
+                Looper.loop();
+            }
+        }).start();
+
+
+
+        String str1 = com.ztq.sdk.data_structure_and_algorithm.Utils.getFirstLetter2("aaccdeff");
+        Log.v(TAG, "str1 = " + str1);
+
+        int test[] = { 7, 5, 6, 4 };
+        int count = com.ztq.sdk.data_structure_and_algorithm.Utils.getInversePairsNumber(test);
+        Log.v(TAG, "inversePairsNum = " + count);
+
+        int a[] = new int[] { 60, 55, 48, 37, 10, 90, 84, 36, -1};
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.bubbleSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.quickSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.simpleChooseSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.directInsertSort(a);
+//        com.ztq.sdk.data_structure_and_algorithm.Utils.shellSort(a);
+        com.ztq.sdk.data_structure_and_algorithm.Utils.heapSort(a);
+
+        int[] b = new int[] { 1, 2, 3, 3, 3, 3, 4, 5 };
+        com.ztq.sdk.data_structure_and_algorithm.Utils.getNumberOfK(b, 210);
+
+        com.ztq.sdk.data_structure_and_algorithm.Utils.getLastRemaining(5,1);
+
+        addListener();
+    }
+
+    private void addListener() {
         findViewById(R.id.jump_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,51 +289,6 @@ public class MainActivity extends BaseActivity {
                 mIv.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
-
-        mCircleProgressBar = findViewById(R.id.cbr);
-        mCircleProgressBar.setIsShowTextProgress(true);
-
-        Log.v(TAG, "AppStore.apk md5 value is " + SignMd5.getMd5(this));
-
-        long maxMemory = Runtime.getRuntime().maxMemory();
-        Log.v(TAG, "maxMemory = " + maxMemory / 1024.0 / 1024.0 + "m");
-
-        Log.v(TAG, "manufacture = " + Build.MANUFACTURER);
-        //华为角标的实现
-        if (Build.MANUFACTURER.equalsIgnoreCase("huawei")) {
-            Bundle extra = new Bundle();
-            extra.putString("package", "com.ztq.sdk");
-            extra.putString("class", "com.ztq.sdk.activity.AcopyTestActivity");
-            extra.putInt("badgenumber", 3);
-//            mContext.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
-        }
-        DisplayMetrics dm = getResources().getDisplayMetrics();
-        Log.v(TAG, "screen width = " + dm.widthPixels + "; height = " + dm.heightPixels + "; densityDpi = " + dm.densityDpi + "; xdpi = " + dm.xdpi + "; ydpi = " + dm.ydpi + "; scaledDensity = " +dm.scaledDensity);
-        Drawable drawable = getResources().getDrawableForDensity(R.drawable.ic_pause, 160);
-        Log.v(TAG, "drawable = " + drawable);
-
-        Matrix matrix = new Matrix();
-        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
-        matrix.setValues(new float[]{1, 2, 3, 1, 2, 3, 1, 2, 3});
-//        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
-        matrix.postTranslate(-1, -2);
-        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
-        matrix.postScale(-1, -2);
-        Log.v(TAG, "matrix.toString = " + matrix.toString() + "; matrix.toShortString = " + matrix.toShortString());
-        RectF r = new RectF(-45, 6, 150, 50);
-        matrix.mapRect(r);
-        Log.d(TAG, "matrix -r.left = " + r.left + ", right = " + r.right + ", top = " + r.top + ", bottom = " + r.bottom);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Looper.prepare();
-                // 子线程中弹出toast
-                Toast.makeText(mContext, "提示一下！", Toast.LENGTH_LONG).show();
-                Looper.loop();
-            }
-        }).start();
-
         findViewById(R.id.jump_to_animation_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -277,31 +304,6 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-
-        String str1 = com.ztq.sdk.data_structure_and_algorithm.Utils.getFirstLetter2("aaccdeff");
-        Log.v(TAG, "str1 = " + str1);
-
-        int test[] = { 7, 5, 6, 4 };
-        int count = com.ztq.sdk.data_structure_and_algorithm.Utils.getInversePairsNumber(test);
-        Log.v(TAG, "inversePairsNum = " + count);
-
-        int a[] = new int[] { 60, 55, 48, 37, 10, 90, 84, 36, -1};
-//        com.ztq.sdk.data_structure_and_algorithm.Utils.bubbleSort(a);
-//        com.ztq.sdk.data_structure_and_algorithm.Utils.quickSort(a);
-//        com.ztq.sdk.data_structure_and_algorithm.Utils.simpleChooseSort(a);
-//        com.ztq.sdk.data_structure_and_algorithm.Utils.directInsertSort(a);
-//        com.ztq.sdk.data_structure_and_algorithm.Utils.shellSort(a);
-        com.ztq.sdk.data_structure_and_algorithm.Utils.heapSort(a);
-
-        int[] b = new int[] { 1, 2, 3, 3, 3, 3, 4, 5 };
-        com.ztq.sdk.data_structure_and_algorithm.Utils.getNumberOfK(b, 210);
-
-        com.ztq.sdk.data_structure_and_algorithm.Utils.getLastRemaining(5,1);
-
-        addListener();
-    }
-
-    private void addListener() {
         findViewById(R.id.recyclerview_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -405,6 +407,14 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, WebViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.glide_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, GlideActivity.class);
                 startActivity(intent);
             }
         });
