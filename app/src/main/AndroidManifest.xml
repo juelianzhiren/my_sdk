@@ -70,5 +70,9 @@
         <meta-data
             android:name="design_height_in_dp"
             android:value="960"/>
+
+        <meta-data
+            android:name="com.ztq.sdk.glide_test.MyGlideModule"
+            android:value="GlideModule"/>
     </application>
 </manifest>

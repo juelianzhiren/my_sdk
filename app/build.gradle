@@ -91,4 +91,6 @@ dependencies {
         exclude group:'com.android.support', module:'support-core-utils'
     }
     releaseImplementation ('com.squareup.leakcanary:leakcanary-android-no-op:1.6.1')
+
+    implementation 'jp.wasabeef:glide-transformations:2.0.2'
 }
