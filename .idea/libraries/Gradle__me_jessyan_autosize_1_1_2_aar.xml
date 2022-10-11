@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: me.jessyan:autosize:1.1.2@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/ac191cf620c710b937b9dbbc20f286e1/res" />
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/ac191cf620c710b937b9dbbc20f286e1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/ac191cf620c710b937b9dbbc20f286e1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/modules-2/files-2.1/me.jessyan/autosize/1.1.2/bcac46692aa9efb0f558c720219a2d4142423260/autosize-1.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/modules-2/files-2.1/me.jessyan/autosize/1.1.2/48bdaac7bd16d92fa55bd5bdb2b30d1125add6d5/autosize-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

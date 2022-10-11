@@ -418,6 +418,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.protobuf).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ProtoBufActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        sLeak = new Leak();
 //        sLeak.test();

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.android.support:support-core-utils:26.0.0@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/2cd428eb55b1132574e0da75afecc6d1/res" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/b0b56bde8b9f9858883f893641b2b1ac/res" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/c7e3494377a7d431d04549e235f0bac1/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/c7e3494377a7d431d04549e235f0bac1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/c7e3494377a7d431d04549e235f0bac1/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/modules-2/files-2.1/com.android.support/support-core-utils/26.0.0/7b7c909a06cc2b077269e3a70c1abb0681fc2578/support-core-utils-26.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

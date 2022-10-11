@@ -60,6 +60,7 @@
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.HorizontalWebViewActivity" />
         <activity android:name=".activity.GlideActivity" />
+        <activity android:name=".activity.ProtoBufActivity" />
 
         <provider
             android:authorities="com.noahedu.sdk"

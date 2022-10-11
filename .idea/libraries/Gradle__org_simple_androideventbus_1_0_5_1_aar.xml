@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: org.simple:androideventbus:1.0.5.1@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/860d099ff7965dd60d5d0b427f80ecf3/res" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/1df3d41d57b66b5ea7961e72bba5780a/res" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/a24d8fc2b206d040d376809a23ac8b14/res" />
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/a24d8fc2b206d040d376809a23ac8b14/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/a24d8fc2b206d040d376809a23ac8b14/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/modules-2/files-2.1/org.simple/androideventbus/1.0.5.1/e2a1a01f34d7870d544c441bb8d8ee3ffbe95c99/androideventbus-1.0.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

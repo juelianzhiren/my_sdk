@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'danny.asm.lifecycle'
+apply plugin: 'com.google.protobuf'
+
 
 def config = rootProject.ext
 
@@ -93,4 +95,28 @@ dependencies {
     releaseImplementation ('com.squareup.leakcanary:leakcanary-android-no-op:1.6.1')
 
     implementation 'jp.wasabeef:glide-transformations:2.0.2'
+
+    implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+}
+
+//构建task
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+    plugins {
+        javalite {
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.plugins {
+                javalite { }
+            }
+        }
+    }
 }

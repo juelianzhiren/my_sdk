@@ -1295,6 +1295,8 @@ id preview_view
 id progress
 id progress_circular
 id progress_horizontal
+id protobuf
+id protobuf_tv
 id quit
 id radio
 id recycler_view1
@@ -1452,6 +1454,7 @@ layout activity_net_api
 layout activity_overdraw
 layout activity_petals_round
 layout activity_pie_image
+layout activity_protobuf
 layout activity_qrscanner
 layout activity_recyclerview
 layout activity_result_client

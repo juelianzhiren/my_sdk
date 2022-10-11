@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: com.alibaba:arouter-api:1.2.4@aar">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/b3822b986a061590c2c38d355ec4843d/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/12c01dff71168e1cd8c25b3713bf945c/res" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/4045b669497dd6f33810d95f001a5530/res" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/b3822b986a061590c2c38d355ec4843d/res" />
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/b3822b986a061590c2c38d355ec4843d/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/b3822b986a061590c2c38d355ec4843d/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/modules-2/files-2.1/com.alibaba/arouter-api/1.2.4/f86cf024f5dd138fba882ac0e28272113ddf761f/arouter-api-1.2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

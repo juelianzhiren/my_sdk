@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/my_sdk.iml" filepath="$PROJECT_DIR$/my_sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/my_sdk.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/my_sdk.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/asm_lifecycle_plugin/my_sdk.asm_lifecycle_plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/asm_lifecycle_plugin/my_sdk.asm_lifecycle_plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib-base/my_sdk.lib-base.iml" filepath="$PROJECT_DIR$/.idea/modules/lib-base/my_sdk.lib-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib_scanner/my_sdk.lib_scanner.iml" filepath="$PROJECT_DIR$/.idea/modules/lib_scanner/my_sdk.lib_scanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-home/my_sdk.module-home.iml" filepath="$PROJECT_DIR$/.idea/modules/module-home/my_sdk.module-home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-other/my_sdk.module-other.iml" filepath="$PROJECT_DIR$/.idea/modules/module-other/my_sdk.module-other.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-store/my_sdk.module-store.iml" filepath="$PROJECT_DIR$/.idea/modules/module-store/my_sdk.module-store.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/targetsdk26_demo/my_sdk.targetsdk26_demo.iml" filepath="$PROJECT_DIR$/.idea/modules/targetsdk26_demo/my_sdk.targetsdk26_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/xrecyclerview/my_sdk.xrecyclerview.iml" filepath="$PROJECT_DIR$/.idea/modules/xrecyclerview/my_sdk.xrecyclerview.iml" />
+    </modules>
+  </component>
+</project>
