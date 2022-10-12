@@ -61,6 +61,10 @@
         <activity android:name=".activity.HorizontalWebViewActivity" />
         <activity android:name=".activity.GlideActivity" />
         <activity android:name=".activity.ProtoBufActivity" />
+        <activity android:name=".activity.MessengerActivity" />
+
+        <service android:name=".activity.MessengerService"
+            android:process=":custom_service"/>
 
         <provider
             android:authorities="com.noahedu.sdk"

@@ -425,6 +425,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.messenger_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MessengerActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        sLeak = new Leak();
 //        sLeak.test();

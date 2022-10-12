@@ -1260,6 +1260,7 @@ id mapview
 id mapview_btn
 id media_actions
 id message
+id messenger_btn
 id middle
 id mini
 id multiply
@@ -1450,6 +1451,7 @@ layout activity_login_mvp
 layout activity_lyrics
 layout activity_main
 layout activity_mapview
+layout activity_messenger
 layout activity_net_api
 layout activity_overdraw
 layout activity_petals_round

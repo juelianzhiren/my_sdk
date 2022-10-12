@@ -912,6 +912,10 @@
         "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\\res\\drawable-mdpi-v4\\leak_canary_icon_foreground.png"
     },
     {
+        "merged": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_messenger.xml.flat",
+        "source": "D:\\workspace_android\\my_project\\my_sdk\\app\\src\\main\\res\\layout\\activity_messenger.xml"
+    },
+    {
         "merged": "D:\\workspace_android\\my_project\\my_sdk\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_title_material.xml.flat",
         "source": "D:\\.gradle\\caches\\transforms-2\\files-2.1\\6ba99260f4508296bff6feca4c788030\\res\\layout\\abc_alert_dialog_title_material.xml"
     },
