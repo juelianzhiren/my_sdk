@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.demo.lizejun.module.home.R;
 import com.lizejun.demo.lib.base.ConstantMap;
@@ -24,6 +27,7 @@ import org.simple.eventbus.Subscriber;
 
 @Route(path = RouterMap.HOME_FRAGMENT)
 public class HomeFragment extends Fragment {
+    private static final String TAG = "noahedu.HomeFragment";
 
     @Override
     public void onAttach(Context context) {
@@ -60,7 +64,27 @@ public class HomeFragment extends Fragment {
         public void onClick(View v) {
             int id = v.getId();
             if (id == R.id.bt_no_result) {
-                ARouter.getInstance().build(RouterMap.NO_RESULT_ACTIVITY).navigation();
+                ARouter.getInstance().build(RouterMap.NO_RESULT_ACTIVITY).navigation(HomeFragment.this.getActivity(), new NavigationCallback() {
+                    @Override
+                    public void onFound(Postcard postcard) {
+                        Log.v(TAG, "onFound");
+                    }
+
+                    @Override
+                    public void onLost(Postcard postcard) {
+                        Log.v(TAG, "onLost");
+                    }
+
+                    @Override
+                    public void onArrival(Postcard postcard) {
+                        Log.v(TAG, "onArrival");
+                    }
+
+                    @Override
+                    public void onInterrupt(Postcard postcard) {
+                        Log.v(TAG, "onInterrupt");
+                    }
+                });
             } else if (id == R.id.bt_result_client) {
                 getActivity().startActivity(new Intent(getActivity(), ResultClientActivity.class));
             } else if (id == R.id.bt_event_bus) {
