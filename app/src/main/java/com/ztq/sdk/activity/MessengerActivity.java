@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.service.MessengerService;
 
 import java.lang.ref.WeakReference;
 

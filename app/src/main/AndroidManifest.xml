@@ -63,7 +63,7 @@
         <activity android:name=".activity.ProtoBufActivity" />
         <activity android:name=".activity.MessengerActivity" />
 
-        <service android:name=".activity.MessengerService"
+        <service android:name=".service.MessengerService"
             android:process=":custom_service"/>
 
         <provider

@@ -1,4 +1,4 @@
-package com.ztq.sdk.activity;
+package com.ztq.sdk.service;
 
 import android.app.Service;
 import android.content.Intent;

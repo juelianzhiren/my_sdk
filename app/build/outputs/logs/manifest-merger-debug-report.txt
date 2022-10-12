@@ -276,12 +276,12 @@ activity#com.ztq.sdk.activity.MessengerActivity
 ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:64:9-64
 	android:name
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:64:19-61
-service#com.ztq.sdk.activity.MessengerService
+service#com.ztq.sdk.service.MessengerService
 ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:66:9-67:48
 	android:process
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:67:13-46
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:66:18-59
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:66:18-58
 provider#com.ztq.sdk.database.MyContentProvider
 ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:69:9-71:58
 	android:authorities

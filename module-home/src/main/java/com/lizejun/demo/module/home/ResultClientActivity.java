@@ -33,7 +33,9 @@ public class ResultClientActivity extends FragmentActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case ConstantMap.FOR_RESULT_CODE:
-                Utils.toast(ResultClientActivity.this, "receive=" + data.getStringExtra(ConstantMap.FOR_RESULT_KEY));
+                if (data != null) {
+                    Utils.toast(ResultClientActivity.this, "receive=" + data.getStringExtra(ConstantMap.FOR_RESULT_KEY));
+                }
                 break;
             default:
                 break;
