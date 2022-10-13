@@ -62,6 +62,7 @@
         <activity android:name=".activity.GlideActivity" />
         <activity android:name=".activity.ProtoBufActivity" />
         <activity android:name=".activity.MessengerActivity" />
+        <activity android:name=".activity.RetrofitActivity" />
 
         <service android:name=".service.MessengerService"
             android:process=":custom_service"/>

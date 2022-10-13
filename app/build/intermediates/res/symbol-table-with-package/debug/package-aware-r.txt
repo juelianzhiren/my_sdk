@@ -1306,6 +1306,7 @@ id recyclerview_btn
 id refresh_status_textview
 id reload_tv
 id restart_preview
+id retrofit_btn
 id return_scan_result
 id right
 id right_icon
@@ -1461,6 +1462,7 @@ layout activity_qrscanner
 layout activity_recyclerview
 layout activity_result_client
 layout activity_result_server
+layout activity_retrofit
 layout activity_scanner
 layout activity_timeline
 layout activity_webview

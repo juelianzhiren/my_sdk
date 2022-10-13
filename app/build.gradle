@@ -97,6 +97,11 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:2.0.2'
 
     implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+
+    //Retrofit2所需要的包
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+    //ConverterFactory的Gson依赖包
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
 }
 
 //构建task

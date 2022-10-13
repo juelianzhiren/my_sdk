@@ -282,6 +282,15 @@
         android:layout_marginTop="570dp"/>
 
     <Button
+        android:id="@+id/retrofit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="retrofit demo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/glide_btn"
+        android:layout_marginTop="570dp"/>
+
+    <Button
         android:id="@+id/crop_image_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
