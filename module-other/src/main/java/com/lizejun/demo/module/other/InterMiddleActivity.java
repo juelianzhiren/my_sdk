@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.lizejun.demo.lib.base.service.StoreModuleRouterService;
 
 @Route(path = RouterMap.INTER_MIDDLE_ACTIVITY)
 public class InterMiddleActivity extends FragmentActivity {
+    private static final String TAG = "noahedu.InterMiddleActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class InterMiddleActivity extends FragmentActivity {
     private void updateStatus() {
         TextView tvStatus = (TextView) findViewById(R.id.tv_login_status);
         tvStatus.setText("登录状态=" + StoreModuleRouterService.isLogin());
+        Log.v(TAG, "登录状态 = " + StoreModuleRouterService.isLogin());
     }
 
     private void switchStatus() {
