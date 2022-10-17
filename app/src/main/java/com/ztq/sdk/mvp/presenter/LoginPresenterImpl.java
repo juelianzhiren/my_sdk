@@ -33,6 +33,7 @@ public class LoginPresenterImpl implements LoginPresenter, OnLoginFinishedListen
     @Override
     public void onDestroy() {
         loginView = null;
+        loginModel = null;
     }
 
     @Override
