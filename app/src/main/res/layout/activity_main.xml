@@ -92,13 +92,22 @@
         android:layout_marginTop="90dp"/>
 
     <Button
+        android:id="@+id/mvvm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mvvm demo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="60dp"/>
+
+    <Button
         android:id="@+id/mvp_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="mvp demo"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="90dp"/>
+        android:layout_marginTop="100dp"/>
 
     <Button
         android:id="@+id/jump_to_lyrics_btn"

@@ -63,6 +63,7 @@
         <activity android:name=".activity.ProtoBufActivity" />
         <activity android:name=".activity.MessengerActivity" />
         <activity android:name=".activity.RetrofitActivity" />
+        <activity android:name=".mvvm.view.MVVMActivity" />
 
         <service android:name=".service.MessengerService"
             android:process=":custom_service"/>

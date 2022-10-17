@@ -23,6 +23,7 @@ import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.mvp.view.LoginMVPActivity;
+import com.ztq.sdk.mvvm.view.MVVMActivity;
 import com.ztq.sdk.utils.NetworkUtils;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
@@ -31,6 +32,8 @@ import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
 import java.util.List;
+
+import io.reactivex.internal.operators.observable.ObservableNever;
 
 /**
  * 这是测试的Activity
@@ -436,6 +439,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, RetrofitActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.mvvm_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MVVMActivity.class);
                 startActivity(intent);
             }
         });
