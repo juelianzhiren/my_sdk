@@ -17,6 +17,10 @@
         <variable
             name="data"
             type="String"/>
+
+        <variable
+            name="data1"
+            type="String"/>
     </data>
 
     <LinearLayout

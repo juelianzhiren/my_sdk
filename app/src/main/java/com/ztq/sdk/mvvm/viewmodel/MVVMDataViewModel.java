@@ -28,6 +28,7 @@ public class MVVMDataViewModel extends BaseObservable implements MVVMLoadDataCal
 
     @Override
     public void onSuccess() {
+        // BR.data对应注解Bindable的getData方法，如果是BR.data1则是对应注解Bindable的getData1方法
         notifyPropertyChanged(BR.data);
     }
 
