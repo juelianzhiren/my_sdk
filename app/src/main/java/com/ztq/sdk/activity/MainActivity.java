@@ -449,6 +449,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.anr_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, BlockCanaryActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        sLeak = new Leak();
 //        sLeak.test();

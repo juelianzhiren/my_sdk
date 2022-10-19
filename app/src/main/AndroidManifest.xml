@@ -64,6 +64,7 @@
         <activity android:name=".activity.MessengerActivity" />
         <activity android:name=".activity.RetrofitActivity" />
         <activity android:name=".mvvm.view.MVVMActivity" />
+        <activity android:name=".activity.BlockCanaryActivity" />
 
         <service android:name=".service.MessengerService"
             android:process=":custom_service"/>

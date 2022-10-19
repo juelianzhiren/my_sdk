@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
 MERGED from [com.android.databinding:adapters:3.4.2] D:\.gradle\caches\transforms-2\files-2.1\b0b03ec2773176953aa1c501fc113be0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.databinding:library:3.4.2] D:\.gradle\caches\transforms-2\files-2.1\ef20a4232eba874b2805980f9eb11836\AndroidManifest.xml:17:1-24:12
 MERGED from [:module-home] D:\workspace_android\my_project\my_sdk\module-home\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-25:12
@@ -14,6 +14,7 @@ MERGED from [:xrecyclerview] D:\workspace_android\my_project\my_sdk\xrecyclervie
 MERGED from [com.android.support:design:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\2764b28f1f2fed89399aeb071a5db86b\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\6ba99260f4508296bff6feca4c788030\AndroidManifest.xml:17:1-31:12
 MERGED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:17:1-72:12
+MERGED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:2:1-27:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] D:\.gradle\caches\transforms-2\files-2.1\15833eb1ab7d2ac1b752052ac9778c4e\AndroidManifest.xml:2:1-11:12
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.1] D:\.gradle\caches\transforms-2\files-2.1\cc42b758a5891b0f30208f2542f65153\AndroidManifest.xml:2:1-11:12
 MERGED from [me.jessyan:autosize:1.1.2] D:\.gradle\caches\transforms-2\files-2.1\c22d47381902b282b59e08f0cc66f0bc\AndroidManifest.xml:2:1-19:12
@@ -39,22 +40,23 @@ MERGED from [com.android.support:support-compat:26.0.0] D:\.gradle\caches\transf
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] D:\.gradle\caches\transforms-2\files-2.1\16fa11213d2568ac6b29dbc358bc94f0\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] D:\.gradle\caches\transforms-2\files-2.1\5873caf50eb926a8f3c528fccfe99605\AndroidManifest.xml:17:1-22:12
 MERGED from [com.squareup.leakcanary:leakcanary-analyzer:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\b77b609f82dd57f0cab44ec2ce4fce72\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:2:1-17:12
 MERGED from [org.simple:androideventbus:1.0.5.1] D:\.gradle\caches\transforms-2\files-2.1\6d61c94633e594548d36a09fa9d13946\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:multidex:1.0.1] D:\.gradle\caches\transforms-2\files-2.1\5f1eb0e8adb8c5757a29a792e6395bf9\AndroidManifest.xml:16:1-19:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
 	package
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-85:12
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-86:12
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:11-69
@@ -84,10 +86,12 @@ uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:11:5-80
 MERGED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:24:5-81
 MERGED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:24:5-81
+MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:12:5-81
+MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:12:5-81
 	android:name
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:13:5-84:19
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:13:5-85:19
 MERGED from [:module-home] D:\workspace_android\my_project\my_sdk\module-home\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
 MERGED from [:module-home] D:\workspace_android\my_project\my_sdk\module-home\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
 MERGED from [:module-other] D:\workspace_android\my_project\my_sdk\module-other\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-28:19
@@ -98,6 +102,8 @@ MERGED from [com.android.support:appcompat-v7:26.0.0] D:\.gradle\caches\transfor
 MERGED from [com.android.support:appcompat-v7:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\6ba99260f4508296bff6feca4c788030\AndroidManifest.xml:25:5-29:19
 MERGED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:26:5-70:19
 MERGED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:26:5-70:19
+MERGED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:11:5-25:19
+MERGED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:11:5-25:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] D:\.gradle\caches\transforms-2\files-2.1\15833eb1ab7d2ac1b752052ac9778c4e\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] D:\.gradle\caches\transforms-2\files-2.1\15833eb1ab7d2ac1b752052ac9778c4e\AndroidManifest.xml:9:5-20
 MERGED from [me.jessyan:autosize:1.1.2] D:\.gradle\caches\transforms-2\files-2.1\c22d47381902b282b59e08f0cc66f0bc\AndroidManifest.xml:11:5-17:19
@@ -128,6 +134,8 @@ MERGED from [com.android.support:support-compat:26.0.0] D:\.gradle\caches\transf
 MERGED from [com.android.support:support-compat:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\49bc8fa5760ea2e99ff5173909931185\AndroidManifest.xml:25:5-29:19
 MERGED from [com.squareup.leakcanary:leakcanary-analyzer:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\b77b609f82dd57f0cab44ec2ce4fce72\AndroidManifest.xml:22:5-20
 MERGED from [com.squareup.leakcanary:leakcanary-analyzer:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\b77b609f82dd57f0cab44ec2ce4fce72\AndroidManifest.xml:22:5-20
+MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:15:5-20
+MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:15:5-20
 	android:supportsRtl
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:19:9-35
 	android:label
@@ -298,36 +306,40 @@ activity#com.ztq.sdk.mvvm.view.MVVMActivity
 ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:66:9-60
 	android:name
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:66:19-57
+activity#com.ztq.sdk.activity.BlockCanaryActivity
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:67:9-66
+	android:name
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:67:19-63
 service#com.ztq.sdk.service.MessengerService
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:68:9-69:48
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:69:9-70:48
 	android:process
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:69:13-46
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:70:13-46
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:68:18-58
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:69:18-58
 provider#com.ztq.sdk.database.MyContentProvider
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:71:9-73:58
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:72:9-74:58
 	android:authorities
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:72:13-50
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:73:13-50
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:73:13-55
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:74:13-55
 meta-data#design_width_in_dp
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:74:9-76:34
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:75:9-77:34
 	android:value
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:76:13-32
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:77:13-32
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:75:13-46
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:76:13-46
 meta-data#design_height_in_dp
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:77:9-79:34
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:78:9-80:34
 	android:value
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:79:13-32
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:80:13-32
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:78:13-47
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:79:13-47
 meta-data#com.ztq.sdk.glide_test.MyGlideModule
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:81:9-83:42
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:82:9-84:42
 	android:value
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:83:13-40
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:84:13-40
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:82:13-64
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:83:13-64
 uses-sdk
 INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
@@ -352,6 +364,8 @@ MERGED from [com.android.support:appcompat-v7:26.0.0] D:\.gradle\caches\transfor
 MERGED from [com.android.support:appcompat-v7:26.0.0] D:\.gradle\caches\transforms-2\files-2.1\6ba99260f4508296bff6feca4c788030\AndroidManifest.xml:21:5-23:78
 MERGED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:20:5-44
 MERGED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:20:5-44
+MERGED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] D:\.gradle\caches\transforms-2\files-2.1\15833eb1ab7d2ac1b752052ac9778c4e\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] D:\.gradle\caches\transforms-2\files-2.1\15833eb1ab7d2ac1b752052ac9778c4e\AndroidManifest.xml:5:5-7:41
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.1] D:\.gradle\caches\transforms-2\files-2.1\cc42b758a5891b0f30208f2542f65153\AndroidManifest.xml:7:5-9:41
@@ -402,6 +416,8 @@ MERGED from [android.arch.core:runtime:1.1.1] D:\.gradle\caches\transforms-2\fil
 MERGED from [android.arch.core:runtime:1.1.1] D:\.gradle\caches\transforms-2\files-2.1\5873caf50eb926a8f3c528fccfe99605\AndroidManifest.xml:20:5-44
 MERGED from [com.squareup.leakcanary:leakcanary-analyzer:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\b77b609f82dd57f0cab44ec2ce4fce72\AndroidManifest.xml:20:5-44
 MERGED from [com.squareup.leakcanary:leakcanary-analyzer:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\b77b609f82dd57f0cab44ec2ce4fce72\AndroidManifest.xml:20:5-44
+MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:7:5-9:41
 MERGED from [org.simple:androideventbus:1.0.5.1] D:\.gradle\caches\transforms-2\files-2.1\6d61c94633e594548d36a09fa9d13946\AndroidManifest.xml:7:5-9:40
 MERGED from [org.simple:androideventbus:1.0.5.1] D:\.gradle\caches\transforms-2\files-2.1\6d61c94633e594548d36a09fa9d13946\AndroidManifest.xml:7:5-9:40
 MERGED from [com.android.support:multidex:1.0.1] D:\.gradle\caches\transforms-2\files-2.1\5f1eb0e8adb8c5757a29a792e6395bf9\AndroidManifest.xml:18:5-42
@@ -552,6 +568,20 @@ ADDED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\
 		ADDED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:68:13-76
 	android:name
 		ADDED from [com.squareup.leakcanary:leakcanary-android:1.6.1] D:\.gradle\caches\transforms-2\files-2.1\6e4cb8dfc584cf9c68a1b69e5ddfe4bc\AndroidManifest.xml:61:13-93
+activity#com.github.moduth.blockcanary.ui.DisplayActivity
+ADDED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:12:9-24:20
+	android:enabled
+		ADDED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:14:13-36
+	android:label
+		ADDED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:16:13-72
+	android:icon
+		ADDED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:15:13-55
+	android:theme
+		ADDED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:18:13-65
+	android:taskAffinity
+		ADDED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:17:13-65
+	android:name
+		ADDED from [com.github.markzhai:blockcanary-android:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\07309073f199fad5fece1c4b195cb58e\AndroidManifest.xml:13:13-76
 provider#me.jessyan.autosize.InitProvider
 ADDED from [me.jessyan:autosize:1.1.2] D:\.gradle\caches\transforms-2\files-2.1\c22d47381902b282b59e08f0cc66f0bc\AndroidManifest.xml:12:9-16:43
 	android:authorities
@@ -586,3 +616,7 @@ activity#com.sll.qrdemo.QRScannerActivity
 ADDED from [:lib_scanner] D:\workspace_android\my_project\my_sdk\lib_scanner\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-28:20
 	android:name
 		ADDED from [:lib_scanner] D:\workspace_android\my_project\my_sdk\lib_scanner\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:19-66
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:13:22-72

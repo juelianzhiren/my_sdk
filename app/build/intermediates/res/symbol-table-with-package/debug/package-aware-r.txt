@@ -944,6 +944,8 @@ drawable abc_vector_test
 drawable advertisebg
 drawable avd_hide_password
 drawable avd_show_password
+drawable block_canary_icon
+drawable block_canary_notification
 drawable candy_flash_anim
 drawable clip_drawable
 drawable design_bottom_navigation_item_background
@@ -1101,6 +1103,13 @@ id SYM
 id SemiCircleSpin
 id SquareSpin
 id TriangleSkewSpin
+id __leak_canary_action
+id __leak_canary_display_leak_failure
+id __leak_canary_display_leak_list
+id __leak_canary_row_connector
+id __leak_canary_row_more
+id __leak_canary_row_text
+id __leak_canary_row_time
 id acopy_test_btn
 id action0
 id action_bar
@@ -1133,6 +1142,7 @@ id all
 id always
 id animation_iv
 id animation_lv
+id anr_btn
 id arouter_demo_btn
 id async
 id auto
@@ -1141,6 +1151,7 @@ id barrier
 id base_recyclerview_adapter_helper_srl
 id beginning
 id big_picture_iv
+id blockcanary_btn
 id blocking
 id bottom
 id brvah_demo_btn
@@ -1480,6 +1491,7 @@ id zoom_iv
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
+integer block_canary_max_stored_count
 integer bottom_sheet_slide_duration
 integer cancel_button_image_alpha
 integer config_tooltipAnimTime
@@ -1520,6 +1532,7 @@ layout activity_animation
 layout activity_arouter_demo
 layout activity_base_recyclerview_adapter_helper
 layout activity_big_picture
+layout activity_blockcanary
 layout activity_cancel
 layout activity_cardview
 layout activity_content_observer
@@ -1558,6 +1571,10 @@ layout activity_xrecyclerview
 layout activity_zoom_image
 layout base_recyclerview_adapter_helper_footerview
 layout base_recyclerview_adapter_helper_headerview
+layout block_canary_block_row
+layout block_canary_display_leak
+layout block_canary_ref_row
+layout block_canary_ref_top_row
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1647,6 +1664,18 @@ string abc_toolbar_collapse_description
 string api_not_found
 string app_name
 string appbar_scrolling_view_behavior
+string block_canary_block_list_title
+string block_canary_class_has_blocked
+string block_canary_delete
+string block_canary_delete_all
+string block_canary_delete_all_dialog_content
+string block_canary_display_activity_label
+string block_canary_no
+string block_canary_notification_message
+string block_canary_share_leak
+string block_canary_share_stack_dump
+string block_canary_share_with
+string block_canary_yes
 string bottom_sheet_behavior
 string character_counter_pattern
 string delete_data
@@ -2116,6 +2145,7 @@ style Widget_Design_ScrimInsetsFrameLayout
 style Widget_Design_Snackbar
 style Widget_Design_TabLayout
 style Widget_Design_TextInputLayout
+style block_canary_BlockCanary_Base
 style leak_canary_LeakCanary_Base
 style leak_canary_Theme_Transparent
 styleable AVLoadingIndicatorView indicator indicator_color

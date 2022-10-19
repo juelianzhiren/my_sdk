@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.github.moduth.blockcanary.BlockCanary;
 import com.lizejun.demo.lib.base.util.Utils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
+import com.ztq.sdk.anr.AppBlockCanaryContext;
 import com.ztq.sdk.log.Log;
 
 /**
@@ -67,6 +69,9 @@ public class MyApplication extends Application {
 
             }
         });
+
+        // 在主进程初始化调用哈
+        BlockCanary.install(this, new AppBlockCanaryContext()).start();
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
