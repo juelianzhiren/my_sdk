@@ -1,6 +1,7 @@
 package com.ztq.sdk.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,9 @@ public class SlideConflictActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 mMainRL.removeAllViews();
+
+                Intent intent = new Intent(mContext, EventExmaplesActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -67,6 +71,9 @@ public class SlideConflictActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 mMainRL.removeAllViews();
+
+                Intent intent = new Intent(mContext, EventExmaplesActivity2.class);
+                startActivity(intent);
             }
         });
     }

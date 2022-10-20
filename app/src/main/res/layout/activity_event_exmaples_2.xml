@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ztq.sdk.widget.CustomScrollView2
+        android:id="@+id/demo_scrollview2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_title2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="Title"
+                android:textSize="50dp" />
+
+            <com.ztq.sdk.widget.CustomListView
+                android:id="@+id/demo_lv2"
+                android:layout_width="match_parent"
+                android:layout_height="600dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="Bottom"
+                android:textSize="50dp" />
+        </LinearLayout>
+    </com.ztq.sdk.widget.CustomScrollView2>
+</LinearLayout>

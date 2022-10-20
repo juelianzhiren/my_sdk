@@ -5,10 +5,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListView;
 
+import com.ztq.sdk.log.Log;
+
 /**
  * 内部拦截事件
  */
 public class ListViewEx extends ListView {
+    private static final String TAG = "noahedu.ListViewEx";
+
     private int lastXIntercepted, lastYIntercepted;
     private HorizontalEx2 mHorizontalEx2;
 
@@ -41,17 +45,18 @@ public class ListViewEx extends ListView {
      */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.v(TAG, "dispatchTouchEvent, action = " + (ev.getAction() == MotionEvent.ACTION_DOWN ? "action_down" : (ev.getAction() == MotionEvent.ACTION_MOVE ? "action_move" : "action_up")));
         int x = (int) ev.getX();
         int y = (int) ev.getY();
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                mHorizontalEx2.requestDisallowInterceptTouchEvent(true);
+                getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case MotionEvent.ACTION_MOVE:
                 final int deltaX = x - lastXIntercepted;
                 final int deltaY = y - lastYIntercepted;
                 if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                    mHorizontalEx2.requestDisallowInterceptTouchEvent(false);
+                    getParent().requestDisallowInterceptTouchEvent(false);
                 }
                 break;
             case MotionEvent.ACTION_UP:

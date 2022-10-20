@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
 MERGED from [com.android.databinding:adapters:3.4.2] D:\.gradle\caches\transforms-2\files-2.1\b0b03ec2773176953aa1c501fc113be0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.databinding:library:3.4.2] D:\.gradle\caches\transforms-2\files-2.1\ef20a4232eba874b2805980f9eb11836\AndroidManifest.xml:17:1-24:12
 MERGED from [:module-home] D:\workspace_android\my_project\my_sdk\module-home\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-25:12
@@ -43,20 +43,20 @@ MERGED from [com.squareup.leakcanary:leakcanary-analyzer:1.6.1] D:\.gradle\cache
 MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\transforms-2\files-2.1\6cc3c272ebc4ec48337c5a4dec74a416\AndroidManifest.xml:2:1-17:12
 MERGED from [org.simple:androideventbus:1.0.5.1] D:\.gradle\caches\transforms-2\files-2.1\6d61c94633e594548d36a09fa9d13946\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:multidex:1.0.1] D:\.gradle\caches\transforms-2\files-2.1\5f1eb0e8adb8c5757a29a792e6395bf9\AndroidManifest.xml:16:1-19:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
 	package
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-87:12
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:1-89:12
 		INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:2:11-69
@@ -91,7 +91,7 @@ MERGED from [com.github.markzhai:blockcanary-analyzer:1.5.0] D:\.gradle\caches\t
 	android:name
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:13:5-86:19
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:13:5-88:19
 MERGED from [:module-home] D:\workspace_android\my_project\my_sdk\module-home\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
 MERGED from [:module-home] D:\workspace_android\my_project\my_sdk\module-home\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-23:19
 MERGED from [:module-other] D:\workspace_android\my_project\my_sdk\module-other\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-28:19
@@ -314,36 +314,44 @@ activity#com.ztq.sdk.activity.SlideConflictActivity
 ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:68:9-68
 	android:name
 		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:68:19-65
+activity#com.ztq.sdk.activity.EventExmaplesActivity
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:69:9-68
+	android:name
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:69:19-65
+activity#com.ztq.sdk.activity.EventExmaplesActivity2
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:70:9-69
+	android:name
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:70:19-66
 service#com.ztq.sdk.service.MessengerService
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:70:9-71:48
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:72:9-73:48
 	android:process
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:71:13-46
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:73:13-46
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:70:18-58
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:72:18-58
 provider#com.ztq.sdk.database.MyContentProvider
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:73:9-75:58
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:75:9-77:58
 	android:authorities
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:74:13-50
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:76:13-50
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:75:13-55
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:77:13-55
 meta-data#design_width_in_dp
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:76:9-78:34
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:78:9-80:34
 	android:value
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:78:13-32
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:80:13-32
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:77:13-46
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:79:13-46
 meta-data#design_height_in_dp
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:79:9-81:34
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:81:9-83:34
 	android:value
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:81:13-32
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:83:13-32
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:80:13-47
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:82:13-47
 meta-data#com.ztq.sdk.glide_test.MyGlideModule
-ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:83:9-85:42
+ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:85:9-87:42
 	android:value
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:85:13-40
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:87:13-40
 	android:name
-		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:84:13-64
+		ADDED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml:86:13-64
 uses-sdk
 INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\workspace_android\my_project\my_sdk\app\src\main\AndroidManifest.xml

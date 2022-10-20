@@ -9,12 +9,16 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
+import com.ztq.sdk.log.Log;
+
 /**
  * Created by blueberry on 2016/6/20.
  * 内部拦截
  * 和 ListViewEx配合使用
  */
 public class HorizontalEx2 extends ViewGroup {
+    private static final String TAG = "noahedu.HorizontalEx2";
+
     private int lastX, lastY;
     private int childIndex;
     private Scroller mScroller;
@@ -84,6 +88,7 @@ public class HorizontalEx2 extends ViewGroup {
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        Log.v(TAG, "onInterceptTouchEvent, action = " + (ev.getAction() == MotionEvent.ACTION_DOWN ? "action_down" : (ev.getAction() == MotionEvent.ACTION_MOVE ? "action_move" : "action_up")));
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             if (!mScroller.isFinished()) {
                 mScroller.abortAnimation();
