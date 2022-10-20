@@ -1422,6 +1422,12 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id slide_conflict_1_btn
+id slide_conflict_2_btn
+id slide_conflict_3_btn
+id slide_conflict_4_btn
+id slide_conflict_btn
+id slide_conflict_rl
 id slide_view
 id smallLabel
 id snackbar_action
@@ -1565,6 +1571,7 @@ layout activity_result_client
 layout activity_result_server
 layout activity_retrofit
 layout activity_scanner
+layout activity_slide_conflict
 layout activity_timeline
 layout activity_webview
 layout activity_xrecyclerview
