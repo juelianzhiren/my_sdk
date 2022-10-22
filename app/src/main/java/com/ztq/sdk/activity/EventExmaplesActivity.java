@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.ztq.sdk.R;
+import com.ztq.sdk.widget.ListViewWithLog;
 
 public class EventExmaplesActivity extends BaseActivity {
 
@@ -22,7 +23,7 @@ public class EventExmaplesActivity extends BaseActivity {
 
     private void showList() {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(EventExmaplesActivity.this, android.R.layout.simple_list_item_1, data);
-        ListView listView = findViewById(R.id.demo_lv);
+        ListViewWithLog listView = findViewById(R.id.demo_lv);
         listView.setAdapter(adapter);
     }
 }

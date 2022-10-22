@@ -12,7 +12,7 @@ public class EventExmaplesActivity2 extends BaseActivity {
     private String[] data = {"Apple", "Banana", "Orange", "Watermelon",
             "Pear", "Grape", "Pineapple", "Strawberry", "Cherry", "Mango",
             "Apple", "Banana", "Orange", "Watermelon",
-            "Pear", "Grape", "Pineapple", "Strawberry", "Cherry", "Mango"};
+            "Pear", "Grape", "Pineapple", "Strawberry", "Cherry", "Mango", "bee", "Moasd"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +25,6 @@ public class EventExmaplesActivity2 extends BaseActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(EventExmaplesActivity2.this, android.R.layout.simple_list_item_1, data);
         CustomListView listView = findViewById(R.id.demo_lv2);
         listView.setAdapter(adapter);
+//        listView.setFocusable(false);
     }
 }

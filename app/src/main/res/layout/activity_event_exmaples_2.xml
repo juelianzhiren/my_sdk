@@ -25,7 +25,7 @@
             <com.ztq.sdk.widget.CustomListView
                 android:id="@+id/demo_lv2"
                 android:layout_width="match_parent"
-                android:layout_height="600dp" />
+                android:layout_height="1000dp" />
 
             <TextView
                 android:layout_width="match_parent"

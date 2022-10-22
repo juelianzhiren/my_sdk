@@ -19,13 +19,12 @@ public class CustomListView extends ListView {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        boolean flag = super.dispatchTouchEvent(ev);
         int action = ev.getAction();
-        Log.v(TAG, "dispatchTouchEvent, action = " + (ev.getAction() == MotionEvent.ACTION_DOWN ? "action_down" : (ev.getAction() == MotionEvent.ACTION_MOVE ? "action_move" : "action_up")));
+        Log.v(TAG, "dispatchTouchEvent, action = " + (ev.getAction() == MotionEvent.ACTION_DOWN ? "action_down" : (ev.getAction() == MotionEvent.ACTION_MOVE ? "action_move" : "action_up")) + "; getParent = " + getParent().getParent());
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 //不允许上层的ScrollView拦截事件.
-                getParent().requestDisallowInterceptTouchEvent(true);
+                getParent().getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case MotionEvent.ACTION_MOVE:
                 //满足listView滑动到顶部，如果继续下滑，那就允许scrollView拦截事件
@@ -33,16 +32,16 @@ public class CustomListView extends ListView {
                 if (getFirstVisiblePosition() == 0 && (ev.getY() - mLastY) > 0) {
                     //允许ScrollView拦截事件
                     Log.v(TAG, "move requestDisallowInterceptTouchEvent first");
-                    getParent().requestDisallowInterceptTouchEvent(false);
+                    getParent().getParent().requestDisallowInterceptTouchEvent(false);
                 }
                 //满足listView滑动到底部，如果继续上滑，允许scrollView拦截事件
                 else if (getLastVisiblePosition() == getCount() - 1 && (ev.getY() - mLastY) < 0) {
                     //允许ScrollView拦截事件
                     Log.v(TAG, "move requestDisallowInterceptTouchEvent last");
-                    getParent().requestDisallowInterceptTouchEvent(false);
+                    getParent().getParent().requestDisallowInterceptTouchEvent(false);
                 } else {
                     //其它情形时不允ScrollView拦截事件
-                    getParent().requestDisallowInterceptTouchEvent(true);
+                    getParent().getParent().requestDisallowInterceptTouchEvent(true);
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -50,6 +49,6 @@ public class CustomListView extends ListView {
         }
 
         mLastY = ev.getY();
-        return flag;
+        return super.dispatchTouchEvent(ev);
     }
 }

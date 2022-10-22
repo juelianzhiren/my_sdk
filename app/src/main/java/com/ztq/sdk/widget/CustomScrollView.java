@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
+import com.ztq.sdk.log.Log;
+
 public class CustomScrollView extends ScrollView {
+    private static final String TAG = "noahedu.CustomScrollView";
     ListView listView;
     private float mLastY;
 
@@ -17,6 +20,7 @@ public class CustomScrollView extends ScrollView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        Log.v(TAG, "onInterceptTouchEvent, action = " + (ev.getAction() == MotionEvent.ACTION_DOWN ? "action_down" : (ev.getAction() == MotionEvent.ACTION_MOVE ? "action_move" : "action_up")));
         super.onInterceptTouchEvent(ev);
         boolean intercept = false;
         switch (ev.getAction()) {
