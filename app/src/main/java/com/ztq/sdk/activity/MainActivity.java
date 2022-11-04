@@ -1,5 +1,6 @@
 package com.ztq.sdk.activity;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -222,6 +223,11 @@ public class MainActivity extends BaseActivity {
         com.ztq.sdk.data_structure_and_algorithm.Utils.getNumberOfK(b, 210);
 
         com.ztq.sdk.data_structure_and_algorithm.Utils.getLastRemaining(5,1);
+
+        ActivityManager manager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+        int heapSize = manager.getMemoryClass();
+        int maxHeapSize = manager.getLargeMemoryClass();  // manafest.xml   android:largeHeap="true"
+        Log.v(TAG, "heapSize = " + heapSize + "; maxHeapSize = " + maxHeapSize);
 
         addListener();
     }
