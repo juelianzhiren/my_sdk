@@ -1,2 +1,3 @@
+include ':kotlinapp'
 include ':app', ':asm_lifecycle_plugin', ':targetsdk26_demo', ':lib-base', ':module-home', ':module-other', ':module-store', 'xrecyclerview'
 include ':lib_scanner'
