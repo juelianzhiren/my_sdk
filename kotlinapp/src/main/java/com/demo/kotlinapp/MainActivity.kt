@@ -40,6 +40,15 @@ class MainActivity : AppCompatActivity() {
 
         val flag = false
         println("Answer is : ${if (flag) "我可以" else "对不起"}")
+
+        val age = 4;
+        if(age in 0..3) {
+            println("婴幼儿")
+        } else if (age in 3..12) {
+            println("少儿")
+        } else {
+            println("其它")
+        }
     }
 
     companion object Static {
