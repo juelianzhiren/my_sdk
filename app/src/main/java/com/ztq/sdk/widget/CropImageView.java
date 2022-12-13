@@ -15,7 +15,7 @@ import android.view.MotionEvent;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
-import com.noahedu.core_front_auto_tp.R;
+import com.ztq.sdk.R;
 
 /**
  * 简易的裁剪ImageView (使用autosize会影响到CropImageView的显示，所以尽量别用)
