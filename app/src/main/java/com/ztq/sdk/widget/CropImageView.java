@@ -15,10 +15,10 @@ import android.view.MotionEvent;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
-import com.ztq.sdk.R;
+import com.noahedu.core_front_auto_tp.R;
 
 /**
- * 简易的裁剪ImageView  使用autosize会影响到CropImageView的显示，所以尽量别用
+ * 简易的裁剪ImageView (使用autosize会影响到CropImageView的显示，所以尽量别用)
  */
 public class CropImageView extends ImageView {
     private static final String TAG = "noahedu.CropImageView";
@@ -64,8 +64,15 @@ public class CropImageView extends ImageView {
     private boolean mIsShowGridLine;
     private Paint mLinePaint;
     private boolean mContainTranslucentBackground = true;
-    /**旋转的角度*/
+    /**
+     * 旋转的角度
+     */
     private float mRotateDegree;
+    private int mWidth;
+    private int mHeight;
+    private Bitmap mBitmap;
+
+    private double mRadioInFitCenter = 1.0f;
 
     public CropImageView(Context context) {
         this(context, null);
@@ -104,28 +111,65 @@ public class CropImageView extends ImageView {
         initPaint();
     }
 
+    public void setDefaultCropSize(int mDefaultCropWidth, int mDefaultCropHeight) {
+        this.mDefaultCropWidth = mDefaultCropWidth;
+        this.mDefaultCropHeight = mDefaultCropHeight;
+        invalidate();
+    }
+
+    public void setCornerStrokeWidth(int mCornerStrokeWidth) {
+        this.mCornerStrokeWidth = mCornerStrokeWidth;
+    }
+
+    public void setCornerWidth(int mCornerWidth) {
+        this.mCornerWidth = mCornerWidth;
+    }
+
+    public void setIsShowGridLine(boolean mIsShowGridLine) {
+        this.mIsShowGridLine = mIsShowGridLine;
+    }
+
     public void continueRotateDegree(float rotateDegree) {
         mRotateDegree += rotateDegree;
+        Matrix matrix = new Matrix();
+        matrix.postRotate(rotateDegree);
+        mBitmap = Bitmap.createBitmap(mBitmap, 0, 0, mBitmap.getWidth(), mBitmap.getHeight(), matrix, true);
+        setImageBitmap(mBitmap);
+        invalidate();
     }
 
     private void addListener() {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                int width = getWidth();
-                int height = getHeight();
+                mWidth = getWidthInFact();
+                mHeight = getHeightInFact();
                 int measureWidth = getMeasuredWidth();
                 int measureHeight = getMeasuredHeight();
-                Log.v(TAG, "width = " + width + "; height = " + height + "; measureWidth = " + measureWidth + "; measureHeight = " + measureHeight);
-                if (mDefaultCropWidth > width) {
-                    mDefaultCropWidth = width;
+                BitmapDrawable drawable = (BitmapDrawable) getDrawable();
+                Log.v(TAG, "width = " + getWidth() + "; height = " + getHeight() + "; measureWidth = " + measureWidth + "; measureHeight = " + measureHeight + "; widthInFact = " + mWidth + "; heightInFact = " + mHeight);
+                if (drawable != null) {
+                    Bitmap bitmap = drawable.getBitmap();
+                    if (bitmap != null) {
+                        Log.v(TAG, "; bitmap width = " + bitmap.getWidth() + "; height = " + bitmap.getHeight());
+                    }
                 }
-                if (mDefaultCropHeight > height) {
-                    mDefaultCropHeight = height;
+
+                if (mDefaultCropWidth == 0) {
+                    mDefaultCropWidth = (int)mContext.getResources().getDimension(R.dimen.default_crop_width);
                 }
-                mRect.left = (width - mDefaultCropWidth) / 2;
+                if (mDefaultCropHeight == 0) {
+                    mDefaultCropHeight = (int)mContext.getResources().getDimension(R.dimen.default_crop_height);
+                }
+                if (mDefaultCropWidth > mWidth) {
+                    mDefaultCropWidth = mWidth;
+                }
+                if (mDefaultCropHeight > mHeight) {
+                    mDefaultCropHeight = mHeight;
+                }
+                mRect.left = (mWidth - mDefaultCropWidth) / 2 + (getWidth() - getWidthInFact()) / 2;
                 mRect.right = mRect.left + mDefaultCropWidth;
-                mRect.top = (height - mDefaultCropHeight) / 2;
+                mRect.top = (mHeight - mDefaultCropHeight) / 2 + (getHeight() - getHeightInFact()) / 2;
                 mRect.bottom = mRect.top + mDefaultCropHeight;
                 invalidate();
                 getViewTreeObserver().removeOnGlobalLayoutListener(this);
@@ -142,15 +186,15 @@ public class CropImageView extends ImageView {
         mRectPaint = new Paint();
         mRectPaint.setStrokeWidth(mRectStrokeWidth);
         mRectPaint.setStyle(Paint.Style.STROKE);
-        mRectPaint.setColor(mContext.getResources().getColor(R.color.ivory));
+        mRectPaint.setColor(0xff898bf8);
 
         mCornerPaint = new Paint();
         mCornerPaint.setStyle(Paint.Style.FILL);
-        mCornerPaint.setColor(mContext.getResources().getColor(R.color.white));
+        mCornerPaint.setColor(0xff898bf8);
 
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setStyle(Paint.Style.FILL);
-        mBackgroundPaint.setColor(mContext.getResources().getColor(R.color.translucent_black_95));
+        mBackgroundPaint.setColor(mContext.getResources().getColor(R.color.translucent_black_80));
     }
 
     public void setContainTranslucentBackground(boolean mContainTranslucentBackground) {
@@ -165,12 +209,19 @@ public class CropImageView extends ImageView {
         if (mRect.left >= mRect.right || mRect.top >= mRect.bottom) {
             return;
         }
-        drawGridLine(canvas);
+//        drawGridLine(canvas);
         if (mContainTranslucentBackground) {
             drawTranslucentBackground(canvas);
         }
         drawRect(canvas);
         drawFourCorner(canvas);
+
+        try {
+            Drawable drawable = getDrawable();
+            mBitmap = ((BitmapDrawable) drawable).getBitmap();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void drawGridLine(Canvas canvas) {
@@ -178,8 +229,8 @@ public class CropImageView extends ImageView {
             return;
         }
         int size = 3;
-        int width = getWidth();
-        int height = getHeight();
+        int width = getWidthInFact();
+        int height = getHeightInFact();
         int distanceH = width / size;
         int distanceV = height / size;
         for (int i = 1; i < size; i++) {
@@ -195,34 +246,97 @@ public class CropImageView extends ImageView {
         Rect rightRect = new Rect();
         Rect topRect = new Rect();
         Rect bottomRect = new Rect();
-        if (mRect.left > 0) {
-            leftRect.left = 0;
+        if (mRect.left > (getWidth() - getWidthInFact()) / 2) {
+            leftRect.left = (getWidth() - getWidthInFact()) / 2;
             leftRect.right = mRect.left;
-            leftRect.top = 0;
-            leftRect.bottom = getHeight();
+            leftRect.top = (getHeight() - getHeightInFact()) / 2;
+            leftRect.bottom = (getHeight() + getHeightInFact()) / 2;
             canvas.drawRect(leftRect, mBackgroundPaint);
         }
-        if (mRect.right < getWidth()) {
+        if (mRect.right < (getWidth() + getWidthInFact()) / 2) {
             rightRect.left = mRect.right;
-            rightRect.right = getWidth();
-            rightRect.top = 0;
-            rightRect.bottom = getHeight();
+            rightRect.right = (getWidth() + getWidthInFact()) / 2;
+            rightRect.top = (getHeight() - getHeightInFact()) / 2;
+            rightRect.bottom = (getHeight() + getHeightInFact()) / 2;
             canvas.drawRect(rightRect, mBackgroundPaint);
         }
-        if (mRect.top > 0) {
+        if (mRect.top > (getHeight() - getHeightInFact()) / 2) {
             topRect.left = mRect.left;
             topRect.right = mRect.right;
-            topRect.top = 0;
+            topRect.top = (getHeight() - getHeightInFact()) / 2;
             topRect.bottom = mRect.top;
             canvas.drawRect(topRect, mBackgroundPaint);
         }
-        if (mRect.bottom < getHeight()) {
+        if (mRect.bottom < (getHeight() + getHeightInFact()) / 2) {
             bottomRect.left = mRect.left;
             bottomRect.right = mRect.right;
             bottomRect.top = mRect.bottom;
-            bottomRect.bottom = getHeight();
+            bottomRect.bottom = (getHeight() + getHeightInFact()) / 2;
             canvas.drawRect(bottomRect, mBackgroundPaint);
         }
+    }
+
+    private double getRadio() {
+        BitmapDrawable drawable = (BitmapDrawable) getDrawable();
+        double radio = 1.0;
+        if (drawable != null) {
+            Bitmap bitmap = drawable.getBitmap();
+            if (bitmap != null) {
+                int bitmapWidth = bitmap.getWidth();
+                int bitmapHeight = bitmap.getHeight();
+                int width = getWidth();
+                int height = getHeight();
+                if ((double)width / bitmapWidth > (double) height / bitmapHeight) {
+                    radio = (double)height / bitmapHeight;
+                } else {
+                    radio = (double) width / bitmapWidth;
+                }
+            }
+        }
+        return radio;
+    }
+
+    /**
+     * 获取实际上的宽度
+     * @return
+     */
+    private int getWidthInFact() {
+        if (getScaleType() == ScaleType.FIT_CENTER) {   // 对fitCenter特殊处理
+            mRadioInFitCenter = getRadio();
+            BitmapDrawable drawable = (BitmapDrawable) getDrawable();
+            if (drawable != null) {
+                Bitmap bitmap = drawable.getBitmap();
+                if (bitmap != null) {
+                    int width = (int)(mRadioInFitCenter * bitmap.getWidth());
+                    if (width >= getWidth()) {
+                        return getWidth();
+                    }
+                    return width;
+                }
+            }
+        }
+        return getWidth();
+    }
+
+    /**
+     * 获取实际上的高度
+     */
+    private int getHeightInFact() {
+        if (getScaleType() == ScaleType.FIT_CENTER) {   // 对fitCenter特殊处理
+            mRadioInFitCenter = getRadio();
+            BitmapDrawable drawable = (BitmapDrawable) getDrawable();
+            if (drawable != null) {
+                Bitmap bitmap = drawable.getBitmap();
+                if (bitmap != null) {
+                    int height = (int)(mRadioInFitCenter * bitmap.getHeight());
+                    if (height >= getHeight()) {
+                        return getHeight();
+                    }
+                    return height;
+                }
+            }
+        }
+        return getHeight();
     }
 
     private void drawRect(Canvas canvas) {
@@ -242,7 +356,6 @@ public class CropImageView extends ImageView {
         top = mRect.top - mCornerStrokeWidth / 2;
         bottom = top + mCornerStrokeWidth;
         Rect rect = new Rect(left, top, right, bottom);
-        Log.v(TAG, "draw rect11, " + rect);
         canvas.drawRect(rect, mCornerPaint);
         right = left + mCornerStrokeWidth;
         bottom = top + mCornerWidth;
@@ -251,7 +364,6 @@ public class CropImageView extends ImageView {
         }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect12, " + rect);
 
         right = mRect.right + mCornerStrokeWidth / 2;
         left = right - mCornerWidth;
@@ -262,7 +374,6 @@ public class CropImageView extends ImageView {
         bottom = top + mCornerStrokeWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect21, " + rect);
         left = mRect.right - mCornerStrokeWidth / 2;
         bottom = top + mCornerWidth;
         if (bottom >= mRect.bottom + mCornerStrokeWidth / 2) {
@@ -270,7 +381,6 @@ public class CropImageView extends ImageView {
         }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect22, " + rect);
 
         left = mRect.left - mCornerStrokeWidth / 2;
         right = left + mCornerWidth;
@@ -281,7 +391,6 @@ public class CropImageView extends ImageView {
         bottom = top + mCornerStrokeWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect31, " + rect);
         right = left + mCornerStrokeWidth;
         top = bottom - mCornerWidth;
         if (top <= mRect.top - mCornerStrokeWidth / 2) {
@@ -289,7 +398,6 @@ public class CropImageView extends ImageView {
         }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect32, " + rect);
 
         right = mRect.right + mCornerStrokeWidth / 2;
         left = right - mCornerWidth;
@@ -300,7 +408,6 @@ public class CropImageView extends ImageView {
         bottom = top + mCornerStrokeWidth;
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect41, " + rect);
         left = mRect.right - mCornerStrokeWidth / 2;
         top = bottom - mCornerWidth;
         if (top <= mRect.top - mCornerStrokeWidth / 2) {
@@ -308,7 +415,6 @@ public class CropImageView extends ImageView {
         }
         rect = new Rect(left, top, right, bottom);
         canvas.drawRect(rect, mCornerPaint);
-        Log.v(TAG, "draw rect42, " + rect);
     }
 
     private int getCropWidth() {
@@ -354,22 +460,28 @@ public class CropImageView extends ImageView {
         ScaleType scaleType = getScaleType();
         if (scaleType == ScaleType.CENTER) {
 
-        } else if (scaleType == ScaleType.CENTER_CROP){
+        } else if (scaleType == ScaleType.CENTER_CROP) {
 
         } else if (scaleType == ScaleType.CENTER_INSIDE) {
 
-        } else if (scaleType == ScaleType.FIT_CENTER){
+        } else if (scaleType == ScaleType.FIT_CENTER) {
 
-        } else if (scaleType == ScaleType.FIT_START){
+        } else if (scaleType == ScaleType.FIT_START) {
 
         } else if (scaleType == ScaleType.FIT_END) {
 
         } else if (scaleType == ScaleType.FIT_XY) {
-            scaleX = getWidth() / (float)bitmapWidth;
-            scaleY = getHeight() / (float)bitmapHeight;
+            scaleX = getWidth() / (float) bitmapWidth;
+            scaleY = getHeight() / (float) bitmapHeight;
         }
         float cropX = (bitmapLeft + mRect.left) / scaleX;
         float cropY = (bitmapTop + mRect.top) / scaleY;
+        if (getScaleType() == ScaleType.FIT_CENTER) {
+            scaleX = (float) getRadio();
+            scaleY = (float) getRadio();
+            cropX = (mRect.left - (getWidth() - getWidthInFact()) / 2) / scaleX;
+            cropY = (mRect.top - (getHeight() - getHeightInFact()) / 2) /scaleY;
+        }
 
         float width = getCropWidth() / scaleX;
         float height = getCropHeight() / scaleY;
@@ -387,8 +499,8 @@ public class CropImageView extends ImageView {
         }
         Log.v(TAG, "createBitmap, cropX = " + cropX + "; cropY = " + cropY + "; width = " + width + "; height = " + height);
         Matrix matrix = new Matrix();
-        matrix.setRotate(mRotateDegree);
-        return Bitmap.createBitmap(originalBitmap, (int)cropX, (int)cropY, (int) width, (int)height, matrix, false);
+//        matrix.setRotate(mRotateDegree);
+        return Bitmap.createBitmap(originalBitmap, (int) cropX, (int) cropY, (int) width, (int) height, matrix, false);
     }
 
     @Override
@@ -401,7 +513,7 @@ public class CropImageView extends ImageView {
         if (action == MotionEvent.ACTION_DOWN) {
             judgeLocation(x, y);
         } else if (action == MotionEvent.ACTION_MOVE) {
-            if (x < 0 || y < 0 || x > getWidth() || y > getHeight()) {
+            if (x < (getWidth() - getWidthInFact()) / 2 || y <  (getHeight() - getHeightInFact()) / 2 || x > (getWidth() + getWidthInFact()) / 2 || y > (getHeight() + getHeightInFact()) / 2) {
                 return true;
             }
             if (mIsNearbyCorner) {
@@ -413,7 +525,7 @@ public class CropImageView extends ImageView {
                     mRect.top = (int) y;
                     invalidate();
                 } else if (mNearByCornerIndex == CORNER_INDEX_RIGHT_TOP) {
-                    if (x - mRect.right <= mRectStrokeWidth || mRect.bottom - y <= mRectStrokeWidth) {
+                    if (x - mRect.left <= mRectStrokeWidth || mRect.bottom - y <= mRectStrokeWidth) {
                         return true;
                     }
                     mRect.right = (int) x;
@@ -439,24 +551,24 @@ public class CropImageView extends ImageView {
             if (mIsInsideRect) {
                 float distanceX = x - mLastTouchX;
                 float distanceY = y - mLastTouchY;
-                if (mRect.left + distanceX <= 0) {
-                    mRect.left = 0;
+                if (mRect.left + distanceX <= (getWidth() - getWidthInFact()) / 2) {
+                    mRect.left = (getWidth() - getWidthInFact()) / 2;
                     mRect.right += distanceX;
                     mRect.top += distanceY;
                     mRect.bottom += distanceY;
                     Log.v(TAG, "mRect = " + mRect);
-                } else if (mRect.right + distanceX >= getWidth()) {
-                    mRect.right = getWidth();
+                } else if (mRect.right + distanceX >= (getWidth() + getWidthInFact()) / 2) {
+                    mRect.right = (getWidth() + getWidthInFact()) / 2;
                     mRect.left += distanceX;
                     mRect.top += distanceY;
                     mRect.bottom += distanceY;
-                } else if (mRect.top + distanceY <= 0) {
-                    mRect.top = 0;
+                } else if (mRect.top + distanceY <=  (getHeight() - getHeightInFact()) / 2) {
+                    mRect.top = (getHeight() - getHeightInFact()) / 2;
                     mRect.left += distanceX;
                     mRect.right += distanceX;
                     mRect.bottom += distanceY;
-                } else if (mRect.bottom + distanceY >= getHeight()) {
-                    mRect.bottom = getHeight();
+                } else if (mRect.bottom + distanceY >= (getHeight() + getHeightInFact()) / 2) {
+                    mRect.bottom = (getHeight() + getHeightInFact()) / 2;
                     mRect.left += distanceX;
                     mRect.right += distanceX;
                     mRect.top += distanceY;
