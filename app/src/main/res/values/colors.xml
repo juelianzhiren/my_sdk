@@ -38,4 +38,5 @@
     <!-- 白色 -->
     <color name="ivory">#fffff0</color>
     <color name="translucent_black_95">#a0000000</color>
+    <color name="translucent_black_80">#33000000</color>
 </resources>

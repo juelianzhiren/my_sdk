@@ -18,16 +18,19 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.support.v7.widget.RecyclerView;
 import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.LruCache;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,7 +117,7 @@ public class Utils {
         int result = 0;
         try {
             result = Integer.parseInt(str);
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;
@@ -122,6 +125,7 @@ public class Utils {
 
     /**
      * 获取到形如[02:30.10]的时间数，单位为毫秒
+     *
      * @param timeStr
      * @return
      */
@@ -133,10 +137,10 @@ public class Utils {
         int time = 0;
         String[] arr = timeStr.split(COLON);
         if (arr != null) {
-            for(int i = 0; i < arr.length; i++) {
+            for (int i = 0; i < arr.length; i++) {
                 String str = arr[i];
                 if (!TextUtils.isEmpty(str)) {
-                    time += (int)(getFloat(str) * Math.pow(MINUTE_CONTAINS_SECONDS_OR_HOUR_CONTATNS_MINUTE, arr.length - 1 - i) * 1000);
+                    time += (int) (getFloat(str) * Math.pow(MINUTE_CONTAINS_SECONDS_OR_HOUR_CONTATNS_MINUTE, arr.length - 1 - i) * 1000);
                 }
             }
         }
@@ -197,7 +201,7 @@ public class Utils {
         });
     }
 
-    public static void writeExceptionToFile(final String path, final Throwable throwable){
+    public static void writeExceptionToFile(final String path, final Throwable throwable) {
         MyHandlerThread.postToWorker1(new Runnable() {
             @Override
             public void run() {
@@ -231,7 +235,7 @@ public class Utils {
         final View view = inflater.inflate(R.layout.toast, null);
         final TextView text = (TextView) view.findViewById(R.id.toast_msg_tv);
         text.setText(msg);
-        if(mToast == null) {
+        if (mToast == null) {
             mToast = new Toast(context);
             mToast.setDuration(Toast.LENGTH_LONG);
             mToast.setGravity(Gravity.CENTER, 0, -100);
@@ -258,7 +262,7 @@ public class Utils {
         final View view = inflater.inflate(R.layout.toast, null);
         final TextView text = (TextView) view.findViewById(R.id.toast_msg_tv);
         text.setText(resId);
-        if(mToast == null) {
+        if (mToast == null) {
             mToast = new Toast(context);
             mToast.setDuration(Toast.LENGTH_LONG);
             mToast.setGravity(Gravity.CENTER, 0, -100);
@@ -287,6 +291,7 @@ public class Utils {
 
     /**
      * 将100000ms转化成00:10的形式
+     *
      * @param millisecs
      * @return
      */
@@ -294,7 +299,7 @@ public class Utils {
         if (millisecs <= 0) {
             return "00:00";
         }
-        int seconds = (int)millisecs / 1000;
+        int seconds = (int) millisecs / 1000;
         int minutes = 0;
         int hours = 0;
         if (seconds < 60) {
@@ -323,6 +328,7 @@ public class Utils {
 
     /**
      * 在dir的文件下新建.nomedia文件，用来屏蔽媒体软件扫描
+     *
      * @param dirStr
      */
     public static void createNomediaFile(String dirStr) {
@@ -340,7 +346,7 @@ public class Utils {
         if (!file.exists()) {
             try {
                 file.createNewFile();
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -348,11 +354,12 @@ public class Utils {
 
     /**
      * 压缩单个文件
+     *
      * @param srcFile
      * @param targetFile
      */
-    public static boolean zipFile(File srcFile, File targetFile){
-        if(srcFile == null || targetFile == null || !srcFile.exists()){
+    public static boolean zipFile(File srcFile, File targetFile) {
+        if (srcFile == null || targetFile == null || !srcFile.exists()) {
             return false;
         }
         ZipOutputStream out = null;
@@ -370,10 +377,10 @@ public class Utils {
             out.close();
             in.close();
             return true;
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return false;
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -381,9 +388,10 @@ public class Utils {
 
     /**
      * 获取当前时区与0时区（格林威治时间）的时间偏差（以秒为单位），例如，当前时区为东8区，那结果为8*60*60即28800秒
+     *
      * @return
      */
-    public static long getTimeZoneOffset(){
+    public static long getTimeZoneOffset() {
         Date date = new Date();
         int offset = date.getTimezoneOffset();   // 这个方法得到的是分钟数
         return -offset * 60;
@@ -395,13 +403,12 @@ public class Utils {
      * @param videoPath
      * @param width
      * @param height
-     * @param kind
-     *            参照MediaStore.Images.Thumbnails类中的常量MINI_KIND和MICRO_KIND。 其中，MINI_KIND: 512 x 384，MICRO_KIND: 96 x 96
+     * @param kind      参照MediaStore.Images.Thumbnails类中的常量MINI_KIND和MICRO_KIND。 其中，MINI_KIND: 512 x 384，MICRO_KIND: 96 x 96
      * @param filePath
      * @return boolean
      */
     public static boolean transformVideoThumbnail2File(String videoPath, int width, int height, int kind, String filePath) {
-        if(isNullOrNil(videoPath) || width <= 0 || height <= 0 || isNullOrNil(filePath) || !(new File(videoPath).exists())){
+        if (isNullOrNil(videoPath) || width <= 0 || height <= 0 || isNullOrNil(filePath) || !(new File(videoPath).exists())) {
             return false;
         }
         Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(videoPath, kind);
@@ -431,11 +438,12 @@ public class Utils {
 
     /**
      * 获取本地图片的bitmap
+     *
      * @param path
      * @return
      */
     public static Bitmap getLoacalBitmap(String path) {
-        if(isNullOrNil(path)){
+        if (isNullOrNil(path)) {
             return null;
         }
         try {
@@ -458,7 +466,7 @@ public class Utils {
         }
         Drawable drawable = context.getResources().getDrawable(resId);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        tv.setCompoundDrawables(drawable,null,null,null);
+        tv.setCompoundDrawables(drawable, null, null, null);
     }
 
     public static void setDrawableRight(Context context, TextView tv, int resId) {
@@ -467,7 +475,7 @@ public class Utils {
         }
         Drawable drawable = context.getResources().getDrawable(resId);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        tv.setCompoundDrawables(null,null,drawable,null);
+        tv.setCompoundDrawables(null, null, drawable, null);
     }
 
     public static void setDrawableTop(Context context, TextView tv, int resId) {
@@ -476,7 +484,7 @@ public class Utils {
         }
         Drawable drawable = context.getResources().getDrawable(resId);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        tv.setCompoundDrawables(null,drawable,null,null);
+        tv.setCompoundDrawables(null, drawable, null, null);
     }
 
     public static void setDrawableBottom(Context context, TextView tv, int resId) {
@@ -485,11 +493,12 @@ public class Utils {
         }
         Drawable drawable = context.getResources().getDrawable(resId);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        tv.setCompoundDrawables(null,null,null,drawable);
+        tv.setCompoundDrawables(null, null, null, drawable);
     }
 
     /**
      * 获取进程名称
+     *
      * @param context
      * @return
      */
@@ -514,10 +523,11 @@ public class Utils {
 
     /**
      * 使view控件获取焦点
+     *
      * @param view
      */
-    public static void requestFocus(View view){
-        if(view == null){
+    public static void requestFocus(View view) {
+        if (view == null) {
             return;
         }
         view.setFocusable(true);
@@ -528,7 +538,7 @@ public class Utils {
 
     /**
      * scrollview嵌套listView，计算listView高高度
-     * */
+     */
 
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
@@ -558,14 +568,14 @@ public class Utils {
         if (context == null) {
             return -1;
         }
-        return (int)(getDensity(context) * dpValue + 0.5);
+        return (int) (getDensity(context) * dpValue + 0.5);
     }
 
-    public static int px2dp(Context context,int pxValue) {
+    public static int px2dp(Context context, int pxValue) {
         if (context == null) {
             return -1;
         }
-        return (int)((pxValue - 0.5) / getDensity(context));
+        return (int) ((pxValue - 0.5) / getDensity(context));
     }
 
     public static String getVersionName(Context context) {
@@ -574,7 +584,7 @@ public class Utils {
         }
         String versionName = "";
         try {
-            PackageInfo pi = context.getPackageManager().getPackageInfo(context.getPackageName(),0);
+            PackageInfo pi = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             versionName = pi.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -596,10 +606,11 @@ public class Utils {
 
     /**
      * 通过反射获取通知的开关状态
+     *
      * @param context
      * @return
      */
-    public static boolean isNotificationEnabled(Context context){
+    public static boolean isNotificationEnabled(Context context) {
         if (context == null) {
             return false;
         }
@@ -613,8 +624,8 @@ public class Utils {
                 appOpsClass = Class.forName(AppOpsManager.class.getName());
                 Method checkOpNoThrowMethod = appOpsClass.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class);
                 Field opPostNotificationValue = appOpsClass.getDeclaredField("OP_POST_NOTIFICATION");
-                int value = (int)opPostNotificationValue.get(Integer.class);
-                return ((int)checkOpNoThrowMethod.invoke(mAppOps,value, uid, pkg) == AppOpsManager.MODE_ALLOWED);
+                int value = (int) opPostNotificationValue.get(Integer.class);
+                return ((int) checkOpNoThrowMethod.invoke(mAppOps, value, uid, pkg) == AppOpsManager.MODE_ALLOWED);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -623,14 +634,14 @@ public class Utils {
     }
 
     // 显示某个日期的下一个月的年月信息
-    public static String getNextMonthAndYear(Date date){
+    public static String getNextMonthAndYear(Date date) {
         if (date == null) {
             return "";
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.MONTH, 1);
-        Date date0 =  calendar.getTime();
+        Date date0 = calendar.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
         String nextMonthAndYear = sdf.format(date0);
         return nextMonthAndYear;
@@ -652,7 +663,7 @@ public class Utils {
     }
 
     private static int calculateInSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
-        if (options == null || reqWidth <= 0 || reqHeight <= 0){
+        if (options == null || reqWidth <= 0 || reqHeight <= 0) {
             return -1;
         }
         final int height = options.outHeight;
@@ -667,7 +678,7 @@ public class Utils {
         }
 
         /**如果算出来的inSampleSize == 0，则直接将inSampleSize置为1，表示不用压缩*/
-        if(inSampleSize == 0){
+        if (inSampleSize == 0) {
             inSampleSize = 1;
         }
 
@@ -695,7 +706,7 @@ public class Utils {
      * 创建图片文件
      *
      * @param res
-     * @param uri  原始图片uri
+     * @param uri        原始图片uri
      * @param outputPath 转换后图片地址
      * @param reqWidth
      * @param reqHeight
@@ -733,7 +744,7 @@ public class Utils {
         if (bitmap == null) {
             return null;
         }
-        if(alpha % 360 == 0){
+        if (alpha % 360 == 0) {
             return bitmap;
         }
         int width = bitmap.getWidth();
@@ -797,8 +808,7 @@ public class Utils {
      * 创建目录
      *
      * @param context
-     * @param dirName
-     *            文件夹名称
+     * @param dirName 文件夹名称
      * @return
      */
     public static File createFileDir(Context context, String dirName) {
@@ -866,7 +876,7 @@ public class Utils {
     // 每个拼音单元长度以7个字符长度为标准,拼音居中,末尾优先
     public static String formatCenterUnit(String unit) {
         String result = unit;
-        switch(unit.length()) {
+        switch (unit.length()) {
             case 1:
                 result = "   " + result + "   ";
                 break;
@@ -922,7 +932,7 @@ public class Utils {
             char[] c = hanzi.toCharArray();
             List<String> hanziList = new ArrayList<>();
             for (int index = 0; index < c.length; index++) {
-               hanziList.add(c[index] + "");
+                hanziList.add(c[index] + "");
                 Log.v(TAG, "char " + index + "; " + c[index]);
             }
             return hanziList;
@@ -933,7 +943,7 @@ public class Utils {
 
     public static Bitmap getBitmapFromDrawableRes(Context context, int resId) {
         if (context == null || resId <= 0) {
-            return  null;
+            return null;
         }
         Resources res = context.getResources();
         Bitmap bitmap = BitmapFactory.decodeResource(res, resId);
@@ -981,8 +991,8 @@ public class Utils {
      * 判断某一 uid 的程序是否有正在运行的进程，即是否存活(有个缺点，除了桌面外，其它系统的app信息获取不到)
      * Created by cafeting on 2017/2/4.
      *
-     * @param context     上下文
-     * @param uid 已安装应用的 uid
+     * @param context 上下文
+     * @param uid     已安装应用的 uid
      * @return true 表示正在运行，false 表示没有运行
      */
     public static boolean isProcessRunning(Context context, int uid) {
@@ -992,7 +1002,7 @@ public class Utils {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningServiceInfo> runningServiceInfos = am.getRunningServices(200);
         if (runningServiceInfos.size() > 0) {
-            for (ActivityManager.RunningServiceInfo appProcess : runningServiceInfos){
+            for (ActivityManager.RunningServiceInfo appProcess : runningServiceInfos) {
                 if (uid == appProcess.uid) {
                     return true;
                 }
@@ -1019,18 +1029,19 @@ public class Utils {
 
     public static boolean isAppOrProcessRunnings(Context context, String packageName) {
         int uid = getPackageUid(context, packageName);
-        if(uid > 0){
+        if (uid > 0) {
             boolean isAppRunning = isAppRunning(context, packageName);
             boolean isProcessRunning = isProcessRunning(context, uid);
             Log.v(TAG, "isAppRunning = " + isAppRunning + "; isProcessRunning = " + isProcessRunning);
             return isAppRunning | isProcessRunning;
-        }else{
+        } else {
             return false;
         }
     }
 
     /**
      * 判断mediaPlayer是否在播放
+     *
      * @param player
      * @return
      */
@@ -1048,7 +1059,7 @@ public class Utils {
 
     /**
      * 得到图片字节流 数组大小
-     * */
+     */
     public static byte[] inputStream2ByteArray(InputStream inputStream) {
         if (inputStream == null) {
             return null;
@@ -1090,7 +1101,7 @@ public class Utils {
      * 方法：检查表中某列是否存在
      *
      * @param db
-     * @param tableName 表名
+     * @param tableName  表名
      * @param columnName 列名
      * @return
      */
@@ -1099,7 +1110,7 @@ public class Utils {
         Cursor cursor = null;
 
         try {
-            cursor = db.rawQuery("select * from sqlite_master where name = ? and sql like ?", new String[] { tableName, "%" + columnName + "%" });
+            cursor = db.rawQuery("select * from sqlite_master where name = ? and sql like ?", new String[]{tableName, "%" + columnName + "%"});
             result = (null != cursor && cursor.moveToFirst());
         } catch (Exception e) {
             Log.e(TAG, "checkColumnExists exception: " + e.getMessage());
@@ -1130,7 +1141,7 @@ public class Utils {
                     final JSONObject json = new JSONObject(response);
                     if (json.has("sysTime2")) {
                         final String date = json.getString("sysTime2");
-                        long time =  dateToTimestamp(date);
+                        long time = dateToTimestamp(date);
                         if (listener != null) {
                             listener.onReceiveTime(time, obj);
                         }
@@ -1184,6 +1195,7 @@ public class Utils {
 
     /**
      * 扫描sd卡，进行更新
+     *
      * @param context
      * @param file
      */
@@ -1214,9 +1226,9 @@ public class Utils {
         }
         StringBuilder builder = new StringBuilder();
         boolean isFirst = true;
-        if(param != null && !param.isEmpty()) {
-            for(Map.Entry<String, String> entry:param.entrySet()) {
-                if(isFirst) {
+        if (param != null && !param.isEmpty()) {
+            for (Map.Entry<String, String> entry : param.entrySet()) {
+                if (isFirst) {
                     builder.append("?");
                     isFirst = false;
                 } else {
@@ -1232,6 +1244,7 @@ public class Utils {
 
     /**
      * 设置为原型图片
+     *
      * @param source
      * @return
      */
@@ -1335,6 +1348,7 @@ public class Utils {
 
     /**
      * 将bitmap保存到本地localPath路径下
+     *
      * @param bitmap
      * @param localPath
      */
@@ -1372,6 +1386,7 @@ public class Utils {
 
     /**
      * 获取私有成员变量的值
+     *
      * @param obj
      * @param filedName
      * @return
@@ -1404,7 +1419,7 @@ public class Utils {
     public static Field getFieldName(Class<?> cls, String filedName) {
         List<Field> allFieldsList = getAllFieldsList(cls);
         if (allFieldsList != null) {
-            for(int i = 0; i < allFieldsList.size(); i++) {
+            for (int i = 0; i < allFieldsList.size(); i++) {
                 Field field = allFieldsList.get(i);
                 if (field != null) {
                     if (field.getName().equals(filedName)) {
@@ -1418,6 +1433,7 @@ public class Utils {
 
     /**
      * 获取当前类和父类的所有属性
+     *
      * @param cls
      * @return
      */
@@ -1436,12 +1452,17 @@ public class Utils {
 
     public interface DownloadListener {
         void onStart(String url);
+
         void onSuccess(String url);
+
         void onFailure(String url);
+
         void onUpdate(String url, float progress);
     }
+
     private static int mProgress = 0;
     private static OkHttpClient mOkHttpClient;
+
     public static void downloadFile(final String remoteUrl, final String localPath, final DownloadListener listener) {
         if (isNullOrNil(remoteUrl) || isNullOrNil(localPath)) {
             return;
@@ -1535,6 +1556,7 @@ public class Utils {
 
     /**
      * 将webview的内容保存图片
+     *
      * @param context
      * @param webView
      * @param path
@@ -1551,7 +1573,7 @@ public class Utils {
         Canvas c = new Canvas(b);
         webView.draw(c);
         File file = new File(path);
-        if(file.exists()){
+        if (file.exists()) {
             file.delete();
         }
         FileOutputStream fos = null;
@@ -1572,6 +1594,7 @@ public class Utils {
 
     /**
      * 将webview的内容保存图片
+     *
      * @param context
      * @param webView
      * @param path
@@ -1588,7 +1611,7 @@ public class Utils {
         Canvas c = new Canvas(b);
         webView.draw(c);
         File file = new File(path);
-        if(file.exists()){
+        if (file.exists()) {
             file.delete();
         }
         FileOutputStream fos = null;
@@ -1657,6 +1680,7 @@ public class Utils {
 
     /**
      * 删除目录文件(适用于JAVASE)
+     *
      * @param dirFile
      */
     public static void deleteDir(File dirFile) {
@@ -1667,7 +1691,7 @@ public class Utils {
         if (files == null) {
             return;
         }
-        for(int i = 0; i < files.length; i++) {
+        for (int i = 0; i < files.length; i++) {
             File subFile = files[i];
             if (subFile == null) {
                 continue;
@@ -1682,10 +1706,11 @@ public class Utils {
         }
         System.out.println("正在删除目录" + dirFile.getName() + "...");
         boolean flag = dirFile.delete();
-        System.out.println("删除目录"+ dirFile.getName() + (flag ? "成功" : "失败"));
+        System.out.println("删除目录" + dirFile.getName() + (flag ? "成功" : "失败"));
     }
 
     public static final String SLASH = "/";
+
     public static String encodeUrlToUtf8(String remoteUrl) {
         if (Utils.isNullOrNil(remoteUrl)) {
             return "";
@@ -1699,7 +1724,7 @@ public class Utils {
             String result = protocol + "://" + host;
             if (!Utils.isNullOrNil(path)) {
                 String[] split = path.split(SLASH);
-                for(int i = 0; i < split.length; i++) {
+                for (int i = 0; i < split.length; i++) {
                     String s = split[i];
                     if (!Utils.isNullOrNil(s)) {
                         android.util.Log.v(TAG, "s = " + s);
@@ -1714,5 +1739,73 @@ public class Utils {
             e.printStackTrace();
         }
         return remoteUrl;
+    }
+
+    public static Bitmap getRecyclerViewBitmap(Context context, RecyclerView recyclerView) {
+        if (context == null || recyclerView == null) {
+            return null;
+        }
+        //获取设置的adapter
+        RecyclerView.Adapter adapter = recyclerView.getAdapter();
+        if (adapter == null) {
+            return null;
+        }
+        //创建保存截图的bitmap
+        Bitmap bigBitmap = null;
+        //获取item的数量
+        int size = adapter.getItemCount();
+        //recycler的完整高度 用于创建bitmap时使用
+        int height = 0;
+        //获取最大可用内存
+        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+
+        // 使用1/8的缓存
+        final int cacheSize = maxMemory / 8;
+        //把每个item的绘图缓存存储在LruCache中
+        LruCache<String, Bitmap> bitmapCache = new LruCache<>(cacheSize);
+        android.util.Log.v(TAG, "size = " + size);
+        for (int i = 0; i < size; i++) {
+            //手动调用创建和绑定ViewHolder方法，
+            RecyclerView.ViewHolder holder = adapter.createViewHolder(recyclerView, adapter.getItemViewType(i));
+            adapter.onBindViewHolder(holder, i);
+            //测量
+            holder.itemView.measure(
+                    View.MeasureSpec.makeMeasureSpec(recyclerView.getWidth(), View.MeasureSpec.EXACTLY),
+                    View.MeasureSpec.makeMeasureSpec(Utils.dp2px(context, 200), View.MeasureSpec.EXACTLY));  // 200dp是因为在Adapter中设置的每项高度都为200dp
+            //布局
+            holder.itemView.layout(0, 0, holder.itemView.getMeasuredWidth(), holder.itemView.getMeasuredHeight());
+            android.util.Log.v(TAG, "measureHeight = " + holder.itemView.getMeasuredHeight());
+            //开启绘图缓存
+            holder.itemView.setDrawingCacheEnabled(true);
+            holder.itemView.buildDrawingCache();
+            Bitmap drawingCache = holder.itemView.getDrawingCache();
+            if (drawingCache != null) {
+                bitmapCache.put(String.valueOf(i), drawingCache);
+            }
+            //获取itemView的实际高度并累加
+            height += holder.itemView.getMeasuredHeight();
+        }
+
+        android.util.Log.v(TAG, "height = " + height);
+
+        //根据计算出的recyclerView高度创建bitmap
+        bigBitmap = Bitmap.createBitmap(recyclerView.getMeasuredWidth(), height, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bigBitmap);
+        Drawable background = recyclerView.getBackground();
+        if (background instanceof ColorDrawable) {
+            ColorDrawable colorDrawable = (ColorDrawable) background;
+            int color = colorDrawable.getColor();
+            canvas.drawColor(color);
+        }
+
+        Paint paint = new Paint();
+        height = 0;
+        for (int i = 0; i < size; i++) {
+            Bitmap bitmap = bitmapCache.get(String.valueOf(i));
+            canvas.drawBitmap(bitmap, 0f, height, paint);
+            height += bitmap.getHeight();
+            bitmap.recycle();
+        }
+        return bigBitmap;
     }
 }
