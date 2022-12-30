@@ -1571,7 +1571,7 @@ public class Utils {
             //链表含多个结点，删除尾结点
         } else {
             ListNode preNode = head;
-            while (preNode.next != pToBeDeleted && preNode != null) {
+            while (preNode != null && preNode.next != pToBeDeleted) {
                 preNode = preNode.next;
             }
             if (preNode == null) {
