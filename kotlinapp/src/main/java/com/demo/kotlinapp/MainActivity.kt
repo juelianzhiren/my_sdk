@@ -49,6 +49,16 @@ class MainActivity : AppCompatActivity() {
         } else {
             println("其它")
         }
+        println(doSomething(10,name="Tom"))
+    }
+
+    private fun doSomething(name:String, age:Int = 4):String {
+        println(age.toString() + name)
+        return "result"
+    }
+
+    private fun doSomething(age:Int, name:String = "Jack") {
+        println(age.toString() + name)
     }
 
     companion object Static {
