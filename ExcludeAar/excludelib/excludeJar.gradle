@@ -1,0 +1,82 @@
+configurations {
+    exclude
+}
+
+//需要排除的包名
+def excludePackages = ['okhttp3']
+//需要排除的类(需要全类名)
+def excludeClasses = []
+
+
+def unZipJarFile = new File(buildDir, 'unzipjar')
+def excludeJarFile = new File(buildDir, "excludejar")
+def excludeJarName = "exclude_${getDefaultJar().name.replaceFirst(~/\.[^.]+$/, '')}"
+
+//1、获取到需要过滤的原始jar包
+def getDefaultJar() {
+    Configuration c = configurations.getByName("exclude")
+    def files = c.artifacts.files.filter {
+        it.name ==~ /.*\.jar/
+    }
+
+    def file = null
+    if (!files.empty) {
+        file = files[0]
+    }
+    return file
+}
+
+task deleteSDir(type: Delete) {
+    delete unZipJarFile, excludeJarFile
+    println "删除缓存目录 end"
+}
+
+//2、解压jar包（zipTree配合Task Copy）
+task unZipSJar(type: Copy) {
+    deleteSDir.doLast {
+        def zipFile = getDefaultJar()
+        def outputDir = unZipJarFile
+        from zipTree(zipFile)
+        into outputDir
+
+        println "解压jar end"
+    }
+}
+unZipSJar.dependsOn deleteSDir
+
+//3、按照过滤规则对解压的jar重新打包(Task Jar)
+task excludeJar(type: Jar) {
+    group 'ex'
+    description '生成一个排除之后的jar包'
+
+    deleteSDir.doLast {
+        baseName = excludeJarName
+        from unZipJarFile
+        destinationDir excludeJarFile
+        exclude getExcludePackageRegex(excludePackages)
+        exclude getExcludeClassRegex(excludeClasses)
+
+        println "重新打包jar end"
+        println "排除的包：" +getExcludePackageRegex(excludePackages)
+        println "排除的类：" + getExcludeClassRegex(excludeClasses)
+    }
+}
+
+excludeJar.dependsOn unZipSJar
+
+artifacts {
+    exclude excludeJar
+}
+
+
+static def getExcludePackageRegex(def packages) {
+    packages?.collect {
+        it?.replace('.', '\\')?.plus("\\**")
+    }
+}
+
+static def getExcludeClassRegex(def classes) {
+    classes?.collect {
+        it?.replace('.', '\\')?.plus(".class")
+    }
+}
