@@ -18,7 +18,7 @@
     <!--Context#getExternalFilesDir(String) Context.getExternalFilesDir(null).   -->
     <files-path
         name="images"
-        path="images" />
+        path="images/abc" />
     <!-- Context.getExternalCacheDir().  -->
     <root-path
         name="test"
