@@ -32,6 +32,7 @@ import com.ztq.sdk.widget.CircleProgressBar;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
+import java.io.File;
 import java.util.List;
 
 import io.reactivex.internal.operators.observable.ObservableNever;
@@ -466,6 +467,14 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, SlideConflictActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.jump_to_file_provider_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, FileProviderActivity.class);
                 startActivity(intent);
             }
         });
