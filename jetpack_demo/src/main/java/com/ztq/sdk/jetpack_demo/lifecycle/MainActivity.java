@@ -1,4 +1,4 @@
-package com.ztq.sdk.jetpack_demo;
+package com.ztq.sdk.jetpack_demo.lifecycle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.ztq.sdk.jetpack_demo.R;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "noahedu.MainActivity";

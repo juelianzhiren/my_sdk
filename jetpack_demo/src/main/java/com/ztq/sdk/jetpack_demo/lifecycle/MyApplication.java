@@ -1,4 +1,4 @@
-package com.ztq.sdk.jetpack_demo;
+package com.ztq.sdk.jetpack_demo.lifecycle;
 
 import android.app.Application;
 
