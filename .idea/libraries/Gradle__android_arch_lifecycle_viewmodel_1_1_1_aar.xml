@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: android.arch.lifecycle:viewmodel:1.1.1@aar">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/d9fa4f08fa252bb501d3694cee9bd90b/res" />
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/418a28cfb89a77cb89cbdbb97888ceef/res" />
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/701a39687e08e6408ddbd1a9b00edad8/res" />
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/701a39687e08e6408ddbd1a9b00edad8/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/701a39687e08e6408ddbd1a9b00edad8/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/a90adf389143479817044cc67040ce95/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/a90adf389143479817044cc67040ce95/res" />
+      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/a90adf389143479817044cc67040ce95/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

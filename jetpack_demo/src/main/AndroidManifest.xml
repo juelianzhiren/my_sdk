@@ -10,6 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_sdk">
+
+        <activity android:name=".navigation.NavigationActivity"
+            android:label="NavigationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".lifecycle.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +29,8 @@
         </activity>
 
         <service android:name=".lifecycle.MyService" />
+
+
     </application>
 
 </manifest>
