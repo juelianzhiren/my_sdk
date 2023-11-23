@@ -1,4 +1,4 @@
-package com.demo.audiovideorelated;
+package com.demo.audiovideorelated.constant;
 
 import android.media.AudioFormat;
 

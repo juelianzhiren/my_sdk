@@ -1,4 +1,4 @@
-package com.demo.audiovideorelated;
+package com.demo.audiovideorelated.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -21,6 +21,10 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.demo.audiovideorelated.R;
+import com.demo.audiovideorelated.util.FileUtils;
+import com.demo.audiovideorelated.util.PcmToWavUtil;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,14 +35,14 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.demo.audiovideorelated.GlobalConfig.AUDIO_FORMAT;
-import static com.demo.audiovideorelated.GlobalConfig.CHANNEL_CONFIG;
-import static com.demo.audiovideorelated.GlobalConfig.SAMPLE_RATE_INHZ;
+import static com.demo.audiovideorelated.constant.GlobalConfig.AUDIO_FORMAT;
+import static com.demo.audiovideorelated.constant.GlobalConfig.CHANNEL_CONFIG;
+import static com.demo.audiovideorelated.constant.GlobalConfig.SAMPLE_RATE_INHZ;
 
 public class AudioRecordActivity extends BaseActivity implements View.OnClickListener {
 
     private static final int MY_PERMISSIONS_REQUEST = 1001;
-    private static final String TAG = "jqd";
+    private static final String TAG = "noahedu.AudioRecordActivity";
 
     private Button mBtnControl;
     private Button mBtnPlay;
@@ -94,6 +98,8 @@ public class AudioRecordActivity extends BaseActivity implements View.OnClickLis
                 PcmToWavUtil pcmToWavUtil = new PcmToWavUtil(SAMPLE_RATE_INHZ, CHANNEL_CONFIG, AUDIO_FORMAT);
                 File pcmFile = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC), "test.pcm");
                 File wavFile = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC), "test.wav");
+
+                Log.v(TAG, "wavFile path = " + wavFile.getAbsolutePath());
                 if (!wavFile.mkdirs()) {
                     Log.e(TAG, "wavFile Directory not created");
                 }
@@ -176,6 +182,7 @@ public class AudioRecordActivity extends BaseActivity implements View.OnClickLis
                     try {
                         Log.i(TAG, "run: close file output stream !");
                         os.close();
+                        FileUtils.notifySystemToScan(AudioRecordActivity.this, file);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

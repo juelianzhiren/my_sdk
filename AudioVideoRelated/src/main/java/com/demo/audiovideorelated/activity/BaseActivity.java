@@ -1,4 +1,4 @@
-package com.demo.audiovideorelated;
+package com.demo.audiovideorelated.activity;
 
 import androidx.fragment.app.FragmentActivity;
 

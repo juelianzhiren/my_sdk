@@ -1,4 +1,4 @@
-package com.demo.audiovideorelated;
+package com.demo.audiovideorelated.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.demo.audiovideorelated.R;
 
 public class MainActivity extends BaseActivity {
     private static final String TAG = "noahedu.MainActivity";

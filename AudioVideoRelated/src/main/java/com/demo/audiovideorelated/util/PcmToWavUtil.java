@@ -1,8 +1,9 @@
-package com.demo.audiovideorelated;
+package com.demo.audiovideorelated.util;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -51,8 +52,9 @@ public class PcmToWavUtil {
         long byteRate = 16 * mSampleRate * channels / 8;
         byte[] data = new byte[mBufferSize];
         try {
+            File file = new File(outFilename);
             in = new FileInputStream(inFilename);
-            out = new FileOutputStream(outFilename);
+            out = new FileOutputStream(file);
             totalAudioLen = in.getChannel().size();
             totalDataLen = totalAudioLen + 36;
 
@@ -62,6 +64,7 @@ public class PcmToWavUtil {
             }
             in.close();
             out.close();
+            FileUtils.notifySystemToScan(ApplicationGetter.get(), file);
         } catch (IOException e) {
             e.printStackTrace();
         }
