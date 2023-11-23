@@ -10,33 +10,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs{
-        debug {
-            storeFile file("testkey.jks")
-            storePassword '123456'
-            keyAlias 'testkey'
-            keyPassword '123456'
-        }
-        release {
-            storeFile file("testkey.jks")
-            storePassword '123456'
-            keyAlias 'testkey'
-            keyPassword '123456'
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
-        debug {
-            minifyEnabled false
-            signingConfig signingConfigs.release
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {

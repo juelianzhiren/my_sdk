@@ -17,29 +17,26 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.demo.annotation.TestAnnotation;
 import com.ztq.sdk.MyApplication;
 import com.ztq.sdk.R;
 import com.ztq.sdk.acopy.test.AcopyTestActivity;
-import com.ztq.sdk.helper.MyHandlerThread;
 import com.ztq.sdk.log.Log;
 import com.ztq.sdk.model.MyAnimationDrawable;
 import com.ztq.sdk.mvp.view.LoginMVPActivity;
 import com.ztq.sdk.mvvm.view.MVVMActivity;
-import com.ztq.sdk.utils.NetworkUtils;
 import com.ztq.sdk.utils.SignMd5;
 import com.ztq.sdk.utils.Utils;
 import com.ztq.sdk.widget.CircleProgressBar;
 import com.ztq.sdk.widget.MyImageView;
 import com.ztq.sdk.widget.PinyinTextView;
 
-import java.io.File;
 import java.util.List;
 
-import io.reactivex.internal.operators.observable.ObservableNever;
-
 /**
- * 这是测试的Activity
+ * 被注解标注的类
  */
+@TestAnnotation
 public class MainActivity extends BaseActivity {
     private final String TAG = "noahedu.AcopyTestActivity";
     private Context mContext;
@@ -51,6 +48,23 @@ public class MainActivity extends BaseActivity {
     private boolean mIsPause = false;
     private int mProgress = 0;
 
+    /**
+     * 被注解标注的变量
+     */
+    @TestAnnotation
+    public String name = "MainActivity >> name";
+
+    /**
+     * 被注解标注的方法
+     * ElementType.TYPE_USE 的注解不能标注返回void的方法，我们返回一个string
+     * @param name
+     * @return
+     */
+    @TestAnnotation
+    public String mainMethon(String name) {
+        return "mainMethon";
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +75,7 @@ public class MainActivity extends BaseActivity {
         mBtn = findViewById(R.id.btn);
 
         myAnimationDrawable = new MyAnimationDrawable();
+
 
 //        mIv.setImageResource(R.drawable.ic_candy_flash_02);
 //        Bitmap bitmap = ((BitmapDrawable)mIv.getDrawable()).getBitmap();
