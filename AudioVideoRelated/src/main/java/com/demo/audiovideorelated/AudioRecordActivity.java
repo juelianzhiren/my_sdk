@@ -61,7 +61,6 @@ public class AudioRecordActivity extends BaseActivity implements View.OnClickLis
     private byte[] audioData;
     private FileInputStream fileInputStream;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
