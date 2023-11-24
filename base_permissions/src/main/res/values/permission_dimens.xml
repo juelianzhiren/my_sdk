@@ -1,0 +1,23 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="permission_dialog_width">884px</dimen>
+    <dimen name="permission_dialog_height">580px</dimen>
+
+    <dimen name="permission_dialog_btn_width">298px</dimen>
+    <dimen name="permission_dialog_btn_height">83px</dimen>
+
+    <dimen name="permission_dialog_title_size">43px</dimen>
+    <dimen name="permission_dialog_content_size">36px</dimen>
+    <dimen name="permission_dialog_btn_size">36px</dimen>
+
+    <dimen name="permission_dialog_btn_magin">128px</dimen>
+    <dimen name="permission_dialog_btn_layout_margin_top">60px</dimen>
+    <dimen name="permission_dialog_btn_layout_margin_bottom">64px</dimen>
+
+    <dimen name="permission_dialog_content_margin_top">50px</dimen>
+    <dimen name="permission_dialog_content_padding_left">79px</dimen>
+    <dimen name="permission_dialog_content_padding_right">79px</dimen>
+
+    <dimen name="permission_dialog_title_margin_top">60px</dimen>
+
+</resources>

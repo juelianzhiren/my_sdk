@@ -26,5 +26,19 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.surfaceview_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, SurfaceViewCameraActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.textureview_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, TextureViewCameraActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

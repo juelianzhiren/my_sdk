@@ -1,0 +1,49 @@
+package com.noahedu.noah_permissions.helper;
+
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import com.noahedu.noah_permissions.EasyPermissions;
+import com.noahedu.noah_permissions.RationaleDialogFragmentCompat;
+
+/**
+ * Implementation of {@link PermissionHelper} for Support Library host classes.
+ */
+public abstract class BaseSupportPermissionsHelper<T> extends PermissionHelper<T> {
+
+    private static final String TAG = "BSPermissionsHelper";
+
+    public BaseSupportPermissionsHelper(@NonNull T host) {
+        super(host);
+    }
+
+    public abstract FragmentManager getSupportFragmentManager();
+
+    @Override
+    public void showRequestPermissionRationale(@NonNull String rationale,
+                                               @NonNull String positiveButton,
+                                               @NonNull String negativeButton,
+                                               @StyleRes int theme,
+                                               int requestCode,
+                                               @NonNull String[] perms,
+                                               EasyPermissions.RationaleCallbacks callbacks) {
+
+        FragmentManager fm = getSupportFragmentManager();
+
+        // Check if fragment is already showing
+        Fragment fragment = fm.findFragmentByTag(RationaleDialogFragmentCompat.TAG);
+        if (fragment instanceof RationaleDialogFragmentCompat) {
+            Log.d(TAG, "Found existing fragment, not showing rationale.");
+            return;
+        }
+
+        RationaleDialogFragmentCompat
+                .newInstance(rationale, positiveButton, negativeButton, theme, requestCode, perms)
+                .setRationaleCallbacks(callbacks)
+                .showAllowingStateLoss(fm, RationaleDialogFragmentCompat.TAG);
+    }
+}

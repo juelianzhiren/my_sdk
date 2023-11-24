@@ -1,0 +1,12 @@
+<resources>
+    <string name="rationale_ask">This app may not work correctly without the requested permissions.</string>
+    <string name="rationale_ask_again">需要打开相关权限才能让程序正常运行，请设置打开相关权限</string>
+    <string name="rationale_ask_again2">需要打开%1$s权限才能让程序正常运行，请设置打开相关权限</string>
+    <string name="title_settings_dialog">Permissions Required</string>
+    <string name="rationale_text">需同意%1$s权限才能让程序正常运行，请求权限弹框弹出时，请选择\"始终同意\"</string>
+
+    <string name="permission_dialog_title">权限提示</string>
+    <string name="permission_dialog_i_konw">知道了</string>
+    <string name="permission_dialog_continue_request">继续请求</string>
+    <string name="permission_dialog_setting">去设置</string>
+</resources>

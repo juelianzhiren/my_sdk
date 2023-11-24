@@ -1,0 +1,150 @@
+					Noah permissions
+
+1.	添加权限library
+
+settings.gradle 中添加
+include ':noah_permissions'
+project(':noah_permissions').projectDir = new File('../public_module/noah_permissions')
+
+build.gradle中添加
+implementation project(':noah_permissions')
+
+2.	有两种方式添加权限弹出框：
+1)继承BasePermissionActivity、BasePermissionFragment
+只要实现其抽象方法即可
+
+/**
+ * 需要的权限列表
+ */
+@NonNull
+protected abstract List<String> permissions();
+
+/**
+ * 拒绝权限的回调
+ *
+ * @return
+ */
+protected abstract void permissionsDenied();
+
+/**
+ * 所有权限通过后调用
+ */
+protected abstract void allPermissionsGranted();
+
+可以到noah_permissions_demo 中ACTIVITY、FRAGMENT的样例查看
+
+2)通过implements EasyPermissions.PermissionCallbacks, EasyPermissions.RationaleCallbacks 来实现
+
+		override the onRequestPermissionsResult method
+		
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+	判断是否已经有权限：
+	EasyPermissions#hasPermissions(...)  譬如：EasyPermissions.hasPermissions(this, permissionArray)
+	
+	申请权限：
+	EasyPermissions#requestPermissions   譬如：EasyPermissions.requestPermissions(this, strRationaleText, REQUEST_CODE, permissionArray);
+	
+	使用AfterPermissionGranted注解 所有权限申请通过后可以直接调用的方法
+	譬如：
+  @AfterPermissionGranted(REQUEST_CODE)
+  public void allRequestPermissionGranted() {
+      Log.d(TAG, "allRequestPermissionGranted");
+      allPermissionsGranted();
+  }
+  
+  实现如下四个回调即可实现整个流程：
+
+		//权限申请成功后回调
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+        Log.d(TAG, "onPermissionsGranted requestCode : " + requestCode + " perms : " + perms.size());
+    }
+
+		// 权限拒绝后回调
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        Log.d(TAG, "onPermissionsDenied requestCode : " + requestCode + " perms : " + perms.size());
+        // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
+        // This will display a dialog directing them to enable the permission in app settings.
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            Log.d(TAG, "onPermissionsDenied somePermissionPermanentlyDenied");
+        } else {
+            Log.d(TAG, "onPermissionsDenied permissionsDenied");
+
+        }
+    }
+
+		// 权限拒绝后再申请回调
+    @Override
+    public void onRationaleAccepted(int requestCode) {
+        Log.d(TAG, "onRationaleAccepted requestCode : " + requestCode);
+    }
+
+		// 权限拒绝后再拒绝回调
+    @Override
+    public void onRationaleDenied(int requestCode) {
+        Log.d(TAG, "onRationaleDenied requestCode : " + requestCode);
+        permissionsDenied();
+    }
+
+可以到noah_permissions_demo 中NORMAL的样例查看
+
+3.dangerous：高风险权限，安装时需要用户的确认才可使用；
+以下为dangerous 高风险权限:
+
+group:android.permission-group.CONTACTS
+  permission:android.permission.WRITE_CONTACTS
+  permission:android.permission.GET_ACCOUNTS
+  permission:android.permission.READ_CONTACTS
+
+group:android.permission-group.PHONE
+  permission:android.permission.READ_CALL_LOG
+  permission:android.permission.READ_PHONE_STATE
+  permission:android.permission.CALL_PHONE
+  permission:android.permission.WRITE_CALL_LOG
+  permission:android.permission.USE_SIP
+  permission:android.permission.PROCESS_OUTGOING_CALLS
+  permission:com.android.voicemail.permission.ADD_VOICEMAIL
+
+group:android.permission-group.CALENDAR
+  permission:android.permission.READ_CALENDAR
+  permission:android.permission.WRITE_CALENDAR
+
+group:android.permission-group.CAMERA
+  permission:android.permission.CAMERA
+
+group:android.permission-group.SENSORS
+  permission:android.permission.BODY_SENSORS
+
+group:android.permission-group.LOCATION
+  permission:android.permission.ACCESS_FINE_LOCATION
+  permission:android.permission.ACCESS_COARSE_LOCATION
+
+group:android.permission-group.STORAGE
+  permission:android.permission.READ_EXTERNAL_STORAGE
+  permission:android.permission.WRITE_EXTERNAL_STORAGE
+
+group:android.permission-group.MICROPHONE
+  permission:android.permission.RECORD_AUDIO
+
+group:android.permission-group.SMS
+  permission:android.permission.READ_SMS
+  permission:android.permission.RECEIVE_WAP_PUSH
+  permission:android.permission.RECEIVE_MMS
+  permission:android.permission.RECEIVE_SMS
+  permission:android.permission.SEND_SMS
+  permission:android.permission.READ_CELL_BROADCASTS
+  
+  
+  查看 Dangerous 权限
+  adb shell pm list permissions -d -g
+  
+4.申请权限流程的策划文档
+https://axhub.im/pro/4a604c213153b57b

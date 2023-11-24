@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Use system defaults for devs not using AppCompat -->
+    <color name="colorAccent">#ff80cbc4</color>
+
+    <color name="permission_white">#FFFFFF</color>
+
+    <color name="permission_dialog_content_color">#6c6c6c</color>
+    <color name="permission_dialog_btn_ms_color">#fefefe</color>
+    <color name="permission_dialog_btn_cancel_color">#707070</color>
+
+
+</resources>

@@ -121,7 +121,6 @@ public class AudioRecordActivity extends BaseActivity implements View.OnClickLis
                     stopPlay();
                 }
                 break;
-
             default:
                 break;
         }
