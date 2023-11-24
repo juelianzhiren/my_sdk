@@ -1,6 +1,7 @@
 package com.demo.audiovideorelated.activity;
 
 import android.Manifest;
+import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.os.Build;
@@ -81,8 +82,7 @@ public class TextureViewCameraActivity extends BaseActivity implements TextureVi
 
                 @Override
                 public void allPermissionsGranted() {
-                    camera = Camera.open();
-                    camera.setDisplayOrientation(90);
+                    openCameraAndSetParameters();
                     textureView.setVisibility(View.VISIBLE);
                 }
 
@@ -92,9 +92,22 @@ public class TextureViewCameraActivity extends BaseActivity implements TextureVi
                 }
             });
         } else {
-            camera = Camera.open();
-            camera.setDisplayOrientation(90);
+            openCameraAndSetParameters();
             textureView.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void openCameraAndSetParameters() {
+        camera = Camera.open();
+        camera.setDisplayOrientation(90);
+        Camera.Parameters parameters = camera.getParameters();
+        parameters.setPreviewFormat(ImageFormat.NV21);
+        camera.setParameters(parameters);
+        camera.setPreviewCallback(new Camera.PreviewCallback() {
+            @Override
+            public void onPreviewFrame(byte[] bytes, Camera camera) {
+                Log.v(TAG, "onPreviewFrame");
+            }
+        });
     }
 }
