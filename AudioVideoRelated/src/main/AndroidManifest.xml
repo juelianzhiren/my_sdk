@@ -24,6 +24,7 @@
         <activity android:name=".activity.AudioRecordActivity" />
         <activity android:name=".activity.SurfaceViewCameraActivity" />
         <activity android:name=".activity.TextureViewCameraActivity" />
+        <activity android:name=".activity.MediaExtractorMuxerActivity" />
 
     </application>
 </manifest>

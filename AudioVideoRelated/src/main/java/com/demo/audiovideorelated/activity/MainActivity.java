@@ -40,5 +40,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.media_extractor_muxer_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MediaExtractorMuxerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
