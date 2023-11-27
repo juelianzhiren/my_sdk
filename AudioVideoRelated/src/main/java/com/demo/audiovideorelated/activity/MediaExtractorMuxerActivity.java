@@ -8,6 +8,7 @@ import android.media.MediaMuxer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 
 import com.demo.audiovideorelated.R;
 import com.noahedu.noah_permissions.OnPermissionCallback;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MediaExtractorMuxerActivity extends BaseActivity {
+    private static final String TAG = "noahedu.MediaExtractorMuxerActivity";
     private static final String SDCARD_PATH = Environment.getExternalStorageDirectory().getPath();
 
     private MediaExtractor mMediaExtractor;
@@ -28,7 +30,7 @@ public class MediaExtractorMuxerActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_media_exractor_muxer);
         checkPermissions();
     }
 
@@ -91,6 +93,7 @@ public class MediaExtractorMuxerActivity extends BaseActivity {
         for (int i = 0; i < mMediaExtractor.getTrackCount(); i++) {
             MediaFormat format = mMediaExtractor.getTrackFormat(i);
             String mime = format.getString(MediaFormat.KEY_MIME);
+            Log.v(TAG, "mime " + i + " = " + mime);
             if (!mime.startsWith("video/")) {
                 continue;
             }
@@ -98,6 +101,7 @@ public class MediaExtractorMuxerActivity extends BaseActivity {
             mMediaExtractor.selectTrack(i);
             mMediaMuxer = new MediaMuxer(SDCARD_PATH + "/ouput.mp4", MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
             mVideoTrackIndex = mMediaMuxer.addTrack(format);
+            Log.v(TAG, "framerate = " + framerate + ", mVideoTrackIndex = " + mVideoTrackIndex);
             mMediaMuxer.start();
         }
 
@@ -110,7 +114,7 @@ public class MediaExtractorMuxerActivity extends BaseActivity {
         ByteBuffer buffer = ByteBuffer.allocate(500 * 1024);
         int sampleSize = 0;
         while ((sampleSize = mMediaExtractor.readSampleData(buffer, 0)) > 0) {
-
+            Log.v(TAG, "sampleSize = " + sampleSize);
             info.offset = 0;
             info.size = sampleSize;
             info.flags = MediaCodec.BUFFER_FLAG_SYNC_FRAME;
