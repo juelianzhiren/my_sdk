@@ -26,7 +26,7 @@ import java.util.List;
  * 音视频混合界面
  */
 public class MediaMuxerActivity extends BaseActivity implements SurfaceHolder.Callback, Camera.PreviewCallback {
-
+    private static final String TAG = "noahedu.MediaMuxerActivity";
     SurfaceView surfaceView;
     Button startStopButton;
 
@@ -97,18 +97,18 @@ public class MediaMuxerActivity extends BaseActivity implements SurfaceHolder.Ca
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        Log.w("MainActivity", "enter surfaceCreated method");
+        Log.w(TAG, "enter surfaceCreated method");
         this.surfaceHolder = surfaceHolder;
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
-        Log.w("MainActivity", "enter surfaceChanged method");
+        Log.w(TAG, "enter surfaceChanged method");
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        Log.w("MainActivity", "enter surfaceDestroyed method");
+        Log.w(TAG, "enter surfaceDestroyed method");
         MediaMuxerThread.stopMuxer();
         stopCamera();
     }

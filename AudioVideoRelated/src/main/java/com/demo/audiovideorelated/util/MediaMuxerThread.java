@@ -1,6 +1,5 @@
 package com.demo.audiovideorelated.util;
 
-
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
@@ -16,7 +15,7 @@ import java.util.Vector;
  */
 public class MediaMuxerThread extends Thread {
 
-    private static final String TAG = "MediaMuxerThread";
+    private static final String TAG = "noahedu.MediaMuxerThread";
 
     public static final int TRACK_VIDEO = 0;
     public static final int TRACK_AUDIO = 1;
@@ -52,7 +51,7 @@ public class MediaMuxerThread extends Thread {
             synchronized (MediaMuxerThread.class) {
                 if (mediaMuxerThread == null) {
                     mediaMuxerThread = new MediaMuxerThread();
-                    Log.e("111", "mediaMuxerThread.start();");
+                    Log.e(TAG, "mediaMuxerThread.start();");
                     mediaMuxerThread.start();
                 }
             }
@@ -295,7 +294,6 @@ public class MediaMuxerThread extends Thread {
                 mediaMuxer.release();
             } catch (Exception e) {
                 Log.e(TAG, "mediaMuxer.release() 异常:" + e.toString());
-
             }
             mediaMuxer = null;
         }
