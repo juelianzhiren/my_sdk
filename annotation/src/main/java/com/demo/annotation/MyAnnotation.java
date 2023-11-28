@@ -6,8 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
-@Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD})
-//@Target(ElementType.TYPE_USE)//API 26
-public @interface TestAnnotation {
-
+@Target(ElementType.TYPE)
+public @interface MyAnnotation {
+    String value();
 }

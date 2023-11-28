@@ -4,3 +4,5 @@ include ':app', ':asm_lifecycle_plugin', ':targetsdk26_demo', ':lib-base', ':mod
 include ':lib_scanner'
 include ':jetpack_demo'
 include ':base_permissions'
+include ':annotation'
+include ':annotationprocessor'

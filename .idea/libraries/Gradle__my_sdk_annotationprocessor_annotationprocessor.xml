@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: my_sdk.annotationprocessor.annotationprocessor">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/annotationprocessor/build/libs/annotationprocessor.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

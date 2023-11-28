@@ -17,7 +17,6 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.demo.annotation.TestAnnotation;
 import com.ztq.sdk.MyApplication;
 import com.ztq.sdk.R;
 import com.ztq.sdk.acopy.test.AcopyTestActivity;
@@ -33,10 +32,6 @@ import com.ztq.sdk.widget.PinyinTextView;
 
 import java.util.List;
 
-/**
- * 被注解标注的类
- */
-@TestAnnotation
 public class MainActivity extends BaseActivity {
     private final String TAG = "noahedu.AcopyTestActivity";
     private Context mContext;
@@ -47,23 +42,6 @@ public class MainActivity extends BaseActivity {
     private CircleProgressBar mCircleProgressBar;
     private boolean mIsPause = false;
     private int mProgress = 0;
-
-    /**
-     * 被注解标注的变量
-     */
-    @TestAnnotation
-    public String name = "MainActivity >> name";
-
-    /**
-     * 被注解标注的方法
-     * ElementType.TYPE_USE 的注解不能标注返回void的方法，我们返回一个string
-     * @param name
-     * @return
-     */
-    @TestAnnotation
-    public String mainMethon(String name) {
-        return "mainMethon";
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
