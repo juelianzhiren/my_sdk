@@ -56,5 +56,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.open_gl_es_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, OpenGLDemoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

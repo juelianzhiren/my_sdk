@@ -15,7 +15,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/surfaceview_btn"
@@ -25,7 +25,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/audio_record_btn"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/textureview_btn"
@@ -35,7 +35,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/surfaceview_btn"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/media_extractor_muxer_btn"
@@ -45,7 +45,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textureview_btn"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/media_collect_btn"
@@ -55,5 +55,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/media_extractor_muxer_btn"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/open_gl_es_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="open GL ES demo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/media_collect_btn"
+        android:layout_marginTop="20dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
