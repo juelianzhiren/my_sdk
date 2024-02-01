@@ -1,5 +1,7 @@
 package com.ztq.sdk.constant;
 
+import android.graphics.Typeface;
+
 /**
  * 常量类
  */
@@ -25,4 +27,10 @@ public class Constants {
     public static final String KEY_VERSION_CODE = "version_code";
     public static final String KEY_XUEDUANNAME = "xueduanname";
     public static final String KEY_RD = "rd";
+
+    public static Typeface mCarcassTypeface;
+
+    static {
+        mCarcassTypeface = Typeface.createFromFile("/system/fonts/hifont_kai.ttf");
+    }
 }

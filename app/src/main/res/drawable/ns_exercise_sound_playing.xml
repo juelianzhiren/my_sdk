@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/ns_exercise_sound_playing_001" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_002" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_003" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_004" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_005" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_006" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_007" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_008" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_009" android:duration="@integer/anim_duration_base" />
+    <item android:drawable="@drawable/ns_exercise_sound_playing_011" android:duration="@integer/anim_duration_base" />
+</animation-list>

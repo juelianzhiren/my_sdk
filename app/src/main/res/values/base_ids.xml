@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="anim_drawable_util_task"/>
+    <item name="item_1" type="id" />
+    <item name="item_2" type="id" />
+    <item name="item" type="id" />
+</resources>

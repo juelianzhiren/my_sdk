@@ -39,4 +39,12 @@
     <color name="ivory">#fffff0</color>
     <color name="translucent_black_95">#a0000000</color>
     <color name="translucent_black_80">#33000000</color>
+
+    <color name="normal_text_color">#000000</color>
+    <color name="edit_text_color">#000000</color>
+    <color name="user_answer_text_color">#ffffff</color>
+
+    <color name="dot_color">#ffffff</color>
+    <color name="wave_color">#ffffff</color>
+    <color name="underline_color">#ffffff</color>
 </resources>

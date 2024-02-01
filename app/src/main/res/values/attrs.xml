@@ -106,4 +106,30 @@
             <enum name="bottom" value="4"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="BaseSingleView">
+        <attr name="autoPlaySound" format="boolean|reference"/>
+        <attr name="normalTextSize" format="reference|dimension" />
+        <attr name="normalTextColor" format="reference|color" />
+        <attr name="editTextSize" format="reference|dimension" />
+        <attr name="editTextColor" format="reference|color" />
+        <attr name="editTextWidth" format="reference|dimension" />
+        <attr name="maxLen" format="reference|dimension" />
+        <attr name="soundPicRes" format="reference" />
+        <attr name="soundAnimPicRes" format="reference" />
+        <attr name="videoPicRes" format="reference" />
+        <attr name="maxPicWidth" format="reference|dimension" />
+        <attr name="maxPicHeight" format="reference|dimension" />
+        <attr name="userAnswerAreaWidth" format="reference|dimension" />
+        <attr name="userAnswerTextColor" format="reference|color" />
+        <attr name="pinyinSize" format="reference|dimension" />
+        <attr name="pinyinColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="MyTextView">
+        <attr name="dotRadius" format="dimension|reference"/>
+        <attr name="dotColor" format="reference|color" />
+        <attr name="waveColor" format="reference|color" />
+        <attr name="underlineColor" format="reference|color" />
+    </declare-styleable>
 </resources>

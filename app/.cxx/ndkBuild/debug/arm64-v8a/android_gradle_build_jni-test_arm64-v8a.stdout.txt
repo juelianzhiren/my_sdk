@@ -1,0 +1,2 @@
+[arm64-v8a] Compile++      : jni-test <= com_ztq_sdk_jni_JniInterface.cpp
+[arm64-v8a] SharedLibrary  : libjni-test.so

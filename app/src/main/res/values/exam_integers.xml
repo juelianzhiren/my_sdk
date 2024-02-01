@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--单帧动画时长 -->
+    <integer name="anim_duration_base">84</integer>
+    <integer name="anim_duration_100">100</integer>
+</resources>
