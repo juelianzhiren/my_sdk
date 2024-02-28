@@ -31,6 +31,10 @@ public class Constants {
     public static Typeface mCarcassTypeface;
 
     static {
-        mCarcassTypeface = Typeface.createFromFile("/system/fonts/hifont_kai.ttf");
+        try {
+            mCarcassTypeface = Typeface.createFromFile("/system/fonts/hifont_kai.ttf");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

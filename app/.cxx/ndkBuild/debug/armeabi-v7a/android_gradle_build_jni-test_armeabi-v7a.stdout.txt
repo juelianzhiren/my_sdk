@@ -1,2 +1,1 @@
-[armeabi-v7a] Compile++ thumb: jni-test <= com_ztq_sdk_jni_JniInterface.cpp
-[armeabi-v7a] SharedLibrary  : libjni-test.so
+make: Nothing to be done for 'jni-test'.

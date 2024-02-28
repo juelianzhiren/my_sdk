@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:E./my_projects/my_sdk/lib_scanner/libs/zxing.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_scanner/libs/zxing.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

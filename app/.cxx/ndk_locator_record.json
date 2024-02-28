@@ -1,5 +1,5 @@
 {
-  "ndkFolder": "D:\\Android_sdk\\ndk-bundle",
+  "ndkFolder": "D:\\Android_SDK\\ndk-bundle",
   "messages": [
     {
       "level": "INFO",
@@ -7,7 +7,7 @@
     },
     {
       "level": "INFO",
-      "message": "ndk.dir in local.properties is D:\\Android_sdk\\ndk-bundle"
+      "message": "ndk.dir in local.properties is D:\\Android_SDK\\ndk-bundle"
     },
     {
       "level": "INFO",
@@ -15,39 +15,23 @@
     },
     {
       "level": "INFO",
-      "message": "sdkFolder is D:\\Android_sdk"
+      "message": "sdkFolder is D:\\Android_SDK"
     },
     {
       "level": "INFO",
-      "message": "Considering D:\\Android_sdk\\ndk-bundle by ndk.dir"
+      "message": "Considering D:\\Android_SDK\\ndk-bundle by ndk.dir"
     },
     {
       "level": "INFO",
-      "message": "Considering D:\\Android_sdk\\ndk-bundle in SDK ndk-bundle folder"
+      "message": "Considering D:\\Android_SDK\\ndk-bundle in SDK ndk-bundle folder"
     },
     {
       "level": "INFO",
-      "message": "Considering D:\\Android_sdk\\ndk\\20.0.5594570 in SDK ndk folder"
+      "message": "Considering D:\\Android_SDK\\ndk\\25.1.8937393 in SDK ndk folder"
     },
     {
       "level": "INFO",
-      "message": "Considering D:\\Android_sdk\\ndk\\21.0.6113669 in SDK ndk folder"
-    },
-    {
-      "level": "INFO",
-      "message": "Considering D:\\Android_sdk\\ndk\\21.1.6352462 in SDK ndk folder"
-    },
-    {
-      "level": "INFO",
-      "message": "Considering D:\\Android_sdk\\ndk\\21.4.7075529 in SDK ndk folder"
-    },
-    {
-      "level": "INFO",
-      "message": "Considering D:\\Android_sdk\\ndk\\22.1.7171670 in SDK ndk folder"
-    },
-    {
-      "level": "INFO",
-      "message": "Found requested ndk.dir (D:\\Android_sdk\\ndk-bundle) which has version 22.1.7171670"
+      "message": "Found requested ndk.dir (D:\\Android_SDK\\ndk-bundle) which has version 22.1.7171670"
     }
   ]
 }
