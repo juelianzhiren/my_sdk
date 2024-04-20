@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:appcompat-v7:26.0.0@aar">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/867529bf16f254409cca150a1fbbde1c/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/867529bf16f254409cca150a1fbbde1c/res" />
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/867529bf16f254409cca150a1fbbde1c/AndroidManifest.xml" />
+      <root url="jar://D:/Android/.gradle/caches/transforms-2/files-2.1/cabbd171cd32a76565ec28fa073a6e0c/appcompat-v7-26.0.0/jars/classes.jar!/" />
+      <root url="file://D:/Android/.gradle/caches/transforms-2/files-2.1/cabbd171cd32a76565ec28fa073a6e0c/appcompat-v7-26.0.0/res" />
+      <root url="file://D:/Android/.gradle/caches/transforms-2/files-2.1/cabbd171cd32a76565ec28fa073a6e0c/appcompat-v7-26.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/modules-2/files-2.1/com.android.support/appcompat-v7/26.0.0/52a072bbbbf0671dee246ed97d4d11c000cd1e1/appcompat-v7-26.0.0-sources.jar!/" />
+      <root url="jar://D:/Android/.gradle/caches/modules-2/files-2.1/com.android.support/appcompat-v7/26.0.0/52a072bbbbf0671dee246ed97d4d11c000cd1e1/appcompat-v7-26.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -27,6 +27,22 @@
     },
     {
       "level": "INFO",
+      "message": "Considering D:\\Android_SDK\\ndk\\16.1.4479499 in SDK ndk folder"
+    },
+    {
+      "level": "INFO",
+      "message": "Considering D:\\Android_SDK\\ndk\\21.2.6472646 in SDK ndk folder"
+    },
+    {
+      "level": "INFO",
+      "message": "Considering D:\\Android_SDK\\ndk\\21.4.7075529 in SDK ndk folder"
+    },
+    {
+      "level": "INFO",
+      "message": "Considering D:\\Android_SDK\\ndk\\24.0.8215888 in SDK ndk folder"
+    },
+    {
+      "level": "INFO",
       "message": "Considering D:\\Android_SDK\\ndk\\25.1.8937393 in SDK ndk folder"
     },
     {

@@ -1,0 +1,1 @@
+E:\my_projects\my_sdk\app\build\intermediates\ndkBuild\debug\obj\local\armeabi-v7a

@@ -1,0 +1,23 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml:1:1-5:32
+INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml:1:1-5:32
+INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml:1:1-5:32
+	package
+		ADDED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml:2:5-33
+		INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml
+		INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml:5:5-30
+	xmlns:android
+		ADDED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml:3:5-63
+	android:versionCode
+		ADDED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml:4:5-28
+uses-sdk
+INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml
+INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml
+		ADDED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml
+		INJECTED from E:\my_projects\my_sdk\cropper\src\main\AndroidManifest.xml

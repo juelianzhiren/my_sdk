@@ -1,17 +1,17 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:support-v4:23.0.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/e6625f5ac40507e0bf321dde3308715d/annotations.zip!/" />
+      <root url="jar://D:/Android/.gradle/caches/transforms-2/files-2.1/fa26d7946549024922a0d138bd7af415/support-v4-23.0.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/e6625f5ac40507e0bf321dde3308715d/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/e6625f5ac40507e0bf321dde3308715d/res" />
-      <root url="file://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/e6625f5ac40507e0bf321dde3308715d/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/transforms-2/files-2.1/e6625f5ac40507e0bf321dde3308715d/jars/libs/internal_impl-23.0.1.jar!/" />
+      <root url="jar://D:/Android/.gradle/caches/transforms-2/files-2.1/fa26d7946549024922a0d138bd7af415/support-v4-23.0.1/jars/classes.jar!/" />
+      <root url="file://D:/Android/.gradle/caches/transforms-2/files-2.1/fa26d7946549024922a0d138bd7af415/support-v4-23.0.1/res" />
+      <root url="file://D:/Android/.gradle/caches/transforms-2/files-2.1/fa26d7946549024922a0d138bd7af415/support-v4-23.0.1/AndroidManifest.xml" />
+      <root url="jar://D:/Android/.gradle/caches/transforms-2/files-2.1/fa26d7946549024922a0d138bd7af415/support-v4-23.0.1/jars/libs/internal_impl-23.0.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../.gradle/caches/modules-2/files-2.1/com.android.support/support-v4/23.0.1/ecdfd426735fd1fd3d44d2b98b6e8c3b384372b2/support-v4-23.0.1-sources.jar!/" />
+      <root url="jar://D:/Android/.gradle/caches/modules-2/files-2.1/com.android.support/support-v4/23.0.1/ecdfd426735fd1fd3d44d2b98b6e8c3b384372b2/support-v4-23.0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

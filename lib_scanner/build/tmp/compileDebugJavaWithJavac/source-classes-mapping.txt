@@ -1,0 +1,43 @@
+com/sll/qrdemo/camera/CameraManager.java
+ com.sll.qrdemo.camera.CameraManager
+com/sll/qrdemo/decoding/DecodeHandler.java
+ com.sll.qrdemo.decoding.DecodeHandler
+com/sll/qrdemo/decoding/InactivityTimer.java
+ com.sll.qrdemo.decoding.InactivityTimer
+ com.sll.qrdemo.decoding.InactivityTimer$1
+ com.sll.qrdemo.decoding.InactivityTimer$DaemonThreadFactory
+com/sll/qrdemo/decoding/Intents.java
+ com.sll.qrdemo.decoding.Intents
+ com.sll.qrdemo.decoding.Intents$Encode
+ com.sll.qrdemo.decoding.Intents$Scan
+ com.sll.qrdemo.decoding.Intents$SearchBookContents
+ com.sll.qrdemo.decoding.Intents$Share
+ com.sll.qrdemo.decoding.Intents$WifiConnect
+com/sll/qrdemo/camera/CameraConfigurationManager.java
+ com.sll.qrdemo.camera.CameraConfigurationManager
+com/sll/qrdemo/camera/PreviewCallback.java
+ com.sll.qrdemo.camera.PreviewCallback
+com/sll/qrdemo/camera/FlashlightManager.java
+ com.sll.qrdemo.camera.FlashlightManager
+com/sll/qrdemo/QRScannerActivity.java
+ com.sll.qrdemo.QRScannerActivity
+ com.sll.qrdemo.QRScannerActivity$1
+com/sll/qrdemo/decoding/FinishListener.java
+ com.sll.qrdemo.decoding.FinishListener
+com/sll/qrdemo/view/ViewfinderView.java
+ com.sll.qrdemo.view.ViewfinderView
+com/sll/qrdemo/decoding/DecodeFormatManager.java
+ com.sll.qrdemo.decoding.DecodeFormatManager
+com/sll/qrdemo/camera/AutoFocusCallback.java
+ com.sll.qrdemo.camera.AutoFocusCallback
+com/sll/qrdemo/BuildConfig.java
+ com.sll.qrdemo.BuildConfig
+com/sll/qrdemo/decoding/CaptureActivityHandler.java
+ com.sll.qrdemo.decoding.CaptureActivityHandler
+ com.sll.qrdemo.decoding.CaptureActivityHandler$State
+com/sll/qrdemo/camera/PlanarYUVLuminanceSource.java
+ com.sll.qrdemo.camera.PlanarYUVLuminanceSource
+com/sll/qrdemo/view/ViewfinderResultPointCallback.java
+ com.sll.qrdemo.view.ViewfinderResultPointCallback
+com/sll/qrdemo/decoding/DecodeThread.java
+ com.sll.qrdemo.decoding.DecodeThread

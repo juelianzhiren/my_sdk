@@ -1,0 +1,32 @@
+com/edmodo/cropper/cropwindow/handle/HandleHelper.java
+ com.edmodo.cropper.cropwindow.handle.HandleHelper
+com/edmodo/cropper/util/AspectRatioUtil.java
+ com.edmodo.cropper.util.AspectRatioUtil
+com/edmodo/cropper/cropwindow/handle/CenterHandleHelper.java
+ com.edmodo.cropper.cropwindow.handle.CenterHandleHelper
+com/edmodo/cropper/CropImageView.java
+ com.edmodo.cropper.CropImageView
+com/edmodo/cropper/cropwindow/handle/HorizontalHandleHelper.java
+ com.edmodo.cropper.cropwindow.handle.HorizontalHandleHelper
+com/edmodo/cropper/cropwindow/edge/Edge.java
+ com.edmodo.cropper.cropwindow.edge.Edge
+ com.edmodo.cropper.cropwindow.edge.Edge$1
+com/edmodo/cropper/util/MathUtil.java
+ com.edmodo.cropper.util.MathUtil
+com/edmodo/cropper/cropwindow/handle/VerticalHandleHelper.java
+ com.edmodo.cropper.cropwindow.handle.VerticalHandleHelper
+com/edmodo/cropper/util/HandleUtil.java
+ com.edmodo.cropper.util.HandleUtil
+ com.edmodo.cropper.util.HandleUtil$1
+com/edmodo/cropper/util/Utils.java
+ com.edmodo.cropper.util.Utils
+com/edmodo/cropper/util/PaintUtil.java
+ com.edmodo.cropper.util.PaintUtil
+com/edmodo/cropper/cropwindow/edge/EdgePair.java
+ com.edmodo.cropper.cropwindow.edge.EdgePair
+com/edmodo/cropper/cropwindow/handle/CornerHandleHelper.java
+ com.edmodo.cropper.cropwindow.handle.CornerHandleHelper
+com/edmodo/cropper/BuildConfig.java
+ com.edmodo.cropper.BuildConfig
+com/edmodo/cropper/cropwindow/handle/Handle.java
+ com.edmodo.cropper.cropwindow.handle.Handle

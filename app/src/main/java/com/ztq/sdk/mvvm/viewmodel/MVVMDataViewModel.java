@@ -1,7 +1,7 @@
 package com.ztq.sdk.mvvm.viewmodel;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 
 import com.ztq.sdk.BR;
 import com.ztq.sdk.mvvm.model.MVVMDataModel;

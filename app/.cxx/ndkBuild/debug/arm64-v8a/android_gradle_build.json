@@ -2,22 +2,49 @@
   "buildFiles": [
     "E:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk"
   ],
-  "cleanCommands": [
-    "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+  "cleanCommandsComponents": [
+    [
+      "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
+      "NDK_PROJECT_PATH\u003dnull",
+      "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
+      "APP_ABI\u003darm64-v8a",
+      "NDK_ALL_ABIS\u003darm64-v8a",
+      "NDK_DEBUG\u003d1",
+      "APP_PLATFORM\u003dandroid-19",
+      "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
+      "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
+      "clean"
+    ]
   ],
-  "buildTargetsCommand": "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommandComponents": [
+    "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
+    "NDK_PROJECT_PATH\u003dnull",
+    "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
+    "APP_ABI\u003darm64-v8a",
+    "NDK_ALL_ABIS\u003darm64-v8a",
+    "NDK_DEBUG\u003d1",
+    "APP_PLATFORM\u003dandroid-19",
+    "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
+    "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
   "libraries": {
     "jni-test-debug-arm64-v8a": {
-      "buildCommand": "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib E:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libjni-test.so",
+      "buildCommandComponents": [
+        "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
+        "APP_ABI\u003darm64-v8a",
+        "NDK_ALL_ABIS\u003darm64-v8a",
+        "NDK_DEBUG\u003d1",
+        "APP_PLATFORM\u003dandroid-19",
+        "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
+        "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
+        "E:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libjni-test.so"
+      ],
       "toolchain": "toolchain-arm64-v8a",
       "abi": "arm64-v8a",
       "artifactName": "jni-test",
-      "files": [
-        {
-          "src": "E:\\my_projects\\my_sdk\\app\\src\\main\\jni\\com_ztq_sdk_jni_JniInterface.cpp",
-          "flags": "-target aarch64-none-linux-android21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot D:/Android_SDK/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fno-exceptions -fno-rtti -fpic -O0 -UNDEBUG -fno-limit-debug-info -IE:/my_projects/my_sdk/app/src/main/jni -DANDROID -Wformat -Werror\u003dformat-security"
-        }
-      ],
       "output": "E:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\arm64-v8a\\libjni-test.so"
     }
   },

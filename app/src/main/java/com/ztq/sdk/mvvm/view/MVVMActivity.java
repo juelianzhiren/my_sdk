@@ -1,7 +1,7 @@
 package com.ztq.sdk.mvvm.view;
 
 import android.app.Activity;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
