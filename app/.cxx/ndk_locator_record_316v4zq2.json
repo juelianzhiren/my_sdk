@@ -1,0 +1,11 @@
+{
+  "ndk": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle",
+  "revision": {
+    "mMajor": 23,
+    "mMinor": 0,
+    "mMicro": 7344513,
+    "mPreview": 0,
+    "mPrecision": "MICRO",
+    "mPreviewSeparator": " "
+  }
+}
