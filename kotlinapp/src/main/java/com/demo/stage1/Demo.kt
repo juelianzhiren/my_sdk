@@ -101,6 +101,10 @@ fun main() {
 
     useWith()
 
+    useAlso()
+
+    useTakeIf()
+
     try {
         var info: String? = null
 
@@ -120,6 +124,62 @@ fun main() {
     requireNotNull(value1) // java.lang.IllegalArgumentException: Required value was null.
 
     require(value2) // java.lang.IllegalArgumentException: Failed requirement.
+}
+
+fun useAlso() {
+    val str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    val r1 : String = str.also {
+        true
+        354543.4f
+        454
+        'C'
+    }
+
+    val r2 : Int = 123.also {
+        true
+        354543.4f
+        454
+        'C'
+        false
+    }
+
+    str.also {
+        // it == str本身
+    }
+
+    // 真正使用also函数的写法规则如下：
+    // str.also特点：also函数始终是返回 “str本身”，所以可以链式调用
+    str.also {
+        println("str的原始数据是:$it")
+    }.also {
+        println("str转换小写的效果是:${it.toLowerCase()}")
+    }.also {
+        println("结束了")
+    }
+
+    val file = File("D:\\https_sunlogin.oray.com.localstorage")
+
+
+    // 匿名函数里面做的事情，和sourceFile无关，因为永远都是返回 file本身
+    val sourceFile = file.also {
+        file.setReadable(true)
+        file.setWritable(true)
+        println(file.readLines())
+        // 假设 做了很多很多的事情
+        // ...
+    }.also {
+        file.setReadable(true)
+        println(file.readLines())
+        // 假设 做了很多很多的事情
+        // ...
+    }.also {
+        file.setReadable(true)
+        println(file.readLines())
+        // 假设 做了很多很多的事情
+        // ...
+    }
+    // sourceFile没有任何影响
 }
 
 fun checkException(info: String?) {
@@ -321,3 +381,39 @@ fun getStrLen(str: String) = str.length
 fun getLenInfo(len: Int) = "你的字符串长度是:$len"
 fun getInfoMap(info: String) = "【$info】"
 fun show(content: String) = println(content)
+
+// TODO 55.Kotlin语言的takeIf内置函数
+// "欢迎登录系统,拥有超级权限"
+fun useTakeIf() {
+    val result = checkPermissionAction("Root", "!@#$")
+    // println("欢迎${result}尊贵的用户欢迎登录系统,拥有超级权限")
+    if (result != null) {
+        println("欢迎${result}尊贵的用户欢迎登录系统,拥有超级权限")
+    } else {
+        println("你的权限不够")
+    }
+
+    // name.takeIf { true/false }
+    // true: 直接返回name本身
+    // false: 直接放回null
+
+    // 真正的用途
+    println(checkPermissionAction2("Root", "!@#$"))
+
+    // 小结：一般大部分情况下，都是 takeIf + 空合并操作符 = 一起使用
+}
+
+// 前端
+public fun checkPermissionAction(name: String, pwd: String) : String? {
+    return name.takeIf { permissionSystem(name, pwd) }
+}
+
+// takeIf + 空合并操作符
+public fun checkPermissionAction2(name: String, pwd: String) : String {
+    return name.takeIf { permissionSystem(name, pwd) } ?: "你的权限不够"
+}
+
+// 权限系统
+private fun permissionSystem(username: String, userpwd: String) : Boolean {
+    return if (username == "Root" && userpwd == "!@#$") true  else false
+}
