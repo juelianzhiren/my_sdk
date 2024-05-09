@@ -11,7 +11,7 @@ fun main() {
     val newPwd = sourcePwd.replace(Regex("[AKMNO]")) {
         it.value // 完全没有做任何事情
 
-        when(it.value) { // 这里的每一个字符 A B C D ...
+        when (it.value) { // 这里的每一个字符 A B C D ...
             "A" -> "9"
             "K" -> "3"
             "M" -> "5"
@@ -24,7 +24,7 @@ fun main() {
 
     // 解密操作
     val sourcePwdNew = newPwd.replace(Regex("[9514]")) {
-        when(it.value) {
+        when (it.value) {
             "9" -> "A"
             "3" -> "K"
             "5" -> "M"
@@ -38,8 +38,8 @@ fun main() {
     // == 值 内容的比较  相当于Java的equals
     // === 引用的比较
 
-    val name1 : String = "Derry"
-    val name2 : String = "Derry"
+    val name1: String = "Derry"
+    val name2: String = "Derry"
     val name3 = "ww"
 
     // 小结：name1.equals(name2)  等价于 name1 == name2  都是属于 值 内容的比较
@@ -55,7 +55,7 @@ fun main() {
     println(name4 === name1)
 
     val str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    str.forEach {  c -> // 覆盖默认的it参数名，修改参数名为 c
+    str.forEach { c -> // 覆盖默认的it参数名，修改参数名为 c
         // it == str的每一个字符 A B C D ...
         // print("所有的字符是:$it  ")
         print("所有的字符是:$c  ")
@@ -90,12 +90,16 @@ fun main() {
     // 结论：用 roundToInt()函数，保证 Double ->转Int 持有四舍五入的效果
 
     // r的类型： String
-    val r  = "%.3f".format(65.8343433)
+    val r = "%.3f".format(65.8343433)
     println(r)
 
     useApply()
 
     uselet()
+
+    useRun()
+
+    useWith()
 
     try {
         var info: String? = null
@@ -104,16 +108,16 @@ fun main() {
 
         println(info!!.length)
 
-    }catch (e: Exception) {
+    } catch (e: Exception) {
         println("啊呀:$e")
     }
 
-    var value1: String ? = null
+    var value1: String? = null
     var value2: Boolean = false
 
-     checkNotNull(value1) // java.lang.IllegalStateException: Required value was null.
+    checkNotNull(value1) // java.lang.IllegalStateException: Required value was null.
 
-     requireNotNull(value1) // java.lang.IllegalArgumentException: Required value was null.
+    requireNotNull(value1) // java.lang.IllegalArgumentException: Required value was null.
 
     require(value2) // java.lang.IllegalArgumentException: Failed requirement.
 }
@@ -124,24 +128,24 @@ fun checkException(info: String?) {
 
 class CustomException : IllegalArgumentException("你的代码太不严谨了")
 
-fun useApply(){
+fun useApply() {
     val info = "Derry You Hao"
 
     // 普通的方式
     println("info字符串的长度是:${info.length}")
-    println("info最后一个字符是:${info[info.length -1]}")
+    println("info最后一个字符是:${info[info.length - 1]}")
     println("info全部转成小写是:${info.toLowerCase()}")
 
     println()
 
     // apply内置函数的方式
     // info.apply特点：apply函数始终是返回 info本身 String类型
-    val infoNew : String = info.apply {
+    val infoNew: String = info.apply {
         // 一般大部分情况下，匿名函数，都会持有一个it，但是apply函数不会持有it，却会持有当前this == info本身
         println("apply匿名函数里面打印的:$this")
 
         println("info字符串的长度是:${length}")
-        println("info最后一个字符是:${this[length -1]}")
+        println("info最后一个字符是:${this[length - 1]}")
         println("info全部转成小写是:${toLowerCase()}")
     }
     println("apply返回的值:$infoNew")
@@ -153,7 +157,7 @@ fun useApply(){
     info.apply {
         println("长度是:$length")
     }.apply {
-        println("最后一个字符是:${this[length -1]}")
+        println("最后一个字符是:${this[length - 1]}")
         true
         true
         true
@@ -208,15 +212,68 @@ fun uselet() {
     println(getMethod3(/*null*/ "Derry"))
 }
 
+fun useRun() {
+    val str = "Derry is OK"
+    val r1: Float = str.run {
+        // this == str本身
+        true
+        5435.5f
+    }
+    println(r1)
+
+    // 下面是 具名函数 配合 run函数
+
+    // 2.具名函数判断长度 isLong
+
+    // 这个是属于 匿名函数 配合 run
+    str.run {
+        // this == str本身
+    }
+
+    // 这个是属于具名函数
+    // str.run(具名函数)
+    str
+            .run(::isLong) // this == str本身
+            .run(::showText) // this == isLong返回的boolean值
+            .run(::mapText)
+            .run(::println)
+
+    println()
+
+    // let函数持有it，run函数持有this 都可以很灵活的，把上一个结果值 自动给 下一个函数
+    str.let(::isLong) // it == str本身
+            .let(::showText) // it == isLong返回的boolean值
+            .let(::mapText) // it == str本身
+            .let(::println) // it == str本身
+
+    println()
+
+    // >>>>>>>>>>>>>>>>>>>>>> 上面全部都是具名函数调用给run执行  下面全部是 匿名函数调用给run执行
+    str
+            .run {
+                if (length > 5) true else false
+            }
+            .run {
+                if (this) "你的字符串合格" else "你的字符串不合格"
+            }
+            .run {
+                "【$this】"
+            }
+            .run {
+                println(this)
+            }
+}
+
 // 普通方式 对值判null，并返回
-fun getMethod1(value: String?) : String {
+fun getMethod1(value: String?): String {
     return if (value == null) "你传递的内容是null，你在搞什么飞机" else "欢迎回来${value}非常欢迎"
 }
+
 // 普通方式 简化版本
 fun getMethod2(value: String?) = if (value == null) "你传递的内容是null，你在搞什么飞机" else "欢迎回来${value}非常欢迎"
 
 // let方式 + 空合并操作符 对值判null，并返回
-fun getMethod3(value: String?) : String {
+fun getMethod3(value: String?): String {
     return value?.let {
         "欢迎回来${it}非常欢迎"
     } ?: "你传递的内容是null，你在搞什么飞机"
@@ -225,6 +282,42 @@ fun getMethod3(value: String?) : String {
 // let方式 + 空合并操作符 对值判null，并返回 简化版本
 fun getMethod4(value: String?) =
         value?.let {
+
             "欢迎回来${it}非常欢迎"
         } ?: "你传递的内容是null，你在搞什么飞机"
 
+fun isLong(str: String) /* : Boolean */ = if (str.length > 5) true else false
+
+fun showText(isLong: Boolean) /*: String */ = if (isLong) "你的字符串合格" else "你的字符串不合格"
+
+fun mapText(getShow: String) /*: String */ = "【$getShow】"
+
+fun useWith() {
+    val str = "李元霸"
+
+    // 具名操作
+    /*with(str) {
+        this == str本身
+    }*/
+    val r1 = with(str, ::getStrLen)
+    val r2 = with(r1, ::getLenInfo)
+    val r3 = with(r2, ::getInfoMap)
+    with(r3, ::show)
+
+    println()
+
+    // 匿名操作
+    with(with(with(with(str) {
+        length
+    }) {
+        "你的字符串长度是:$this"
+    }){
+        "【$this】"
+    }){
+        println(this)
+    }
+}
+fun getStrLen(str: String) = str.length
+fun getLenInfo(len: Int) = "你的字符串长度是:$len"
+fun getInfoMap(info: String) = "【$info】"
+fun show(content: String) = println(content)
