@@ -33,5 +33,10 @@
     "level": "INFO",
     "message": "Folder D:\\Android_SDK\\ndk-bundle does not exist. Ignoring.",
     "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "ERROR",
+    "message": "Location specified by ndk.dir (D:\\Android_SDK\\ndk-bundle) did not contain a valid NDK and couldn\u0027t be used",
+    "diagnosticCode": "UNKNOWN"
   }
 ]
