@@ -96,6 +96,36 @@ class KtBase79 {
 
 }
 
+class KtBase80 {
+
+//    init {
+//        number = number.times(9)
+//    }
+//
+//    var number = 9
+
+    val info: String
+
+    init {
+        getInfoMethod()
+         info = "DerryOK"
+    }
+
+    fun getInfoMethod() {
+        println("info:${info[0]}")
+    }
+}
+
+class KtBase82 (_info: String) {
+//    private val info = _info
+
+    val content : String = getInfoMethod()
+
+     private val info = _info // 把这种 转换info的代码，写到最前面，这样保证，就不会出现这种问题
+
+    private fun getInfoMethod() = info // 当此函数调用info变量的时候，你以为是赋值好了，但是还没有赋值
+}
+
 // TODO 76.Kotlin语言的初始化块学习
 // 1.name,age,sex的主构造函数
 // 2.init代码块学习 require
@@ -158,4 +188,8 @@ fun main() {
     println("即将开始使用")
 
     println("最终显示:${p3.databaseData2}")
+
+//    KtBase80();
+
+    println("内容的长度是:${KtBase82("Derry").content.length}")
 }
