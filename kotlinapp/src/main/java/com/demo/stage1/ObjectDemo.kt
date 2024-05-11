@@ -29,22 +29,6 @@ object KtBase87 {
     fun show() = println("我是show函数...")
 }
 
-fun main1(){
-    // object KtBase87 既是单例的实例，也是类名
-    // 小结：既然是 单例的实例，又是类名，只有一个创建，这就是典型的单例
-    println(KtBase87) // 背后代码：println(KtBase87.INSTANCE)
-    println(KtBase87) // 背后代码：println(KtBase87.INSTANCE)
-    println(KtBase87)
-    println(KtBase87)
-    println(KtBase87)
-    println(KtBase87)
-
-    // 背后代码：KtBase87.INSTANCE.show();
-    println(KtBase87.show())
-
-
-    println()
-}
 
 interface RunnableKT {
     fun run()
@@ -75,6 +59,22 @@ class KtBase88Impl : KtBase88() {
 
 // TODO 87.Kotlin语言的对象声明学习
 fun main() {
+    // object KtBase87 既是单例的实例，也是类名
+    // 小结：既然是 单例的实例，又是类名，只有一个创建，这就是典型的单例
+    println(KtBase87) // 背后代码：println(KtBase87.INSTANCE)
+    println(KtBase87) // 背后代码：println(KtBase87.INSTANCE)
+    println(KtBase87)
+    println(KtBase87)
+    println(KtBase87)
+    println(KtBase87)
+
+    // 背后代码：KtBase87.INSTANCE.show();
+    println(KtBase87.show())
+
+
+    println()
+
+
     // TODO  88.Kotlin语言的对象表达式学习
 // 1.add del println
 // 2.匿名对象表达式方式
