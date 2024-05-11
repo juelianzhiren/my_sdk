@@ -16,7 +16,7 @@ val myStr : String = "AAA"
  */
 
 // 扩展属性：
-val String.myInfo: String = "asdf"
+val String.myInfo: String
     get() = "Derry"
 
 /* 背后代码：
