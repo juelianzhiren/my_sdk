@@ -25,6 +25,8 @@ fun main() {
         34543.45f
         "Derry"
     }
+
+    with("Derry2"){}
 }
 
 // private 私有化
