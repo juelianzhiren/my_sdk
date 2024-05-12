@@ -1,1 +1,1 @@
-F:\zhangtq\android_projects\my_sdk\app\build\intermediates\ndkBuild\debug\obj\local\arm64-v8a
+E:\my_projects\my_sdk\app\build\intermediates\ndkBuild\debug\obj\local\arm64-v8a

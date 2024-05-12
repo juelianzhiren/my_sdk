@@ -1,56 +1,56 @@
 {
   "buildFiles": [
-    "F:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk"
+    "E:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk"
   ],
   "cleanCommandsComponents": [
     [
-      "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd",
+      "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
       "NDK_PROJECT_PATH\u003dnull",
-      "APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
+      "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
       "APP_ABI\u003darm64-v8a",
       "NDK_ALL_ABIS\u003darm64-v8a",
       "NDK_DEBUG\u003d1",
       "APP_PLATFORM\u003dandroid-19",
-      "NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
-      "NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
+      "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
+      "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
       "clean"
     ]
   ],
   "buildTargetsCommandComponents": [
-    "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd",
+    "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
     "NDK_PROJECT_PATH\u003dnull",
-    "APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
+    "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
     "APP_ABI\u003darm64-v8a",
     "NDK_ALL_ABIS\u003darm64-v8a",
     "NDK_DEBUG\u003d1",
     "APP_PLATFORM\u003dandroid-19",
-    "NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
-    "NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
+    "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
+    "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
     "jni-test-debug-arm64-v8a": {
       "buildCommandComponents": [
-        "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd",
+        "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
         "NDK_PROJECT_PATH\u003dnull",
-        "APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
+        "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
         "APP_ABI\u003darm64-v8a",
         "NDK_ALL_ABIS\u003darm64-v8a",
         "NDK_DEBUG\u003d1",
         "APP_PLATFORM\u003dandroid-19",
-        "NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
-        "NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
-        "F:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libjni-test.so"
+        "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
+        "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
+        "E:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libjni-test.so"
       ],
       "toolchain": "toolchain-arm64-v8a",
       "abi": "arm64-v8a",
       "artifactName": "jni-test",
-      "output": "F:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\arm64-v8a\\libjni-test.so"
+      "output": "E:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\arm64-v8a\\libjni-test.so"
     }
   },
   "toolchains": {
     "toolchain-arm64-v8a": {
-      "cppCompilerExecutable": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+      "cppCompilerExecutable": "D:\\Android_SDK\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
     }
   },
   "cFileExtensions": [],

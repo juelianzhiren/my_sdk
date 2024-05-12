@@ -1,1 +1,1 @@
-F:\zhangtq\android_projects\my_sdk\app\src\main\jni\Android.mk
+E:\my_projects\my_sdk\app\src\main\jni\Android.mk

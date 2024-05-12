@@ -1,6 +1,6 @@
 package com.demo.stage1;
 
-public class KtBase129 {
+public class JavaKotlinDemo {
 
     public String getInfo1() {
         return "Derry Info1";
