@@ -17,7 +17,7 @@ import com.ztq.sdk.utils.Utils;
  * Created by ztq on 2019/8/1.
  * 记录进度条的圆圈View
  */
-public class CircleProgressBar extends View {
+public classappCircleProgressBar extends View {
     private final String TAG = "noahedu.CircleProgressBar";
     private Paint mBgPaint;
     private Paint mArcPaint;

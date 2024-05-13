@@ -1,4 +1,4 @@
-package com.ztq.sdk.widget;
+package com.ztq.sdk.widget.question_type_widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -26,6 +26,8 @@ import com.ztq.sdk.utils.QuestionUtil;
 import com.ztq.sdk.utils.SoundUtil;
 import com.ztq.sdk.utils.StringUtil;
 import com.ztq.sdk.utils.ToastUtils;
+import com.ztq.sdk.widget.MyTextView;
+import com.ztq.sdk.widget.SingleTextWithPinyinView;
 
 import java.io.IOException;
 import java.util.ArrayList;
