@@ -156,7 +156,7 @@ fun main() {
     fun s02() /*: () -> Unit*/ = { println("OK") }  // () -> Unit
 
     // // s03和s04都有入参的时候要怎么调用
-    // run { 执行你的函数 show1 show2  }
+    // run { 执行你的函数 com.demo.show1 com.demo.show2  }
     fun s03() : Boolean = run { true } // Boolean    run返回 {}里面的函数返回类型
     fun s04() : ()-> Boolean = { true } // () -> Boolean    输入 -> 输出
     s03()
@@ -214,7 +214,7 @@ fun String.shows() {
 }
 
 /*
-fun Glide.show() {
+fun Glide.com.demo.show() {
     // this == Glide 本身
 }
 

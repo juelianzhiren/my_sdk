@@ -11,6 +11,6 @@ public class JvmStaticDemo {
 
 //        System.out.println(MyObject.Companion.getTARGET());
 //
-//        MyObject.Companion.showAction("Kevin");
+//        MyObject.Companion.com.demo.showAction("Kevin");
     }
 }

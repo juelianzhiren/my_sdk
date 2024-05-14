@@ -6,7 +6,7 @@ object KtBase87 {
 
         private KtBase87() {} // 主构造废除一样的效果
 
-        public final void show() {
+        public final void com.demo.show() {
             String var1 = "我是show函数...";
             ...
             System.out.println(var1);
@@ -68,7 +68,7 @@ fun main() {
     println(KtBase87)
     println(KtBase87)
 
-    // 背后代码：KtBase87.INSTANCE.show();
+    // 背后代码：KtBase87.INSTANCE.com.demo.show();
     println(KtBase87.show())
 
 

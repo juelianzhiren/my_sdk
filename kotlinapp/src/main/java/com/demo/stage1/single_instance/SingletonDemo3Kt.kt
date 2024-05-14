@@ -16,7 +16,7 @@ class SingletonDemo3Kt {
     }
 
     fun show() {
-        println("show")
+        println("com.demo.show")
     }
 }
 

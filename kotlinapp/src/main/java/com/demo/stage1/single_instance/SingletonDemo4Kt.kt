@@ -7,7 +7,7 @@ class SingletonDemo4Kt private constructor() {
     }
 
     fun show() {
-        println("show")
+        println("com.demo.show")
     }
 }
 

@@ -23,12 +23,12 @@ fun String.showStr() = println(this)
 
     public final class KtBase113Kt {
 
-        public static final void show(KtBase113 $this$show) {
-            System.out.println("我是show函数, name:" + $this$show.name + ", age:" + $this$show.age, sex:" + $this$show.sex);
+        public static final void com.demo.show(KtBase113 $this$com.demo.show) {
+            System.out.println("我是show函数, name:" + $this$com.demo.show.name + ", age:" + $this$com.demo.show.age, sex:" + $this$com.demo.show.sex);
         }
 
         public static final void getInfo(KtBase113 $this$getInfo) {
-            return "我是getInfo函数, name:" + $this$show.name + ", age:" + $this$show.age, sex:" + $this$show.sex;
+            return "我是getInfo函数, name:" + $this$com.demo.show.name + ", age:" + $this$com.demo.show.age, sex:" + $this$com.demo.show.sex;
         }
 
         public static final void showStr(String $this$showStr) {

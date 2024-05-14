@@ -15,7 +15,7 @@ public class SingletonDemo2 {
     }
 
     public void show() {
-        System.out.println("show");
+        System.out.println("com.demo.show");
     }
 
     public static void main(String[] args) {

@@ -83,8 +83,8 @@ fun main() {
 // 显示枚举值
 
 // 一般不会这样用
-/*println(Limbs.show())
-println(Limbs().show())*/
+/*println(Limbs.com.demo.show())
+println(Limbs().com.demo.show())*/
 
 // 一般的用法如下：
     println(Limbs.LEFT_HAND.show())
