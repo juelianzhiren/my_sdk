@@ -1,8 +1,17 @@
 package k03.rx03
 
+import kotlin.concurrent.thread
+
 // TODO KT精华 难度极高
 
 fun main() {
+    repeat(3){
+
+    }
+
+    thread{
+
+    }
 
     create {
         "Derry"
