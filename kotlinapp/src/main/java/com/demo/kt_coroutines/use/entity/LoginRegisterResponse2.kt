@@ -1,4 +1,4 @@
-package com.xiangxue.kotlinproject.entity
+package com.demo.kt_coroutines.use.entity
 
 /**
  * data 登录成功 或者 注册成功 需要把这个Bean 给 UI

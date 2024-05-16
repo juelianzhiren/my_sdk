@@ -1,7 +1,7 @@
 package com.demo.stage1
 
 import android.os.Build
-import android.support.annotation.RequiresApi
+import androidx.annotation.RequiresApi
 
 @RequiresApi(Build.VERSION_CODES.N)
 fun main() {

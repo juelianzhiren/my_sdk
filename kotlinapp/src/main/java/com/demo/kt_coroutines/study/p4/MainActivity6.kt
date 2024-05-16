@@ -1,11 +1,11 @@
-package com.derry.kt_coroutines.study.p4
+package com.demo.kt_coroutines.study.p4
 
 import android.app.ProgressDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.derry.kt_coroutines.R
+import com.demo.kotlinapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 

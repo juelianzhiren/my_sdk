@@ -1,7 +1,7 @@
-package com.xiangxue.kotlinproject.api
+package com.demo.kt_coroutines.use.api
 
-import com.xiangxue.kotlinproject.entity.LoginRegisterResponse2
-import com.xiangxue.kotlinproject.entity.LoginRegisterResponseWrapper2
+import com.demo.kt_coroutines.use.entity.LoginRegisterResponse2
+import com.demo.kt_coroutines.use.entity.LoginRegisterResponseWrapper2
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

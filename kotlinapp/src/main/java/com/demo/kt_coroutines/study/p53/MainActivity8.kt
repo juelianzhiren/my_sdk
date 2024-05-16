@@ -1,4 +1,4 @@
-package com.derry.kt_coroutines.study.p53
+package com.demo.kt_coroutines.study.p53
 
 import android.app.ProgressDialog
 import android.graphics.Color
@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.derry.kt_coroutines.R
+import com.demo.kotlinapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
-import kotlin.coroutines.Continuation
-import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.EmptyCoroutineContext
 
 // TODO  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 下面是 p53通用代码：
 /*【挂起函数 大概做了什么事情，画图描述清楚】 ↓ 切换 ↑

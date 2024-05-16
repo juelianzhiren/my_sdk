@@ -1,8 +1,8 @@
-package com.derry.kt_coroutines.study.p5
+package com.demo.kt_coroutines.study.p5
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.derry.kt_coroutines.R
+import com.demo.kotlinapp.R
 import kotlinx.coroutines.*
 
 // TODO >>>>>>>>>>>>>>>>>>>>>>>> 下面：5.1：函数类型的变换 ①/② >>>>>>>>>>>>>>>>>>>>>>>>

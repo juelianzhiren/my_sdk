@@ -1,4 +1,4 @@
-package com.xiangxue.kotlinproject.entity
+package com.demo.kt_coroutines.use.entity
 
 /**
  * 包装Bean 登录 注册 成功的Bean

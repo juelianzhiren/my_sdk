@@ -1,7 +1,7 @@
 package com.demo.stage1
 
 import android.os.Build
-import android.support.annotation.RequiresApi
+import androidx.annotation.RequiresApi
 
 fun main() {
     val list = listOf("Derry", "Zhangsan", "Lisi", "Wangwu")

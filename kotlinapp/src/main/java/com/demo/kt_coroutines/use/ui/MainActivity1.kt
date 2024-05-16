@@ -4,14 +4,14 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.demo.kotlinapp.R
-import com.derry.kt_coroutines.use.api.APIClient
-import com.xiangxue.kotlinproject.api.WanAndroidAPI
-import com.xiangxue.kotlinproject.entity.LoginRegisterResponse2
-import com.xiangxue.kotlinproject.entity.LoginRegisterResponseWrapper2
+import com.demo.kt_coroutines.use.api.APIClient
+import com.demo.kt_coroutines.use.api.WanAndroidAPI
+import com.demo.kt_coroutines.use.entity.LoginRegisterResponse2
+import com.demo.kt_coroutines.use.entity.LoginRegisterResponseWrapper2
 import kotlinx.android.synthetic.main.activity_main.*
 
 // 2.1：传统方式完成异步任务网络加载
