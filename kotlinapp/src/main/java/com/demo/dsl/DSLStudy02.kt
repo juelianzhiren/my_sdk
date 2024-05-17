@@ -1,4 +1,4 @@
-package com.demo
+package com.demo.dsl
 
 import java.io.File
 
