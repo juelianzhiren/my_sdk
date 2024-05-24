@@ -70,6 +70,16 @@
         <activity android:name=".activity.EventExmaplesActivity2" />
         <activity android:name=".activity.FileProviderActivity" />
 
+        <activity
+            android:name=".activity.SkinActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <service android:name=".service.MessengerService"
             android:process=":custom_service"/>
 
