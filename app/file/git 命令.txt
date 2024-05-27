@@ -29,3 +29,5 @@ git log --author="John"
 git reset --hard
 git pull
 用代码库中的文件完全覆盖本地工作版本
+
+git push -f  强制推送，慎用

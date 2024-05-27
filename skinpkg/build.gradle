@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.leo.skinpkg"
-        minSdk 21
-        targetSdk 23
+        minSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
 
