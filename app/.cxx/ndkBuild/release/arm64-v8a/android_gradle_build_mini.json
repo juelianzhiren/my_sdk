@@ -1,17 +1,17 @@
 {
   "buildFiles": [
-    "E:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk"
+    "F:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk"
   ],
   "cleanCommands": [
-    "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\lib clean"
+    "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\lib clean"
   ],
-  "buildTargetsCommand": "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\lib {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\lib {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "jni-test-release-arm64-v8a": {
       "artifactName": "jni-test",
-      "buildCommand": "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\lib E:/my_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj/local/arm64-v8a/libjni-test.so",
+      "buildCommand": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\lib F:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/release/obj/local/arm64-v8a/libjni-test.so",
       "abi": "arm64-v8a",
-      "output": "E:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\arm64-v8a\\libjni-test.so"
+      "output": "F:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\arm64-v8a\\libjni-test.so"
     }
   }
 }

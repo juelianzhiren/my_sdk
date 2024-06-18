@@ -1,56 +1,29 @@
 {
   "buildFiles": [
-    "E:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk"
+    "F:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk"
   ],
-  "cleanCommandsComponents": [
-    [
-      "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
-      "NDK_PROJECT_PATH\u003dnull",
-      "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
-      "APP_ABI\u003darmeabi-v7a",
-      "NDK_ALL_ABIS\u003darmeabi-v7a",
-      "NDK_DEBUG\u003d1",
-      "APP_PLATFORM\u003dandroid-19",
-      "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
-      "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
-      "clean"
-    ]
+  "cleanCommands": [
+    "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib clean"
   ],
-  "buildTargetsCommandComponents": [
-    "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
-    "NDK_PROJECT_PATH\u003dnull",
-    "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
-    "APP_ABI\u003darmeabi-v7a",
-    "NDK_ALL_ABIS\u003darmeabi-v7a",
-    "NDK_DEBUG\u003d1",
-    "APP_PLATFORM\u003dandroid-19",
-    "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
-    "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
-    "{LIST_OF_TARGETS_TO_BUILD}"
-  ],
+  "buildTargetsCommand": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "jni-test-debug-armeabi-v7a": {
-      "buildCommandComponents": [
-        "D:\\Android_SDK\\ndk-bundle\\ndk-build.cmd",
-        "NDK_PROJECT_PATH\u003dnull",
-        "APP_BUILD_SCRIPT\u003dE:\\my_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk",
-        "APP_ABI\u003darmeabi-v7a",
-        "NDK_ALL_ABIS\u003darmeabi-v7a",
-        "NDK_DEBUG\u003d1",
-        "APP_PLATFORM\u003dandroid-19",
-        "NDK_OUT\u003dE:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj",
-        "NDK_LIBS_OUT\u003dE:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
-        "E:/my_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libjni-test.so"
-      ],
+      "buildCommand": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\Android.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dF:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\lib F:/zhangtq/android_projects/my_sdk/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libjni-test.so",
       "toolchain": "toolchain-armeabi-v7a",
       "abi": "armeabi-v7a",
       "artifactName": "jni-test",
-      "output": "E:\\my_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\armeabi-v7a\\libjni-test.so"
+      "files": [
+        {
+          "src": "F:\\zhangtq\\android_projects\\my_sdk\\app\\src\\main\\jni\\com_ztq_sdk_jni_JniInterface.cpp",
+          "flags": "-target armv7-none-linux-androideabi19 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot G:/android-sdk-windows/android-sdk-windows/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fno-exceptions -fno-rtti -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IF:/zhangtq/android_projects/my_sdk/app/src/main/jni -DANDROID -Wformat -Werror\u003dformat-security"
+        }
+      ],
+      "output": "F:\\zhangtq\\android_projects\\my_sdk\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\armeabi-v7a\\libjni-test.so"
     }
   },
   "toolchains": {
     "toolchain-armeabi-v7a": {
-      "cppCompilerExecutable": "D:\\Android_SDK\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+      "cppCompilerExecutable": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
     }
   },
   "cFileExtensions": [],
