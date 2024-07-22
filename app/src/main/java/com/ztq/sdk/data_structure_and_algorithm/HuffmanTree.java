@@ -1,4 +1,4 @@
-package com.ztq.sdk.utils;
+package com.ztq.sdk.data_structure_and_algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
