@@ -61,4 +61,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
     // 日志的拦截器，也可以自行选择
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    implementation project(':ioc_annotation_lib')
 }
