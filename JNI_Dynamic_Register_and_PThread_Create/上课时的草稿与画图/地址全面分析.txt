@@ -1,0 +1,20 @@
+            nativeFun1 当前函数env地址0xb400007905a91b90,  当前函数jvm地址:0xb400007915a911d0,  当前函数job地址:0x7fe30c4248, JNI_OnLoad的jvm地址:0xb400007915a911d0
+            nativeFun2 当前函数env地址0xb400007905a91b90,  当前函数jvm地址:0xb400007915a911d0,  当前函数job地址:0x7fe30c4248, JNI_OnLoad的jvm地址:0xb400007915a911d0
+            nativeFun3 当前函数env地址0xb400007905a91b90,  当前函数jvm地址:0xb400007915a911d0,  当前函数clazz地址:0x7828f4d170, JNI_OnLoad的jvm地址:0xb400007915a911d0
+java thread nativeFun4 当前函数env地址 0xb400007905acbfd0,  当前函数jvm地址:0xb400007915a911d0,  当前函数clazz地址:0x7828f4d190, JNI_OnLoad的jvm地址:0xb400007915a911d0
+cpp thread run jvm地址:0xb400007915a911d0,  当前run函数的newEnv地址:0xb400007905acbfd0 
+			nativeFun5 当前函数env地址0xb400007905a91b90,  当前函数jvm地址:0xb400007915a911d0,  当前函数job地址:0x7fe30c4488, JNI_OnLoad的jvm地址:0xb400007915a911d0
+			nativeFun6 当前函数env地址0xb400007905a91b90,  当前函数jvm地址:0xb400007915a911d0,  当前函数clazz地址:0x7828f572e0, JNI_OnLoad的jvm地址:0xb400007915a911d0
+
+
+
+
+
+
+JavaVM  —  绑定 APP进程的（所以，无论是 Java的子线程 ，C++的子线程，还是安卓主线程，等等）地址全部都一样
+
+Env  — 绑定  安卓主线程 和 子线程的，env区分线程的绑定
+
+Jobject — 绑定 当前实例的    MainActivity1   和 MainActivity2 不一样
+
+Jclass — 绑定 当前的类的   MainActivity1 class  和 MainActivity2 class 不一样            

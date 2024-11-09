@@ -1,0 +1,3 @@
+
+rootProject.name = "JNI_Dynamic_Register_and_PThread_Create"
+include ':app'
