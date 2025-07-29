@@ -1,0 +1,19 @@
+{
+  "buildFiles": [
+    "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\20.0.5594570\\build\\cmake\\platforms.cmake",
+    "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\20.0.5594570\\build\\cmake\\android.toolchain.cmake",
+    "G:\\zhangtq\\sourceCode\\P758-trunk\\apps\\SmallGame\\mmap_lib\\src\\main\\jni\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\zhangtq\\sourceCode\\P758-trunk\\apps\\SmallGame\\mmap_lib\\.cxx\\cmake\\release\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"G:\\zhangtq\\sourceCode\\P758-trunk\\apps\\SmallGame\\mmap_lib\\.cxx\\cmake\\release\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "mmap_logger-Release-arm64-v8a": {
+      "artifactName": "mmap_logger",
+      "buildCommand": "G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\zhangtq\\sourceCode\\P758-trunk\\apps\\SmallGame\\mmap_lib\\.cxx\\cmake\\release\\arm64-v8a\" mmap_logger",
+      "abi": "arm64-v8a",
+      "output": "G:\\zhangtq\\sourceCode\\P758-trunk\\apps\\SmallGame\\mmap_lib\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libmmap_logger.so"
+    }
+  }
+}

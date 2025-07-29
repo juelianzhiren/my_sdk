@@ -1,0 +1,12 @@
+# ninja log v5
+1	60	0	clean	71d5f868344fb3ac
+1	581	775484083	CMakeFiles/mmap_logger.dir/mmap_logger.cpp.o	31966178f914c1fb
+585	1334	775484084	G:/zhangtq/sourceCode/P758-trunk/apps/SmallGame/mmap_lib/build/intermediates/cmake/debug/obj/armeabi-v7a/libmmap_logger.so	fd6545bb6a107538
+2	203	775484324	CMakeFiles/mmap_logger.dir/mmap_logger.cpp.o	31966178f914c1fb
+203	414	775484324	G:/zhangtq/sourceCode/P758-trunk/apps/SmallGame/mmap_lib/build/intermediates/cmake/debug/obj/armeabi-v7a/libmmap_logger.so	fd6545bb6a107538
+3	201	775484497	CMakeFiles/mmap_logger.dir/mmap_logger.cpp.o	31966178f914c1fb
+201	423	775484498	G:/zhangtq/sourceCode/P758-trunk/apps/SmallGame/mmap_lib/build/intermediates/cmake/debug/obj/armeabi-v7a/libmmap_logger.so	fd6545bb6a107538
+2	194	775484507	CMakeFiles/mmap_logger.dir/mmap_logger.cpp.o	31966178f914c1fb
+195	370	775484507	G:/zhangtq/sourceCode/P758-trunk/apps/SmallGame/mmap_lib/build/intermediates/cmake/debug/obj/armeabi-v7a/libmmap_logger.so	fd6545bb6a107538
+2	197	775484626	CMakeFiles/mmap_logger.dir/mmap_logger.cpp.o	31966178f914c1fb
+198	434	775484626	G:/zhangtq/sourceCode/P758-trunk/apps/SmallGame/mmap_lib/build/intermediates/cmake/debug/obj/armeabi-v7a/libmmap_logger.so	fd6545bb6a107538

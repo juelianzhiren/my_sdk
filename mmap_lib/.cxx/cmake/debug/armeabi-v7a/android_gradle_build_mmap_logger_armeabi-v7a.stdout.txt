@@ -1,0 +1,10 @@
+ninja: Entering directory `G:\zhangtq\sourceCode\P758-trunk\apps\SmallGame\mmap_lib\.cxx\cmake\debug\armeabi-v7a'
+[1/2] Building CXX object CMakeFiles/mmap_logger.dir/mmap_logger.cpp.o
+G:/zhangtq/sourceCode/P758-trunk/apps/SmallGame/mmap_lib/src/main/jni/mmap_logger.cpp:10:9: warning: 'PAGE_SIZE' macro redefined [-Wmacro-redefined]
+#define PAGE_SIZE sysconf(_SC_PAGE_SIZE)
+        ^
+G:/android-sdk-windows/android-sdk-windows/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include\sys/user.h:38:9: note: previous definition is here
+#define PAGE_SIZE 4096
+        ^
+1 warning generated.
+[2/2] Linking CXX shared library G:\zhangtq\sourceCode\P758-trunk\apps\SmallGame\mmap_lib\build\intermediates\cmake\debug\obj\armeabi-v7a\libmmap_logger.so

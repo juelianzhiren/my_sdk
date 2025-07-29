@@ -1,0 +1,7 @@
+[
+{
+  "directory": "G:/zhangtq/sourceCode/P758-trunk/apps/SmallGame/mmap_lib/.cxx/cmake/release/armeabi-v7a",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\20.0.5594570\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=armv7-none-linux-androideabi21 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dmmap_logger_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security   -Oz -DNDEBUG  -fPIC   -o CMakeFiles\\mmap_logger.dir\\mmap_logger.cpp.o -c G:\\zhangtq\\sourceCode\\P758-trunk\\apps\\SmallGame\\mmap_lib\\src\\main\\jni\\mmap_logger.cpp",
+  "file": "G:\\zhangtq\\sourceCode\\P758-trunk\\apps\\SmallGame\\mmap_lib\\src\\main\\jni\\mmap_logger.cpp"
+}
+]

@@ -1,0 +1,7 @@
+[
+{
+  "directory": "F:/zhangtq/android_projects/my_sdk/mmap_lib/.cxx/cmake/debug/arm64-v8a",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android21 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dmmap_logger_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\mmap_logger.dir\\mmap_logger.cpp.o -c F:\\zhangtq\\android_projects\\my_sdk\\mmap_lib\\src\\main\\jni\\mmap_logger.cpp",
+  "file": "F:\\zhangtq\\android_projects\\my_sdk\\mmap_lib\\src\\main\\jni\\mmap_logger.cpp"
+}
+]

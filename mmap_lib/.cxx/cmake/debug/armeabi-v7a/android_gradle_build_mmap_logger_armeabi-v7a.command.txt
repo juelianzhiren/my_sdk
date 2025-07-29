@@ -1,0 +1,7 @@
+Executable : G:\android-sdk-windows\android-sdk-windows\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+G:\zhangtq\sourceCode\P758-trunk\apps\SmallGame\mmap_lib\.cxx\cmake\debug\armeabi-v7a
+mmap_logger
+jvmArgs : 
+
