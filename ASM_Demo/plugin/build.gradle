@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+
+    implementation 'com.android.tools.build:gradle:4.1.2'
+
+    implementation 'org.ow2.asm:asm:5.0.4'
+    implementation 'org.ow2.asm:asm-commons:5.0.4'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'com.example.plugin'
+            pom.artifactId = 'asm'
+            pom.version = '1.0.0'
+            //生成的插件存放地址
+            repository(url: uri('../localRepo'))
+        }
+    }
+}
