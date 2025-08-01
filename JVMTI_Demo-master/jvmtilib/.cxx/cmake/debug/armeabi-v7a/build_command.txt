@@ -1,0 +1,21 @@
+                Executable : G:\android-sdk-windows\android-sdk-windows\cmake\3.10.2.4988404\bin\cmake.exe
+arguments : 
+-HF:\zhangtq\android_projects\JVMTI_Demo-master\jvmtilib
+-DCMAKE_FIND_ROOT_PATH=F:\zhangtq\android_projects\JVMTI_Demo-master\jvmtilib\.cxx\cmake\debug\prefab\armeabi-v7a\prefab
+-DCMAKE_BUILD_TYPE=Debug
+-DCMAKE_TOOLCHAIN_FILE=G:\android-sdk-windows\android-sdk-windows\ndk\21.1.6352462\build\cmake\android.toolchain.cmake
+-DANDROID_ABI=armeabi-v7a
+-DANDROID_NDK=G:\android-sdk-windows\android-sdk-windows\ndk\21.1.6352462
+-DANDROID_PLATFORM=android-16
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DCMAKE_ANDROID_NDK=G:\android-sdk-windows\android-sdk-windows\ndk\21.1.6352462
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=F:\zhangtq\android_projects\JVMTI_Demo-master\jvmtilib\build\intermediates\cmake\debug\obj\armeabi-v7a
+-DCMAKE_MAKE_PROGRAM=G:\android-sdk-windows\android-sdk-windows\cmake\3.10.2.4988404\bin\ninja.exe
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_SYSTEM_VERSION=16
+-BF:\zhangtq\android_projects\JVMTI_Demo-master\jvmtilib\.cxx\cmake\debug\armeabi-v7a
+-GNinja
+jvmArgs : 
+
+Build command args:

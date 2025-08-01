@@ -1,0 +1,33 @@
+ninja: Entering directory `F:\zhangtq\android_projects\JVMTI_Demo-master\jvmtilib\.cxx\cmake\debug\arm64-v8a'
+[1/2] Building CXX object CMakeFiles/jvmti_agent.dir/src/main/cpp/native-lib.cpp.o
+../../../../src/main/cpp/native-lib.cpp:302:74: warning: format specifies type 'int' but the argument has type 'jlong' (aka 'long') [-Wformat]
+        ALOGI("==========alloc callback======= %s {size:%d}", className, size);
+                                                        ~~               ^~~~
+                                                        %ld
+../../../../src/main/cpp/native-lib.cpp:17:67: note: expanded from macro 'ALOGI'
+#define ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+                                                                  ^~~~~~~~~~~
+../../../../src/main/cpp/native-lib.cpp:395:48: warning: format specifies type 'int' but the argument has type 'jlong' (aka 'long') [-Wformat]
+    ALOGI("==========getObjectSize %d=======", size);
+                                   ~~          ^~~~
+                                   %ld
+../../../../src/main/cpp/native-lib.cpp:17:67: note: expanded from macro 'ALOGI'
+#define ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+                                                                  ^~~~~~~~~~~
+../../../../src/main/cpp/native-lib.cpp:489:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+../../../../src/main/cpp/native-lib.cpp:494:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+../../../../src/main/cpp/native-lib.cpp:28:1: warning: unused function 'addLabel' [-Wunused-function]
+addLabel(CodeIr &c,
+^
+../../../../src/main/cpp/native-lib.cpp:75:1: warning: unused function 'ClassNameToDescriptor' [-Wunused-function]
+ClassNameToDescriptor(const char *class_name) {
+^
+../../../../src/main/cpp/native-lib.cpp:86:1: warning: unused function 'getNumParams' [-Wunused-function]
+getNumParams(ir::EncodedMethod *method) {
+^
+7 warnings generated.
+[2/2] Linking CXX shared library ..\..\..\..\build\intermediates\cmake\debug\obj\arm64-v8a\libjvmti_agent.so

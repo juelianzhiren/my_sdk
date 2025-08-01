@@ -1,0 +1,4 @@
+F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86/CMakeFiles/dexter.dir
+F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86/CMakeFiles/jvmti_agent.dir
+F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir

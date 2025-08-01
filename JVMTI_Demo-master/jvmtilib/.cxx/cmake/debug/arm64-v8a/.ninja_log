@@ -1,0 +1,26 @@
+# ninja log v5
+93	4876	775633140	CMakeFiles/dexter.dir/src/main/cpp/dexer/dex_bytecode.cc.o	5bd5f7bcdcca9277
+37	5367	775633140	CMakeFiles/dexter.dir/src/main/cpp/dexer/dex_format.cc.o	524f92dca544e63b
+1	6194	775633141	CMakeFiles/dexter.dir/src/main/cpp/dexer/control_flow_graph.cc.o	594fd323c365663
+20	6261	775633141	CMakeFiles/dexter.dir/src/main/cpp/dexer/debuginfo_encoder.cc.o	c5dfcbe69043e659
+4884	6497	775633141	CMakeFiles/dexter.dir/src/main/cpp/dexer/common.cc.o	caaacb410e893da6
+118	6572	775633141	CMakeFiles/dexter.dir/src/main/cpp/dexer/bytecode_encoder.cc.o	9f99d81d955fb677
+56	7196	775633142	CMakeFiles/dexter.dir/src/main/cpp/dexer/dex_ir.cc.o	2f8f9d7a6be84459
+6573	7460	775633142	CMakeFiles/dexter.dir/src/main/cpp/dexer/dex_utf8.cc.o	51f3ccdb79b269
+6498	9246	775633144	CMakeFiles/dexter.dir/src/main/cpp/dexer/tryblocks_encoder.cc.o	35c6423c0c70865c
+6196	10583	775633145	CMakeFiles/dexter.dir/src/main/cpp/dexer/dex_ir_builder.cc.o	adc5b4a7fc3c9094
+5370	10643	775633145	CMakeFiles/dexter.dir/src/main/cpp/dexer/code_ir.cc.o	ec9535b73fa4c78e
+7196	10692	775633145	CMakeFiles/dexter.dir/src/main/cpp/dexer/instrumentation.cc.o	8faa6c852a73b5d
+7460	11440	775633146	CMakeFiles/jvmti_agent.dir/src/main/cpp/native-lib.cpp.o	2d085f7899411593
+6262	11867	775633147	CMakeFiles/dexter.dir/src/main/cpp/dexer/reader.cc.o	cd1880563a8fdd65
+9247	12361	775633147	CMakeFiles/dexter.dir/src/main/cpp/dexer/writer.cc.o	5019a0c4f05d4f39
+12362	16184	775633151	libdexter.a	63c225acb95641b5
+16184	19362	775633154	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libjvmti_agent.so	7059c6e45c6d93e7
+3	2635	775633238	CMakeFiles/jvmti_agent.dir/src/main/cpp/native-lib.cpp.o	2d085f7899411593
+2635	4309	775633239	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libjvmti_agent.so	7059c6e45c6d93e7
+66	3011	775713576	CMakeFiles/jvmti_agent.dir/src/main/cpp/native-lib.cpp.o	2d085f7899411593
+3012	8181	775713582	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libjvmti_agent.so	7059c6e45c6d93e7
+5	4086	775714878	CMakeFiles/jvmti_agent.dir/src/main/cpp/native-lib.cpp.o	2d085f7899411593
+4086	7662	775714881	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libjvmti_agent.so	7059c6e45c6d93e7
+1	229	0	clean	71d5f868344fb3ac
+0	145	0	clean	71d5f868344fb3ac

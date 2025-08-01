@@ -1,0 +1,440 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 16 min SDK version: armeabi-v7a",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "No CMake version was specified in build.gradle. Using default version 3.10.2.",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Trying to locate CMake in local SDK repository.",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "- CMake found in SDK at \u0027G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\u0027 had version \u00273.10.2\u0027",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "CMake \u00273.18.1\u0027 found in SDK did not match requested version \u00273.10.2\u0027.",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "CMake \u00273.22.1\u0027 found in SDK did not match requested version \u00273.10.2\u0027.",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "CMake \u00273.31.6\u0027 found in SDK did not match requested version \u00273.10.2\u0027.",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "CMake \u00273.6.0\u0027 found in SDK did not match requested version \u00273.10.2\u0027.",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\armeabi-v7a\\android_gradle_build.json due to:",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "- expected json F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\armeabi-v7a\\android_gradle_build.json file is not present, will remove stale json folder",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "- missing previous command file F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\armeabi-v7a\\build_command.txt, will remove stale json folder",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "- command changed from previous, will remove stale json folder",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "created folder \u0027F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\armeabi-v7a\u0027",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "executing cmake Executable : G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\cmake.exe\narguments : \n-HF:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\n-DCMAKE_FIND_ROOT_PATH\u003dF:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\prefab\\armeabi-v7a\\prefab\n-DCMAKE_BUILD_TYPE\u003dRelease\n-DCMAKE_TOOLCHAIN_FILE\u003dG:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake\n-DANDROID_ABI\u003darmeabi-v7a\n-DANDROID_NDK\u003dG:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\n-DANDROID_PLATFORM\u003dandroid-16\n-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\n-DCMAKE_ANDROID_NDK\u003dG:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dF:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\n-DCMAKE_MAKE_PROGRAM\u003dG:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_SYSTEM_VERSION\u003d16\n-BF:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\armeabi-v7a\n-GNinja\njvmArgs : \n\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "[\u003d\u003d \"CMake Server\" \u003d\u003d[\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"supportedProtocolVersions\":[{\"isExperimental\":true,\"major\":1,\"minor\":1}],\"type\":\"hello\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "]\u003d\u003d \"CMake Server\" \u003d\u003d]\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\n  \"type\": \"handshake\",\n  \"cookie\": \"gradle-cmake-cookie\",\n  \"protocolVersion\": {\n    \"isExperimental\": true,\n    \"major\": 1,\n    \"minor\": 1\n  },\n  \"sourceDirectory\": \"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib\",\n  \"buildDirectory\": \"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/release/armeabi-v7a\",\n  \"generator\": \"Ninja\"\n}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"gradle-cmake-cookie\",\"inReplyTo\":\"handshake\",\"type\":\"reply\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\n  \"type\": \"configure\",\n  \"cacheArguments\": [\n    \"\",\n    \"-DCMAKE_FIND_ROOT_PATH\\u003dF:\\\\zhangtq\\\\android_projects\\\\JVMTI_Demo-master\\\\jvmtilib\\\\.cxx\\\\cmake\\\\release\\\\prefab\\\\armeabi-v7a\\\\prefab\",\n    \"-DCMAKE_BUILD_TYPE\\u003dRelease\",\n    \"-DCMAKE_TOOLCHAIN_FILE\\u003dG:\\\\android-sdk-windows\\\\android-sdk-windows\\\\ndk\\\\21.1.6352462\\\\build\\\\cmake\\\\android.toolchain.cmake\",\n    \"-DANDROID_ABI\\u003darmeabi-v7a\",\n    \"-DANDROID_NDK\\u003dG:\\\\android-sdk-windows\\\\android-sdk-windows\\\\ndk\\\\21.1.6352462\",\n    \"-DANDROID_PLATFORM\\u003dandroid-16\",\n    \"-DCMAKE_ANDROID_ARCH_ABI\\u003darmeabi-v7a\",\n    \"-DCMAKE_ANDROID_NDK\\u003dG:\\\\android-sdk-windows\\\\android-sdk-windows\\\\ndk\\\\21.1.6352462\",\n    \"-DCMAKE_EXPORT_COMPILE_COMMANDS\\u003dON\",\n    \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\\u003dF:\\\\zhangtq\\\\android_projects\\\\JVMTI_Demo-master\\\\jvmtilib\\\\build\\\\intermediates\\\\cmake\\\\release\\\\obj\\\\armeabi-v7a\",\n    \"-DCMAKE_MAKE_PROGRAM\\u003dG:\\\\android-sdk-windows\\\\android-sdk-windows\\\\cmake\\\\3.10.2.4988404\\\\bin\\\\ninja.exe\",\n    \"-DCMAKE_SYSTEM_NAME\\u003dAndroid\",\n    \"-DCMAKE_SYSTEM_VERSION\\u003d16\"\n  ]\n}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working C compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working C compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":33,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working C compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working C compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compiler ABI info\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compiler ABI info",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":65,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compiler ABI info - done\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compiler ABI info - done",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compile features\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compile features",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":96,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":126,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":155,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compile features - done\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compile features - done",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working CXX compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working CXX compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":184,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working CXX compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working CXX compiler: G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compiler ABI info\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compiler ABI info",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":211,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compiler ABI info - done\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compiler ABI info - done",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compile features\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compile features",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":237,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":262,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":287,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":311,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compile features - done\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compile features - done",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":1000,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Configuring done\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Configuring done",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"type\":\"reply\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"type\":\"compute\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"progressCurrent\":1000,\"progressMaximum\":1000,\"progressMessage\":\"Generating\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"message\":\"Generating done\",\"type\":\"message\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Generating done",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"type\":\"reply\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"type\":\"cmakeInputs\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"buildFiles\":[{\"isCMake\":true,\"isTemporary\":false,\"sources\":[\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineSystem.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystem.cmake.in\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCCompiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine-C.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android/Determine-Compiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-FindBinUtils.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCXXCompiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine-CXX.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android/Determine-Compiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-FindBinUtils.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompiler.cmake.in\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCCompiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCompilerCommon.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompilerABI.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompilerABI.c\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompileFeatures.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Internal/FeatureTesting.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCXXCompiler.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCompilerCommon.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompilerABI.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompileFeatures.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Internal/FeatureTesting.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompiler.cmake.in\"]},{\"isCMake\":false,\"isTemporary\":false,\"sources\":[\"CMakeLists.txt\",\"G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/build/cmake/android.toolchain.cmake\",\"G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/build/cmake/platforms.cmake\",\"G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/build/cmake/android.toolchain.cmake\"]},{\"isCMake\":false,\"isTemporary\":true,\"sources\":[\".cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeSystem.cmake\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeCCompiler.cmake\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/feature_tests.c\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/feature_tests.c\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/feature_tests.c\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeCCompiler.cmake\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\".cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake\"]}],\"cmakeRootDirectory\":\"G:/android-sdk-windows/android-sdk-windows/cmake/3.10.2.4988404/share/cmake-3.10\",\"cookie\":\"\",\"inReplyTo\":\"cmakeInputs\",\"sourceDirectory\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib\",\"type\":\"reply\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"type\":\"codemodel\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"configurations\":[{\"name\":\"Release\",\"projects\":[{\"buildDirectory\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/release/armeabi-v7a\",\"name\":\"Project\",\"sourceDirectory\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib\",\"targets\":[{\"artifacts\":[\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/release/armeabi-v7a/libdexter.a\"],\"buildDirectory\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/release/armeabi-v7a\",\"fileGroups\":[{\"compileFlags\":\"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE\u003d2 -march\u003darmv7-a -mthumb -Wformat -Werror\u003dformat-security   -std\u003dc++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error\u003dnon-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -Oz -DNDEBUG  -fPIC  \",\"includePath\":[{\"path\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer\"}],\"isGenerated\":false,\"language\":\"CXX\",\"sources\":[\"src/main/cpp/dexer/bytecode_encoder.cc\",\"src/main/cpp/dexer/code_ir.cc\",\"src/main/cpp/dexer/common.cc\",\"src/main/cpp/dexer/control_flow_graph.cc\",\"src/main/cpp/dexer/debuginfo_encoder.cc\",\"src/main/cpp/dexer/dex_bytecode.cc\",\"src/main/cpp/dexer/dex_format.cc\",\"src/main/cpp/dexer/dex_ir.cc\",\"src/main/cpp/dexer/dex_ir_builder.cc\",\"src/main/cpp/dexer/dex_utf8.cc\",\"src/main/cpp/dexer/instrumentation.cc\",\"src/main/cpp/dexer/reader.cc\",\"src/main/cpp/dexer/tryblocks_encoder.cc\",\"src/main/cpp/dexer/writer.cc\"]}],\"fullName\":\"libdexter.a\",\"linkerLanguage\":\"CXX\",\"name\":\"dexter\",\"sourceDirectory\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib\",\"sysroot\":\"G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot\",\"type\":\"STATIC_LIBRARY\"},{\"artifacts\":[\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/build/intermediates/cmake/release/obj/armeabi-v7a/libjvmti_agent.so\"],\"buildDirectory\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/release/armeabi-v7a\",\"fileGroups\":[{\"compileFlags\":\"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE\u003d2 -march\u003darmv7-a -mthumb -Wformat -Werror\u003dformat-security   -std\u003dc++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error\u003dnon-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -Oz -DNDEBUG  -fPIC  \",\"defines\":[\"jvmti_agent_EXPORTS\"],\"includePath\":[{\"path\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer\"}],\"isGenerated\":false,\"language\":\"CXX\",\"sources\":[\"src/main/cpp/native-lib.cpp\"]}],\"fullName\":\"libjvmti_agent.so\",\"linkFlags\":\"-Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments\",\"linkLibraries\":\"libdexter.a -lz -llog -latomic -lm\",\"linkerLanguage\":\"CXX\",\"name\":\"jvmti_agent\",\"sourceDirectory\":\"F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib\",\"sysroot\":\"G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot\",\"type\":\"SHARED_LIBRARY\"}]}]}],\"cookie\":\"\",\"inReplyTo\":\"codemodel\",\"type\":\"reply\"}\n",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "done executing cmake",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "write build output F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\armeabi-v7a\\build_output.txt",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "write command file F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\release\\armeabi-v7a\\build_command.txt",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems",
+    "file": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "tag": "release|armeabi-v7a"
+  }
+]

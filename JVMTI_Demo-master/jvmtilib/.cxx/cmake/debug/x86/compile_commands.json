@@ -1,0 +1,91 @@
+[
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\bytecode_encoder.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\bytecode_encoder.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/bytecode_encoder.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\code_ir.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\code_ir.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/code_ir.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\common.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\common.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/common.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\control_flow_graph.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\control_flow_graph.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/control_flow_graph.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\debuginfo_encoder.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\debuginfo_encoder.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/debuginfo_encoder.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\dex_bytecode.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_bytecode.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/dex_bytecode.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\dex_format.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_format.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/dex_format.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\dex_ir.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_ir.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/dex_ir.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\dex_ir_builder.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_ir_builder.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/dex_ir_builder.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\dex_utf8.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_utf8.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/dex_utf8.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\instrumentation.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\instrumentation.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/instrumentation.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\reader.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\reader.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/reader.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\tryblocks_encoder.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\tryblocks_encoder.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/tryblocks_encoder.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\dexter.dir\\src\\main\\cpp\\dexer\\writer.cc.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\writer.cc",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/dexer/writer.cc"
+},
+
+{
+  "directory": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+  "command": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djvmti_agent_EXPORTS -I../../../../src/main/cpp/dexer  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\jvmti_agent.dir\\src\\main\\cpp\\native-lib.cpp.o -c F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\native-lib.cpp",
+  "file": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/src/main/cpp/native-lib.cpp"
+}
+]

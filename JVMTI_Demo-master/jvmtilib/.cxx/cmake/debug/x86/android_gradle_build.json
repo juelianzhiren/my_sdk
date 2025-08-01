@@ -1,0 +1,126 @@
+{
+  "stringTable": {
+    "0": "F:/zhangtq/android_projects/JVMTI_Demo-master/jvmtilib/.cxx/cmake/debug/x86",
+    "1": "--target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -I../../../../src/main/cpp/dexer -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info -fPIC",
+    "2": "--target=i686-none-linux-android16 --gcc-toolchain=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=G:/android-sdk-windows/android-sdk-windows/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Djvmti_agent_EXPORTS -I../../../../src/main/cpp/dexer -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -frtti -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-shift-count-overflow -Wno-error=non-virtual-dtor -Wno-sign-compare -Wno-switch -Wno-missing-braces -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\CMakeLists.txt",
+    "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\debug\\x86\" clean"
+  ],
+  "buildTargetsCommand": "G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "jvmti_agent-Debug-x86": {
+      "buildCommand": "G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\debug\\x86\" jvmti_agent",
+      "buildType": "debug",
+      "toolchain": "113967307",
+      "abi": "x86",
+      "artifactName": "jvmti_agent",
+      "files": [
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\native-lib.cpp",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\build\\intermediates\\cmake\\debug\\obj\\x86\\libjvmti_agent.so",
+      "runtimeFiles": []
+    },
+    "dexter-Debug-x86": {
+      "buildCommand": "G:\\android-sdk-windows\\android-sdk-windows\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\debug\\x86\" dexter",
+      "buildType": "debug",
+      "toolchain": "113967307",
+      "abi": "x86",
+      "artifactName": "dexter",
+      "files": [
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\bytecode_encoder.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\code_ir.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\common.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\control_flow_graph.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\debuginfo_encoder.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_bytecode.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_format.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_ir.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_ir_builder.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\dex_utf8.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\instrumentation.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\reader.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\tryblocks_encoder.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\src\\main\\cpp\\dexer\\writer.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "F:\\zhangtq\\android_projects\\JVMTI_Demo-master\\jvmtilib\\.cxx\\cmake\\debug\\x86\\libdexter.a"
+    }
+  },
+  "toolchains": {
+    "113967307": {
+      "cppCompilerExecutable": "G:\\android-sdk-windows\\android-sdk-windows\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cc",
+    "cpp"
+  ]
+}
