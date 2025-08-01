@@ -40,6 +40,12 @@ public class JVMTIHelper {
 
                 Log.d("Jvmti", agentLibSo.getAbsolutePath() + "," + context.getPackageCodePath());
 
+                //加载指定位置的so
+                System.load(agentLibSo.getAbsolutePath());
+                if (!BuildConfig.DEBUG) {
+                    openDebuggable(agentLibSo.getAbsolutePath(), context.getClassLoader());
+                }
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                     Debug.attachJvmtiAgent(agentLibSo.getAbsolutePath(), null, classLoader);
                 } else {
@@ -64,6 +70,8 @@ public class JVMTIHelper {
     public static native long getObjectSize(Object obj);
 
     public static native int redefineClass(Class targetClass,byte[] dexBytes);
+
+    private static native void openDebuggable(String agent, ClassLoader loader);
 
     public static void printEnter(String log) {
         Log.d("JVMTIHelper", "_____________________" + log);
